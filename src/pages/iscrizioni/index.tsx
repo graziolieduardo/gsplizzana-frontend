@@ -3,7 +3,7 @@ const GIOCATORI = [
         name: 'Leo',
         lastname: 'Grazioli',
         date_of_birth: '30/11/1992',
-        email: 'leo_grazioliemaillungo@gmail.com',
+        email: 'leo_grazioliemaillungo@gmail.commmmm',
         phone: '432-4324324',
         nickname: 'Delicious',
     },
@@ -68,7 +68,7 @@ const index = () => {
                         <div className='flex flex-col mt-5'>
                             <label className="font-semibold" htmlFor="team_name">Nome della squadra</label>
                             <input
-                                className='border p-3 mt-2 w-full sm:w-1/3'
+                                className='border p-3 mt-2 w-full sm:w-1/2 lg:w-1/3'
                                 id='team_name'
                                 type="text"
                                 name='team_name'
@@ -80,7 +80,7 @@ const index = () => {
                             <label className="font-semibold" htmlFor="">Logo</label>
                             {/* Carica logo della squadra */}
                             {/* input type file nascosto che viene attivato da una label personalizzata perché pulsante dell'input non puoi modificarlo*/}
-                            <div className="h-16 bg-white w-full sm:w-1/3">
+                            <div className="h-16 bg-white w-full sm:w-1/2 lg:w-1/3 ">
                                 carica file
                             </div>
                         </div>
@@ -90,7 +90,7 @@ const index = () => {
 
                             {/* container */}
                             {/* scrollable container */}
-                            <div className="flex flex-nowrap">
+                            <div className="inline-flex">
                                 {/* add player card */}
                                 <div className="minwd border rounded-md bg-white p-8 flex flex-col justify-center items-center ">
                                     <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient-to-r from-primary-dark to-primary text-white">+</div>
@@ -100,7 +100,7 @@ const index = () => {
                                 {/* players cards */}
                                 {
                                     GIOCATORI.map((player) => (
-                                        <div key={player.name} className="maxwd flex-1 ms-3 border rounded-md bg-white p-4 grow w-60 relative">
+                                        <div key={player.name} className="ms-3 border rounded-md bg-white p-4 min-w-[240px] relative">
                                             {/* cestino in position absolute (manca l'immagine testa di hamburger) */}
                                             <div className="absolute right-4">lixo</div>
 
