@@ -10,31 +10,38 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <div className="container mx-auto">
 
-                    {/* jumbotron */}
-                    <section id='jumbotron' className='bg-gray-300'>
+
+                {/* jumbotron */}
+                <section id='jumbotron' className='bg-gray-300'>
+                    <div className="container mx-auto">
                         <div className='px-4 pt-80 pb-6'>
-                            <h2 className='text-3xl text-primary font-bold'>23 edizione</h2>
-                            <h5 className='text-xl text-white font-bold mt-3'>Calcio Splash Lizzana</h5>
-                            <h5 className='text-xl text-white font-bold'>Dal 10 al 13 agosto 2023</h5>
+                            <h2 className='text-4xl text-primary font-bold'>23 edizione</h2>
+                            <h5 className='text-2xl text-white font-bold mt-3'>Calcio Splash Lizzana</h5>
+                            <h5 className='text-2xl text-white font-bold'>Dal 10 al 13 agosto 2023</h5>
                         </div>
+                    </div>
 
-                    </section>
+                </section>
 
-                    {/* register */}
-                    <section id='register' className='bg-gray-50'>
-                        <div className='px-4 py-10' >
-                            <h5 className='text-xl font-bold'>
+                {/* register */}
+                <section id='register' className='bg-gray-50'>
+                    <div className="container mx-auto ">
+                        <div className='px-4 py-10 max-w-xl'>
+                            <h5 className='text-2xl font-bold'>
                                 Il <span className='text-primary'>Mondiale</span> Si gioca sul gonfiabile
                             </h5>
 
                             <p className='mt-4'>Sai la differenza tra i mondiali classici e queilli sul sapone? quelli sul sapone non cambiano logo da 4 anni.</p>
 
-                            <button className='rounded-full bg-primary w-80 py-2 mt-8 text-white'>iscriviti</button>
+                            <div className='w-72'>
+                                <button className='block rounded-full bg-primary w-5/6 py-2 mt-8 text-white inline-block'>iscriviti</button>
+                            </div>
+
                         </div>
-                    </section>
-                </div>
+                    </div>
+                </section>
+
             </main>
         </>
     )
