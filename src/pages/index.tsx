@@ -15,7 +15,7 @@ export default function Home() {
                 {/* jumbotron */}
                 <section id='jumbotron' className='bg-gray-300'>
                     <div className="container mx-auto">
-                        <div className='px-4 pt-80 pb-6'>
+                        <div className='px-4 pt-80 pb-6 sm:pb-12'>
                             <h2 className='text-4xl text-primary font-bold'>23 edizione</h2>
                             <h5 className='text-2xl text-white font-bold mt-3'>Calcio Splash Lizzana</h5>
                             <h5 className='text-2xl text-white font-bold'>Dal 10 al 13 agosto 2023</h5>
@@ -27,7 +27,7 @@ export default function Home() {
                 {/* register */}
                 <section id='register' className='bg-gray-50'>
                     <div className="container mx-auto ">
-                        <div className='px-4 py-10 max-w-xl'>
+                        <div className='px-4 py-10 sm:py-16 max-w-xl'>
                             <h5 className='text-2xl font-bold'>
                                 Il <span className='text-primary'>Mondiale</span> Si gioca sul gonfiabile
                             </h5>
