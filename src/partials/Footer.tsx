@@ -4,7 +4,7 @@ export const Footer = () => {
         <>
             <footer>
                 <div className="bg-black">
-                    <div className="py-3">
+                    <div className="py-3 leading-8">
 
                         {/* top */}
                         <div className="container mx-auto text-primary p-4 mb-5">
@@ -19,10 +19,10 @@ export const Footer = () => {
                         </div>
 
                         {/* horizoltal rule */}
-                        <div className="h-px bg-primary"></div>
+                        <div className="h-px bg-gray-50"></div>
 
                         {/* bottom */}
-                        <div className="container mx-auto px-4 text-white py-6">
+                        <div className="container mx-auto px-4 text-white py-4">
                             <p>&#169; 2023 Gsp Lizzana | Privacy Policy - Cookie Policy </p>
                         </div>
                     </div>
