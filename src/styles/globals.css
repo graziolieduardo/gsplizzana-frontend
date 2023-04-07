@@ -8,10 +8,11 @@
     box-sizing: border-box;
 }
 
+
 .minwd {
-    min-width: 280px;
+    min-width: 240px;
 }
 
-.minwd1 {
-    min-width: 220px;
+.maxwd {
+    max-width: 300px;
 }
