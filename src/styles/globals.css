@@ -7,3 +7,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.minwd {
+    min-width: 280px;
+}
+
+.minwd1 {
+    min-width: 220px;
+}

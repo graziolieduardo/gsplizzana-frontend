@@ -7,7 +7,7 @@ export const Footer = () => {
                     <div className="py-3 sm:py-8 leading-8">
 
                         {/* top */}
-                        <div className="container mx-auto text-primary p-4 mb-5">
+                        <div className="container mx-auto text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary p-4 mb-5">
                             <h2 className="text-3xl font-bold ">GSP LIZZANA</h2>
                             <p>Via Panizza, 32 - Rovereto (TN) 38068</p>
                             <p>Email: gsp_lizzana@gmail.com</p>

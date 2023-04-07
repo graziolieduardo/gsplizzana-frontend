@@ -16,7 +16,7 @@ export default function Home() {
                 <section id='jumbotron' className='bg-gray-300'>
                     <div className="container mx-auto">
                         <div className='px-4 pt-80 pb-6 sm:pb-12'>
-                            <h2 className='text-4xl text-primary font-bold'>23 edizione</h2>
+                            <h2 className='text-4xl text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>23 edizione</h2>
                             <h5 className='text-2xl text-white font-bold mt-3'>Calcio Splash Lizzana</h5>
                             <h5 className='text-2xl text-white font-bold'>Dal 10 al 13 agosto 2023</h5>
                         </div>
@@ -34,9 +34,7 @@ export default function Home() {
 
                             <p className='mt-4'>Sai la differenza tra i mondiali classici e queilli sul sapone? quelli sul sapone non cambiano logo da 4 anni.</p>
 
-                            <div className='w-72'>
-                                <button className='block rounded-full bg-primary w-5/6 py-2 mt-8 text-white inline-block'>iscriviti</button>
-                            </div>
+                            <button className='block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white'>iscriviti</button>
 
                         </div>
                     </div>
