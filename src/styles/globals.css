@@ -16,3 +16,7 @@
 .maxwd {
     max-width: 300px;
 }
+
+.test {
+    width: min-content;
+}
