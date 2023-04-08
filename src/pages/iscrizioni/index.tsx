@@ -159,9 +159,9 @@ const index = () => {
 
                 </div>
 
-                <RegisterModal />
 
             </div>
+                <RegisterModal />
         </>
     )
 }

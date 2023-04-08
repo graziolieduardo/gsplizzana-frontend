@@ -2,10 +2,10 @@ import React from 'react'
 
 const RegisterModal = () => {
     return (
-        <div className='px-4 h-screen bg-white '>
+        <div className='px-4 h-screen md:h-fit bg-white py-10 rounded md:w-4/5 mx-auto bg-gray-100'>
             <div className="container mx-auto">
 
-                <h2 className='text-2xl font-bold pt-10'>Dati giocatore</h2>
+                <h2 className='text-2xl font-bold '>Dati giocatore</h2>
 
                 <form action="">
 
@@ -20,25 +20,28 @@ const RegisterModal = () => {
                         />
                     </div>
 
-                    {/* data di nascita */}
-                    <div className='flex flex-col mt-4'>
-                        <label className='font-semibold text-sm' htmlFor="birth">Data di nascita</label>
-                        <input
-                            className='border rounded p-3 mt-1'
-                            type="date"
-                            id='birth'
-                        />
-                    </div>
+                    <div className='md:flex md:justify-between gap-x-3 '>
 
-                    {/* Numero di telefono */}
-                    <div className='flex flex-col mt-4'>
-                        <label className='font-semibold text-sm' htmlFor="phone">Numero di telefono</label>
-                        <input
-                            className='border rounded p-3 mt-1'
-                            placeholder='Inserisci numero di telefono'
-                            type="tel"
-                            id='phone'
-                        />
+                        {/* data di nascita */}
+                        <div className='flex flex-col mt-4 md:w-1/2'>
+                            <label className='font-semibold text-sm' htmlFor="birth">Data di nascita</label>
+                            <input
+                                className='border rounded p-3 mt-1'
+                                type="date"
+                                id='birth'
+                            />
+                        </div>
+
+                        {/* Numero di telefono */}
+                        <div className='flex flex-col mt-4 md:w-1/2'>
+                            <label className='font-semibold text-sm' htmlFor="phone">Numero di telefono</label>
+                            <input
+                                className='border rounded p-3 mt-1'
+                                placeholder='Inserisci numero di telefono'
+                                type="tel"
+                                id='phone'
+                            />
+                        </div>
                     </div>
 
                     {/* email */}
@@ -86,6 +89,7 @@ const RegisterModal = () => {
                         </div>
                     </div>
 
+                    {/* nickname */}
                     <div className='mt-4 flex flex-col'>
                         <input
                             className='border rounded p-3 mt-1'
@@ -95,16 +99,20 @@ const RegisterModal = () => {
                         />
                     </div>
 
-                    <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-3 mt-6 text-white" >Salva</button>
+                    <div className='sm:flex sm:items-center sm:justify-around md:justify-normal mt-4'>
+                        {/* salva button */}
+                        <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 md:w-40 py-2.5 mt-6 sm:mt-0 text-white md:mr-2" >Salva</button>
 
-                    {/* button */}
-                    <div className="flex justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-2">
-                        <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
-                            Annula
+                        {/* Cancel button */}
+                        <div>
+                            <div className="flex justify-center align-center w-full sm:w-72 md:w-40 rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-2 sm:mt-0">
+                                <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
+                                    Annula
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-
-
                 </form>
 
             </div>
