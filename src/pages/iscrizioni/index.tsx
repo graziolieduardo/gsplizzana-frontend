@@ -1,3 +1,4 @@
+import RegisterModal from '@/src/components/RegisterModal';
 import { useSignupContext } from '@/src/hooks/useSignupContext';
 import axios from 'axios';
 
@@ -133,7 +134,6 @@ const index = () => {
                                             </div>
 
                                             {/* button */}
-
                                             <div className="flex justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-6">
                                                 <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
                                                     Modifica
@@ -156,7 +156,11 @@ const index = () => {
                             <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white" >Invia pre-iscrizione</button>
                         </div>
                     </form>
+
                 </div>
+
+                <RegisterModal />
+
             </div>
         </>
     )
