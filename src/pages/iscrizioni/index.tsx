@@ -1,3 +1,6 @@
+import { useSignupContext } from '@/src/hooks/useSignupContext';
+import axios from 'axios';
+
 const GIOCATORI = [
     {
         name: 'Leo',
@@ -26,8 +29,17 @@ const GIOCATORI = [
 ];
 
 const index = () => {
-    const handleSubmit = () => {
-        // manage axios call
+    const { setCategory, setPlayers, setTeamName } = useSignupContext();
+
+    const handleRadioChange = (e: any) => {
+        setCategory(e.target.value);
+    }
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+        const res = await axios.post('http://gsplizzana-api.test/api/sign-up');
+
+        console.log(res);
     }
 
     return (
@@ -51,6 +63,8 @@ const index = () => {
                                     id='male_category'
                                     type="radio"
                                     name='category'
+                                    value='maschile'
+                                    onChange={handleRadioChange}
                                 />
                                 <label className="ms-2" htmlFor="category">Maschile</label>
                             </div>
@@ -59,6 +73,8 @@ const index = () => {
                                     id='female_category'
                                     type="radio"
                                     name='category'
+                                    value='femminile'
+                                    onChange={handleRadioChange}
                                 />
                                 <label className="ms-2" htmlFor="category">Femminile</label>
                             </div>
@@ -73,6 +89,7 @@ const index = () => {
                                 type="text"
                                 name='team_name'
                                 placeholder="Inseriesci il nome della squadra"
+                                onChange={(e) => setTeamName(e.target.value)}
                             />
                         </div>
 
@@ -99,8 +116,8 @@ const index = () => {
                                 </div>
                                 {/* players cards */}
                                 {
-                                    GIOCATORI.map((player) => (
-                                        <div key={player.name} className="maxwd flex-1 ms-3 border rounded-md bg-white p-4 grow w-60 relative">
+                                    GIOCATORI.map((player, index) => (
+                                        <div key={index} className="maxwd flex-1 ms-3 border rounded-md bg-white p-4 grow w-60 relative">
                                             {/* cestino in position absolute (manca l'immagine testa di hamburger) */}
                                             <div className="absolute right-4">lixo</div>
 
