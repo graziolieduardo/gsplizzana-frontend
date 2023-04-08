@@ -2,7 +2,7 @@ import React from 'react'
 
 const RegisterModal = () => {
     return (
-        <div className='px-4 h-screen lg:h-fit bg-white py-10 rounded lg:w-4/5 mx-auto bg-gray-100'>
+        <div className='px-4 h-screen lg:h-fit py-10 rounded lg:w-4/5 mx-auto bg-yellow-100'>
             <div className="container mx-auto">
 
                 <h2 className='text-2xl font-bold '>Dati giocatore</h2>
