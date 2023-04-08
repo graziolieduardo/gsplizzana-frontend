@@ -1,3 +1,4 @@
+import ConfirmModal from '@/src/components/ConfirmModal';
 import RegisterModal from '@/src/components/RegisterModal';
 import { useSignupContext } from '@/src/hooks/useSignupContext';
 import axios from 'axios';
@@ -176,6 +177,7 @@ const index = () => {
 
             </div>
             <RegisterModal />
+            <ConfirmModal />
         </>
     )
 }
