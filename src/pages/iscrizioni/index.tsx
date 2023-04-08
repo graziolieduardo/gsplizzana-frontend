@@ -1,3 +1,5 @@
+import ConfirmModal from '@/src/components/ConfirmModal';
+import RegisterModal from '@/src/components/RegisterModal';
 import { useSignupContext } from '@/src/hooks/useSignupContext';
 import axios from 'axios';
 
@@ -104,8 +106,22 @@ const index = () => {
                             <label className="font-semibold" htmlFor="">Logo</label>
                             {/* Carica logo della squadra */}
                             {/* input type file nascosto che viene attivato da una label personalizzata perché pulsante dell'input non puoi modificarlo*/}
-                            <div className="h-16 bg-white w-full sm:w-1/2 lg:w-1/3 ">
-                                carica file
+                            <div className="flex h-16 bg-white w-full sm:w-1/2 lg:w-1/3 mt-2 p-3">
+
+                                {/* icon */}
+                                <div className="image-upload h-10">
+                                    <label htmlFor="file-input">
+                                        <img className='h-full' src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/128/Downloads-icon.png" />
+                                    </label>
+
+                                    <input className='hidden' id="file-input" type="file" />
+                                </div>
+
+                                {/* "label" */}
+                                <div className='ml-3'>
+                                    <div className="font-semibold">Carica logo squadra</div>
+                                    <div className='text-xs text-secondary'>Formati supportati .jpg, .png, .svg</div>
+                                </div>
                             </div>
                         </div>
 
@@ -140,7 +156,6 @@ const index = () => {
                                             </div>
 
                                             {/* button */}
-
                                             <div className="flex justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-6">
                                                 <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
                                                     Modifica
@@ -163,8 +178,13 @@ const index = () => {
                             <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white" >Invia pre-iscrizione</button>
                         </div>
                     </form>
+
                 </div>
+
+
             </div>
+            <RegisterModal />
+            <ConfirmModal />
         </>
     )
 }
