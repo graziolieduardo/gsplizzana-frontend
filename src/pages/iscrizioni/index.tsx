@@ -29,7 +29,7 @@ const GIOCATORI = [
 ];
 
 const index = () => {
-    const { setCategory, setPlayers, setTeamName } = useSignupContext();
+    const { team_name, category, players, setCategory, setPlayers, setTeamName } = useSignupContext();
 
     const handleRadioChange = (e: any) => {
         setCategory(e.target.value);
@@ -37,7 +37,14 @@ const index = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const res = await axios.post('http://gsplizzana-api.test/api/sign-up');
+
+        const params = {
+            team_name,
+            category,
+            players 
+        }
+
+        const res = await axios.post('http://gsplizzana-api.test/api/sign-up', params);
 
         console.log(res);
     }
