@@ -3,7 +3,7 @@ import RegisterModal from '@/src/components/RegisterModal';
 import { useSignupContext } from '@/src/hooks/useSignupContext';
 import { ErrorMessage } from '@hookform/error-message';
 import axios from 'axios';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -24,7 +24,7 @@ const index = () => {
     const [modifyIndex, setModifyIndex] = useState<null | number>(null);
 
     // context
-    const { team_name, category, players, setCategory, setPlayers, setTeamName, removePlayer } = useSignupContext();
+    const { team_name, category, players, setCategory, setTeamName, removePlayer, setToken } = useSignupContext();
 
     const { register, setValue, handleSubmit, trigger, formState: { errors } } = useForm();
 
@@ -67,6 +67,7 @@ const index = () => {
         const res = await axios.post('http://gsplizzana-api.test/api/sign-up', params);
 
         console.log(res);
+        setToken(res.data.confirmation_token);
         router.push('/iscrizioni/confirmation');
     }
 

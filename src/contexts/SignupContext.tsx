@@ -7,6 +7,7 @@ type SignupContextProviderProps = {
 type SignupContextType = {
     category: string,
     team_name: string,
+    token: string,
     // logo?
     players: Player[],
     setCategory: (category: string) => void;
@@ -14,6 +15,7 @@ type SignupContextType = {
     setPlayers: (player: Player) => void;
     removePlayer: (index: any) => void;
     updatePlayer: (params: any) => void;
+    setToken: (token: any) => void;
 }
 
 enum ActionKind {
@@ -23,6 +25,7 @@ enum ActionKind {
     SET_PLAYERS = 'SET_PLAYERS',
     REMOVE_PLAYER = 'REMOVE_PLAYER',
     UPDATE_PLAYER = 'UPDATE_PLAYER',
+    SET_TOKEN = 'SET_TOKEN',
 }
 
 type Player = {
@@ -39,6 +42,7 @@ type Player = {
 type SignupInfo = {
     category: string,
     team_name: string,
+    token: string,
     // logo?
     players: Player[],
 }
@@ -60,6 +64,8 @@ const signupReducer = (state: SignupInfo, action: Action) => {
             return { ...state, category: payload };
         case ActionKind.SET_TEAM_NAME:
             return { ...state, team_name: payload };
+        case ActionKind.SET_TOKEN:
+            return { ...state, token: payload };
         case ActionKind.SET_PLAYERS:
             return { ...state, players: [payload, ...state.players] };
         case ActionKind.REMOVE_PLAYER:
@@ -74,6 +80,7 @@ const signupReducer = (state: SignupInfo, action: Action) => {
 const initialState = {
     category: '',
     team_name: '',
+    token: '',
     // logo?
     players: [],
 }
@@ -89,6 +96,10 @@ export const SignupContextProvider = ({ children }: SignupContextProviderProps) 
         dispatch({ type: ActionKind.SET_TEAM_NAME, payload: team_name });
     }
 
+    const setToken = (token: string) => {
+        dispatch({ type: ActionKind.SET_TOKEN, payload: token });
+    }
+
     const setPlayers = (player: Player) => {
         dispatch({ type: ActionKind.SET_PLAYERS, payload: player });
     }
@@ -98,18 +109,16 @@ export const SignupContextProvider = ({ children }: SignupContextProviderProps) 
     }
 
     const updatePlayer = (params: any) => {
-        console.log(params);
-        
         dispatch({ type: ActionKind.UPDATE_PLAYER, payload: params });
     }
 
 
-    // useEffect(() => {
-    //     console.log(signupInfo);
-    // }, [signupInfo]);
+    useEffect(() => {
+        console.log(signupInfo);
+    }, [signupInfo]);
 
     return (
-        <SignupContext.Provider value={{ ...signupInfo, setCategory, setTeamName, setPlayers, removePlayer, updatePlayer }}>
+        <SignupContext.Provider value={{ ...signupInfo, setCategory, setTeamName, setPlayers, removePlayer, updatePlayer, setToken }}>
             {children}
         </SignupContext.Provider>
     )
