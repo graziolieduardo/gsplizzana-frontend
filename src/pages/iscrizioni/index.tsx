@@ -15,7 +15,7 @@ import { useForm } from 'react-hook-form';
 //     }
 // ]
 
-const index = () => {
+const Index = () => {
     const router = useRouter();
 
     // state
@@ -34,6 +34,10 @@ const index = () => {
 
     const handlePrivacyChange = (e: any) => {
         setValue('privacy', e.target.checked);
+    }
+
+    const handleRulesChange = (e: any) => {
+        setValue('rules', e.target.checked);
     }
 
     const handleAddPlayer = () => {
@@ -233,6 +237,17 @@ const index = () => {
                             />
                         </div>
 
+                        <div className="mt-2">
+                            {/* checkbox acconsento dati */}
+                            <input {...register('rules', { required: '- questo campo è obbligatorio' })} className='cursor-pointer' type="checkbox" name="" id="rules" onChange={handleRulesChange} />
+                            <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <span className='font-bold underline'>REGOLAMENTO DEL TORNEO</span></label>
+                            <ErrorMessage
+                                errors={errors}
+                                name="rules"
+                                render={({ message }: any) => <p className='text-primary-dark'>{message}</p>}
+                            />
+                        </div>
+
                         <div className="mt-10">
                             <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white" >Invia pre-iscrizione</button>
                         </div>
@@ -248,4 +263,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index
