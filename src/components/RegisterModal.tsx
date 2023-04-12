@@ -1,23 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useSignupContext } from '../hooks/useSignupContext';
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 
-const RegisterModal = ({ setIsRegisterOpen }: any) => {
+const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     // hooks
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, setValue, handleSubmit, formState: { errors } } = useForm();
 
     // context 
-    const { setPlayers } = useSignupContext();
+    const { players, setPlayers, updatePlayer } = useSignupContext();
 
-    const onSubmit = (data: any) => {
-        setPlayers(data);
+    const onSubmit = useCallback((data: any) => {
+        if (modifyIndex !== null) {
+            updatePlayer({ index: modifyIndex, player: data });
+        } else {
+            setPlayers(data);
+        }
         setIsRegisterOpen(false);
-    }
+    }, [modifyIndex])
 
     useEffect(() => {
-        console.log(errors);
-    }, [errors]);
+        console.log(players);
+        // console.log(players[modifyIndex]);
+
+        if (modifyIndex !== null) {
+            setValue('name', players[modifyIndex].name);
+            setValue('lastname', players[modifyIndex].lastname);
+            setValue('date_of_birth', players[modifyIndex].date_of_birth);
+        }
+    }, [modifyIndex, players]);
 
     return (
         <div className='px-4 fixed inset-0 z-50 h-screen lg:h-fit py-10 rounded-md lg:w-4/5 mx-auto bg-white overflow-y-scroll shadow'>
@@ -25,7 +36,7 @@ const RegisterModal = ({ setIsRegisterOpen }: any) => {
 
                 <div className='flex justify-between items-center'>
                     <h2 className='text-2xl font-bold '>Dati giocatore</h2>
-                    <div onClick={() => setIsRegisterOpen(false)}>x</div>
+                    {/* <div onClick={() => setIsRegisterOpen(false)}>x</div> */}
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -69,7 +80,7 @@ const RegisterModal = ({ setIsRegisterOpen }: any) => {
                         <div className='flex flex-col mt-4 lg:w-1/2'>
                             <label className='font-semibold text-sm' htmlFor="birth">Data di nascita</label>
                             <input
-                                {...register("date_of_birth", { required: '- questo campo è obbligatorio' })}
+                                {...register("date_of_birth", { required: '- questo campo è obbligatorio', pattern: { value: /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/, message: '- formatto data sbagliato' } })}
                                 className='border rounded p-3 mt-1'
                                 type="date"
                                 id='birth'
@@ -163,7 +174,7 @@ const RegisterModal = ({ setIsRegisterOpen }: any) => {
                         <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 lg:w-40 py-2.5 mt-6 sm:mt-0 text-white lg:mr-2" >Salva</button>
 
                         {/* Cancel button */}
-                        <div className="flex justify-center align-center w-full sm:w-72 lg:w-40 rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-2 sm:mt-0 cursor-pointer">
+                        <div className="flex justify-center align-center w-full sm:w-72 lg:w-40 rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-2 sm:mt-0 cursor-pointer" onClick={() => setIsRegisterOpen(false)}>
                             <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
                                 Annula
                             </div>

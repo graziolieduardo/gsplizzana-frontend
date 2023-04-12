@@ -12,6 +12,8 @@ type SignupContextType = {
     setCategory: (category: string) => void;
     setTeamName: (team_name: string) => void;
     setPlayers: (player: Player) => void;
+    removePlayer: (index: any) => void;
+    updatePlayer: (params: any) => void;
 }
 
 enum ActionKind {
@@ -19,10 +21,13 @@ enum ActionKind {
     SET_CATEGORY = 'SET_CATEGORY',
     SET_TEAM_NAME = 'SET_TEAM_NAME',
     SET_PLAYERS = 'SET_PLAYERS',
+    REMOVE_PLAYER = 'REMOVE_PLAYER',
+    UPDATE_PLAYER = 'UPDATE_PLAYER',
 }
 
 type Player = {
     name: string;
+    lastname: string;
     date_of_birth: any;
     phone: any;
     email: any;
@@ -57,6 +62,10 @@ const signupReducer = (state: SignupInfo, action: Action) => {
             return { ...state, team_name: payload };
         case ActionKind.SET_PLAYERS:
             return { ...state, players: [payload, ...state.players] };
+        case ActionKind.REMOVE_PLAYER:
+            return { ...state, players: state.players.filter((player, index) => payload !== index) };
+        case ActionKind.UPDATE_PLAYER:
+            return { ...state, players: [payload.player, ...state.players.filter((player, index) => payload.index !== index)] };
         default:
             return state;
     }
@@ -75,34 +84,32 @@ export const SignupContextProvider = ({ children }: SignupContextProviderProps) 
     const setCategory = (category: string) => {
         dispatch({ type: ActionKind.SET_CATEGORY, payload: category });
     }
+
     const setTeamName = (team_name: string) => {
         dispatch({ type: ActionKind.SET_TEAM_NAME, payload: team_name });
     }
+
     const setPlayers = (player: Player) => {
         dispatch({ type: ActionKind.SET_PLAYERS, payload: player });
     }
 
-    // useEffect(() => {
-    //     // console.log('ciao');
-        
-    //     let localContext = localStorage.getItem(`signupInfo`);
-    //     // console.log(localContext);
-    //     let localSignupInfo = localContext ? JSON.parse(localContext) : null;
-        
-    //     if (localSignupInfo) dispatch({ type: ActionKind.SET_SIGNUP_CONTEXT, payload: localSignupInfo });
-    // }, []);
+    const removePlayer = (index: any) => {
+        dispatch({ type: ActionKind.REMOVE_PLAYER, payload: index });
+    }
 
-    useEffect(() => {
-        // console.log(signupInfo);
-        localStorage.setItem(`signupInfo`, JSON.stringify(signupInfo));
-    }, [signupInfo]);
+    const updatePlayer = (params: any) => {
+        console.log(params);
+        
+        dispatch({ type: ActionKind.UPDATE_PLAYER, payload: params });
+    }
+
 
     // useEffect(() => {
     //     console.log(signupInfo);
     // }, [signupInfo]);
 
     return (
-        <SignupContext.Provider value={{ ...signupInfo, setCategory, setTeamName, setPlayers }}>
+        <SignupContext.Provider value={{ ...signupInfo, setCategory, setTeamName, setPlayers, removePlayer, updatePlayer }}>
             {children}
         </SignupContext.Provider>
     )
