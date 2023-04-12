@@ -15,6 +15,7 @@ type SignupContextType = {
 }
 
 enum ActionKind {
+    SET_SIGNUP_CONTEXT = 'SET_SIGNUP_CONTEXT',
     SET_CATEGORY = 'SET_CATEGORY',
     SET_TEAM_NAME = 'SET_TEAM_NAME',
     SET_PLAYERS = 'SET_PLAYERS',
@@ -22,10 +23,12 @@ enum ActionKind {
 
 type Player = {
     name: string;
-    lastname: string;
     date_of_birth: any;
+    phone: any;
     email: any;
     nickname: any;
+    instagram_tag: any;
+    isCaptain: boolean;
 }
 
 type SignupInfo = {
@@ -46,6 +49,8 @@ const signupReducer = (state: SignupInfo, action: Action) => {
     const { type, payload } = action;
 
     switch (type) {
+        case ActionKind.SET_SIGNUP_CONTEXT:
+            return payload;
         case ActionKind.SET_CATEGORY:
             return { ...state, category: payload };
         case ActionKind.SET_TEAM_NAME:
@@ -77,9 +82,24 @@ export const SignupContextProvider = ({ children }: SignupContextProviderProps) 
         dispatch({ type: ActionKind.SET_PLAYERS, payload: player });
     }
 
+    // useEffect(() => {
+    //     // console.log('ciao');
+        
+    //     let localContext = localStorage.getItem(`signupInfo`);
+    //     // console.log(localContext);
+    //     let localSignupInfo = localContext ? JSON.parse(localContext) : null;
+        
+    //     if (localSignupInfo) dispatch({ type: ActionKind.SET_SIGNUP_CONTEXT, payload: localSignupInfo });
+    // }, []);
+
     useEffect(() => {
-        console.log(signupInfo);
+        // console.log(signupInfo);
+        localStorage.setItem(`signupInfo`, JSON.stringify(signupInfo));
     }, [signupInfo]);
+
+    // useEffect(() => {
+    //     console.log(signupInfo);
+    // }, [signupInfo]);
 
     return (
         <SignupContext.Provider value={{ ...signupInfo, setCategory, setTeamName, setPlayers }}>
