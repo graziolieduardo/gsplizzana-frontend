@@ -119,7 +119,9 @@ const index = () => {
                             <div className="inline-flex h-[350px]">
                                 {/* add player card */}
                                 <div className="minwd border rounded-md bg-white p-8 flex flex-col justify-center items-center" onClick={() => setIsRegisterOpen(true)}>
-                                    <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient-to-r from-primary-dark to-primary text-white">+</div>
+                                    <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient-to-r from-primary-dark to-primary text-white">
+                                        <img className='text-xs' src="/static/plus.svg" alt="" />
+                                    </div>
                                     <div className="mt-4 font-semibold text-lg">Aggiungi giocatore</div>
                                     <small>fino a 10 per squadra</small>
                                 </div>

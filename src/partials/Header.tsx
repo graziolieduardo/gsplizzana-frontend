@@ -2,11 +2,11 @@
 export const Header = () => {
     return (
         <>
-            <header>
-                <div className="py-4 bg-black text-white" >
-                    <div className="container px-4">
+            <header className="bg-black">
+                <div className="container mx-auto px-6 py-4">
+                    <a href="/" className="cursor-pointer">
                         <img className="w-24" src="/static/logo-arancione.svg" alt="" />
-                    </div>
+                    </a>
                 </div>
             </header>
         </>

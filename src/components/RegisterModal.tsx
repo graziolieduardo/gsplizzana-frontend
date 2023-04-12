@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useSignupContext } from '../hooks/useSignupContext';
 import { useForm } from "react-hook-form";
+import { ErrorMessage } from '@hookform/error-message';
 
 const RegisterModal = ({ setIsRegisterOpen }: any) => {
     // hooks
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     // context 
     const { setPlayers } = useSignupContext();
@@ -14,12 +15,12 @@ const RegisterModal = ({ setIsRegisterOpen }: any) => {
         setIsRegisterOpen(false);
     }
 
-    // useEffect(() => {
-    //     console.log(isCaptain);
-    // }, [isCaptain]);
+    useEffect(() => {
+        console.log(errors);
+    }, [errors]);
 
     return (
-        <div className='px-4 fixed inset-0 z-50 h-screen lg:h-fit py-10 rounded-md lg:w-4/5 mx-auto bg-white'>
+        <div className='px-4 fixed inset-0 z-50 h-screen lg:h-fit py-10 rounded-md lg:w-4/5 mx-auto bg-white overflow-y-scroll shadow'>
             <div className="container mx-auto">
 
                 <div className='flex justify-between items-center'>
@@ -28,15 +29,37 @@ const RegisterModal = ({ setIsRegisterOpen }: any) => {
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    {/* nome cognome */}
+                    {/* nome */}
                     <div className='flex flex-col mt-5'>
-                        <label className='font-semibold text-sm' htmlFor="full-name">Nome e cognome</label>
+                        <label className='font-semibold text-sm' htmlFor="name">Nome</label>
                         <input
-                            {...register("name")}
+                            {...register("name", { required: '- questo campo è obbligatorio' })}
                             className='border rounded p-3 mt-1'
-                            placeholder='Inserisci nome e cognome'
+                            placeholder='Inserisci nome'
                             type="text"
-                            id='full-name'
+                            id='name'
+                        />
+                        <ErrorMessage
+                            errors={errors}
+                            name="name"
+                            render={({ message }: any) => <p className='text-primary-dark'>{message}</p>}
+                        />
+                    </div>
+
+                    {/* cognome */}
+                    <div className='flex flex-col mt-5'>
+                        <label className='font-semibold text-sm' htmlFor="lastname">Cognome</label>
+                        <input
+                            {...register("lastname", { required: '- questo campo è obbligatorio' })}
+                            className='border rounded p-3 mt-1'
+                            placeholder='Inserisci cognome'
+                            type="text"
+                            id='lastname'
+                        />
+                        <ErrorMessage
+                            errors={errors}
+                            name="lastname"
+                            render={({ message }: any) => <p className='text-primary-dark'>{message}</p>}
                         />
                     </div>
 
@@ -46,10 +69,15 @@ const RegisterModal = ({ setIsRegisterOpen }: any) => {
                         <div className='flex flex-col mt-4 lg:w-1/2'>
                             <label className='font-semibold text-sm' htmlFor="birth">Data di nascita</label>
                             <input
-                                {...register("date_of_birth")}
+                                {...register("date_of_birth", { required: '- questo campo è obbligatorio' })}
                                 className='border rounded p-3 mt-1'
                                 type="date"
                                 id='birth'
+                            />
+                            <ErrorMessage
+                                errors={errors}
+                                name="date_of_birth"
+                                render={({ message }: any) => <p className='text-primary-dark'>{message}</p>}
                             />
                         </div>
 
@@ -82,7 +110,7 @@ const RegisterModal = ({ setIsRegisterOpen }: any) => {
                     <div className='flex flex-col mt-4'>
                         <label className='font-semibold text-sm' htmlFor="instagram">Tag instagram</label>
                         <input
-                            {...register("instagram_tag")}
+                            {...register("instagram")}
                             className='border rounded p-3 mt-1'
                             placeholder='Inserisci il tuo nome di instragram'
                             type="text"
@@ -135,13 +163,10 @@ const RegisterModal = ({ setIsRegisterOpen }: any) => {
                         <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 lg:w-40 py-2.5 mt-6 sm:mt-0 text-white lg:mr-2" >Salva</button>
 
                         {/* Cancel button */}
-                        <div>
-                            <div className="flex justify-center align-center w-full sm:w-72 lg:w-40 rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-2 sm:mt-0">
-                                <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
-                                    Annula
-                                </div>
+                        <div className="flex justify-center align-center w-full sm:w-72 lg:w-40 rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-2 sm:mt-0 cursor-pointer">
+                            <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
+                                Annula
                             </div>
-
                         </div>
                     </div>
                 </form>

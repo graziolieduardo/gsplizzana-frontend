@@ -14,16 +14,18 @@ export default function Home() {
 
                 {/* jumbotron */}
                 <section id='jumbotron' className='bg-campo bg-cover bg-center'>
-                    <div className='bg-black/80 px-6 pt-80 pb-6 sm:pb-12'>
-                        <h2 className='text-4xl text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>23 edizione</h2>
-                        <h5 className='text-2xl text-white font-bold mt-3'>Calcio Splash Lizzana</h5>
-                        <h5 className='text-2xl text-white font-bold'>Dal 10 al 13 agosto 2023</h5>
+                    <div className='bg-black/80 pt-80 pb-6 sm:pb-12'>
+                        <div className='container mx-auto px-6 '>
+                            <h2 className='text-4xl text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>23 edizione</h2>
+                            <h5 className='text-2xl text-white font-bold mt-3'>Calcio Splash Lizzana</h5>
+                            <h5 className='text-2xl text-white font-bold'>Dal 10 al 13 agosto 2023</h5>
+                        </div>
                     </div>
                 </section>
 
                 {/* register */}
                 <section id='register' className='bg-gray-50'>
-                    <div className="relative">
+                    <div className="container mx-auto relative">
                         <div className='flex justify-end'>
                             <img className='opacity-30 md:opacity-100 max-h-72' src="/static/palla-rete.png" alt="" />
                         </div>
@@ -36,7 +38,9 @@ export default function Home() {
 
                             <p className='mt-4 font-light text-secondary'>Sai la differenza tra i mondiali classici e queilli sul sapone? quelli sul sapone non cambiano logo da 4 anni.</p>
 
-                            <button className='block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full py-2 mt-8 text-white'>iscriviti</button>
+                            <button className='block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full py-2 mt-8 text-white'>
+                                <a href="iscrizioni">iscriviti</a>
+                            </button>
                         </div>
                     </div>
                 </section>
