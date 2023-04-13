@@ -68,7 +68,7 @@ const Index = () => {
             players
         }
 
-        const res = await axios.post('http://gsplizzana-api.test/api/sign-up', params);
+        const res = await axios.post('https://gsplizzana-api.test/api/sign-up', params);
 
         console.log(res);
         setToken(res.data.confirmation_token);
