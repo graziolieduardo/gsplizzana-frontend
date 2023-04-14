@@ -1,4 +1,3 @@
-import ConfirmModal from '@/src/components/ConfirmModal';
 import RegisterModal from '@/src/components/RegisterModal';
 import { useSignupContext } from '@/src/hooks/useSignupContext';
 import { ErrorMessage } from '@hookform/error-message';
@@ -6,14 +5,20 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { AiOutlineInstagram, AiOutlineCalendar, AiOutlineMail, AiOutlinePhone, AiOutlineUser } from 'react-icons/ai';
 
-// const PLAYERS = [
-//     {
-//         name: 'Eduardo',
-//         lastname: 'Grazioli',
-//         date_of_birth: '04/07/1991'
-//     }
-// ]
+const PLAYERS = [
+    {
+        name: 'Eduardo',
+        lastname: 'Grazioli',
+        date_of_birth: '04/07/1991',
+        phone: '3209141742',
+        email: 'eduardo.grazioli@gmail.it',
+        instagram_tag: 'graziolieduardo',
+        nickname: 'Indesiderabile numero uno',
+        isCaptain: true,
+    }
+]
 
 const Index = () => {
     const router = useRouter();
@@ -54,13 +59,13 @@ const Index = () => {
         e.preventDefault();
         console.log(data);
 
-        // if (players.length < 2 || players.length > 10) {
-        //     console.log('ciao');
-        //     setError('- La squadra deve contenere minimo x e massimo y giocatori');
-        //     return;
-        // } else {
-        //     setError('');
-        // }
+        if (players.length < 4 || players.length > 9) {
+            console.log('ciao');
+            setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');
+            return;
+        } else {
+            setError('');
+        }
 
         const params = {
             team_name,
@@ -68,7 +73,7 @@ const Index = () => {
             players
         }
 
-        const res = await axios.post('https://gsplizzana-api.test/api/sign-up', params);
+        const res = await axios.post('http://gsplizzana-api.test/api/sign-up', params);
 
         console.log(res);
         setToken(res.data.confirmation_token);
@@ -175,53 +180,112 @@ const Index = () => {
                             </div>
                         </div>
 
-                        <div className="mt-8 overflow-x-scroll  ">
+                        <div className='mt-8'>
                             <h3 className="text-xl">Giocatori</h3>
+                            <div className="overflow-x-scroll  ">
 
-                            {/* container */}
-                            {/* scrollable container */}
-                            <div className="inline-flex h-[350px]">
-                                {/* add player card */}
-                                <div className="minwd border rounded-md bg-white p-8 flex flex-col justify-center items-center" onClick={() => handleAddPlayer()}>
-                                    <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient-to-r from-primary-dark to-primary text-white">
-                                        <img className='text-xs' src="/static/plus.svg" alt="" />
+                                {/* container */}
+                                {/* scrollable container */}
+                                <div className="inline-flex h-[350px]">
+                                    {/* add player card */}
+                                    <div className="hover:border-primary-dark hover:border-2 cursor-pointer minwd border rounded-md bg-white p-8 flex flex-col justify-center items-center" onClick={() => handleAddPlayer()}>
+                                        <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient-to-r from-primary-dark to-primary text-white">
+                                            <img className='text-xs' src="/static/plus.svg" alt="" />
+                                        </div>
+                                        <div className="mt-4 font-semibold text-lg">Aggiungi giocatore</div>
+                                        <small className='text-secondary'>fino a 10 per squadra</small>
                                     </div>
-                                    <div className="mt-4 font-semibold text-lg">Aggiungi giocatore</div>
-                                    <small className='text-secondary'>fino a 10 per squadra</small>
-                                </div>
-                                {/* players cards */}
-                                {
-                                    players.map((player, index) => (
-                                        <div key={index} className="maxwd flex-1 ms-3 border rounded-md bg-white p-4 grow w-60">
-                                            {/* cestino */}
-                                            <div className="flex justify-end text-right cursor-pointer" onClick={() => removePlayer(index)}>
-                                                <img className='border rounded-full p-2' src="/static/trash.svg" alt="" />
-                                            </div>
+                                    {/* players cards */}
+                                    {
+                                        players.map((player, index) => (
+                                            <>
+                                                <div key={index} className="flex flex-col maxwd flex-1 ms-3 border rounded-md bg-white p-4 grow w-60">
+                                                    {/* cestino */}
+                                                    <div className="flex justify-end text-right cursor-pointer" onClick={() => removePlayer(index)}>
+                                                        <img className='border rounded-full p-2' src="/static/trash.svg" alt="" />
+                                                    </div>
 
-                                            <div className='flex flex-col justify-between'>
-                                                {/* da aggiungere gli altri dati */}
-                                                <div>
-                                                    <div className="font-semibold text-xl">{player.name}</div>
-                                                    <div className="font-semibold text-xl">{player.lastname}</div>
-                                                </div>
-                                                <div className="text-sm leading-7 mt-4">
-                                                    <div>{player.date_of_birth}</div>
-                                                    {/* <div>{player.email}</div> */}
-                                                    <div>instagram</div>
-                                                    {/* <div>{player.nickname}</div> */}
-                                                    <div>gia giocato al torneo :)</div>
-                                                </div>
+                                                    <div className='flex flex-1 flex-col justify-between'>
+                                                        <div>
 
-                                                {/* button */}
-                                                <div className="flex self-end justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-6" onClick={() => handleModify(index)}>
-                                                    <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
-                                                        Modifica
+                                                            {/* da aggiungere gli altri dati */}
+                                                            <div>
+                                                                <div className="font-semibold text-xl first-letter:uppercase">{player?.name}</div>
+                                                                <div className="font-semibold text-xl first-letter:uppercase">{player?.lastname} {player?.isCaptain && '(C)'}</div>
+                                                            </div>
+                                                            <div className="text-sm leading-7 mt-4">
+                                                                <div className='flex items-center gap-x-1'>
+                                                                    <div className='text-primary w-4'>
+                                                                        <AiOutlineCalendar />
+                                                                    </div>
+                                                                    <span>
+                                                                        {player?.date_of_birth}
+                                                                    </span>
+                                                                </div>
+                                                                <div className='flex items-center gap-x-1'>
+                                                                    <div className='text-primary w-4'>
+                                                                        <AiOutlinePhone />
+                                                                    </div>
+                                                                    <span>
+                                                                        {player?.phone}
+                                                                    </span>
+                                                                </div>
+                                                                {
+                                                                    player?.email &&
+                                                                    <div className='flex items-center gap-x-1'>
+                                                                        <span className='text-primary w-4'>
+                                                                            <AiOutlineMail />
+                                                                        </span>
+                                                                        <span className='flex-1'>
+                                                                            {player?.email}
+                                                                        </span>
+                                                                    </div>
+                                                                }
+                                                                {
+                                                                    player?.instagram &&
+                                                                    <div className='flex items-center gap-x-1'>
+                                                                        <span className='text-primary w-4'>
+                                                                            <AiOutlineInstagram />
+                                                                        </span>
+                                                                        <span className='flex-1'>
+                                                                            {player?.instagram}
+                                                                        </span>
+                                                                    </div>
+                                                                }
+                                                                {/* <div className='flex items-center gap-x-1'>
+                                                                    <span>
+                                                                        ho già giocato al torneo
+                                                                    </span>
+                                                                    <span className='text-primary'>
+                                                                        <BsHandThumbsUp />
+                                                                    </span>
+                                                                </div> */}
+                                                                {
+                                                                    player?.nickname &&
+                                                                    <div className='flex items-center gap-x-1'>
+                                                                        <span className='text-primary'>
+                                                                            <AiOutlineUser />
+                                                                        </span>
+                                                                        <span>
+                                                                            {player?.nickname}
+                                                                        </span>
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                        </div>
+
+                                                        {/* button */}
+                                                        <div className="cursor-pointer flex self-end justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-6" onClick={() => handleModify(index)}>
+                                                            <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
+                                                                Modifica
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    ))
-                                }
+                                            </>
+                                        ))
+                                    }
+                                </div>
                             </div>
                             {error.length > 0 && <p className='text-primary-dark'>{error}</p>}
                         </div>

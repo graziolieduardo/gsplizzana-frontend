@@ -35,8 +35,9 @@ type Player = {
     phone: any;
     email: any;
     nickname: any;
-    instagram_tag: any;
+    instagram: any;
     isCaptain: boolean;
+    participate: boolean;
 }
 
 type SignupInfo = {
@@ -71,7 +72,7 @@ const signupReducer = (state: SignupInfo, action: Action) => {
         case ActionKind.REMOVE_PLAYER:
             return { ...state, players: state.players.filter((player, index) => payload !== index) };
         case ActionKind.UPDATE_PLAYER:
-            return { ...state, players: [payload.player, ...state.players.filter((player, index) => payload.index !== index)] };
+            return { ...state, players: payload };
         default:
             return state;
     }
@@ -109,13 +110,26 @@ export const SignupContextProvider = ({ children }: SignupContextProviderProps) 
     }
 
     const updatePlayer = (params: any) => {
-        dispatch({ type: ActionKind.UPDATE_PLAYER, payload: params });
+        // console.log(signupInfo.players);
+        // console.log(params);
+
+        let filtered = signupInfo.players.filter((player: any, index: any) => {
+
+            // console.log('params.index');
+            // console.log(params.index !== index);
+            // console.log('index');
+            // console.log(index);
+            return params.index !== index
+        });
+
+        filtered.splice(params.index, 0, params.player);
+        dispatch({ type: ActionKind.UPDATE_PLAYER, payload: filtered });
     }
 
 
-    useEffect(() => {
-        console.log(signupInfo);
-    }, [signupInfo]);
+    // useEffect(() => {
+    //     console.log(signupInfo);
+    // }, [signupInfo]);
 
     return (
         <SignupContext.Provider value={{ ...signupInfo, setCategory, setTeamName, setPlayers, removePlayer, updatePlayer, setToken }}>

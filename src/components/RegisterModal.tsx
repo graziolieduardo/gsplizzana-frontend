@@ -20,13 +20,18 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     }, [modifyIndex])
 
     useEffect(() => {
-        console.log(players);
         // console.log(players[modifyIndex]);
 
         if (modifyIndex !== null) {
             setValue('name', players[modifyIndex].name);
             setValue('lastname', players[modifyIndex].lastname);
             setValue('date_of_birth', players[modifyIndex].date_of_birth);
+            setValue('phone', players[modifyIndex].phone);
+            setValue('email', players[modifyIndex].email);
+            setValue('instagram', players[modifyIndex].instagram);
+            setValue('nickname', players[modifyIndex].nickname);
+            setValue('isCaptain', players[modifyIndex].isCaptain);
+            setValue('participate', players[modifyIndex].participate);
         }
     }, [modifyIndex, players]);
 
@@ -96,11 +101,16 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                         <div className='flex flex-col mt-4 lg:w-1/2'>
                             <label className='font-semibold text-sm' htmlFor="phone">Numero di telefono</label>
                             <input
-                                {...register("phone")}
+                                {...register("phone", { required: '- questo campo è obbligatorio', pattern: { value: /^[0-9]{10}$/, message: '- numero di telefono non valido' } })}
                                 className='border rounded p-3 mt-1'
                                 placeholder='Inserisci numero di telefono'
                                 type="tel"
                                 id='phone'
+                            />
+                            <ErrorMessage
+                                errors={errors}
+                                name="phone"
+                                render={({ message }: any) => <p className='text-primary-dark'>{message}</p>}
                             />
                         </div>
                     </div>
@@ -111,7 +121,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                         <input
                             {...register("email")}
                             className='border rounded p-3 mt-1'
-                            placeholder='Inserisci una e-mail'
+                            placeholder='Inserisci una e-mail (facoltativo)'
                             type="email"
                             id='email'
                         />
@@ -123,7 +133,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                         <input
                             {...register("instagram")}
                             className='border rounded p-3 mt-1'
-                            placeholder='Inserisci il tuo nome di instragram'
+                            placeholder='Inserisci il tuo tag instragram (facoltativo)'
                             type="text"
                             id='instagram'
                         />
@@ -148,10 +158,15 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                     {/* gia partecipato */}
                     <div className='flex justify-between mt-4'>
 
-                        <div className='font-semibold w-3/4'>Ho gia partecipato al torneo di Lizzana nelle edizioni precedenti</div>
+                        <div className='font-semibold w-3/4'>Ha già partecipato al torneo dal 2015 al 2022</div>
                         <div>
                             <label className="relative inline-flex items-center cursor-pointer ">
-                                <input type="checkbox" value="" className="sr-only peer" />
+                                <input
+                                    {...register("participate")}
+                                    type="checkbox"
+                                    value=""
+                                    className="sr-only peer"
+                                />
                                 <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                             </label>
                         </div>
@@ -159,11 +174,11 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
 
                     {/* nickname */}
                     <div className='mt-4 flex flex-col'>
-                        <label className='font-semibold text-sm' htmlFor="instagram">Soprannome</label>
+                        <label className='font-semibold text-sm' htmlFor="instagram">Ha già un soprannome assegnato dai nostri speaker?</label>
                         <input
                             {...register("nickname")}
                             className='border rounded p-3 mt-1'
-                            placeholder='Inserisci il sopranome (facoltativo)'
+                            placeholder='Inserisci il sopranome (solo se ne hai già uno)'
                             type="text"
                             id='instagram'
                         />
