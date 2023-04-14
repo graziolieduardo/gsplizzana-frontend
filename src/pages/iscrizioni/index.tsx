@@ -57,15 +57,14 @@ const Index = () => {
 
     const onSubmit = async (data: any, e: any) => {
         e.preventDefault();
-        console.log(data);
+        // console.log(data);
 
-        if (players.length < 4 || players.length > 9) {
-            console.log('ciao');
-            setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');
-            return;
-        } else {
-            setError('');
-        }
+        // if (players.length < 4 || players.length > 9) {
+        //     setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');
+        //     return;
+        // } else {
+        //     setError('');
+        // }
 
         const params = {
             team_name,
@@ -75,7 +74,6 @@ const Index = () => {
 
         const res = await client.post('sign-up', params);
 
-        console.log(res);
         setToken(res.data.confirmation_token);
         router.push('/iscrizioni/confirmation');
     }
