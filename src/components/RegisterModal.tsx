@@ -37,7 +37,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     }, [modifyIndex, players]);
 
     return (
-        <div className='px-4 fixed inset-0 z-50 h-screen lg:h-fit py-10 rounded-md lg:w-4/5 mx-auto bg-white overflow-y-scroll shadow'>
+        <div className='px-4 fixed inset-0 z-50 h-screen lg:fixed lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 py-10 rounded-md lg:w-4/5 mx-auto bg-white overflow-y-scroll shadow-2xl'>
             <div className="container mx-auto">
 
                 <div className='flex justify-between items-center'>
@@ -145,7 +145,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                     {/* capitano */}
                     <div className='mt-4 flex justify-between'>
 
-                        <div className='font-semibold'>Capitano della squadra</div>
+                        <div className='font-semibold text-sm'>Capitano della squadra</div>
 
                         <label className="relative inline-flex items-center cursor-pointer">
                             <input
@@ -162,7 +162,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                     {/* gia partecipato */}
                     <div className='flex justify-between mt-4'>
 
-                        <div className='font-semibold w-3/4'>Ha già partecipato al torneo dal 2015 al 2022</div>
+                        <div className='font-semibold w-3/4 text-sm'>Ha già partecipato al torneo dal 2015 al 2022</div>
                         <div>
                             <label className="relative inline-flex items-center cursor-pointer ">
                                 <input
