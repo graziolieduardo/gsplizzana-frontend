@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useSignupContext } from '../hooks/useSignupContext';
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     // hooks
@@ -41,7 +42,9 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
 
                 <div className='flex justify-between items-center'>
                     <h2 className='text-2xl font-bold '>Dati giocatore</h2>
-                    {/* <div onClick={() => setIsRegisterOpen(false)}>x</div> */}
+                    <div onClick={() => setIsRegisterOpen(false)}>
+                        <AiOutlineClose className='cursor-pointer hover:text-primary text-lg' />
+                    </div>
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
