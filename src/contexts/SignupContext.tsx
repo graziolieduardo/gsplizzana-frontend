@@ -110,17 +110,7 @@ export const SignupContextProvider = ({ children }: SignupContextProviderProps) 
     }
 
     const updatePlayer = (params: any) => {
-        // console.log(signupInfo.players);
-        // console.log(params);
-
-        let filtered = signupInfo.players.filter((player: any, index: any) => {
-
-            // console.log('params.index');
-            // console.log(params.index !== index);
-            // console.log('index');
-            // console.log(index);
-            return params.index !== index
-        });
+        let filtered = signupInfo.players.filter((player: any, index: any) => { return params.index !== index });
 
         filtered.splice(params.index, 0, params.player);
         dispatch({ type: ActionKind.UPDATE_PLAYER, payload: filtered });
