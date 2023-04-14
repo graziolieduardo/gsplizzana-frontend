@@ -195,7 +195,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                         {/* Cancel button */}
                         <div className="flex justify-center align-center w-full sm:w-72 lg:w-40 rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-2 sm:mt-0 cursor-pointer" onClick={() => setIsRegisterOpen(false)}>
                             <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
-                                Annula
+                                Annulla
                             </div>
                         </div>
                     </div>
