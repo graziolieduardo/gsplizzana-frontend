@@ -1,7 +1,7 @@
+import client from '@/src/api/client';
 import RegisterModal from '@/src/components/RegisterModal';
 import { useSignupContext } from '@/src/hooks/useSignupContext';
 import { ErrorMessage } from '@hookform/error-message';
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -73,7 +73,7 @@ const Index = () => {
             players
         }
 
-        const res = await axios.post('http://gsplizzana-api.test/api/sign-up', params);
+        const res = await client.post('sign-up', params);
 
         console.log(res);
         setToken(res.data.confirmation_token);
