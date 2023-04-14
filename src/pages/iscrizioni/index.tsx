@@ -59,12 +59,12 @@ const Index = () => {
         e.preventDefault();
         // console.log(data);
 
-        // if (players.length < 4 || players.length > 9) {
-        //     setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');
-        //     return;
-        // } else {
-        //     setError('');
-        // }
+        if (players.length < 4 || players.length > 9) {
+            setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');
+            return;
+        } else {
+            setError('');
+        }
 
         const params = {
             team_name,
