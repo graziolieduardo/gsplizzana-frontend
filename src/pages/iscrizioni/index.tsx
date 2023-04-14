@@ -1,4 +1,4 @@
-import client from '@/src/api/client';
+import client from '@/src/pages/api/client';
 import RegisterModal from '@/src/components/RegisterModal';
 import { useSignupContext } from '@/src/hooks/useSignupContext';
 import { ErrorMessage } from '@hookform/error-message';
