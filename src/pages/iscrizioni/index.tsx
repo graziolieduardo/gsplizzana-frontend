@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlineInstagram, AiOutlineCalendar, AiOutlineMail, AiOutlinePhone, AiOutlineUser } from 'react-icons/ai';
+import Head from 'next/head';
 
 const PLAYERS = [
     {
@@ -88,6 +89,9 @@ const Index = () => {
 
     return (
         <>
+        <Head>
+            <title>GSP Lizzana | Iscrizioni</title>
+        </Head>
             {isRegisterOpen && <RegisterModal setIsRegisterOpen={setIsRegisterOpen} modifyIndex={modifyIndex} />}
 
             <div className="container mx-auto">
