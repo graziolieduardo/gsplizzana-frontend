@@ -156,12 +156,9 @@ const Index = () => {
                         </div>
 
                         {/* LOGO */}
-                        <div className="mt-5">
+                        {/* <div className="mt-5">
                             <label className="font-semibold" htmlFor="">Logo</label>
-                            {/* Carica logo della squadra */}
-                            {/* input type file nascosto che viene attivato da una label personalizzata perché pulsante dell'input non puoi modificarlo*/}
                             <div className="flex h-16 bg-white w-full sm:w-1/2 lg:w-1/3 mt-2 p-3 rounded">
-                                {/* icon */}
                                 <div className="image-upload h-10">
                                     <label htmlFor="file-input">
                                         <img className='h-full' src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/128/Downloads-icon.png" />
@@ -170,18 +167,16 @@ const Index = () => {
                                     <input className='hidden' id="file-input" type="file" />
                                 </div>
 
-                                {/* "label" */}
                                 <div className='ml-3'>
                                     <div className="font-semibold">Carica logo squadra</div>
                                     <div className='text-xs text-secondary'>Formati supportati .jpg, .png, .svg</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className='mt-8'>
                             <h3 className="text-xl">Giocatori</h3>
-                            <div className="overflow-x-scroll  ">
-
+                            <div className="overflow-x-scroll rounded-md">
                                 {/* container */}
                                 {/* scrollable container */}
                                 <div className="inline-flex h-[350px]">
