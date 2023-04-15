@@ -19,7 +19,7 @@ export default function Home() {
                 <section id='register' className='bg-gray-50'>
                     <div className="container mx-auto relative">
                         <div className='flex justify-end'>
-                            <img className='opacity-30 md:opacity-100 max-h-72' src="/static/palla-rete.png" alt="" />
+                            <img className='opacity-20 md:opacity-100 max-h-72' src="/static/palla-rete.png" alt="" />
                         </div>
                         {/* CONTENT */}
                         {/* <div className='absolute top-0 left-0 px-6 py-8 md:w-1/2 max-h-72'> */}
