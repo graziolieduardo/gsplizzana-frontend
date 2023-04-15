@@ -16,3 +16,9 @@
     max-width: 300px;
 }
 
+input[type="date"] {
+    display: block;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    min-height: 1.2em;
+}
