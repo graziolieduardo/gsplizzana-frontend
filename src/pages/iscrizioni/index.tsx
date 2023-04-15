@@ -30,7 +30,7 @@ const Index = () => {
     const [modifyIndex, setModifyIndex] = useState<null | number>(null);
 
     // context
-    const { team_name, category, players, setCategory, setTeamName, removePlayer, setToken } = useSignupContext();
+    const { team_name, category, players, setCategory, setTeamName, removePlayer, setToken, resetPlayers } = useSignupContext();
 
     const { register, setValue, handleSubmit, trigger, formState: { errors } } = useForm();
 
@@ -73,10 +73,16 @@ const Index = () => {
             players
         }
 
-        const res = await client.post('sign-up', params);
+        try {
 
-        setToken(res.data.confirmation_token);
-        router.push('/iscrizioni/confirmation');
+            const res = await client.post('sign-up', params);
+
+            setToken(res.data.confirmation_token);
+            resetPlayers();
+            router.push('/iscrizioni/confirmation');
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     useEffect(() => {
@@ -89,9 +95,9 @@ const Index = () => {
 
     return (
         <>
-        <Head>
-            <title>GSP Lizzana | Iscrizioni</title>
-        </Head>
+            <Head>
+                <title>GSP Lizzana | Iscrizioni</title>
+            </Head>
             {isRegisterOpen && <RegisterModal setIsRegisterOpen={setIsRegisterOpen} modifyIndex={modifyIndex} />}
 
             <div className="container mx-auto">

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 
 type SignupContextProviderProps = {
     children: React.ReactNode;
@@ -16,6 +16,8 @@ type SignupContextType = {
     removePlayer: (index: any) => void;
     updatePlayer: (params: any) => void;
     setToken: (token: any) => void;
+    resetContext: () => void;
+    resetPlayers: () => void;
 }
 
 enum ActionKind {
@@ -26,6 +28,7 @@ enum ActionKind {
     REMOVE_PLAYER = 'REMOVE_PLAYER',
     UPDATE_PLAYER = 'UPDATE_PLAYER',
     SET_TOKEN = 'SET_TOKEN',
+    RESET_PLAYERS = 'RESET_PLAYERS',
 }
 
 type Player = {
@@ -71,6 +74,8 @@ const signupReducer = (state: SignupInfo, action: Action) => {
             return { ...state, players: [payload, ...state.players] };
         case ActionKind.REMOVE_PLAYER:
             return { ...state, players: state.players.filter((player, index) => payload !== index) };
+        case ActionKind.RESET_PLAYERS:
+            return { ...state, players: [] };
         case ActionKind.UPDATE_PLAYER:
             return { ...state, players: payload };
         default:
@@ -105,8 +110,16 @@ export const SignupContextProvider = ({ children }: SignupContextProviderProps) 
         dispatch({ type: ActionKind.SET_PLAYERS, payload: player });
     }
 
+    const resetPlayers = () => {
+        dispatch({ type: ActionKind.RESET_PLAYERS, payload: [] });
+    }
+
     const removePlayer = (index: any) => {
         dispatch({ type: ActionKind.REMOVE_PLAYER, payload: index });
+    }
+
+    const resetContext = () => {
+        dispatch({ type: ActionKind.SET_SIGNUP_CONTEXT, payload: initialState });
     }
 
     const updatePlayer = (params: any) => {
@@ -122,7 +135,7 @@ export const SignupContextProvider = ({ children }: SignupContextProviderProps) 
     // }, [signupInfo]);
 
     return (
-        <SignupContext.Provider value={{ ...signupInfo, setCategory, setTeamName, setPlayers, removePlayer, updatePlayer, setToken }}>
+        <SignupContext.Provider value={{ ...signupInfo, setCategory, setTeamName, setPlayers, removePlayer, updatePlayer, setToken, resetContext, resetPlayers }}>
             {children}
         </SignupContext.Provider>
     )
