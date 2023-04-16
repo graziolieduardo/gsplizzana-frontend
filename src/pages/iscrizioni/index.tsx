@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlineInstagram, AiOutlineCalendar, AiOutlineMail, AiOutlinePhone, AiOutlineUser } from 'react-icons/ai';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const PLAYERS = [
     {
@@ -60,12 +61,12 @@ const Index = () => {
         e.preventDefault();
         // console.log(data);
 
-        // if (players.length < 4 || players.length > 9) {
-        //     setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');
-        //     return;
-        // } else {
-        //     setError('');
-        // }
+        if (players.length < 4 || players.length > 9) {
+            setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');
+            return;
+        } else {
+            setError('');
+        }
 
         // const params = {
         //     team_name,
@@ -304,7 +305,7 @@ const Index = () => {
                         <div className="mt-2">
                             {/* checkbox acconsento dati */}
                             <input {...register('rules', { required: '- questo campo è obbligatorio' })} className='cursor-pointer' type="checkbox" name="" id="rules" onChange={handleRulesChange} />
-                            <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <span className='font-bold underline'>REGOLAMENTO DEL TORNEO</span></label>
+                            <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <Link href={'https://pdfhost.io/v/mpq58x62e_REGOLAMENTO_TORNEO_23'} target='blank' className='font-bold underline'>REGOLAMENTO DEL TORNEO</Link></label>
                             <ErrorMessage
                                 errors={errors}
                                 name="rules"
