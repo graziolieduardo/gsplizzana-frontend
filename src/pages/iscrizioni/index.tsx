@@ -30,9 +30,9 @@ const Index = () => {
     const [modifyIndex, setModifyIndex] = useState<null | number>(null);
 
     // context
-    const { team_name, category, players, setCategory, setTeamName, removePlayer, setToken, resetPlayers } = useSignupContext();
+    const { players, setCategory, setTeamName, removePlayer, setToken, resetPlayers } = useSignupContext();
 
-    const { register, setValue, handleSubmit, trigger, formState: { errors } } = useForm();
+    const { register, setValue, handleSubmit, formState: { errors } } = useForm();
 
     const handleRadioChange = (e: any) => {
         setCategory(e.target.value);
@@ -60,22 +60,22 @@ const Index = () => {
         e.preventDefault();
         // console.log(data);
 
-        if (players.length < 4 || players.length > 9) {
-            setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');
-            return;
-        } else {
-            setError('');
-        }
+        // if (players.length < 4 || players.length > 9) {
+        //     setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');
+        //     return;
+        // } else {
+        //     setError('');
+        // }
 
-        const params = {
-            team_name,
-            category,
-            players
-        }
+        // const params = {
+        //     team_name,
+        //     category,
+        //     players
+        // }
 
         try {
 
-            const res = await client.post('sign-up', params);
+            const res = await client.post('sign-up', data);
 
             setToken(res.data.confirmation_token);
             resetPlayers();
@@ -155,7 +155,6 @@ const Index = () => {
                                 type="text"
                                 name='team_name'
                                 placeholder="Inseriesci il nome della squadra"
-                                value={team_name}
                                 onChange={(e) => setTeamName(e.target.value)}
                             />
                             <ErrorMessage
@@ -201,61 +200,60 @@ const Index = () => {
                                     {/* players cards */}
                                     {
                                         players.map((player, index) => (
-                                            <>
-                                                <div key={index} className="flex flex-col maxwd flex-1 ms-3 border rounded-md bg-white p-4 grow w-60">
-                                                    {/* cestino */}
-                                                    <div className="flex justify-end text-right cursor-pointer" onClick={() => removePlayer(index)}>
-                                                        <img className='border rounded-full p-2' src="/static/trash.svg" alt="" />
-                                                    </div>
+                                            <div key={index} className="flex flex-col maxwd flex-1 ms-3 border rounded-md bg-white p-4 grow w-60">
+                                                {/* cestino */}
+                                                <div className="flex justify-end text-right cursor-pointer" onClick={() => removePlayer(index)}>
+                                                    <img className='border rounded-full p-2' src="/static/trash.svg" alt="" />
+                                                </div>
 
-                                                    <div className='flex flex-1 flex-col justify-between'>
+                                                <div className='flex flex-1 flex-col justify-between'>
+                                                    <div>
+
+                                                        {/* da aggiungere gli altri dati */}
                                                         <div>
-
-                                                            {/* da aggiungere gli altri dati */}
-                                                            <div>
-                                                                <div className="font-semibold text-xl first-letter:uppercase">{player?.name}</div>
-                                                                <div className="font-semibold text-xl first-letter:uppercase">{player?.lastname} {player?.isCaptain && '(C)'}</div>
+                                                            <div className="font-semibold text-xl first-letter:uppercase">{player?.name}</div>
+                                                            <div className="font-semibold text-xl first-letter:uppercase">{player?.lastname} {player?.isCaptain && '(C)'}</div>
+                                                        </div>
+                                                        <div className="text-sm leading-7 mt-4">
+                                                            <div className='flex items-center gap-x-1'>
+                                                                <div className='text-primary w-4'>
+                                                                    <AiOutlineCalendar />
+                                                                </div>
+                                                                <span>
+                                                                    {player?.date_of_birth}
+                                                                </span>
                                                             </div>
-                                                            <div className="text-sm leading-7 mt-4">
+                                                            <div className='flex items-center gap-x-1'>
+                                                                <div className='text-primary w-4'>
+                                                                    <AiOutlinePhone />
+                                                                </div>
+                                                                <span>
+                                                                    {player?.phone}
+                                                                </span>
+                                                            </div>
+                                                            {
+                                                                player?.email &&
                                                                 <div className='flex items-center gap-x-1'>
-                                                                    <div className='text-primary w-4'>
-                                                                        <AiOutlineCalendar />
-                                                                    </div>
-                                                                    <span>
-                                                                        {player?.date_of_birth}
+                                                                    <span className='text-primary w-4'>
+                                                                        <AiOutlineMail />
+                                                                    </span>
+                                                                    <span className='flex-1'>
+                                                                        {player?.email}
                                                                     </span>
                                                                 </div>
+                                                            }
+                                                            {
+                                                                player?.instagram &&
                                                                 <div className='flex items-center gap-x-1'>
-                                                                    <div className='text-primary w-4'>
-                                                                        <AiOutlinePhone />
-                                                                    </div>
-                                                                    <span>
-                                                                        {player?.phone}
+                                                                    <span className='text-primary w-4'>
+                                                                        <AiOutlineInstagram />
+                                                                    </span>
+                                                                    <span className='flex-1'>
+                                                                        {player?.instagram}
                                                                     </span>
                                                                 </div>
-                                                                {
-                                                                    player?.email &&
-                                                                    <div className='flex items-center gap-x-1'>
-                                                                        <span className='text-primary w-4'>
-                                                                            <AiOutlineMail />
-                                                                        </span>
-                                                                        <span className='flex-1'>
-                                                                            {player?.email}
-                                                                        </span>
-                                                                    </div>
-                                                                }
-                                                                {
-                                                                    player?.instagram &&
-                                                                    <div className='flex items-center gap-x-1'>
-                                                                        <span className='text-primary w-4'>
-                                                                            <AiOutlineInstagram />
-                                                                        </span>
-                                                                        <span className='flex-1'>
-                                                                            {player?.instagram}
-                                                                        </span>
-                                                                    </div>
-                                                                }
-                                                                {/* <div className='flex items-center gap-x-1'>
+                                                            }
+                                                            {/* <div className='flex items-center gap-x-1'>
                                                                     <span>
                                                                         ho già giocato al torneo
                                                                     </span>
@@ -263,29 +261,28 @@ const Index = () => {
                                                                         <BsHandThumbsUp />
                                                                     </span>
                                                                 </div> */}
-                                                                {
-                                                                    player?.nickname &&
-                                                                    <div className='flex items-center gap-x-1'>
-                                                                        <span className='text-primary'>
-                                                                            <AiOutlineUser />
-                                                                        </span>
-                                                                        <span>
-                                                                            {player?.nickname}
-                                                                        </span>
-                                                                    </div>
-                                                                }
-                                                            </div>
+                                                            {
+                                                                player?.nickname &&
+                                                                <div className='flex items-center gap-x-1'>
+                                                                    <span className='text-primary'>
+                                                                        <AiOutlineUser />
+                                                                    </span>
+                                                                    <span>
+                                                                        {player?.nickname}
+                                                                    </span>
+                                                                </div>
+                                                            }
                                                         </div>
+                                                    </div>
 
-                                                        {/* button */}
-                                                        <div className="cursor-pointer flex self-end justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-6" onClick={() => handleModify(index)}>
-                                                            <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
-                                                                Modifica
-                                                            </div>
+                                                    {/* button */}
+                                                    <div className="cursor-pointer flex self-end justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-6" onClick={() => handleModify(index)}>
+                                                        <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
+                                                            Modifica
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </>
+                                            </div>
                                         ))
                                     }
                                 </div>
