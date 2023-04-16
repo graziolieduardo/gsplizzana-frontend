@@ -59,7 +59,6 @@ const Index = () => {
 
     const onSubmit = async (data: any, e: any) => {
         e.preventDefault();
-        // console.log(data);
 
         if (players.length < 4 || players.length > 9) {
             setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');

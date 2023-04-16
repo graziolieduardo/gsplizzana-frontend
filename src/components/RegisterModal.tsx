@@ -5,6 +5,9 @@ import { ErrorMessage } from '@hookform/error-message';
 import { AiOutlineClose } from 'react-icons/ai';
 
 const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
+    // state
+    const [underAgeError, setUnderAgeError] = useState('');
+
     // hooks
     const { register, setValue, handleSubmit, formState: { errors } } = useForm();
 
@@ -12,6 +15,17 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     const { players, setPlayers, updatePlayer } = useSignupContext();
 
     const onSubmit = useCallback((data: any) => {
+        const date = '10/08/2007';
+        const pickedDate = new Date(data.date_of_birth);
+        const limitDate = new Date(date);
+
+        if (pickedDate > limitDate) {
+            setUnderAgeError('- solo giocatori maggiorenni possono partecipare');
+            return;
+        } else {
+            setUnderAgeError('');
+        }
+
         if (modifyIndex !== null) {
             updatePlayer({ index: modifyIndex, player: data });
         } else {
@@ -98,6 +112,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                 name="date_of_birth"
                                 render={({ message }: any) => <p className='text-primary-dark'>{message}</p>}
                             />
+                            {underAgeError.length > 0 && <p className='text-primary-dark'>{underAgeError}</p>}
                         </div>
 
                         {/* Numero di telefono */}
