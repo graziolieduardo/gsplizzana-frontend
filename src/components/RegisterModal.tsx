@@ -20,7 +20,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
         const limitDate = new Date(date);
 
         if (pickedDate > limitDate) {
-            setUnderAgeError('- solo giocatori maggiorenni possono partecipare');
+            setUnderAgeError('- solo giocatori sopra i 16 anni possono partecipare');
             return;
         } else {
             setUnderAgeError('');
