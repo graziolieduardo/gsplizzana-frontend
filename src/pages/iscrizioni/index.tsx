@@ -196,7 +196,7 @@ const Index = () => {
                                             <img className='text-xs' src="/static/plus.svg" alt="" />
                                         </div>
                                         <div className="mt-4 font-semibold text-lg">Aggiungi giocatore</div>
-                                        <small className='text-secondary'>fino a 10 per squadra</small>
+                                        <small className='text-secondary'>fino a 9 per squadra</small>
                                     </div>
                                     {/* players cards */}
                                     {
