@@ -1,3 +1,5 @@
+import Link from "next/link"
+import { BsInstagram, BsWhatsapp } from 'react-icons/bs';
 
 export const Footer = () => {
     return (
@@ -10,11 +12,15 @@ export const Footer = () => {
                         <div className="container mx-auto text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary p-6 mb-5">
                             <h2 className="text-3xl font-bold ">GSP LIZZANA</h2>
                             <p>Via Panizza, 32 - Rovereto (TN) 38068</p>
-                            <p>Email: gsp_lizzana@gmail.com</p>
-                            {/* <div className="flex"> */}
-                                {/* <img className="text-white" src="/static/youtube.png" alt="" /> */}
-                                {/* <p>social</p> */}
-                            {/* </div> */}
+                            <p>lizzanagsp@gmail.com</p>
+                            <div className="flex gap-x-4 mt-2">
+                                <Link href={'https://instagram.com/gsplizzana?igshid=MjljNjAzYmU='} target="blank">
+                                    <BsInstagram className="text-primary-dark text-2xl" />
+                                </Link>
+                                <Link href={'https://wa.me/+393518614137'} target="blank">
+                                    <BsWhatsapp className="text-primary-dark text-2xl" />
+                                </Link>
+                            </div>
                         </div>
 
                         {/* horizoltal rule */}
