@@ -185,7 +185,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                 onChange={handleCaptainChange}
                                 disabled={(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked}
                             />
-                            <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                            <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
                         </label>
                     </div>
 
@@ -203,7 +203,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                 onChange={handleViceCaptainChange}
                                 disabled={(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked}
                             />
-                            <div className={`${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                            <div className={`${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
                         </label>
                     </div>
 
@@ -236,7 +236,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                         />
                     </div>
 
-                    <div className='sm:flex sm:flex-row-reverse sm:items-center sm:justify-around lg:justify-normal lg: gap-x-4 mt-4'>
+                    <div className='sm:flex sm:flex-row-reverse sm:items-center sm:justify-around lg:justify-normal lg:gap-x-4 mt-4'>
                         {/* salva button */}
                         <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 lg:w-40 py-2.5 mt-6 sm:mt-0 text-white lg:mr-2" >Salva</button>
 
