@@ -67,12 +67,6 @@ const Index = () => {
             setError('');
         }
 
-        // const params = {
-        //     team_name,
-        //     category,
-        //     players
-        // }
-
         try {
 
             const res = await client.post('sign-up', data);
