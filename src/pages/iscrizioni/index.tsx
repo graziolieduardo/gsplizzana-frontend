@@ -9,18 +9,18 @@ import { AiOutlineInstagram, AiOutlineCalendar, AiOutlineMail, AiOutlinePhone, A
 import Head from 'next/head';
 import Link from 'next/link';
 
-const PLAYERS = [
-    {
-        name: 'Eduardo',
-        lastname: 'Grazioli',
-        date_of_birth: '04/07/1991',
-        phone: '3209141742',
-        email: 'eduardo.grazioli@gmail.it',
-        instagram_tag: 'graziolieduardo',
-        nickname: 'Indesiderabile numero uno',
-        isCaptain: true,
-    }
-]
+// const PLAYERS = [
+//     {
+//         name: 'Eduardo',
+//         lastname: 'Grazioli',
+//         date_of_birth: '04/07/1991',
+//         phone: '3209141742',
+//         email: 'eduardo.grazioli@gmail.it',
+//         instagram_tag: 'graziolieduardo',
+//         nickname: 'Indesiderabile numero uno',
+//         isCaptain: true,
+//     }
+// ]
 
 const Index = () => {
     const router = useRouter();

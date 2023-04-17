@@ -28,7 +28,7 @@ export default function Home() {
                                 Il <span className='text-primary'>Mondiale</span> si gioca sul gonfiabile
                             </h5>
 
-                            <p className='mt-4 font-light text-secondary'>Sai la differenza tra i mondiali classici e queilli sul sapone? quelli sul sapone non cambiano luogo ogni 4 anni.</p>
+                            <p className='mt-4 font-light text-secondary'>Sai la differenza tra i mondiali classici e quelli sul sapone? quelli sul sapone non cambiano luogo ogni 4 anni.</p>
 
                             <Link className='block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full py-2 mt-8 text-white text-center' href="iscrizioni">iscriviti</Link>
                         </div>

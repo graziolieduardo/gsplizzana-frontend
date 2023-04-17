@@ -7,15 +7,25 @@ import { AiOutlineClose } from 'react-icons/ai';
 const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     // state
     const [underAgeError, setUnderAgeError] = useState('');
+    const [isCaptainChecked, setIsCaptainChecked] = useState(false);
+    const [isViceCaptainChecked, setViceIsCaptainChecked] = useState(false);
 
     // hooks
     const { register, setValue, handleSubmit, formState: { errors } } = useForm();
+
+    const handleCaptainChange = (e: any) => {
+        setIsCaptainChecked(e.target.checked);
+    }
+
+    const handleViceCaptainChange = (e: any) => {
+        setViceIsCaptainChecked(e.target.checked);
+    }
 
     // context 
     const { players, setPlayers, updatePlayer } = useSignupContext();
 
     const onSubmit = useCallback((data: any) => {
-        const date = '10/08/2007';
+        const date = '08/10/2007'; // mm/dd/YYYY
         const pickedDate = new Date(data.date_of_birth);
         const limitDate = new Date(date);
 
@@ -168,9 +178,28 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                 type="checkbox"
                                 value=""
                                 className="sr-only peer"
-                                disabled={players.some((player) => { return player?.isCaptain })}
+                                onChange={handleCaptainChange}
+                                disabled={players.some((player) => { return player?.isCaptain }) || isViceCaptainChecked}
                             />
-                            <div className={`${players.some((player) => { return player?.isCaptain }) ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                            <div className={`${players.some((player) => { return player?.isCaptain }) || isViceCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                        </label>
+                    </div>
+
+                    {/* vice capitano */}
+                    <div className='mt-4 flex justify-between'>
+
+                        <div className='font-semibold text-sm'>Vice-capitano della squadra</div>
+
+                        <label className={`relative inline-flex items-center ${players.some((player) => { return player?.isViceCaptain }) ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+                            <input
+                                {...register("isViceCaptain")}
+                                type="checkbox"
+                                value=""
+                                className="sr-only peer"
+                                onChange={handleViceCaptainChange}
+                                disabled={players.some((player) => { return player?.isViceCaptain }) || isCaptainChecked}
+                            />
+                            <div className={`${players.some((player) => { return player?.isCaptain }) || isCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
                         </label>
                     </div>
 

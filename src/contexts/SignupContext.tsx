@@ -40,6 +40,7 @@ type Player = {
     nickname: any;
     instagram: any;
     isCaptain: boolean;
+    isViceCaptain: boolean;
     participate: boolean;
 }
 
