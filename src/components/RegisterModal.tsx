@@ -58,6 +58,9 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
             setValue('isCaptain', players[modifyIndex].isCaptain);
             setValue('isViceCaptain', players[modifyIndex].isViceCaptain);
             setValue('participate', players[modifyIndex].participate);
+
+            setIsCaptainChecked(players[modifyIndex].isCaptain);
+            setViceIsCaptainChecked(players[modifyIndex].isViceCaptain);
         }
     }, [modifyIndex, players]);
 
@@ -173,16 +176,16 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
 
                         <div className='font-semibold text-sm'>Capitano della squadra</div>
 
-                        <label className={`relative inline-flex items-center ${players.some((player) => { return player?.isCaptain }) || isViceCaptainChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+                        <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
                             <input
                                 {...register("isCaptain")}
                                 type="checkbox"
                                 value=""
                                 className="sr-only peer"
                                 onChange={handleCaptainChange}
-                                disabled={players.some((player) => { return player?.isCaptain }) || isViceCaptainChecked}
+                                disabled={(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked}
                             />
-                            <div className={`${players.some((player) => { return player?.isCaptain }) || isViceCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                            <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
                         </label>
                     </div>
 
@@ -191,16 +194,16 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
 
                         <div className='font-semibold text-sm'>Vice-capitano della squadra</div>
 
-                        <label className={`relative inline-flex items-center ${players.some((player) => { return player?.isViceCaptain }) || isCaptainChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+                        <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
                             <input
                                 {...register("isViceCaptain")}
                                 type="checkbox"
                                 value=""
                                 className="sr-only peer"
                                 onChange={handleViceCaptainChange}
-                                disabled={players.some((player) => { return player?.isViceCaptain }) || isCaptainChecked}
+                                disabled={(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked}
                             />
-                            <div className={`${players.some((player) => { return player?.isViceCaptain }) || isCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                            <div className={`${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
                         </label>
                     </div>
 

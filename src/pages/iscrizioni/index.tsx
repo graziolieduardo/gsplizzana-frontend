@@ -206,7 +206,7 @@ const Index = () => {
                                                         {/* da aggiungere gli altri dati */}
                                                         <div>
                                                             <div className="font-semibold text-xl first-letter:uppercase">{player?.name}</div>
-                                                            <div className="font-semibold text-xl first-letter:uppercase">{player?.lastname} {player?.isCaptain && '(C)'}</div>
+                                                            <div className="font-semibold text-xl first-letter:uppercase">{player?.lastname} {player?.isCaptain ? '(C)' : player?.isViceCaptain ? '(VC)' : null}</div>
                                                         </div>
                                                         <div className="text-sm leading-7 mt-4">
                                                             <div className='flex items-center gap-x-1'>
