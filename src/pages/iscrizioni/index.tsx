@@ -61,7 +61,14 @@ const Index = () => {
         e.preventDefault();
 
         if (players.length < 4 || players.length > 9) {
-            setError('- La squadra deve contenere minimo 4 e massimo 9 giocatori');
+            setError('- la squadra deve contenere minimo 4 e massimo 9 giocatori');
+            return;
+        } else {
+            setError('');
+        }
+
+        if (!players.some((player) => { return player?.isCaptain }) || !players.some((player) => { return player?.isViceCaptain })) {
+            setError('- la squadra deve contenere un capitano ed un vice-capitano');
             return;
         } else {
             setError('');
