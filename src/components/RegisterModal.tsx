@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useSignupContext } from '../hooks/useSignupContext';
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 import { AiOutlineClose } from 'react-icons/ai';
 
@@ -11,7 +11,22 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     const [isViceCaptainChecked, setViceIsCaptainChecked] = useState(false);
 
     // hooks
-    const { register, setValue, handleSubmit, formState: { errors } } = useForm();
+    const { register, setValue, handleSubmit, formState: { errors }, control } = useForm(
+        {
+            defaultValues: {
+                name: '',
+                lastname: '',
+                date_of_birth: null,
+                phone: '',
+                email: '',
+                instagram: '',
+                nickname: '',
+                isCaptain: false,
+                isViceCaptain: false,
+                participate: false
+            }
+        }
+    );
 
     const handleCaptainChange = (e: any) => {
         setIsCaptainChecked(e.target.checked);
@@ -25,6 +40,9 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     const { players, setPlayers, updatePlayer } = useSignupContext();
 
     const onSubmit = useCallback((data: any) => {
+        // console.log(data);
+        // return;
+
         const date = '08/10/2007'; // mm/dd/YYYY
         const pickedDate = new Date(data.date_of_birth);
         const limitDate = new Date(date);
@@ -172,57 +190,75 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                     </div>
 
                     {/* capitano */}
-                    <div className='mt-4 flex justify-between'>
+                    <Controller
+                        control={control}
+                        name='isCaptain'
+                        render={({ field: { onChange }, field: { value } }) => (
+                            < div className='mt-4 flex justify-between'>
+                                <div className='font-semibold text-sm'>Capitano della squadra</div>
 
-                        <div className='font-semibold text-sm'>Capitano della squadra</div>
+                                <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+                                    <input
+                                        type="checkbox"
+                                        className="sr-only peer"
+                                        checked={value}
+                                        onChange={(e) => { setIsCaptainChecked(e.target.checked); onChange(e.target.checked) }}
+                                        disabled={(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked}
+                                    />
+                                    <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                                </label>
+                            </div>
+                        )}
+                    />
 
-                        <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
-                            <input
-                                {...register("isCaptain")}
-                                type="checkbox"
-                                value=""
-                                className="sr-only peer"
-                                onChange={handleCaptainChange}
-                                disabled={(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked}
-                            />
-                            <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
-                        </label>
-                    </div>
 
                     {/* vice capitano */}
-                    <div className='mt-4 flex justify-between'>
+                    <Controller
+                        control={control}
+                        name='isViceCaptain'
+                        render={({ field: { onChange }, field: { value } }) => (
+                            <div className='mt-4 flex justify-between'>
 
-                        <div className='font-semibold text-sm'>Vice-capitano della squadra</div>
+                                <div className='font-semibold text-sm'>Vice-capitano della squadra</div>
 
-                        <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
-                            <input
-                                {...register("isViceCaptain")}
-                                type="checkbox"
-                                value=""
-                                className="sr-only peer"
-                                onChange={handleViceCaptainChange}
-                                disabled={(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked}
-                            />
-                            <div className={`${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
-                        </label>
-                    </div>
+                                <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+                                    <input
+                                        // {...register("isViceCaptain")}
+                                        type="checkbox"
+                                        className="sr-only peer"
+                                        checked={value}
+                                        onChange={(e) => { setViceIsCaptainChecked(e.target.checked), onChange(e.target.checked) }}
+                                        disabled={(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked}
+                                    />
+                                    <div className={`${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                                </label>
+                            </div>
+                        )}
+                    />
 
                     {/* gia partecipato */}
-                    <div className='flex justify-between mt-4'>
+                    <Controller
+                        control={control}
+                        name='participate'
+                        render={({ field: { onChange }, field: { value } }) => (
+                            <div className='flex justify-between mt-4'>
 
-                        <div className='font-semibold w-3/4 text-sm'>Ha già partecipato al torneo dal 2015 al 2022</div>
-                        <div>
-                            <label className="relative inline-flex items-center cursor-pointer ">
-                                <input
-                                    {...register("participate")}
-                                    type="checkbox"
-                                    value=""
-                                    className="sr-only peer"
-                                />
-                                <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
-                            </label>
-                        </div>
-                    </div>
+                                <div className='font-semibold w-3/4 text-sm'>Ha già partecipato al torneo dal 2015 al 2022</div>
+                                <div>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            // value={value}
+                                            checked={value}
+                                            className="sr-only peer"
+                                            onChange={onChange}
+                                        />
+                                        <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        )}
+                    />
 
                     {/* nickname */}
                     <div className='mt-4 flex flex-col'>

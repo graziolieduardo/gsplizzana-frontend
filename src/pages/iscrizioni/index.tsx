@@ -4,7 +4,7 @@ import { useSignupContext } from '@/src/hooks/useSignupContext';
 import { ErrorMessage } from '@hookform/error-message';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { AiOutlineInstagram, AiOutlineCalendar, AiOutlineMail, AiOutlinePhone, AiOutlineUser } from 'react-icons/ai';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -33,11 +33,11 @@ const Index = () => {
     // context
     const { players, setCategory, setTeamName, removePlayer, setToken, resetPlayers } = useSignupContext();
 
-    const { register, setValue, handleSubmit, formState: { errors } } = useForm();
+    const { register, setValue, handleSubmit, formState: { errors }, control } = useForm();
 
-    const handleRadioChange = (e: any) => {
-        setCategory(e.target.value);
-    }
+    // const handleRadioChange = (e: any) => {
+    //     setCategory(e.target.value);
+    // }
 
     const handlePrivacyChange = (e: any) => {
         setValue('privacy', e.target.checked);
@@ -59,6 +59,9 @@ const Index = () => {
 
     const onSubmit = async (data: any, e: any) => {
         e.preventDefault();
+        // console.log(data);
+        // return;
+
 
         if (players.length < 4 || players.length > 9) {
             setError('- la squadra deve contenere minimo 4 e massimo 9 giocatori');
@@ -115,30 +118,43 @@ const Index = () => {
                         {/* CATEGORIES */}
                         <fieldset>
                             <legend className="pt-6 font-semibold">Categoria del torneo</legend>
-                            <div className="mt-2">
-                                <input
-                                    className='cursor-pointer'
-                                    {...register('category', { required: '- questo campo è obbligatorio' })}
-                                    id='male_category'
-                                    type="radio"
-                                    name='category'
-                                    value='maschile'
-                                    onChange={handleRadioChange}
-                                />
-                                <label className="ms-2 text-secondary cursor-pointer" htmlFor="male_category">Maschile</label>
-                            </div>
-                            <div className="mt-2">
-                                <input
-                                    className='cursor-pointer'
-                                    {...register('category', { required: '- questo campo è obbligatorio' })}
-                                    id='female_category'
-                                    type="radio"
-                                    name='category'
-                                    value='femminile'
-                                    onChange={handleRadioChange}
-                                />
-                                <label className="ms-2 text-secondary cursor-pointer" htmlFor="female_category">Femminile</label>
-                            </div>
+                            <Controller
+                                control={control}
+                                name='category'
+                                rules={{ required: '- questo campo è obbligatorio' }}
+                                render={({ field: { onChange }, field: { value } }) => (
+                                    <div className="mt-2">
+                                        <input
+                                            className='cursor-pointer'
+                                            id='male_category'
+                                            type="radio"
+                                            name='category'
+                                            value='maschile'
+                                            onChange={(e) => { setCategory(e.target.value); onChange(e.target.value); }}
+                                        />
+                                        <label className="ms-2 text-secondary cursor-pointer" htmlFor="male_category">Maschile</label>
+                                    </div>
+                                )}
+                            />
+                            <Controller
+                                control={control}
+                                name='category'
+                                rules={{ required: '- questo campo è obbligatorio' }}
+                                render={({ field: { onChange }, field: { value } }) => (
+                                    <div className="mt-2">
+                                        <input
+                                            className='cursor-pointer'
+                                            id='female_category'
+                                            type="radio"
+                                            name='category'
+                                            value='femminile'
+                                            onChange={(e) => { setCategory(e.target.value); onChange(e.target.value); }}
+                                        />
+                                        <label className="ms-2 text-secondary cursor-pointer" htmlFor="female_category">Femminile</label>
+                                    </div>
+                                )}
+                            />
+                            
                             <ErrorMessage
                                 errors={errors}
                                 name="category"
