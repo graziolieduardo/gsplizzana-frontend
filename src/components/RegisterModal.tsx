@@ -185,7 +185,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                 onChange={handleCaptainChange}
                                 disabled={(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked}
                             />
-                            <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                            <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
                         </label>
                     </div>
 
@@ -203,7 +203,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                 onChange={handleViceCaptainChange}
                                 disabled={(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked}
                             />
-                            <div className={`${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                            <div className={`${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
                         </label>
                     </div>
 
@@ -230,7 +230,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                         <input
                             {...register("nickname")}
                             className='border rounded p-3 mt-1'
-                            placeholder='Inserisci il sopranome (solo se ne hai già uno)'
+                            placeholder='Inserisci il soprannome (solo se ne hai già uno)'
                             type="text"
                             id='instagram'
                         />

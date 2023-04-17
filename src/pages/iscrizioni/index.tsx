@@ -104,7 +104,7 @@ const Index = () => {
             <div className="container mx-auto">
                 <div className="px-6 pt-12 pb-8 w-full sm:w-1/2">
                     <h2 className="text-4xl font-bold">Modulo di iscrizione torneo di <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary">Calcio Splash</span></h2>
-                    <p className="mt-4 text-secondary">Compila il form per iscrivere la tua squadra al torneo della 23 edizione.</p>
+                    <p className="mt-4 text-secondary">Compila il form per iscrivere la tua squadra al torneo della 23&ordf; edizione.</p>
                 </div>
             </div>
             <div className=" py-10 bg-gray-200">
