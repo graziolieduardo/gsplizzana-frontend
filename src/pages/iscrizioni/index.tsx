@@ -321,7 +321,7 @@ const Index = () => {
                         <div className="mt-2">
                             {/* checkbox acconsento dati */}
                             <input {...register('rules', { required: '- questo campo è obbligatorio' })} className='cursor-pointer' type="checkbox" name="" id="rules" onChange={handleRulesChange} />
-                            <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <Link href={'https://pdfhost.io/v/mpq58x62e_REGOLAMENTO_TORNEO_23'} target='blank' className='font-bold underline'>REGOLAMENTO DEL TORNEO</Link></label>
+                            <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <Link href={'https://pdfhost.io/v/d76jlR1AN_REGOLAMENTO_TORNEO_23_1'} target='blank' className='font-bold underline'>REGOLAMENTO DEL TORNEO</Link></label>
                             <ErrorMessage
                                 errors={errors}
                                 name="rules"
