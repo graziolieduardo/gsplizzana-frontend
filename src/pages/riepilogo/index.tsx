@@ -104,7 +104,7 @@ export default function Index() {
                             <tbody>
                                 {
                                     team && team.players.map((player: Player) => (
-                                        <tr>
+                                        <tr key={player?.id}>
                                             <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.name}</td>
                                             <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.lastname}</td>
                                             <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.nickname}</td>
