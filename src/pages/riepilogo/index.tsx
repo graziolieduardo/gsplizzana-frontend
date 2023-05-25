@@ -86,7 +86,7 @@ export default function Index() {
 
                     <div>
                         <div className='mb-2'>Giocatori:</div>
-                        <table className='border border-secondary'>
+                        <table className='border border-secondary rounded'>
                             <thead>
                                 <tr>
                                     <td className='p-2 border border-secondary bg-gray-200'>Nome</td>

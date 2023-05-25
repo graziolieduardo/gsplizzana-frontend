@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import { Button } from '../components/common/Button'
 
 export default function Home() {
     return (
         <>
+            <Button variant={Button.variant.primary}>Prova</Button>
             <main>
                 {/* jumbotron */}
                 <section id='jumbotron' className='bg-campo bg-cover bg-center'>
