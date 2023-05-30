@@ -4,7 +4,7 @@ import Table from '../components/common/Table';
 
 export default function Home() {
 
-    const girone: any = {
+    const campeonato: any = {
         maschile: {
 
             "Girone A": [
@@ -327,8 +327,8 @@ export default function Home() {
     }
 
 
-    const gironeMaschile = Object.keys(girone.maschile);
-    const gironeFeminile = Object.keys(girone.feminile);
+    const gironeMaschile = Object.keys(campeonato.maschile);
+    const gironeFeminile = Object.keys(campeonato.feminile);
 
     return (
         <>
@@ -372,8 +372,8 @@ export default function Home() {
                         <h2 className='text-2xl font-semibold mb-4 capitalize'>girone maschile </h2>
                         <div className="flex gap-x-4 overflow-x-scroll">
 
-                            {gironeMaschile.map((tableName) => (
-                                <Table key={tableName} tableName={tableName} girone={girone.maschile} />
+                            {gironeMaschile.map((girone) => (
+                                <Table key={girone} girone={girone} campeonato={campeonato.maschile} />
                             ))}
                         </div>
                     </div>
@@ -383,8 +383,9 @@ export default function Home() {
                         <h2 className='text-2xl font-semibold mb-4 capitalize'>girone Feminile </h2>
                         <div className="flex gap-x-4 overflow-x-scroll">
 
-                            {gironeFeminile.map((tableName) => (
-                                <Table key={tableName} tableName={tableName} girone={girone.feminile} bgColor={'bg-gray-50'} />
+                            {gironeFeminile.map((girone) => (
+                                
+                                <Table key={girone} girone={girone} campeonato={campeonato.feminile} bgColor={'bg-gray-50'} />
                             ))}
                         </div>
 
