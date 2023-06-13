@@ -8,6 +8,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { AiOutlineInstagram, AiOutlineCalendar, AiOutlineMail, AiOutlinePhone, AiOutlineUser } from 'react-icons/ai';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Button } from '@/src/components/common/Button';
 
 // const PLAYERS = [
 //     {
@@ -154,7 +155,7 @@ const Index = () => {
                                     </div>
                                 )}
                             />
-                            
+
                             <ErrorMessage
                                 errors={errors}
                                 name="category"
@@ -182,12 +183,13 @@ const Index = () => {
                         </div>
 
                         {/* LOGO */}
-                        {/* <div className="mt-5">
+                        <div className="mt-5">
                             <label className="font-semibold" htmlFor="">Logo</label>
                             <div className="flex h-16 bg-white w-full sm:w-1/2 lg:w-1/3 mt-2 p-3 rounded">
                                 <div className="image-upload h-10">
-                                    <label htmlFor="file-input">
-                                        <img className='h-full' src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/128/Downloads-icon.png" />
+
+                                    <label htmlFor="file-input" className='h-full bg-gradient-to-r from-primary-dark to-primary rounded-full flex justify-center items-center'>
+                                        <img className='w-[50%]' src="/static/arrow-up.svg" />
                                     </label>
 
                                     <input className='hidden' id="file-input" type="file" />
@@ -198,7 +200,7 @@ const Index = () => {
                                     <div className='text-xs text-secondary'>Formati supportati .jpg, .png, .svg</div>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
 
                         <div className='mt-8'>
                             <h3 className="text-xl">Giocatori</h3>
@@ -330,7 +332,8 @@ const Index = () => {
                         </div>
 
                         <div className="mt-10">
-                            <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white" >Invia pre-iscrizione</button>
+                            {/* <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white" >Invia pre-iscrizione</button> */}
+                            <Button variant={Button.variant.primary} > Invia Pre-iscrizione </Button>                             
                         </div>
                     </form>
 

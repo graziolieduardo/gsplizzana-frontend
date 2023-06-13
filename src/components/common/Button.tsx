@@ -15,8 +15,8 @@ enum Variant {
 }
 
 const VARIANT_MAPS = {
-    [Variant.primary]: 'rounded-full bg-gradient-to-r from-primary-dark to-primary hover:to-primary-dark w-full sm:w-[140px] py-2 text-white text-center cursor-pointer',
-    [Variant.secondary]: 'rounded-full bg-white w-full sm:w-[140px] py-1.5 text-primary-dark font-semibold text-center cursor-pointer border-gradient',
+    [Variant.primary]: 'rounded-full bg-gradient-to-r from-primary-dark to-primary hover:to-primary-dark w-full sm:w-fit sm:px-12 py-2 text-white text-center cursor-pointer',
+    [Variant.secondary]: 'rounded-full bg-white w-full sm:w-fit sm:px-16 py-2 py-1.5 text-primary-dark font-semibold text-center cursor-pointer border-gradient',
     [Variant.text]: 'bg-black',
 }
 
@@ -31,9 +31,9 @@ export const Button = ({ type = 'button', variant, link, children }: Props) => {
 
     ) : (
 
-        <div className={classnames(VARIANT_MAPS[variant])}>
+        <button className={classnames(VARIANT_MAPS[variant])}>
             {children}
-        </div>
+        </button>
     )
 }
 
