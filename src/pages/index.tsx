@@ -163,6 +163,162 @@ export default function Home() {
                 },
             ],
 
+            "Girone D": [
+
+                {
+                    position: 1,
+                    points: 6,
+                    club: {
+                        id: 1,
+                        clubName: 'squadra A'
+                    },
+                    matches: 3,
+                    win: 2,
+                    draw: 0,
+                    lose: 1
+                },
+                {
+                    position: 2,
+                    points: 4,
+                    club: {
+                        id: 3,
+                        clubName: 'squadra C'
+                    },
+                    matches: 3,
+                    win: 1,
+                    draw: 1,
+                    lose: 1
+                },
+                {
+                    position: 3,
+                    points: 2,
+                    club: {
+                        id: 2,
+                        clubName: 'squadra B'
+                    },
+                    matches: 5,
+                    win: 0,
+                    draw: 2,
+                    lose: 1
+                },
+                {
+                    position: 4,
+                    points: 1,
+                    club: {
+                        id: 4,
+                        clubName: 'squadra D'
+                    },
+                    matches: 5,
+                    win: 0,
+                    draw: 1,
+                    lose: 2
+                },
+            ],
+
+            "Girone E": [
+
+                {
+                    position: 1,
+                    points: 6,
+                    club: {
+                        id: 1,
+                        clubName: 'squadra E'
+                    },
+                    matches: 3,
+                    win: 2,
+                    draw: 0,
+                    lose: 1
+                },
+                {
+                    position: 2,
+                    points: 4,
+                    club: {
+                        id: 3,
+                        clubName: 'squadra F'
+                    },
+                    matches: 3,
+                    win: 1,
+                    draw: 1,
+                    lose: 1
+                },
+                {
+                    position: 3,
+                    points: 2,
+                    club: {
+                        id: 2,
+                        clubName: 'squadra G'
+                    },
+                    matches: 3,
+                    win: 0,
+                    draw: 2,
+                    lose: 1
+                },
+                {
+                    position: 4,
+                    points: 1,
+                    club: {
+                        id: 4,
+                        clubName: 'squadra H'
+                    },
+                    matches: 3,
+                    win: 0,
+                    draw: 1,
+                    lose: 2
+                },
+            ],
+
+            "Girone F": [
+
+                {
+                    position: 1,
+                    points: 6,
+                    club: {
+                        id: 1,
+                        clubName: 'squadra I muito grande'
+                    },
+                    matches: 3,
+                    win: 2,
+                    draw: 0,
+                    lose: 1
+                },
+                {
+                    position: 2,
+                    points: 4,
+                    club: {
+                        id: 3,
+                        clubName: 'squadra J'
+                    },
+                    matches: 3,
+                    win: 1,
+                    draw: 1,
+                    lose: 1
+                },
+                {
+                    position: 3,
+                    points: 2,
+                    club: {
+                        id: 2,
+                        clubName: 'squadra K'
+                    },
+                    matches: 3,
+                    win: 0,
+                    draw: 2,
+                    lose: 1
+                },
+                {
+                    position: 4,
+                    points: 1,
+                    club: {
+                        id: 4,
+                        clubName: 'squadra L'
+                    },
+                    matches: 3,
+                    win: 0,
+                    draw: 1,
+                    lose: 2
+                },
+            ],
+
 
         },
 
@@ -332,7 +488,7 @@ export default function Home() {
 
     return (
         <>
-            <Button variant={Button.variant.primary}>Prova</Button>
+            {/* <Button variant={Button.variant.primary}>Prova</Button> */}
             <main>
                 {/* jumbotron */}
                 <section id='jumbotron' className='bg-campo bg-cover bg-center'>
@@ -346,45 +502,51 @@ export default function Home() {
                 </section>
 
                 {/* register */}
-                <section id='register' className='bg-gray-50'>
-                    <div className="container mx-auto relative">
+                <section id='register' className=''>
+                    <div className="container mx-auto relative ">
                         <div className='flex justify-end'>
-                            <img className='opacity-20 md:opacity-100 max-h-72' src="/static/palla-rete.png" alt="" />
+                            <img className='opacity-20 md:opacity-100 h-[317px] lg:h-[556px]' src="/static/palla-rete.png" alt="" />
                         </div>
                         {/* CONTENT */}
                         {/* <div className='absolute top-0 left-0 px-6 py-8 md:w-1/2 max-h-72'> */}
-                        <div className='absolute top-0 left-0 px-6 py-8 md:w-1/2 max-h-72'>
-                            <h5 className='text-2xl font-bold w-2/3'>
+                        <div className='absolute h-[317px] lg:h-[556px] top-0 left-0 px-6 md:w-1/2 flex flex-col justify-center'>
+                            <h5 className='text-3xl font-bold md:w-2/3'>
                                 Il <span className='text-primary'>Mondiale</span> si gioca sul gonfiabile
                             </h5>
 
-                            <p className='mt-4 font-light text-secondary'>Sai la differenza tra i mondiali classici e quelli sul sapone? Quelli sul sapone non cambiano luogo ogni 4 anni.</p>
+                            <p className='my-6 font-light text-secondary'>Sai la differenza tra i mondiali classici e quelli sul sapone? Quelli sul sapone non cambiano luogo ogni 4 anni.</p>
 
-                            <Link className='block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full py-2 mt-8 text-white text-center' href="iscrizioni">Iscriviti</Link>
+                            {/* <Link className='block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full py-2 mt-8 text-white text-center' href="iscrizioni">Iscriviti</Link> */}
+                            <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button>
                         </div>
                     </div>
                 </section>
 
                 {/* table section */}
                 <section id='tables'>
-                    <div className='pl-6 py-8 bg-gray-50'>
+                    <div className=" bg-gray-50">
 
-                        <h2 className='text-2xl font-semibold mb-4 capitalize'>girone maschile </h2>
-                        <div className="flex gap-x-4 overflow-x-scroll">
+                        <div className='container mx-auto pl-6 py-8'>
 
-                            {gironeMaschile.map((girone) => (
-                                <Table key={girone} girone={girone} campeonato={campeonato.maschile} />
-                            ))}
+                            <h2 className='text-2xl font-semibold mb-4 capitalize'>girone maschile </h2>
+                            <div className="flex gap-x-4 overflow-x-scroll">
+
+                                {gironeMaschile.map((girone) => (
+                                    <div key={girone}>
+                                        <Table girone={girone} campeonato={campeonato.maschile} />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
-                    <div className="pl-6 py-8">
+                    <div className="pl-6 py-8 container mx-auto">
 
                         <h2 className='text-2xl font-semibold mb-4 capitalize'>girone Feminile </h2>
                         <div className="flex gap-x-4 overflow-x-scroll">
 
                             {gironeFeminile.map((girone) => (
-                                
+
                                 <Table key={girone} girone={girone} campeonato={campeonato.feminile} bgColor={'bg-gray-50'} />
                             ))}
                         </div>

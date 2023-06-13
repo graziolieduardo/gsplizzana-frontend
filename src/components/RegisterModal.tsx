@@ -252,6 +252,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                             checked={value}
                                             className="sr-only peer"
                                             onChange={onChange}
+                                            id='participate'
                                         />
                                         <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                                     </label>
@@ -262,13 +263,13 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
 
                     {/* nickname */}
                     <div className='mt-4 flex flex-col'>
-                        <label className='font-semibold text-sm' htmlFor="instagram">Ha già un soprannome assegnato dai nostri speaker?</label>
+                        <label className='font-semibold text-sm' htmlFor="surname">Ha già un soprannome assegnato dai nostri speaker?</label>
                         <input
                             {...register("nickname")}
                             className='border rounded p-3 mt-1'
                             placeholder='Inserisci il soprannome (solo se ne hai già uno)'
                             type="text"
-                            id='instagram'
+                            id='surname'
                         />
                     </div>
 
