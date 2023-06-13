@@ -53,7 +53,8 @@ const Index = () => {
         setIsRegisterOpen(true);
     }
 
-    const handleModify = (index: any) => {
+    const handleModify = (index: any, e: any) => {
+        e.preventDefault()
         setModifyIndex(index);
         setIsRegisterOpen(true);
     }
@@ -112,6 +113,7 @@ const Index = () => {
                 </div>
             </div>
             <div className=" py-10 bg-gray-200">
+                    
                 <div className="container mx-auto px-6">
 
                     <h2 className='text-2xl font-bold'>Dettagli squadra</h2>
@@ -208,6 +210,7 @@ const Index = () => {
                                 {/* container */}
                                 {/* scrollable container */}
                                 <div className="inline-flex h-[350px]">
+
                                     {/* add player card */}
                                     <div className="hover:border-primary-dark hover:border-2 cursor-pointer minwd border rounded-md bg-white p-8 flex flex-col justify-center items-center" onClick={() => handleAddPlayer()}>
                                         <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient-to-r from-primary-dark to-primary text-white">
@@ -216,6 +219,7 @@ const Index = () => {
                                         <div className="mt-4 font-semibold text-lg">Aggiungi giocatore</div>
                                         <small className='text-secondary'>fino a 9 per squadra</small>
                                     </div>
+
                                     {/* players cards */}
                                     {
                                         players.map((player, index) => (
@@ -295,16 +299,21 @@ const Index = () => {
                                                     </div>
 
                                                     {/* button */}
-                                                    <div className="cursor-pointer flex self-end justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-6" onClick={() => handleModify(index)}>
+                                                    {/* <div className="cursor-pointer flex self-end justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-6" onClick={() => handleModify(index)}>
                                                         <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
                                                             Modifica
                                                         </div>
+                                                    </div> */}
+                                                    <div className='flex justify-center align-center z-10' onClick={(e) => handleModify(index, e)}>
+                                                        <Button variant={Button.variant.secondary}>Modifica</Button>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         ))
                                     }
                                 </div>
+                                
                             </div>
                             {error.length > 0 && <p className='text-primary-dark'>{error}</p>}
                         </div>
@@ -331,9 +340,9 @@ const Index = () => {
                             />
                         </div>
 
-                        <div className="mt-10">
+                        <div className="mt-10 ">
                             {/* <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white" >Invia pre-iscrizione</button> */}
-                            <Button variant={Button.variant.primary} > Invia Pre-iscrizione </Button>                             
+                            <Button variant={Button.variant.primary} > Invia Pre-iscrizione </Button>
                         </div>
                     </form>
 

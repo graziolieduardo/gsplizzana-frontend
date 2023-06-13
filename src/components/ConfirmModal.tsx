@@ -6,7 +6,7 @@ const ConfirmModal = () => {
 
                 <h2 className="text-3xl font-bold mt-6">Pre-iscrizione inviata</h2>
                 <p className="text-secondary text-center font-semibold mt-4">Ti aspettiamo a Lizzana il 29 aprole ore 7.00 per completare l&apos;iscrizione</p>
-                <p className="text-secondary text-center font-semibold mt-4">Ti aspettiamo a Lizzana il 29 aprole ore 7.00 per completare l&apos;iscrizione</p>
+                
 
                 <div className="mt-8 w-4/5">
                     <button className="block mx-auto rounded-full bg-gradient-to-r w-full lg:w-1/2 from-primary-dark to-primary py-2 text-white" >Chiudi</button>
