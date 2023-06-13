@@ -488,7 +488,6 @@ export default function Home() {
 
     return (
         <>
-            {/* <Button variant={Button.variant.primary}>Prova</Button> */}
             <main>
                 {/* jumbotron */}
                 <section id='jumbotron' className='bg-campo bg-cover bg-center'>
@@ -529,7 +528,7 @@ export default function Home() {
                         <div className='container mx-auto pl-6 py-8'>
 
                             <h2 className='text-2xl font-semibold mb-4 capitalize'>girone maschile </h2>
-                            <div className="flex gap-x-4 overflow-x-scroll">
+                            <div className="flex gap-x-4 overflow-x-auto">
 
                                 {gironeMaschile.map((girone) => (
                                     <div key={girone}>
@@ -543,7 +542,7 @@ export default function Home() {
                     <div className="pl-6 py-8 container mx-auto">
 
                         <h2 className='text-2xl font-semibold mb-4 capitalize'>girone Feminile </h2>
-                        <div className="flex gap-x-4 overflow-x-scroll">
+                        <div className="flex gap-x-4 overflow-x-auto">
 
                             {gironeFeminile.map((girone) => (
 

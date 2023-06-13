@@ -117,6 +117,8 @@ const Index = () => {
                 <div className="container mx-auto px-6">
 
                     <h2 className='text-2xl font-bold'>Dettagli squadra</h2>
+
+                    {/* form  */}
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* CATEGORIES */}
                         <fieldset>
@@ -204,9 +206,10 @@ const Index = () => {
                             </div>
                         </div>
 
+                        {/* GIOCATORI */}
                         <div className='mt-8'>
                             <h3 className="text-xl">Giocatori</h3>
-                            <div className="overflow-x-scroll rounded-md">
+                            <div className="overflow-x-auto rounded-md">
                                 {/* container */}
                                 {/* scrollable container */}
                                 <div className="inline-flex h-[350px]">
@@ -318,8 +321,8 @@ const Index = () => {
                             {error.length > 0 && <p className='text-primary-dark'>{error}</p>}
                         </div>
 
+                        {/* checkbox acconsento dati */}
                         <div className="mt-2">
-                            {/* checkbox acconsento dati */}
                             <input {...register('privacy', { required: '- questo campo è obbligatorio' })} className='cursor-pointer' type="checkbox" name="" id="personal-data" onChange={handlePrivacyChange} />
                             <label className="ms-2 text-secondary cursor-pointer" htmlFor="personal-data">Acconsento il trattamento dei dati personali</label>
                             <ErrorMessage
@@ -329,8 +332,8 @@ const Index = () => {
                             />
                         </div>
 
+                        {/* checkbox acconsento dati */}
                         <div className="mt-2">
-                            {/* checkbox acconsento dati */}
                             <input {...register('rules', { required: '- questo campo è obbligatorio' })} className='cursor-pointer' type="checkbox" name="" id="rules" onChange={handleRulesChange} />
                             <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <Link href={'https://pdfhost.io/v/d76jlR1AN_REGOLAMENTO_TORNEO_23_1'} target='blank' className='font-bold underline'>REGOLAMENTO DEL TORNEO</Link></label>
                             <ErrorMessage
@@ -340,18 +343,14 @@ const Index = () => {
                             />
                         </div>
 
+                        {/* invia button */}
                         <div className="mt-10 ">
                             {/* <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white" >Invia pre-iscrizione</button> */}
                             <Button variant={Button.variant.primary} > Invia Pre-iscrizione </Button>
                         </div>
                     </form>
-
                 </div>
-
-
             </div>
-            {/* <RegisterModal /> */}
-            {/* <ConfirmModal /> */}
         </>
     )
 }
