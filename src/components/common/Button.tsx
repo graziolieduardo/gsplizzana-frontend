@@ -14,7 +14,7 @@ enum Variant {
 }
 
 const VARIANT_MAPS = {
-    [Variant.primary]: 'bg-green-200',
+    [Variant.primary]: 'rounded-full bg-gradient-to-r from-primary-dark to-primary hover:to-primary-dark w-full sm:w-[140px] py-2 text-white text-center',
     [Variant.secondary]: 'bg-gray-200',
     [Variant.text]: 'bg-black',
 }
