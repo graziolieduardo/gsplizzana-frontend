@@ -12,6 +12,10 @@
     position: relative;
 }
 
+th {
+    font-weight: normal;
+}
+
 .border-gradient::before {
     content: "";
     position: absolute;
