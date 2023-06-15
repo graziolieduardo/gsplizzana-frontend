@@ -639,7 +639,7 @@ export default function Home() {
                     title: 'Pausa',
                     time: '20.30',
                     important: false,
-                    highlight: false
+                    highlight: true
                 },
                 {
                     title: 'Ripresa partite',
@@ -697,10 +697,10 @@ export default function Home() {
                     <div className='flex gap-x-4 mt-8 overflow-x-auto'>
 
                         {programma.map((day, i) => (
-                            <div key={i} className='bg-white min-w-[430px] p-4 border rounded'>
+                            <div key={i} className='bg-white min-w-[80%] sm:min-w-[430px] p-4 border rounded'>
                                 <div className='tex-2xl font-bold uppercase py-2'>{day} </div>
                                 {campeonato.programma[day].map((event: any, i: number) => (
-                                    <div key={i} className={`p-3 rounded flex gap-x-8 ${event.highlight ? 'bg-bg-primary font-semibold' : null} ${event.important ? 'text-primary' : null}`}>
+                                    <div key={i} className={`p-3 rounded flex gap-x-4 text-sm sm:text-base sm:gap-x-8 ${event.highlight ? 'bg-bg-primary font-semibold' : null} ${event.important ? 'text-primary' : null}`}>
                                         <p>{event.time}</p><p>{event.title}</p>
                                     </div>
                                 ))}
