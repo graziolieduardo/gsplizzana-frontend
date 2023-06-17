@@ -1,29 +1,31 @@
 import LiveStream from "@/src/components/common/LiveStream"
-
 import { useState } from "react"
 
 const index = () => {
 
   const [activePage, setActivePage] = useState('male')
 
-
   return (
     <>
       <section className="px-4 py-8 container mx-auto">
         <div>
-          Gironi :)
+          
 
-          <div className="flex  gap-8 justify-around"> 
-          <div onClick={() => {setActivePage('male')}} className="bg-blue-200" >Male 1</div>
-          <div onClick={() => {setActivePage('female')}} className="bg-red-200" >Female 1</div>
-        </div>
+          {/* maschile and feminile switch */}
+          <div className="flex justify-around border-2 rounded border-primary-dark">
+            <div onClick={() => { setActivePage('male') }} className={`font-semibold ${activePage === "male" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'} w-1/2 text-center py-2`} >Maschili</div>
+            <div onClick={() => { setActivePage('female') }} className={`font-semibold ${activePage === "female" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'}  w-1/2 text-center py-2 `} >Feminili</div>
+          </div>
 
-        {
-        activePage === "male" ? 
-        <div className="text-center text-4xl mt-4"> male!</div> 
-        : 
-        <div className="text-center text-4xl mt-4"> female!</div>}
-         
+
+          {
+            activePage === "male" ?
+              // to render maschile component 
+              <div className="text-center text-4xl mt-4"> male!</div>
+              :
+              //to render feminile component
+              <div className="text-center text-4xl mt-4"> female!</div>}
+
         </div>
       </section >
       <LiveStream />

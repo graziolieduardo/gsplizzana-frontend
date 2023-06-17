@@ -1,7 +1,5 @@
-import Link from 'next/link'
 import { Button } from '../components/common/Button'
 import Table from '../components/common/Table';
-import TableGironi from '../components/common/TableGironi';
 import LiveStream from '../components/common/LiveStream';
 
 export default function Home() {
@@ -653,7 +651,7 @@ export default function Home() {
 
     const gironeMaschile = Object.keys(campeonato.maschile);
     const gironeFeminile = Object.keys(campeonato.feminile);
-    const programma = Object.keys(campeonato.programma);
+    const programma = Object.keys(campeonato.programma); 
 
     return (
         <>
@@ -713,7 +711,7 @@ export default function Home() {
             {/*Male table section */}
             <section id='male-table' className='bg-bg-primary'>
 
-                <div className='container mx-auto pl-6 py-8'>
+                <div className='container mx-auto pl-4 py-16'>
 
                     <h2 className='text-2xl font-semibold mb-4 capitalize'>girone maschile </h2>
                     <div className="flex gap-x-4 overflow-x-auto">
@@ -731,7 +729,7 @@ export default function Home() {
             {/* Female table section */}
             <section id='female-table'>
 
-                <div className="pl-6 py-8 container mx-auto">
+                <div className="container mx-auto pl-4 py-16">
 
                     <h2 className='text-2xl font-semibold mb-4 capitalize'>girone Feminile </h2>
                     <div className="flex gap-x-4 overflow-x-auto">
