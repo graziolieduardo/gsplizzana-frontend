@@ -747,16 +747,16 @@ export default function Home() {
 
             {/* test new table */}
             {/* <div className="px-6 py-8 container mx-auto">
-                    <h2 className='text-2xl font-semibold mb-4 capitalize'>girone test </h2>
-                    <div className='sm:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-y-6'>
+                <h2 className='text-2xl font-semibold mb-4 capitalize'>girone test </h2>
+                <div className='sm:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-y-6'>
 
-                        {gironeMaschile.map((girone) => (
+                    {gironeMaschile.map((girone) => (
 
-                            <TableGironi key={girone} girone={girone} campeonato={campeonato.maschile} />
-                        ))}
+                        <TableGironi key={girone} girone={girone} campeonato={campeonato.maschile} />
+                    ))}
 
-                    </div>
-                </div> */}
+                </div>
+            </div> */}
             <LiveStream />
 
         </>
