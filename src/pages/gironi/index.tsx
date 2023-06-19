@@ -1,4 +1,5 @@
 import LiveStream from "@/src/components/common/LiveStream"
+import TableGironi from "@/src/components/common/TableGironi"
 import { useState } from "react"
 
 const index = () => {
@@ -9,7 +10,7 @@ const index = () => {
     <>
       <section className="px-4 py-8 container mx-auto">
         <div>
-          
+
 
           {/* maschile and feminile switch */}
           <div className="flex justify-around border-2 rounded border-primary-dark">
@@ -21,10 +22,15 @@ const index = () => {
           {
             activePage === "male" ?
               // to render maschile component 
-              <div className="text-center text-4xl mt-4"> male!</div>
+              <div className="px-6 py-8 container mx-auto">
+                <TableGironi url={'maschile'} />
+              </div>
               :
               //to render feminile component
-              <div className="text-center text-4xl mt-4"> female!</div>}
+              <div className="px-6 py-8 container mx-auto">
+                <TableGironi url={'feminile'} />
+              </div>
+          }
 
         </div>
       </section >

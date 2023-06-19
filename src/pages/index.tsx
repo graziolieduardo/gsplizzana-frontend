@@ -1,5 +1,5 @@
 import { Button } from '../components/common/Button'
-import Table from '../components/common/Table';
+import TableHome from '../components/common/TableHome';
 import LiveStream from '../components/common/LiveStream';
 
 export default function Home() {
@@ -668,7 +668,7 @@ export default function Home() {
             </section>
 
             {/* register */}
-            <section id='register' className=''>
+            <section id='register'>
                 <div className="container mx-auto relative ">
                     <div className='flex justify-end'>
                         <img className='opacity-20 md:opacity-100 h-[317px] lg:h-[556px]' src="/static/palla-rete.png" alt="" />
@@ -690,7 +690,7 @@ export default function Home() {
 
             {/* Programma */}
             <section id='program' className='bg-bg-primary'>
-                <div className='container mx-auto px-4 py-16 mb-12'>
+                <div className='container mx-auto px-4 py-16'>
                     <h2 className='text-4xl font-bold'> Programma 2023</h2>
                     <div className='flex gap-x-4 mt-8 overflow-x-auto'>
 
@@ -718,7 +718,7 @@ export default function Home() {
 
                         {gironeMaschile.map((girone) => (
                             <div key={girone}>
-                                <Table girone={girone} campeonato={campeonato.maschile} />
+                                <TableHome girone={girone} campeonato={campeonato.maschile} />
                             </div>
                         ))}
                     </div>
@@ -736,7 +736,7 @@ export default function Home() {
 
                         {gironeFeminile.map((girone) => (
 
-                            <Table key={girone} girone={girone} campeonato={campeonato.feminile} bgColor={'bg-bg-primary'} />
+                            <TableHome key={girone} girone={girone} campeonato={campeonato.feminile} bgColor={'bg-bg-primary'} />
                         ))}
                     </div>
                     <small>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</small>

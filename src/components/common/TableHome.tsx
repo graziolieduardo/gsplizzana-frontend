@@ -2,7 +2,7 @@ import React from 'react'
 
 type Props = any
 
-export default function Table({girone, campeonato, bgColor = 'bg-white'}: Props) {
+export default function TableHomr({girone, campeonato, bgColor = 'bg-white'}: Props) {
     return (
         <>
             <div key={girone} className={`mb-4 last:mr-4 ${bgColor} min-w-[280px] rounded-md w-fit py-5 px-5  border`}>
