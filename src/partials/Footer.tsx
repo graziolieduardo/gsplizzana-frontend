@@ -9,7 +9,7 @@ export const Footer = () => {
                     <div className="sm:py-8 leading-8">
 
                         {/* top */}
-                        <div className="container mx-auto text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary p-6 mb-5">
+                        <div className="max-w-container 2xl:max-w-container-xl mx-auto text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary p-6 mb-5">
                             <h2 className="text-3xl font-bold ">GSP LIZZANA</h2>
                             <p>Via Panizza, 32 - Rovereto (TN) 38068</p>
                             <p>lizzanagsp@gmail.com</p>
@@ -27,7 +27,7 @@ export const Footer = () => {
                         <div className="h-px bg-gray-50"></div>
 
                         {/* bottom */}
-                        <div className="container mx-auto px-6 text-white py-4">
+                        <div className="max-w-container 2xl:max-w-container-xl mx-auto px-6 text-white py-4">
                             <p>&#169; 2023 Gsp Lizzana</p>
                             {/* <p>&#169; 2023 Gsp Lizzana | Privacy Policy - Cookie Policy </p> */}
                         </div>

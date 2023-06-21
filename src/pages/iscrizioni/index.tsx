@@ -106,7 +106,7 @@ const Index = () => {
             </Head>
             {isRegisterOpen && <RegisterModal setIsRegisterOpen={setIsRegisterOpen} modifyIndex={modifyIndex} />}
 
-            <div className="container mx-auto">
+            <div className="max-w-container 2xl:max-w-container-xl mx-auto">
                 <div className="px-6 pt-12 pb-8 w-full sm:w-1/2">
                     <h2 className="text-4xl font-bold">Modulo di iscrizione torneo di <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary">Calcio Splash</span></h2>
                     <p className="mt-4 text-secondary">Compila il form per iscrivere la tua squadra al torneo della 23&ordf; edizione.</p>
@@ -114,7 +114,7 @@ const Index = () => {
             </div>
             <div className=" py-10 bg-gray-200">
                     
-                <div className="container mx-auto px-6">
+                <div className="max-w-container 2xl:max-w-container-xl mx-auto px-6">
 
                     <h2 className='text-2xl font-bold'>Dettagli squadra</h2>
 

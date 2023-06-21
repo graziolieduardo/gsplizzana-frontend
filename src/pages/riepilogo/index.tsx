@@ -45,7 +45,7 @@ export default function Index() {
     }
 
     return (
-        <div className='container mx-auto px-6 py-6'>
+        <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 py-6'>
             <div className='flex flex-col mb-8'>
                 <label className='font-semibold text-sm' htmlFor="name">Inserisci il token per cercare una squadra</label>
                 <div className='flex items-center gap-x-2'>

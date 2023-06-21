@@ -16,7 +16,11 @@ module.exports = {
             },
             backgroundImage: {
                 'campo': "url('/static/campo.JPG')",
-            }
+            },
+            maxWidth: {
+                'container': '1200px',
+                'container-xl': '1400px'
+              }
         },
     },
     plugins: [],

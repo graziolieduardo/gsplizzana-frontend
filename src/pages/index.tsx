@@ -659,7 +659,7 @@ import LiveStream from '../components/common/LiveStream';
             {/* jumbotron */}
             <section id='jumbotron' className='bg-campo bg-cover bg-center'>
                 <div className='bg-black/80 pt-80 pb-6 sm:pb-12'>
-                    <div className='container mx-auto px-6 '>
+                    <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 '>
                         <h2 className='text-4xl text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>23&ordf; edizione</h2>
                         <h5 className='text-2xl text-white font-bold mt-3'>Calcio Splash Lizzana</h5>
                         <h5 className='text-2xl text-white font-bold'>Dal 10 al 13 agosto 2023</h5>
@@ -669,7 +669,7 @@ import LiveStream from '../components/common/LiveStream';
 
             {/* register */}
             <section id='register'>
-                <div className="container mx-auto relative ">
+                <div className="max-w-container 2xl:max-w-container-xl mx-auto relative ">
                     <div className='flex justify-end'>
                         <img className='opacity-20 md:opacity-100 h-[317px] lg:h-[556px]' src="/static/palla-rete.png" alt="" />
                     </div>
@@ -690,7 +690,7 @@ import LiveStream from '../components/common/LiveStream';
 
             {/* Programma */}
             <section id='program' className='bg-bg-primary'>
-                <div className='container mx-auto px-4 py-16'>
+                <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-16'>
                     <h2 className='text-4xl font-bold'> Programma 2023</h2>
                     <div className='flex gap-x-4 mt-8 overflow-x-auto'>
 
@@ -711,7 +711,7 @@ import LiveStream from '../components/common/LiveStream';
             {/*Male table section */}
             <section id='male-table' className='bg-bg-primary'>
 
-                <div className='container mx-auto pl-4 py-16'>
+                <div className='max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16'>
 
                     <h2 className='text-2xl font-semibold mb-4 capitalize'>girone maschile </h2>
                     <div className="flex gap-x-4 overflow-x-auto">
@@ -729,7 +729,7 @@ import LiveStream from '../components/common/LiveStream';
             {/* Female table section */}
             <section id='female-table'>
 
-                <div className="container mx-auto pl-4 py-16">
+                <div className="max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16">
 
                     <h2 className='text-2xl font-semibold mb-4 capitalize'>girone Feminile </h2>
                     <div className="flex gap-x-4 overflow-x-auto">
@@ -744,7 +744,7 @@ import LiveStream from '../components/common/LiveStream';
             </section>
 
             {/* test new table */}
-            {/* <div className="px-6 py-8 container mx-auto">
+            {/* <div className="px-6 py-8 max-w-container 2xl:max-w-container-xl mx-auto">
                 <h2 className='text-2xl font-semibold mb-4 capitalize'>girone test </h2>
                 <div className='sm:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-y-6'>
 

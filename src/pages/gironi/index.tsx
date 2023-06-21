@@ -8,7 +8,7 @@ const index = () => {
 
   return (
     <>
-      <section className="px-4 py-12 container mx-auto">
+      <section className="px-4 py-12 max-w-container 2xl:max-w-container-xl mx-auto">
         <div>
 
 
@@ -22,12 +22,12 @@ const index = () => {
           {
             activePage === "male" ?
               // to render maschile component 
-              <div className="py-8 container mx-auto">
+              <div className="py-8 max-w-container 2xl:max-w-container-xl mx-auto">
                 <Gironi url={ activePage }/>
               </div>
               :
               //to render feminile component
-              <div className="py-8 container mx-auto">
+              <div className="py-8 max-w-container 2xl:max-w-container-xl mx-auto">
                 <Gironi url={ activePage } />
               </div>
           }

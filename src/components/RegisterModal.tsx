@@ -86,7 +86,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     return (
 
         <div className='px-4 fixed inset-0 z-50 lg:h-[95vh] lg:fixed lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 py-10 rounded-md lg:w-4/5 mx-auto bg-white overflow-y-auto shadow-2xl'>
-            <div className="container mx-auto">
+            <div className="max-w-container 2xl:max-w-container-xl mx-auto">
 
                 <div className='flex justify-between items-center'>
                     <h2 className='text-2xl font-bold '>Dati giocatore</h2>
