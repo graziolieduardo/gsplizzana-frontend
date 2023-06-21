@@ -5,7 +5,7 @@ type Props = any
 export default function TableHomr({girone, campeonato, bgColor = 'bg-white'}: Props) {
     return (
         <>
-            <div key={girone} className={`mb-4 last:mr-4 ${bgColor} min-w-[280px] rounded-md w-fit py-5 px-5  border`}>
+            <div key={girone} className={`mb-4 last:mr-4 ${bgColor} min-w-[280px] rounded-md w-fit py-5 px-6 border`}>
 
                 <table className='w-full'>
                     <caption className='mb-4 text-xl font-semibold text-start'>{girone}</caption>

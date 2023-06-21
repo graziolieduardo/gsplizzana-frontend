@@ -2,7 +2,7 @@ import { Button } from '../components/common/Button'
 import TableHome from '../components/common/TableHome';
 import LiveStream from '../components/common/LiveStream';
 
-export default function Home() {
+    export default function Home() {
 
     const campeonato: any = {
         maschile: {

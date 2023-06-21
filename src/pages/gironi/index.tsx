@@ -1,19 +1,19 @@
 import LiveStream from "@/src/components/common/LiveStream"
-import TableGironi from "@/src/components/common/TableGironi"
+import Gironi from "@/src/components/common/Gironi"
 import { useState } from "react"
 
 const index = () => {
 
-  const [activePage, setActivePage] = useState('male')
+    const [activePage, setActivePage] = useState('male')
 
   return (
     <>
-      <section className="px-4 py-8 container mx-auto">
+      <section className="px-4 py-12 container mx-auto">
         <div>
 
 
           {/* maschile and feminile switch */}
-          <div className="flex justify-around border-2 rounded border-primary-dark">
+          <div className="flex justify-around border-2 rounded border-primary-dark mb-4">
             <div onClick={() => { setActivePage('male') }} className={`font-semibold ${activePage === "male" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'} w-1/2 text-center py-2`} >Maschili</div>
             <div onClick={() => { setActivePage('female') }} className={`font-semibold ${activePage === "female" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'}  w-1/2 text-center py-2 `} >Feminili</div>
           </div>
@@ -22,13 +22,13 @@ const index = () => {
           {
             activePage === "male" ?
               // to render maschile component 
-              <div className="px-6 py-8 container mx-auto">
-                <TableGironi url={'maschile'} />
+              <div className="py-8 container mx-auto">
+                <Gironi url={ activePage }/>
               </div>
               :
               //to render feminile component
-              <div className="px-6 py-8 container mx-auto">
-                <TableGironi url={'feminile'} />
+              <div className="py-8 container mx-auto">
+                <Gironi url={ activePage } />
               </div>
           }
 
