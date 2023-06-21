@@ -1,6 +1,7 @@
 import { Button } from '../components/common/Button'
 import TableHome from '../components/common/TableHome';
 import LiveStream from '../components/common/LiveStream';
+import Programma from '../components/common/Programma';
 
     export default function Home() {
 
@@ -480,182 +481,13 @@ import LiveStream from '../components/common/LiveStream';
                 },
             ],
         },
-
-        programma: {
-            "giovedi": [
-                {
-                    title: 'Cerimonia di apertura',
-                    time: '15.30',
-                    important: true,
-                    highlight: true
-                },
-                {
-                    title: 'Inizio torneo calcio splash️',
-                    time: '16.00',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Inizio torneo beer pong ',
-                    time: '16.30',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Pausa',
-                    time: '20.30',
-                    important: false,
-                    highlight: true
-                },
-                {
-                    title: 'Ripresa partite',
-                    time: '21.00',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Fine partita',
-                    time: '23.40',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Chiusura',
-                    time: '01.30',
-                    important: false,
-                    highlight: false
-                },
-            ],
-            "venerdi": [
-                {
-                    title: 'Inizio partite calcio splash e beer pong',
-                    time: '16.00',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Pausa',
-                    time: '20.30',
-                    important: false,
-                    highlight: true
-                },
-                {
-                    title: 'Ripresa partite',
-                    time: '21.00',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Fine partite',
-                    time: '22.40',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Super saom show ✨ ',
-                    time: '23.40',
-                    important: true,
-                    highlight: true
-                },
-                {
-                    title: 'chiusura',
-                    time: '01.30',
-                    important: false,
-                    highlight: false
-                },
-            ],
-            "sabato": [
-                {
-                    title: 'Ripresa partite',
-                    time: '21.00',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Fine partite',
-                    time: '22.40',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Super saom show ✨ ',
-                    time: '23.40',
-                    important: true,
-                    highlight: true
-                },
-                {
-                    title: 'chiusura',
-                    time: '01.30',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Super saom show ✨ ',
-                    time: '23.40',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'chiusura',
-                    time: '01.30',
-                    important: false,
-                    highlight: true
-                },
-                {
-                    title: 'Super saom show ✨ ',
-                    time: '23.40',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'chiusura',
-                    time: '01.30',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Super saom show ✨ ',
-                    time: '23.40',
-                    important: false,
-                    highlight: true
-                },
-                {
-                    title: 'chiusura',
-                    time: '01.30',
-                    important: false,
-                    highlight: false
-                },
-            ],
-            "domenica": [
-                {
-                    title: 'Inizio partite calcio splash e beer pong',
-                    time: '16.00',
-                    important: false,
-                    highlight: false
-                },
-                {
-                    title: 'Pausa',
-                    time: '20.30',
-                    important: false,
-                    highlight: true
-                },
-                {
-                    title: 'Ripresa partite',
-                    time: '21.00',
-                    important: false,
-                    highlight: false
-                },
-            ],
-        }
     }
 
     const gironeMaschile = Object.keys(campeonato.maschile);
     const gironeFeminile = Object.keys(campeonato.feminile);
-    const programma = Object.keys(campeonato.programma); 
 
     return (
         <>
-
             {/* jumbotron */}
             <section id='jumbotron' className='bg-campo bg-cover bg-center'>
                 <div className='bg-black/80 pt-80 pb-6 sm:pb-12'>
@@ -689,24 +521,7 @@ import LiveStream from '../components/common/LiveStream';
             </section>
 
             {/* Programma */}
-            <section id='program' className='bg-bg-primary'>
-                <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-16'>
-                    <h2 className='text-4xl font-bold'> Programma 2023</h2>
-                    <div className='flex gap-x-4 mt-8 overflow-x-auto'>
-
-                        {programma.map((day, i) => (
-                            <div key={i} className='bg-white min-w-[80%] sm:min-w-[430px] p-4 border rounded'>
-                                <div className='tex-2xl font-bold uppercase py-2'>{day} </div>
-                                {campeonato.programma[day].map((event: any, i: number) => (
-                                    <div key={i} className={`p-3 rounded flex gap-x-4 text-sm sm:text-base sm:gap-x-8 ${event.highlight ? 'bg-bg-primary font-semibold' : null} ${event.important ? 'text-primary' : null}`}>
-                                        <p>{event.time}</p><p>{event.title}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <Programma />
 
             {/*Male table section */}
             <section id='male-table' className='bg-bg-primary'>
@@ -743,20 +558,7 @@ import LiveStream from '../components/common/LiveStream';
                 </div>
             </section>
 
-            {/* test new table */}
-            {/* <div className="px-6 py-8 max-w-container 2xl:max-w-container-xl mx-auto">
-                <h2 className='text-2xl font-semibold mb-4 capitalize'>girone test </h2>
-                <div className='sm:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-y-6'>
-
-                    {gironeMaschile.map((girone) => (
-
-                        <TableGironi key={girone} girone={girone} campeonato={campeonato.maschile} />
-                    ))}
-
-                </div>
-            </div> */}
             <LiveStream />
-
         </>
     )
 }

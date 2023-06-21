@@ -12,15 +12,17 @@ export default function TableProva({ data, girone }: Props) {
             guest: 'squadra 3',
             result: ' 0 x 1',
             isDone: true,
-            live: false
+            live: false,
+            time: '14.50'
         },
         {
             id: 2,
-            home: 'squadra 2',
+            home: 'squadra 2 longo demais',
             guest: 'squadra 4',
             result: ' 2 x 1',
             isDone: true,
-            live: false
+            live: false,
+            time: '14.50'
         },
         {
             id: 3,
@@ -28,15 +30,17 @@ export default function TableProva({ data, girone }: Props) {
             guest: 'squadra 2',
             result: ' 4 x 1',
             isDone: false,
-            live: true
+            live: true,
+            time: '14.50'
         },
         {
             id: 4,
             home: 'squadra 4',
             guest: 'squadra 1',
-            result: ' 2 x 3',
+            result: false,
             isDone: false,
-            live: false
+            live: false,
+            time: '14.50'
         },
     ]
 

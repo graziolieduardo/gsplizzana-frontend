@@ -37,7 +37,7 @@ export const Header = () => {
                             </li>
 
                             <li>
-                                <Link href='/gironi' className=''>Programma 2023</Link>
+                                <Link href='/programma' className=''>Programma 2023</Link>
                             </li>
 
                             <li>
