@@ -2,7 +2,11 @@
 
 export default function Programma() {
     const program: any = {
-        "giovedi - 13.08": [
+        giovedi: [
+            {
+                weekDay: 'giovedì',
+                day: '13.08'
+            },
             {
                 title: 'Cerimonia di apertura',
                 time: '15.30',
@@ -46,7 +50,11 @@ export default function Programma() {
                 highlight: false
             },
         ],
-        "venerdi - 14.08": [
+        venerdi: [
+            {
+                weekDay: 'venerdì',
+                day: '14.08'
+            },
             {
                 title: 'Inizio partite calcio splash e beer pong',
                 time: '16.00',
@@ -84,7 +92,11 @@ export default function Programma() {
                 highlight: false
             },
         ],
-        "sabato - 15.08": [
+        sabato: [
+            {
+                weekDay: 'sabato',
+                day: '15.08'
+            },
             {
                 title: 'Ripresa partite',
                 time: '21.00',
@@ -146,7 +158,11 @@ export default function Programma() {
                 highlight: false
             },
         ],
-        "domenica - 16.08": [
+        domenica: [
+            {
+                weekDay: 'domenica',
+                day: '16.08'
+            },
             {
                 title: 'Inizio partite calcio splash e beer pong',
                 time: '16.00',
@@ -169,6 +185,9 @@ export default function Programma() {
     }
 
     const dayProgram = Object.keys(program);
+    //    console.log(program['giovedi'][0].weekDay);
+
+
 
     return (
         <section id='program' className='bg-bg-primary'>
@@ -179,15 +198,21 @@ export default function Programma() {
                     {dayProgram.map((day, i) => (
                         <div key={i} className='bg-white min-w-[80%] sm:min-w-[430px] p-4 border rounded'>
                             <div className='tex-2xl font-bold uppercase py-2'>
-                                {day.split(' - ')[0]} - <span className="font-normal">{day.split(' - ')[1]} </span>
+                                {program[day][0].weekDay}
                             </div>
-                            {program[day].map((event: any, i: number) => (
-                                <div key={i} className={`p-3 rounded flex gap-x-4 text-sm sm:text-base sm:gap-x-8 ${event.highlight ? 'bg-bg-primary font-semibold' : null} ${event.important ? 'text-primary' : null}`}>
-                                    <p>{event.time}</p><p>{event.title}</p>
-                                </div>
-                            ))}
+                            {program[day].map((event: any, i: number) => {
+                                if (i === 0) {
+                                    return null
+                                }
+                                return (
+                                    <div key={i} className={`p-3 rounded flex gap-x-4 text-sm sm:text-base sm:gap-x-8 ${event.highlight ? 'bg-bg-primary font-semibold' : null} ${event.important ? 'text-primary' : null}`}>
+                                        <p>{event.time}</p><p>{event.title}</p>
+                                    </div>
+                                )
+                            })}
                         </div>
-                    ))}
+                    )
+                    )}
                 </div>
             </div>
         </section>

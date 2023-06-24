@@ -401,6 +401,7 @@ export default function index() {
         const currentIndex = days.indexOf(currentDay);
         const previousIndex = currentIndex > 0 ? currentIndex - 1 : days.length - 1;
         setCurrentDay(days[previousIndex]);
+
     };
 
     const handleNextDay = () => {
@@ -408,9 +409,12 @@ export default function index() {
         const currentIndex = days.indexOf(currentDay);
         const nextIndex = currentIndex < days.length - 1 ? currentIndex + 1 : 0;
         setCurrentDay(days[nextIndex]);
+
     };
 
     const currentMatches = matches[currentDay];
+
+
 
     return (
         <>
@@ -433,6 +437,7 @@ export default function index() {
                                 </div>
                                 <div className='border-2 border-primary-dark rounded' onClick={() => { handleNextDay() }}><img className='w-8' src="/static/chevron-right.svg" alt="" /></div>
                             </div>
+
                             {currentMatches.map((match: any, i: number) => {
                                 if (i === 0) {
                                     return null
@@ -444,9 +449,9 @@ export default function index() {
                                     </div>
                                 )
                             })}
+                            
                         </div>
                     </div>
-
                 </div>
             </section>
 
