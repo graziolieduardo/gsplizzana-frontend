@@ -421,7 +421,7 @@ export default function index() {
             <Programma />
 
             {/* agenda section */}
-            <section id='agenda' className='max-w-container 2xl:max-w-container-xl mx-auto'>
+            <section id='agenda' className='max-w-container 2xl:max-w-container-xl mx-auto px-4'>
                 <div className='py-8'>
                     <h2 className='text-2xl font-bold'>Agenda partite</h2>
                     <h2 className='text-2xl font-bold'>Torneo Calcioshplash</h2>

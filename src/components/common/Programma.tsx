@@ -185,9 +185,6 @@ export default function Programma() {
     }
 
     const dayProgram = Object.keys(program);
-    //    console.log(program['giovedi'][0].weekDay);
-
-
 
     return (
         <section id='program' className='bg-bg-primary'>

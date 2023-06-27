@@ -41,7 +41,7 @@ export const Header = () => {
                             </li>
 
                             <li>
-                                <Link href='/gironi' className='' >Bracket</Link>
+                                <Link href='/bracket' className='' >Bracket</Link>
                             </li>
 
                             <li>
