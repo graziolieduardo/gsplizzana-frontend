@@ -129,7 +129,7 @@ export default function index() {
     }
 
     const bracket = bracketArray[activePage]
- 
+
     const handlePrevBracket = () => {
         const matches = Object.keys(bracket)
         const currentIndex = matches.indexOf(activeBracket)
@@ -184,13 +184,13 @@ export default function index() {
                     </div>
 
                     {/* slider container */}
-                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-y-6  mx-auto">
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-y-6 mx-auto">
 
                         {bracket[activeBracket] && bracket[activeBracket].map((match: any) => {
                             //console.log(match);
                             return (
 
-                                <div key={match.id} className={`bg-bg-secondary w-[350px] place-self-center border ${match.live ? 'border-primary-dark' : null} rounded-md`}>
+                                <div key={match.id} className={`bg-bg-secondary max-w-[650px] min-w-[320px] place-self-center border ${match.live ? 'border-primary-dark' : null} rounded-md`}>
                                     <div className="divide-y-2 px-4 py-2" >
 
                                         <div className="flex justify-between py-4 px-2">
