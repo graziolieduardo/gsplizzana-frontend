@@ -175,7 +175,7 @@ export default function index() {
                         </div>
 
                         {/* current bracket */}
-                        <div className="text-center text-2xl font-bold w-1/3">{activeBracket}</div>
+                        <div className=" text-2xl font-bold ">{activeBracket}</div>
 
                         {/* next button */}
                         <div onClick={() => { handleNextBracket() }} >
