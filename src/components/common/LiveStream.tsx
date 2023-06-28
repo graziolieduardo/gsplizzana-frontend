@@ -1,4 +1,5 @@
 import React from 'react'
+import { Title } from './Title'
 
 export default function
     () {
@@ -6,9 +7,9 @@ export default function
         <div>
             <section id='liveStream' className="bg-gradient-to-r from-primary-dark to-primary">
                 <div className='px-4 py-12 max-w-container 2xl:max-w-container-xl mx-auto lg:flex'>
-                    <div className='lg:w-1/2'>
-                        <h2 className='text-white text-5xl font-semibold'>Seguici in diretta</h2>
-                        <p className='text-white mt-8 w-full lg:w-2/3'>Rimani sempre connesso.<br />
+                    <div className='lg:w-1/2 text-white'>
+                        <Title variant={Title.variant.tertiary}>Seguici in diretta</Title>
+                        <p className=' mt-8 w-full lg:w-2/3'>Rimani sempre connesso.<br />
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         </p>
                     </div>

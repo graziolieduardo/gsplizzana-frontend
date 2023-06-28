@@ -1,3 +1,4 @@
+import { Title } from "./Title";
 
 
 export default function Programma() {
@@ -189,7 +190,7 @@ export default function Programma() {
     return (
         <section id='program' className='bg-bg-primary'>
             <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-16'>
-                <h2 className='text-4xl font-bold'> Programma 2023</h2>
+                <Title variant={Title.variant.secondary}> Programma 2023</Title>
                 <div className='flex gap-x-4 mt-8 overflow-x-auto'>
 
                     {dayProgram.map((day, i) => (

@@ -2,8 +2,9 @@ import { Button } from '../components/common/Button'
 import TableHome from '../components/common/TableHome';
 import LiveStream from '../components/common/LiveStream';
 import Programma from '../components/common/Programma';
+import { Title } from '../components/common/Title';
 
-    export default function Home() {
+export default function Home() {
 
     const campeonato: any = {
         maschile: {
@@ -490,11 +491,12 @@ import Programma from '../components/common/Programma';
         <>
             {/* jumbotron */}
             <section id='jumbotron' className='bg-campo bg-cover bg-center'>
-                <div className='bg-black/80 pt-80 pb-6 sm:pb-12'>
-                    <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 '>
-                        <h2 className='text-4xl text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>23&ordf; edizione</h2>
-                        <h5 className='text-2xl text-white font-bold mt-3'>Calcio Splash Lizzana</h5>
-                        <h5 className='text-2xl text-white font-bold'>Dal 10 al 13 agosto 2023</h5>
+                <div className='bg-black/80 pt-80 sm:pb-12 '>
+                    <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 text-white'>
+                        <div className='w-1/2 pb-10'>
+                            <Title variant={Title.variant.secondary} > Calciosplash Lizzana 2023</Title>
+                            <h5 className='text-[5rem] leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Non fartelo raccontare</h5>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -508,9 +510,10 @@ import Programma from '../components/common/Programma';
                     {/* CONTENT */}
                     {/* <div className='absolute top-0 left-0 px-6 py-8 md:w-1/2 max-h-72'> */}
                     <div className='absolute h-[317px] lg:h-[556px] top-0 left-0 px-6 md:w-1/2 flex flex-col justify-center'>
-                        <h5 className='text-4xl font-bold md:w-2/3'>
+
+                        <Title variant={Title.variant.secondary} >
                             Il <span className='text-primary'>Mondiale</span> si gioca sul gonfiabile
-                        </h5>
+                        </Title>
 
                         <p className='my-6 font-light text-secondary'>Sai la differenza tra i mondiali classici e quelli sul sapone? Quelli sul sapone non cambiano luogo ogni 4 anni.</p>
 
@@ -528,8 +531,8 @@ import Programma from '../components/common/Programma';
 
                 <div className='max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16'>
 
-                    <h2 className='text-2xl font-semibold mb-4 capitalize'>girone maschile </h2>
-                    <div className="flex gap-x-4 overflow-x-auto">
+                    <Title variant={Title.variant.secondary}> Gironi Maschile </Title>
+                    <div className="flex gap-x-4 overflow-x-auto mt-8">
 
                         {gironeMaschile.map((girone) => (
                             <div key={girone}>
@@ -546,8 +549,8 @@ import Programma from '../components/common/Programma';
 
                 <div className="max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16">
 
-                    <h2 className='text-2xl font-semibold mb-4 capitalize'>girone Feminile </h2>
-                    <div className="flex gap-x-4 overflow-x-auto">
+                    <Title variant={Title.variant.secondary}> Gironii Feminile</Title>
+                    <div className="flex gap-x-4 overflow-x-auto mt-8">
 
                         {gironeFeminile.map((girone) => (
 
