@@ -15,7 +15,10 @@ export default function index() {
                 id: 1,
                 home: 'squadra 1',
                 guest: 'squadra 3',
-                result: ' 0 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: true,
                 live: false,
                 time: '14.40'
@@ -24,7 +27,10 @@ export default function index() {
                 id: 2,
                 home: 'squadra 2',
                 guest: 'squadra 4',
-                result: ' 2 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: true,
                 live: false,
                 time: '14.40'
@@ -33,7 +39,10 @@ export default function index() {
                 id: 3,
                 home: 'squadra 3',
                 guest: 'squadra 2',
-                result: ' 4 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: false,
                 live: true,
                 time: '14.40'
@@ -111,7 +120,10 @@ export default function index() {
                 id: 1,
                 home: 'squadra 4',
                 guest: 'squadra 3',
-                result: ' 0 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: true,
                 live: false,
                 time: '14.40'
@@ -120,7 +132,10 @@ export default function index() {
                 id: 2,
                 home: 'squadra 2',
                 guest: 'squadra 4',
-                result: ' 2 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: true,
                 live: false,
                 time: '14.40'
@@ -129,7 +144,10 @@ export default function index() {
                 id: 3,
                 home: 'squadra 3',
                 guest: 'squadra 2',
-                result: ' 4 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: false,
                 live: true,
                 time: '14.40'
@@ -138,7 +156,10 @@ export default function index() {
                 id: 4,
                 home: 'squadra 4',
                 guest: 'squadra 1',
-                result: '1 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: false,
                 live: true,
                 time: '14.40'
@@ -208,7 +229,10 @@ export default function index() {
                 id: 1,
                 home: 'squadra 1',
                 guest: 'squadra 3',
-                result: ' 0 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: true,
                 live: false,
                 time: '14.40'
@@ -217,7 +241,10 @@ export default function index() {
                 id: 2,
                 home: 'squadra 2',
                 guest: 'squadra 4',
-                result: ' 2 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: true,
                 live: false,
                 time: '14.40'
@@ -226,7 +253,10 @@ export default function index() {
                 id: 3,
                 home: 'squadra 3',
                 guest: 'squadra 2',
-                result: ' 4 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: false,
                 live: true,
                 time: '14.40'
@@ -305,7 +335,10 @@ export default function index() {
                 id: 1,
                 home: 'squadra 1',
                 guest: 'squadra 3',
-                result: ' 0 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: true,
                 live: false,
                 time: '14.40'
@@ -314,7 +347,10 @@ export default function index() {
                 id: 2,
                 home: 'squadra 2',
                 guest: 'squadra 4',
-                result: ' 2 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: true,
                 live: false,
                 time: '14.40'
@@ -323,7 +359,10 @@ export default function index() {
                 id: 3,
                 home: 'squadra 3',
                 guest: 'squadra 2',
-                result: ' 4 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: true,
                 live: false,
                 time: '14.40'
@@ -332,7 +371,10 @@ export default function index() {
                 id: 4,
                 home: 'squadra 4',
                 guest: 'squadra 1',
-                result: '3 x 1',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: true,
                 live: false,
                 time: '14.40'
@@ -341,7 +383,10 @@ export default function index() {
                 id: 5,
                 home: 'squadra 4',
                 guest: 'squadra 1',
-                result: '0 x 0',
+                result: {
+                    home: 1,
+                    guest: 2
+                },
                 isDone: false,
                 live: true,
                 time: '14.40'

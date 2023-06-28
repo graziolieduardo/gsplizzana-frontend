@@ -4,7 +4,7 @@ export default function
     () {
     return (
         <div>
-            <section id='live-stream' className="bg-gradient-to-r from-primary-dark to-primary">
+            <section id='liveStream' className="bg-gradient-to-r from-primary-dark to-primary">
                 <div className='px-4 py-12 max-w-container 2xl:max-w-container-xl mx-auto lg:flex'>
                     <div className='lg:w-1/2'>
                         <h2 className='text-white text-5xl font-semibold'>Seguici in diretta</h2>
