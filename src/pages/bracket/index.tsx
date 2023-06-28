@@ -212,7 +212,7 @@ export default function index() {
                                     <div className="border-t">
                                         <div className="p-4 text-center">
 
-                                            <Link href={`/dettaglioPartita/${match.id}`} className="text-primary-dark text-sm font-semibold" > Dettagli partita</Link>
+                                            <Link href={`/partita/${match.id}`} className="text-primary-dark text-sm font-semibold" > Dettagli partita</Link>
                                         </div>
                                     </div>
                                 </div>
