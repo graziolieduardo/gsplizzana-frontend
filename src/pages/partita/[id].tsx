@@ -1,5 +1,6 @@
 import DetaglioPartita from '@/src/components/common/DetaglioPartita';
 import LiveStream from '@/src/components/common/LiveStream';
+import { Title } from '@/src/components/common/Title';
 import { useRouter } from 'next/router';
 
 export default function index() {
@@ -280,6 +281,13 @@ export default function index() {
 
 
                     </div>}
+                </div>
+
+                <div className='bg-bg-secondary py-16'>
+                    <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4'>
+                        <Title variant={Title.variant.tertiary}> Dettagli match</Title>
+                        <p className='mt-8 lg:w-1/2'> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis sapiente tempora debitis ipsa ipsum eligendi officiis! Dolores facilis, repudiandae velit nulla minima provident officiis vero autem aut repellat rem doloribus.</p>
+                    </div>
                 </div>
 
             </section>
