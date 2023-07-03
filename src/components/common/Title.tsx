@@ -17,7 +17,7 @@ enum Variant {
 const VARIANT_MAPS = {
     [Variant.primary]: 'text-[2.5rem] sm:text-[3.5rem] leading-[61px]',
     [Variant.secondary]: 'text-[2rem] sm:text-[2.5rem] leading-[44px]',
-    [Variant.tertiary]: 'text-[1.3rem] sm:text-[2rem] leading-[36px]',
+    [Variant.tertiary]: 'text-[2rem] leading-[36px]',
 }
 
 const rubik = Rubik({ subsets: ['latin'] })
