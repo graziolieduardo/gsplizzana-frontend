@@ -264,20 +264,28 @@ export default function index() {
                     {(pageId === 0 || pageId) && <div className='flex justify-center divide-x mt-8'>
 
                         {/*home yellow cards */}
-                        <div className='px-16 text-sm'>{matches[pageId].cards.yellow.home.map((yellow: any, i: number) => (
-                            <div key={i} className='flex items-center gap-x-1'>
-                                {yellow}
-                                <img className='h-[12px]' src="/static/yellow-card.png" alt="" />
-                            </div>
-                        ))}</div>
+                        {matches[pageId].cards.yellow && <div className='px-16 text-sm'>
+                            {
+                                matches[pageId].cards.yellow.home.map((yellow: any, i: number) => (
+                                    <div key={i} className='flex items-center gap-x-1'>
+                                        {yellow}
+                                        <img className='h-[12px]' src="/static/yellow-card.png" alt="" />
+                                    </div>
+                                ))
+                            }
+                        </div>}
 
                         {/* guest yellow cards */}
-                        <div className='px-16 text-sm'>{matches[pageId].cards.yellow.guest.map((yellow: any, i: number) => (
-                            <div key={i} className='flex items-center gap-x-1'>
-                                {yellow}
-                                <img className='h-[12px]' src="/static/yellow-card.png" alt="" />
-                            </div>
-                        ))}</div>
+                        { matches[pageId].cards.yellow && <div className='px-16 text-sm'>
+                            {
+                                matches[pageId].cards.yellow.guest.map((yellow: any, i: number) => (
+                                    <div key={i} className='flex items-center gap-x-1'>
+                                        {yellow}
+                                        <img className='h-[12px]' src="/static/yellow-card.png" alt="" />
+                                    </div>
+                                ))
+                            }
+                        </div>}
 
 
                     </div>}
