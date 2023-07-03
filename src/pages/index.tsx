@@ -532,6 +532,7 @@ export default function Home() {
                 <div className='max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16'>
 
                     <Title variant={Title.variant.secondary}> Gironi Maschile </Title>
+
                     <div className="flex gap-x-4 overflow-x-auto mt-8">
 
                         {gironeMaschile.map((girone) => (
@@ -540,7 +541,16 @@ export default function Home() {
                             </div>
                         ))}
                     </div>
-                    <small>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</small>
+                    <p className='text-xs mt-2 mb-8'>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</p>
+
+                    <div className=''>
+                        <div className='z-10 relative'>
+
+                            <Button variant={Button.variant.secondary} link={'/gironi/maschili'} bg={'bg-bg-primary'}> Dettagli gironi maschile</Button>
+                        </div>
+                    </div>
+
+
                 </div>
             </section>
 
@@ -550,6 +560,7 @@ export default function Home() {
                 <div className="max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16">
 
                     <Title variant={Title.variant.secondary}> Gironii Feminile</Title>
+
                     <div className="flex gap-x-4 overflow-x-auto mt-8">
 
                         {gironeFeminile.map((girone) => (
@@ -557,7 +568,9 @@ export default function Home() {
                             <TableHome key={girone} girone={girone} campeonato={campeonato.feminile} bgColor={'bg-bg-primary'} />
                         ))}
                     </div>
-                    <small>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</small>
+
+                    <p className='text-xs mt-2 mb-8'>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</p>
+                    <Button variant={Button.variant.secondary} link={'/gironi/feminili'}> dettagli gironi feminile</Button>
                 </div>
             </section>
 

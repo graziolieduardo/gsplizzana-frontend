@@ -11,14 +11,6 @@ const index = () => {
   const { slug } = router.query
   const [activePage, setActivePage] = useState<ParsedUrlQuery | string | string[]>('')
 
-  const handleClick = (irl: string) => {
-    router.push(`/gironi/${irl}#tables`)
-    const section = document.getElementById("buttons");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   useEffect(() => {
 
     if (slug) setActivePage(slug)
@@ -41,8 +33,8 @@ const index = () => {
         {/* maschile and feminile switch */}
         <div className="pt-24" id="tables">
           <div className="flex justify-around border-2 rounded border-primary-dark">
-            <div onClick={() => { handleClick('maschile') }} className={`font-semibold ${activePage === "maschile" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'} w-1/2 text-center py-2`} >Maschili</div>
-            <div onClick={() => { handleClick('feminile') }} className={`font-semibold ${activePage === "feminile" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'}  w-1/2 text-center py-2 `} >Feminili</div>
+            <div onClick={() => { setActivePage('maschile') }} className={`font-semibold ${activePage === "maschile" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'} w-1/2 text-center py-2`} >Maschili</div>
+            <div onClick={() => { setActivePage('feminile') }} className={`font-semibold ${activePage === "feminile" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'}  w-1/2 text-center py-2 `} >Feminili</div>
           </div>
         </div>
 
