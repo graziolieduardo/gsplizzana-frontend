@@ -10,7 +10,7 @@ export default function Gironi({ url }: Props) {
     useEffect(() => {
 
         //to simulate fetched data
-        if (url === "male") {
+        if (url === "maschile") {
             setData({
 
                 "Girone A": [
@@ -326,7 +326,7 @@ export default function Gironi({ url }: Props) {
                 ],
 
             })
-        } else if (url === 'female') {
+        } else if (url === 'feminile') {
             setData({
 
                 'Girone E': [
