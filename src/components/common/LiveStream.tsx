@@ -15,7 +15,10 @@ export default function
                     </div>
 
                     <div className='lg:block lg:w-1/2 font-sm mt-6 lg:mt-0'>
-                        <div className='bg-black h-[45vh] w-full'>k</div>
+                        
+                        {/*  change the video id for the gsp one. */}
+                        <iframe src="http://www.youtube.com/embed/UyMSlcMVqBE" className=' h-[40vh] w-full' />
+
                     </div>
                 </div>
             </section>
