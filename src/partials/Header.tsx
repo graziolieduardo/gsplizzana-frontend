@@ -34,7 +34,7 @@ export const Header = () => {
                             </li>
 
                             <li>
-                                <Link href='/gironi' className='' >Gironi</Link>
+                                <Link href='/gironi/maschile' className='' >Gironi</Link>
                             </li>
 
                             <li>

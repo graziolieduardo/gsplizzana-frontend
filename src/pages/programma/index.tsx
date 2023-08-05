@@ -1,5 +1,7 @@
+import { Button } from '@/src/components/common/Button';
 import DetaglioPartita from '@/src/components/common/DetaglioPartita'
 import Programma from '@/src/components/common/Programma'
+import { Title } from '@/src/components/common/Title';
 import { useState } from 'react'
 
 export default function index() {
@@ -463,6 +465,18 @@ export default function index() {
 
     return (
         <>
+            {/* page title  */}
+            <div className="flex gap-x-2 py-24 max-w-container 2xl:max-w-container-xl mx-auto px-4">
+                <div className=" lg:w-1/2 mx-auto">
+                    <Title variant={Title.variant.primary} > Scopri i <span className="text-primary">gironi</span> del torneo</Title>
+                    <p className='my-8'>E anche quest’anno per il torneo maschile ci sono 8 giorni da 4 squadre ciascuno e per il torneo femminile ci sono 4 gironi da 4 squadre. In aggiunta è stato organizzato anche un girone Rookie per agevolare le squadre new entry.</p>
+                    <Button  variant={Button.variant.primary}> Orari partite</Button>
+                </div>
+                <div className=" hidden lg:block lg:w-1/2 h-[500px] bg-gray-200"></div>
+
+            </div>
+
+            {/* programma section */}
             <Programma />
 
             {/* agenda section */}
@@ -473,13 +487,20 @@ export default function index() {
 
                     <div id='scrollContainer' className='flex overflow-auto'>
 
+                        {/* slider */}
                         <div className='min-w-full px-1'>
                             <div className='flex justify-between items-center mt-8 pb-3 border-b-2'>
+                                
+                                {/* prev button */}
                                 <div className='border-2 border-primary-dark rounded' onClick={() => { handlePreviousDay() }}> <img className='w-8' src="/static/chevron-left.svg" alt="" /></div>
+
+                                {/* middle text for the active item */}
                                 <div className=' text-center capitalize flex items-baseline gap-x-4'>
                                     <h2 className='text-2xl font-semibold'>{currentMatches[0].weekday}</h2>
                                     <span>{currentMatches[0].day}</span>
                                 </div>
+
+                                {/* next button */}
                                 <div className='border-2 border-primary-dark rounded' onClick={() => { handleNextDay() }}><img className='w-8' src="/static/chevron-right.svg" alt="" /></div>
                             </div>
 
@@ -494,7 +515,7 @@ export default function index() {
                                     </div>
                                 )
                             })}
-                            
+
                         </div>
                     </div>
                 </div>

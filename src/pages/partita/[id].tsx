@@ -1,5 +1,6 @@
 import DetaglioPartita from '@/src/components/common/DetaglioPartita';
 import LiveStream from '@/src/components/common/LiveStream';
+import { Title } from '@/src/components/common/Title';
 import { useRouter } from 'next/router';
 
 export default function index() {
@@ -263,23 +264,38 @@ export default function index() {
                     {(pageId === 0 || pageId) && <div className='flex justify-center divide-x mt-8'>
 
                         {/*home yellow cards */}
-                        <div className='px-16 text-sm'>{matches[pageId].cards.yellow.home.map((yellow: any, i: number) => (
-                            <div key={i} className='flex items-center gap-x-1'>
-                                {yellow}
-                                <img className='h-[12px]' src="/static/yellow-card.png" alt="" />
-                            </div>
-                        ))}</div>
+                        {matches[pageId].cards.yellow && <div className='px-16 text-sm'>
+                            {
+                                matches[pageId].cards.yellow.home.map((yellow: any, i: number) => (
+                                    <div key={i} className='flex items-center gap-x-1'>
+                                        {yellow}
+                                        <img className='h-[12px]' src="/static/yellow-card.png" alt="" />
+                                    </div>
+                                ))
+                            }
+                        </div>}
 
                         {/* guest yellow cards */}
-                        <div className='px-16 text-sm'>{matches[pageId].cards.yellow.guest.map((yellow: any, i: number) => (
-                            <div key={i} className='flex items-center gap-x-1'>
-                                {yellow}
-                                <img className='h-[12px]' src="/static/yellow-card.png" alt="" />
-                            </div>
-                        ))}</div>
+                        { matches[pageId].cards.yellow && <div className='px-16 text-sm'>
+                            {
+                                matches[pageId].cards.yellow.guest.map((yellow: any, i: number) => (
+                                    <div key={i} className='flex items-center gap-x-1'>
+                                        {yellow}
+                                        <img className='h-[12px]' src="/static/yellow-card.png" alt="" />
+                                    </div>
+                                ))
+                            }
+                        </div>}
 
 
                     </div>}
+                </div>
+
+                <div className='bg-bg-secondary py-16'>
+                    <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4'>
+                        <Title variant={Title.variant.tertiary}> Dettagli match</Title>
+                        <p className='mt-8 lg:w-1/2'> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis sapiente tempora debitis ipsa ipsum eligendi officiis! Dolores facilis, repudiandae velit nulla minima provident officiis vero autem aut repellat rem doloribus.</p>
+                    </div>
                 </div>
 
             </section>
