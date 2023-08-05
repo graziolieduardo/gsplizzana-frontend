@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TableProva from './TableProva'
+import useSchedule from '@/src/api/schedule/useSchedules'
 
 type Props = any
 

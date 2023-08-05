@@ -493,9 +493,9 @@ export default function Home() {
             <section id='jumbotron' className='bg-campo bg-cover bg-center'>
                 <div className='bg-black/80 pt-80 sm:pb-12 '>
                     <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 text-white'>
-                        <div className='w-1/2 pb-10'>
+                        <div className='w-full md:w-1/2 pb-10'>
                             <Title variant={Title.variant.secondary} > Calciosplash Lizzana 2023</Title>
-                            <h5 className='text-[5rem] leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Non fartelo raccontare</h5>
+                            <h5 className='text-[3.7rem] md:text-[5rem] leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Non fartelo raccontare</h5>
                         </div>
                     </div>
                 </div>
@@ -546,11 +546,9 @@ export default function Home() {
                     <div className=''>
                         <div className='z-10 relative'>
 
-                            <Button variant={Button.variant.secondary} link={'/gironi/maschili'} bg={'bg-bg-primary'}> Dettagli gironi maschile</Button>
+                            <Button variant={Button.variant.secondary} link={'/gironi/maschile'} bg={'bg-bg-primary'}> Dettagli gironi maschile</Button>
                         </div>
                     </div>
-
-
                 </div>
             </section>
 
@@ -570,7 +568,8 @@ export default function Home() {
                     </div>
 
                     <p className='text-xs mt-2 mb-8'>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</p>
-                    <Button variant={Button.variant.secondary} link={'/gironi/feminili'}> dettagli gironi feminile</Button>
+
+                    <Button variant={Button.variant.secondary} link={'/gironi/feminile'}> dettagli gironi feminile</Button>
                 </div>
             </section>
 

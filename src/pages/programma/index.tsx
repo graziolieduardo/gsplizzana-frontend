@@ -1,3 +1,4 @@
+import useSchedule from '@/src/api/schedule/useSchedules';
 import { Button } from '@/src/components/common/Button';
 import DetaglioPartita from '@/src/components/common/DetaglioPartita'
 import Programma from '@/src/components/common/Programma'
@@ -5,441 +6,35 @@ import { Title } from '@/src/components/common/Title';
 import { useState } from 'react'
 
 export default function index() {
+
+    const { schedule, isLoading, isFetching } = useSchedule()
+
     const matches: any = {
 
-        giovedi: [
-
-            {
-                weekday: 'giovedì',
-                day: '13.08'
-            },
-            {
-                id: 1,
-                home: 'squadra 1',
-                guest: 'squadra 3',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: true,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 2,
-                home: 'squadra 2',
-                guest: 'squadra 4',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: true,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 3,
-                home: 'squadra 3',
-                guest: 'squadra 2',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: false,
-                live: true,
-                time: '14.40'
-            },
-            {
-                id: 4,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 5,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 6,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 7,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 8,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 9,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 10,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-        ],
-        venerdi: [
-            {
-                weekday: 'venerdì',
-                day: '14.08'
-            },
-            {
-                id: 1,
-                home: 'squadra 4',
-                guest: 'squadra 3',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: true,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 2,
-                home: 'squadra 2',
-                guest: 'squadra 4',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: true,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 3,
-                home: 'squadra 3',
-                guest: 'squadra 2',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: false,
-                live: true,
-                time: '14.40'
-            },
-            {
-                id: 4,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: false,
-                live: true,
-                time: '14.40'
-            },
-            {
-                id: 5,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 6,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 7,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 8,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 9,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 10,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-        ],
-        sabato: [
-
-            {
-                weekday: 'sabato',
-                day: '15.08'
-            },
-            {
-                id: 1,
-                home: 'squadra 1',
-                guest: 'squadra 3',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: true,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 2,
-                home: 'squadra 2',
-                guest: 'squadra 4',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: true,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 3,
-                home: 'squadra 3',
-                guest: 'squadra 2',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: false,
-                live: true,
-                time: '14.40'
-            },
-            {
-                id: 4,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 5,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 6,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 7,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 8,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 9,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 10,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-        ],
-        domenica: [
-
-            {
-                weekday: 'domenica',
-                day: '16.08'
-            },
-            {
-                id: 1,
-                home: 'squadra 1',
-                guest: 'squadra 3',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: true,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 2,
-                home: 'squadra 2',
-                guest: 'squadra 4',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: true,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 3,
-                home: 'squadra 3',
-                guest: 'squadra 2',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: true,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 4,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: true,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 5,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: {
-                    home: 1,
-                    guest: 2
-                },
-                isDone: false,
-                live: true,
-                time: '14.40'
-            },
-            {
-                id: 6,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 7,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 8,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 9,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-            {
-                id: 10,
-                home: 'squadra 4',
-                guest: 'squadra 1',
-                result: false,
-                isDone: false,
-                live: false,
-                time: '14.40'
-            },
-        ],
+        giovedi: ['giovedì', '10.08'],
+        venerdi: ['venerdì', '11.08'],
+        sabato: ['sabato', '12.08'],
     }
+
+    !isLoading && schedule.data.map((day: any) => {
+
+        const eventDate = new Date(day.scheduled_at)
+        const weekDay = eventDate.getDay()
+
+        switch (weekDay) {
+            case 4:
+                matches.giovedi.push(day)
+                break;
+            case 5:
+                matches.venerdi.push(day)
+                break;
+            case 6:
+                matches.sabato.push(day)
+                break;
+            default:
+                break;
+        }
+    });
 
     const [currentDay, setCurrentDay] = useState('giovedi');
 
@@ -461,8 +56,6 @@ export default function index() {
 
     const currentMatches = matches[currentDay];
 
-
-
     return (
         <>
             {/* page title  */}
@@ -470,7 +63,7 @@ export default function index() {
                 <div className=" lg:w-1/2 mx-auto">
                     <Title variant={Title.variant.primary} > Scopri i <span className="text-primary">gironi</span> del torneo</Title>
                     <p className='my-8'>E anche quest’anno per il torneo maschile ci sono 8 giorni da 4 squadre ciascuno e per il torneo femminile ci sono 4 gironi da 4 squadre. In aggiunta è stato organizzato anche un girone Rookie per agevolare le squadre new entry.</p>
-                    <Button  variant={Button.variant.primary}> Orari partite</Button>
+                    <Button variant={Button.variant.primary}> Orari partite</Button>
                 </div>
                 <div className=" hidden lg:block lg:w-1/2 h-[500px] bg-gray-200"></div>
 
@@ -490,14 +83,14 @@ export default function index() {
                         {/* slider */}
                         <div className='min-w-full px-1'>
                             <div className='flex justify-between items-center mt-8 pb-3 border-b-2'>
-                                
+
                                 {/* prev button */}
                                 <div className='border-2 border-primary-dark rounded' onClick={() => { handlePreviousDay() }}> <img className='w-8' src="/static/chevron-left.svg" alt="" /></div>
 
                                 {/* middle text for the active item */}
                                 <div className=' text-center capitalize flex items-baseline gap-x-4'>
-                                    <h2 className='text-2xl font-semibold'>{currentMatches[0].weekday}</h2>
-                                    <span>{currentMatches[0].day}</span>
+                                    <h2 className='text-2xl font-semibold'>{currentMatches[0]}</h2>
+                                    <span>{currentMatches[1]}</span>
                                 </div>
 
                                 {/* next button */}
@@ -505,7 +98,7 @@ export default function index() {
                             </div>
 
                             {currentMatches.map((match: any, i: number) => {
-                                if (i === 0) {
+                                if (i === 0 || i === 1) {
                                     return null
                                 }
 
