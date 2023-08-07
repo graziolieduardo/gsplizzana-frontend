@@ -32,7 +32,7 @@ const index = () => {
 
         {/* maschile and feminile switch */}
         <div className="pt-12">
-          <div className="flex justify-around border-2 rounded border-primary-dark">
+          <div className="flex justify-around border-2 rounded border-primary-dark cursor-pointer">
             <div onClick={() => { router.push('/gironi/maschile') }} className={`font-semibold ${activePage === "maschile" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'} w-1/2 text-center py-2`} >Maschile</div>
             <div onClick={() => { router.push('/gironi/feminile') }} className={`font-semibold ${activePage === "feminile" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'}  w-1/2 text-center py-2 `} >Feminile</div>
           </div>

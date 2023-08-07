@@ -85,7 +85,7 @@ export default function index() {
                             <div className='flex justify-between items-center mt-8 pb-3 border-b-2'>
 
                                 {/* prev button */}
-                                <div className='border-2 border-primary-dark rounded' onClick={() => { handlePreviousDay() }}> <img className='w-8' src="/static/chevron-left.svg" alt="" /></div>
+                                <div className='border-2 border-primary-dark rounded cursor-pointer' onClick={() => { handlePreviousDay() }}> <img className='w-8' src="/static/chevron-left.svg" alt="" /></div>
 
                                 {/* middle text for the active item */}
                                 <div className=' text-center capitalize flex items-baseline gap-x-4'>
@@ -94,7 +94,7 @@ export default function index() {
                                 </div>
 
                                 {/* next button */}
-                                <div className='border-2 border-primary-dark rounded' onClick={() => { handleNextDay() }}><img className='w-8' src="/static/chevron-right.svg" alt="" /></div>
+                                <div className='border-2 border-primary-dark rounded cursor-pointer' onClick={() => { handleNextDay() }}><img className='w-8' src="/static/chevron-right.svg" alt="" /></div>
                             </div>
 
                             {currentMatches.map((match: any, i: number) => {

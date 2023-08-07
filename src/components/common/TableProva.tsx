@@ -85,7 +85,7 @@ export default function TableProva({ data, girone }: Props) {
                 </div>
 
                 {/* dettagli partita */}
-                <div onClick={() => setIsOpen(!isOpen)} className='py-3 px-4 mt-4 border-t'>
+                <div onClick={() => setIsOpen(!isOpen)} className='py-3 px-4 mt-4 border-t cursor-pointer'>
                     <div className='font-semibold text-primary-dark text-sm'>Dettagli partite <img src="/static/chevron-down.svg" className={`inline-block w-2 ml-2 ${isOpen ? 'rotate-180' : null}`} alt="" /></div>
                 </div>
       

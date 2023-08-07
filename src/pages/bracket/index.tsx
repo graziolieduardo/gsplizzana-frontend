@@ -157,7 +157,7 @@ export default function index() {
                 <h2 className="text-2xl font-bold">Bracket del torneo</h2>
 
                 {/* maschile and feminile switch */}
-                <div className="flex justify-around border-2 rounded border-primary-dark mt-8">
+                <div className="flex justify-around border-2 rounded border-primary-dark mt-8 cursor-pointer ">
                     <div onClick={() => { setActivePage('male') }} className={`font-semibold ${activePage === "male" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'} w-1/2 text-center py-2`} >Maschili</div>
                     <div onClick={() => { setActivePage('female') }} className={`font-semibold ${activePage === "female" ? 'bg-gradient-to-r from-primary-dark to-primary text-white' : 'bg-white text-black'}  w-1/2 text-center py-2 `} >Feminili</div>
                 </div>
@@ -170,15 +170,15 @@ export default function index() {
                     <div className="flex justify-between items-center mt-8">
 
                         {/* prev burron */}
-                        <div onClick={() => { handlePrevBracket() }} className={`${Object.keys(bracket).indexOf(activeBracket) === 0 ? "opacity-50" : null}`}>
+                        <div onClick={() => { handlePrevBracket() }} className={`${Object.keys(bracket).indexOf(activeBracket) === 0 ? "opacity-50" : 'cursor-pointer'}`}>
                             <img src="/static/chevron-left.svg" alt="" />
                         </div>
 
                         {/* current bracket */}
-                        <div className=" text-2xl font-bold ">{activeBracket}</div>
+                        <div className=" text-2xl font-bold">{activeBracket}</div>
 
                         {/* next button */}
-                        <div onClick={() => { handleNextBracket() }} >
+                        <div className="cursor-pointer" onClick={() => { handleNextBracket() }} >
                             <img src="/static/chevron-right.svg" alt="" />
                         </div>
                     </div>
