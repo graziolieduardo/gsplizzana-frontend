@@ -135,10 +135,9 @@ export default function index() {
                     }
 
 
-                    <div className='flex justify-center mt-16'>
-
+                    <div className='flex justify-between mt-16'>
                         {/* home team details*/}
-                        <div className='border-r pr-24'>
+                        <div className='border-r flex-1 p-2'>
                             {(match && !isFetching) && match.home_team.players.map((player: any) => {
                                 return (
                                     <div key={player.id}>
@@ -149,7 +148,7 @@ export default function index() {
                                                 <div>
                                                     <span>{player.name} </span>
                                                     <span>{player.surname} </span>
-                                                    {player.nickname && <span>({player.nickname}) </span>}
+                                                    {/* {player.nickname && <span>({player.nickname}) </span>} */}
                                                 </div>
 
                                                 <div className='flex gap-x-1'>
@@ -165,7 +164,7 @@ export default function index() {
                                             <div>
                                                 <span>{player.name} </span>
                                                 <span>{player.surname} </span>
-                                                {player.nickname && <span>({player.nickname}) </span>}
+                                                {/* {player.nickname && <span>({player.nickname}) </span>} */}
                                             </div>
 
                                             <div className='flex items-center gap-x-1'>
@@ -180,7 +179,7 @@ export default function index() {
                                             <div>
                                                 <span>{player.name} </span>
                                                 <span>{player.surname} </span>
-                                                {player.nickname && <span>({player.nickname}) </span>}
+                                                {/* {player.nickname && <span>({player.nickname}) </span>} */}
                                             </div>
 
                                             <div className='flex items-center gap-x-1'>
@@ -196,7 +195,7 @@ export default function index() {
                         </div>
 
                         {/* Away team details */}
-                        <div className='border-l pl-24'>
+                        <div className='border-l flex-1 p-2'>
                             {(match && !isFetching) && match.away_team.players.map((player: any) => {
 
                                 return (
@@ -208,7 +207,7 @@ export default function index() {
                                                     <div>
                                                         <span>{player.name} </span>
                                                         <span>{player.surname} </span>
-                                                        {player.nickname && <span>({player.nickname}) </span>}
+                                                        {/* {player.nickname && <span>({player.nickname}) </span>} */}
                                                     </div>
 
                                                     <div className='flex gap-x-1'>
@@ -225,7 +224,7 @@ export default function index() {
                                             <div>
                                                 <span>{player.name} </span>
                                                 <span>{player.surname} </span>
-                                                {player.nickname && <span>({player.nickname}) </span>}
+                                                {/* {player.nickname && <span>({player.nickname}) </span>} */}
                                             </div>
 
                                             <div className='flex items-center gap-x-1'>
@@ -240,7 +239,7 @@ export default function index() {
                                             <div>
                                                 <span>{player.name} </span>
                                                 <span>{player.surname} </span>
-                                                {player.nickname && <span>({player.nickname}) </span>}
+                                                {/* {player.nickname && <span>({player.nickname}) </span>} */}
                                             </div>
 
                                             <div className='flex items-center gap-x-1'>
@@ -257,13 +256,13 @@ export default function index() {
                     </div>
                 </div>
 
-                {/* detalhe match??*/}
+                {/* detalhe match??
                 <div className='bg-bg-secondary py-16'>
                     <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4'>
                         <Title variant={Title.variant.tertiary}> Dettagli match</Title>
                         <p className='mt-8 lg:w-1/2'> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis sapiente tempora debitis ipsa ipsum eligendi officiis! Dolores facilis, repudiandae velit nulla minima provident officiis vero autem aut repellat rem doloribus.</p>
                     </div>
-                </div>
+                </div> */}
 
             </section>
 
