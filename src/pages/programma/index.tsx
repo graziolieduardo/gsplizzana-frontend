@@ -63,7 +63,7 @@ export default function index() {
                 <div className=" lg:w-1/2 mx-auto">
                     <Title variant={Title.variant.primary} > Scopri i <span className="text-primary">gironi</span> del torneo</Title>
                     <p className='my-8'>E anche quest’anno per il torneo maschile ci sono 8 giorni da 4 squadre ciascuno e per il torneo femminile ci sono 4 gironi da 4 squadre. In aggiunta è stato organizzato anche un girone Rookie per agevolare le squadre new entry.</p>
-                    <Button variant={Button.variant.primary}> Orari partite</Button>
+                    <Button link={'#agenda'} variant={Button.variant.primary}> Orari partite</Button>
                 </div>
                 <div className=" hidden lg:block lg:w-1/2 h-[500px] bg-gray-200"></div>
 

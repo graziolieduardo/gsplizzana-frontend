@@ -143,8 +143,9 @@ export default function index() {
                             {(match && !isFetching) && match.home_team.players.map((player: any) => {
                                 return (
                                     <div key={player.id}>
+
                                         {/* print goals for home team */}
-                                        {player.goals ? <div>
+                                        {!player.goals ? <div>
                                             <div className='flex justify-between gap-x-2'>
                                                 <div>
                                                     <span>{player.name} </span>
@@ -202,7 +203,7 @@ export default function index() {
                                 return (
                                     <div key={player.id}>
                                         {/* print goals for home team */}
-                                        {player.goals ? <div>
+                                        {!player.goals ? <div>
                                             <div className='flex justify-between gap-x-2'>
                                                 <div>
                                                     <span>{player.name} </span>
