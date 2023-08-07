@@ -1,4 +1,4 @@
-import client from '@/src/pages/api/client';
+
 import RegisterModal from '@/src/components/RegisterModal';
 import { useSignupContext } from '@/src/hooks/useSignupContext';
 import { ErrorMessage } from '@hookform/error-message';
@@ -9,6 +9,7 @@ import { AiOutlineInstagram, AiOutlineCalendar, AiOutlineMail, AiOutlinePhone, A
 import Head from 'next/head';
 import Link from 'next/link';
 import { Button } from '@/src/components/common/Button';
+import client from '@/src/api/client';
 
 // const PLAYERS = [
 //     {

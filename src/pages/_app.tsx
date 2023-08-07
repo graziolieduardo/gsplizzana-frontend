@@ -3,13 +3,7 @@ import '@/src/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { SignupContextProvider } from '../contexts/SignupContext';
 import { Inter } from 'next/font/google';
-import {
-    useQuery,
-    useMutation,
-    useQueryClient,
-    QueryClient,
-    QueryClientProvider,
-  } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const inter = Inter({ subsets: ['latin'] });
 const queryClient = new QueryClient()
@@ -17,7 +11,7 @@ const queryClient = new QueryClient()
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <SignupContextProvider>
-              <QueryClientProvider client={queryClient}>
+            <QueryClientProvider client={queryClient}>
                 <Layout>
                     <style jsx global>{`
                         html {

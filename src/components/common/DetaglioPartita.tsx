@@ -2,7 +2,6 @@ import Link from "next/link"
 
 type Props = any
 export default function DetaglioPartita({ match }: Props) {
-   
     const date = new Date(match.scheduled_at)
     const hour = date.getHours()
     const minutes = date.getMinutes().toString().padStart(2, "0");

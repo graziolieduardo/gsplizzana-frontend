@@ -3,7 +3,6 @@ import LiveStream from '@/src/components/common/LiveStream';
 import useSingleMatch from '@/src/api/matches/useSingleMatch'
 import { Title } from '@/src/components/common/Title';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 
 export default function index() {
 
@@ -135,7 +134,7 @@ export default function index() {
                         </div>
                     }
 
-        
+
                     <div className='flex justify-center mt-16'>
 
                         {/* home team details*/}
@@ -203,20 +202,22 @@ export default function index() {
                                 return (
                                     <div key={player.id}>
                                         {/* print goals for home team */}
-                                        {player.goals ? <div>
-                                            <div className='flex justify-between gap-x-2'>
-                                                <div>
-                                                    <span>{player.name} </span>
-                                                    <span>{player.surname} </span>
-                                                    {player.nickname && <span>({player.nickname}) </span>}
-                                                </div>
+                                        {player.goals ?
+                                            <div>
+                                                <div className='flex justify-between gap-x-2'>
+                                                    <div>
+                                                        <span>{player.name} </span>
+                                                        <span>{player.surname} </span>
+                                                        {player.nickname && <span>({player.nickname}) </span>}
+                                                    </div>
 
-                                                <div className='flex gap-x-1'>
-                                                    <span>{player.goals}</span>
-                                                    <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
+                                                    <div className='flex gap-x-1'>
+                                                        <span>{player.goals}</span>
+                                                        <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div> : null}
+                                            </div> 
+                                            : <div></div>}
 
                                         {/* print yellowcard for home team */}
 

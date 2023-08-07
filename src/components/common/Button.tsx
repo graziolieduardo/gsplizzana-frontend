@@ -7,6 +7,7 @@ type Props = {
     link?: string | null,
     children: ReactNode
     bg?: string | null
+    className?: string
 }
 
 enum Variant {
@@ -23,12 +24,12 @@ const VARIANT_MAPS = {
 
 
 //backgroud color is set to white to hide the background gradient on secondary variant(border-gradient is setted on global.css)
-export const Button = ({ type = 'button', variant, link, children, bg = 'bg-white'}: Props) => {
+export const Button = ({ type = 'button', variant, link, children, className, bg = 'bg-white'}: Props) => {
 
     //if link has been passed by props it will render anchor tag, otherwise a div button 
     return link ? (
 
-        <a href={link} className={`${classnames(VARIANT_MAPS[variant])} ${bg}`}>
+        <a href={link} className={`${classnames(VARIANT_MAPS[variant], className)} ${bg}`}>
             {children}
         </a>
 

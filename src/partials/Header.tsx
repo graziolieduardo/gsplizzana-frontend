@@ -15,19 +15,17 @@ export const Header = () => {
                         </Link>
                     </div>
                     
-
-                    <div className='sm:hidden block border mx-6 p-2 rounded-sm text-xl'>
+                    <div className='sm:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
                         {/* <div  className='sm:hidden block dark:text-white border rounded h-9 w-9 cursor pointer' /> */}
-                        <div onClick={() => setIsOpen(!isOpen)}>
-
+                        {/* <div onClick={() => setIsOpen(!isOpen)}> */}
                             <RxHamburgerMenu />
-                        </div>
+                        {/* </div> */}
                     </div>
 
                     {/* links */}
 
                     <nav className={`${isOpen ? 'block text-center mt-3 pb-2 bg-black z-10' : 'hidden'} w-full sm:flex sm:items-center sm:w-auto`}>
-                        <ul className='sm:flex font-semibold sm:space-x-3 sm:pr-4 capitaliza text-sm'>
+                        <ul className='sm:flex font-semibold sm:space-x-3 sm:pr-4 capitaliza text-sm space-y-2'>
 
                             <li>
                                 <Link href='/' className='' >Home</Link>
@@ -38,16 +36,16 @@ export const Header = () => {
                             </li>
 
                             <li>
-                                <Link href='/programma' className=''>Programma 2023</Link>
+                                <Link href='/programma/giovedì' className=''>Programma 2023</Link>
                             </li>
 
                             <li>
                                 <Link href='/bracket' className='' >Bracket</Link>
                             </li>
 
-                            <li>
+                            {/* <li>
                                 <Link href='/gironi' className='' >Chi siamo</Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
                 </div>

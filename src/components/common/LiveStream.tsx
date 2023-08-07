@@ -17,8 +17,10 @@ export default function
                     <div className='lg:block lg:w-1/2 font-sm mt-6 lg:mt-0'>
                         
                         {/*  change the video id for the gsp one. */}
-                        <iframe src="http://www.youtube.com/embed/UyMSlcMVqBE" className=' h-[40vh] w-full' />
-
+                        <iframe src="https://youtube.com/live/hyaYy9X_d7Y?feature=share" className=' h-[40vh] w-full' />
+                        {/* <iframe src="https://youtube.com/live/pRqQwevFRxk?feature=share" className=' h-[40vh] w-full' /> */}
+                        {/* <iframe src="https://youtube.com/live/XE0xHWTKj6E?feature=share" className=' h-[40vh] w-full' /> */}
+                        {/* <iframe src="https://youtube.com/live/o-tPzqgWV6Y?feature=share" className=' h-[40vh] w-full' /> */}
                     </div>
                 </div>
             </section>

@@ -495,7 +495,7 @@ export default function Home() {
                     <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 text-white'>
                         <div className='w-full md:w-1/2 pb-10'>
                             <Title variant={Title.variant.secondary} > Calciosplash Lizzana 2023</Title>
-                            <h5 className='text-[3.7rem] md:text-[5rem] leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Non fartelo raccontare</h5>
+                            <h5 className='text-[3.7rem] md:text-[5rem] leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Stay tuned, stay orangione</h5>
                         </div>
                     </div>
                 </div>
@@ -518,7 +518,7 @@ export default function Home() {
                         <p className='my-6 font-light text-secondary'>Sai la differenza tra i mondiali classici e quelli sul sapone? Quelli sul sapone non cambiano luogo ogni 4 anni.</p>
 
                         {/* <Link className='block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full py-2 mt-8 text-white text-center' href="iscrizioni">Iscriviti</Link> */}
-                        <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button>
+                        {/* <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button> */}
                     </div>
                 </div>
             </section>
