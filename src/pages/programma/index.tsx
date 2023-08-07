@@ -16,7 +16,7 @@ export default function index() {
         sabato: ['sabato', '12.08'],
     }
 
-    !isLoading && schedule.data.map((day: any) => {
+    !isFetching && schedule.map((day: any) => {
 
         const eventDate = new Date(day.scheduled_at)
         const weekDay = eventDate.getDay()

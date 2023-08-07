@@ -7,7 +7,7 @@ export default function useSchedules() {
     
     const fetchSchedule = async () => {
         const res = await axios.get(`https://gsplizzana.internal.devlounge.dev/api/schedule`)         
-        return res.data
+        return res.data.data
     }
 
     const { data:schedule, isLoading, isFetching } = useQuery(['schedule'],

@@ -3,6 +3,7 @@ import LiveStream from '@/src/components/common/LiveStream';
 import useSingleMatch from '@/src/api/matches/useSingleMatch'
 import { Title } from '@/src/components/common/Title';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export default function index() {
 
@@ -10,10 +11,7 @@ export default function index() {
     const { id } = router.query;
 
     const { match, isLoading } = useSingleMatch(id) 
-   
-
     const timer = '03:50';
-
 
     const nextMatches: any = [
 
@@ -82,8 +80,10 @@ export default function index() {
         },
     ];
 
-    // to fake query with id 
-    const pageId = parseInt(id as string) - 1;
+    // useEffect(() => {
+    //     match && console.log(match.data);
+        
+    // }, [match])
 
     return (
         <>
@@ -103,7 +103,7 @@ export default function index() {
                 {/* dettagli partita */}
                 <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-16'>
                     {
-                        match && <div>
+                        (match && !isLoading ) && <div>
                             <div className={`flex text-center justify-between items-center py-12 px-[4%] mb-4 min-h-[70px] rounded bg-gradient-to-r from-primary-dark/40 to-primary/40 border-2 border-primary-dark shadow-[0_2px_8px_rgba(0,0,0,0.25) `}>
 
                                 {/* Home team */}
@@ -127,7 +127,6 @@ export default function index() {
                         </div>
                     }
 
-                    {/* tentativa de advinhar os dados dos cartoes xD da implementar melhor com gols e cartoes vermelhos e tudo mais */}
                     {/* card and goals */}
                     
                 </div>
