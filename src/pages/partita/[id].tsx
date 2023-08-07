@@ -10,9 +10,11 @@ export default function index() {
     const router = useRouter();
     const { id } = router.query;
 
-    const { match, isLoading } = useSingleMatch(id) 
+    //query
+    const { match, isLoading, isFetching } = useSingleMatch(id)
     const timer = '03:50';
 
+    //next matches
     const nextMatches: any = [
 
         {
@@ -80,10 +82,14 @@ export default function index() {
         },
     ];
 
-    // useEffect(() => {
-    //     match && console.log(match.data);
-        
-    // }, [match])
+    const getMatchDate = (match: any) => {
+        const date = new Date(match.scheduled_at)
+        const hour = date.getHours()
+        const minutes = date.getMinutes().toString().padStart(2, "0");
+        const matchDate = `${hour}:${minutes}`
+
+        return matchDate
+    }
 
     return (
         <>
@@ -103,34 +109,153 @@ export default function index() {
                 {/* dettagli partita */}
                 <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-16'>
                     {
-                        (match && !isLoading ) && <div>
+                        (match && !isFetching) && <div>
                             <div className={`flex text-center justify-between items-center py-12 px-[4%] mb-4 min-h-[70px] rounded bg-gradient-to-r from-primary-dark/40 to-primary/40 border-2 border-primary-dark shadow-[0_2px_8px_rgba(0,0,0,0.25) `}>
 
                                 {/* Home team */}
-                                <div className='font-semibold  min-w-[40%]'>{match.home_team && match.home_team.name}</div>
+                                <div className='font-semibold  min-w-[40%]'>{match?.home_team.name}</div>
 
                                 {/* placar */}
                                 <div className="text-center min-w-[20%]">
-                                    <div className="text-xs font-semibold text-primary-dark">h </div>
-                                    {
+
+                                    {!isFetching && <div className="text-xs font-semibold text-primary-dark">h {getMatchDate(match)} </div>}
+
+                                    {(match.closed || match.live) &&
                                         <div className='font-bold text-xl'>
-                                            <span>{match.home_team && match.home_team.score}</span>
+                                            <span>{match?.home_team.score}</span>
                                             <span> - </span>
-                                            <span>{match.away_team && match.away_team.score}</span>
+                                            <span>{match?.away_team.score}</span>
                                         </div>
                                     }
                                 </div>
 
                                 {/* guest team */}
-                                <div className='font-semibold  min-w-[40%]'>{match.away_team && match.away_team.name}</div>
+                                <div className='font-semibold  min-w-[40%]'>{match?.away_team.name}</div>
                             </div>
                         </div>
                     }
 
-                    {/* card and goals */}
-                    
+        
+                    <div className='flex justify-center mt-16'>
+
+                        {/* home team details*/}
+                        <div className='border-r pr-24'>
+                            {(match && !isFetching) && match.home_team.players.map((player: any) => {
+                                return (
+                                    <div key={player.id}>
+                                        {/* print goals for home team */}
+                                        {player.goals ? <div>
+                                            <div className='flex justify-between gap-x-2'>
+                                                <div>
+                                                    <span>{player.name} </span>
+                                                    <span>{player.surname} </span>
+                                                    {player.nickname && <span>({player.nickname}) </span>}
+                                                </div>
+
+                                                <div className='flex gap-x-1'>
+                                                    <span>{player.goals}</span>
+                                                    <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
+                                                </div>
+                                            </div>
+                                        </div> : null}
+
+                                        {/* print yellowcard for home team */}
+
+                                        {player.cards.yellow && <div className='flex justify-between gap-x-1'>
+                                            <div>
+                                                <span>{player.name} </span>
+                                                <span>{player.surname} </span>
+                                                {player.nickname && <span>({player.nickname}) </span>}
+                                            </div>
+
+                                            <div className='flex items-center gap-x-1'>
+
+                                                <img src="/static/yellow-card.png" className='h-4' alt="" />
+                                            </div>
+                                        </div>}
+
+                                        {/* print yellowcard for home team */}
+
+                                        {player.cards.yellow && <div className='flex justify-between gap-x-1'>
+                                            <div>
+                                                <span>{player.name} </span>
+                                                <span>{player.surname} </span>
+                                                {player.nickname && <span>({player.nickname}) </span>}
+                                            </div>
+
+                                            <div className='flex items-center gap-x-1'>
+
+                                                <img src="/static/red-card.png" className='h-4' alt="" />
+                                            </div>
+                                        </div>}
+
+                                    </div>
+                                )
+
+                            })}
+                        </div>
+
+                        {/* Away team details */}
+                        <div className='border-l pl-24'>
+                            {(match && !isFetching) && match.away_team.players.map((player: any) => {
+
+                                return (
+                                    <div key={player.id}>
+                                        {/* print goals for home team */}
+                                        {player.goals ? <div>
+                                            <div className='flex justify-between gap-x-2'>
+                                                <div>
+                                                    <span>{player.name} </span>
+                                                    <span>{player.surname} </span>
+                                                    {player.nickname && <span>({player.nickname}) </span>}
+                                                </div>
+
+                                                <div className='flex gap-x-1'>
+                                                    <span>{player.goals}</span>
+                                                    <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
+                                                </div>
+                                            </div>
+                                        </div> : null}
+
+                                        {/* print yellowcard for home team */}
+
+                                        {player.cards.yellow && <div className='flex justify-between gap-x-1'>
+                                            <div>
+                                                <span>{player.name} </span>
+                                                <span>{player.surname} </span>
+                                                {player.nickname && <span>({player.nickname}) </span>}
+                                            </div>
+
+                                            <div className='flex items-center gap-x-1'>
+
+                                                <img src="/static/yellow-card.png" className='h-4' alt="" />
+                                            </div>
+                                        </div>}
+
+                                        {/* print yellowcard for home team */}
+
+                                        {player.cards.yellow && <div className='flex justify-between gap-x-1'>
+                                            <div>
+                                                <span>{player.name} </span>
+                                                <span>{player.surname} </span>
+                                                {player.nickname && <span>({player.nickname}) </span>}
+                                            </div>
+
+                                            <div className='flex items-center gap-x-1'>
+
+                                                <img src="/static/red-card.png" className='h-4' alt="" />
+                                            </div>
+                                        </div>}
+
+                                    </div>
+                                )
+
+                            })}
+                        </div>
+                    </div>
                 </div>
 
+                {/* detalhe match??*/}
                 <div className='bg-bg-secondary py-16'>
                     <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4'>
                         <Title variant={Title.variant.tertiary}> Dettagli match</Title>

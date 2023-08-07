@@ -6,9 +6,8 @@ export default function DetaglioPartita({ match }: Props) {
     const date = new Date(match.scheduled_at)
     const hour = date.getHours()
     const minutes = date.getMinutes().toString().padStart(2, "0");
-    
-
     const matchDate = `${hour}:${minutes}`
+    
     return (
         <>
             {match && <Link href={`/partita/${match.id}`} className={`flex text-center justify-between border items-center py-3 min-h-[70px] px-[4%] rounded mb-4 ${match.live ? 'bg-gradient-to-r from-primary-dark/50 to-primary/40  border-2 border-primary-dark shadow-[0_2px_8px_rgba(237,83,0,0.25)]' : "shadow-[0_2px_8px_rgba(0,0,0,0.25)]"} ${!match.closed ? 'shadow-none bg-bg-secondary' : null}`}>
