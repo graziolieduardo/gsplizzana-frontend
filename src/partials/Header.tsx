@@ -24,23 +24,23 @@ export const Header = () => {
 
                     {/* links */}
 
-                    <nav className={`${isOpen ? 'block text-center mt-3 pb-2 bg-black z-10' : 'hidden'} w-full sm:flex sm:items-center sm:w-auto`}>
-                        <ul className='sm:flex font-semibold sm:space-x-3 sm:pr-4 capitaliza text-sm space-y-2'>
+                    <nav className={`${isOpen ? 'block text-center bg-black z-10' : 'hidden'} w-full sm:flex sm:items-center sm:w-auto`}>
+                        <ul className='sm:flex sm:items-center font-semibold sm:space-x-3 capitaliza text-sm'>
 
                             <li>
-                                <Link href='/' className='' >Home</Link>
+                                <Link href='/'>Home</Link>
                             </li>
 
                             <li>
-                                <Link href='/gironi/maschile' className='' >Gironi</Link>
+                                <Link href='/gironi/maschile'>Gironi</Link>
                             </li>
 
                             <li>
-                                <Link href='/programma/giovedì' className=''>Programma 2023</Link>
+                                <Link href='/programma/giovedì'>Programma 2023</Link>
                             </li>
 
                             <li>
-                                <Link href='/bracket' className='' >Bracket</Link>
+                                <Link href='/bracket'>Bracket</Link>
                             </li>
 
                             {/* <li>

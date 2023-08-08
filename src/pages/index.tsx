@@ -3,489 +3,98 @@ import TableHome from '../components/common/TableHome';
 import LiveStream from '../components/common/LiveStream';
 import Programma from '../components/common/Programma';
 import { Title } from '../components/common/Title';
+import axios from 'axios';
+import { useQueries } from '@tanstack/react-query';
 
 export default function Home() {
-
-    const campeonato: any = {
-        maschile: {
-
-            "Girone A": [
-
-                {
-                    position: 1,
-                    points: 6,
-                    club: {
-                        id: 1,
-                        clubName: 'squadra A'
-                    },
-                    matches: 3,
-                    win: 2,
-                    draw: 0,
-                    lose: 1
-                },
-                {
-                    position: 2,
-                    points: 4,
-                    club: {
-                        id: 3,
-                        clubName: 'squadra C'
-                    },
-                    matches: 3,
-                    win: 1,
-                    draw: 1,
-                    lose: 1
-                },
-                {
-                    position: 3,
-                    points: 2,
-                    club: {
-                        id: 2,
-                        clubName: 'squadra B'
-                    },
-                    matches: 5,
-                    win: 0,
-                    draw: 2,
-                    lose: 1
-                },
-                {
-                    position: 4,
-                    points: 1,
-                    club: {
-                        id: 4,
-                        clubName: 'squadra D'
-                    },
-                    matches: 5,
-                    win: 0,
-                    draw: 1,
-                    lose: 2
-                },
-            ],
-
-            "Girone B": [
-
-                {
-                    position: 1,
-                    points: 6,
-                    club: {
-                        id: 1,
-                        clubName: 'squadra E'
-                    },
-                    matches: 3,
-                    win: 2,
-                    draw: 0,
-                    lose: 1
-                },
-                {
-                    position: 2,
-                    points: 4,
-                    club: {
-                        id: 3,
-                        clubName: 'squadra F'
-                    },
-                    matches: 3,
-                    win: 1,
-                    draw: 1,
-                    lose: 1
-                },
-                {
-                    position: 3,
-                    points: 2,
-                    club: {
-                        id: 2,
-                        clubName: 'squadra G'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 2,
-                    lose: 1
-                },
-                {
-                    position: 4,
-                    points: 1,
-                    club: {
-                        id: 4,
-                        clubName: 'squadra H'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 1,
-                    lose: 2
-                },
-            ],
-
-            "Girone C": [
-
-                {
-                    position: 1,
-                    points: 6,
-                    club: {
-                        id: 1,
-                        clubName: 'squadra I muito grande'
-                    },
-                    matches: 3,
-                    win: 2,
-                    draw: 0,
-                    lose: 1
-                },
-                {
-                    position: 2,
-                    points: 4,
-                    club: {
-                        id: 3,
-                        clubName: 'squadra J'
-                    },
-                    matches: 3,
-                    win: 1,
-                    draw: 1,
-                    lose: 1
-                },
-                {
-                    position: 3,
-                    points: 2,
-                    club: {
-                        id: 2,
-                        clubName: 'squadra K'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 2,
-                    lose: 1
-                },
-                {
-                    position: 4,
-                    points: 1,
-                    club: {
-                        id: 4,
-                        clubName: 'squadra L'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 1,
-                    lose: 2
-                },
-            ],
-
-            "Girone D": [
-
-                {
-                    position: 1,
-                    points: 6,
-                    club: {
-                        id: 1,
-                        clubName: 'squadra A'
-                    },
-                    matches: 3,
-                    win: 2,
-                    draw: 0,
-                    lose: 1
-                },
-                {
-                    position: 2,
-                    points: 4,
-                    club: {
-                        id: 3,
-                        clubName: 'squadra C'
-                    },
-                    matches: 3,
-                    win: 1,
-                    draw: 1,
-                    lose: 1
-                },
-                {
-                    position: 3,
-                    points: 2,
-                    club: {
-                        id: 2,
-                        clubName: 'squadra B'
-                    },
-                    matches: 5,
-                    win: 0,
-                    draw: 2,
-                    lose: 1
-                },
-                {
-                    position: 4,
-                    points: 1,
-                    club: {
-                        id: 4,
-                        clubName: 'squadra D'
-                    },
-                    matches: 5,
-                    win: 0,
-                    draw: 1,
-                    lose: 2
-                },
-            ],
-
-            "Girone E": [
-
-                {
-                    position: 1,
-                    points: 6,
-                    club: {
-                        id: 1,
-                        clubName: 'squadra E'
-                    },
-                    matches: 3,
-                    win: 2,
-                    draw: 0,
-                    lose: 1
-                },
-                {
-                    position: 2,
-                    points: 4,
-                    club: {
-                        id: 3,
-                        clubName: 'squadra F'
-                    },
-                    matches: 3,
-                    win: 1,
-                    draw: 1,
-                    lose: 1
-                },
-                {
-                    position: 3,
-                    points: 2,
-                    club: {
-                        id: 2,
-                        clubName: 'squadra G'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 2,
-                    lose: 1
-                },
-                {
-                    position: 4,
-                    points: 1,
-                    club: {
-                        id: 4,
-                        clubName: 'squadra H'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 1,
-                    lose: 2
-                },
-            ],
-
-            "Girone F": [
-
-                {
-                    position: 1,
-                    points: 6,
-                    club: {
-                        id: 1,
-                        clubName: 'squadra I muito grande'
-                    },
-                    matches: 3,
-                    win: 2,
-                    draw: 0,
-                    lose: 1
-                },
-                {
-                    position: 2,
-                    points: 4,
-                    club: {
-                        id: 3,
-                        clubName: 'squadra J'
-                    },
-                    matches: 3,
-                    win: 1,
-                    draw: 1,
-                    lose: 1
-                },
-                {
-                    position: 3,
-                    points: 2,
-                    club: {
-                        id: 2,
-                        clubName: 'squadra K'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 2,
-                    lose: 1
-                },
-                {
-                    position: 4,
-                    points: 1,
-                    club: {
-                        id: 4,
-                        clubName: 'squadra L'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 1,
-                    lose: 2
-                },
-            ],
-
-
-        },
-
-        feminile: {
-
-            "Girone E": [
-
-                {
-                    position: 1,
-                    points: 6,
-                    club: {
-                        id: 1,
-                        clubName: 'squadra feminile A'
-                    },
-                    matches: 3,
-                    win: 2,
-                    draw: 0,
-                    lose: 1
-                },
-                {
-                    position: 2,
-                    points: 4,
-                    club: {
-                        id: 3,
-                        clubName: 'squadra feminile C'
-                    },
-                    matches: 3,
-                    win: 1,
-                    draw: 1,
-                    lose: 1
-                },
-                {
-                    position: 3,
-                    points: 2,
-                    club: {
-                        id: 2,
-                        clubName: 'squadra feminile B'
-                    },
-                    matches: 5,
-                    win: 0,
-                    draw: 2,
-                    lose: 1
-                },
-                {
-                    position: 4,
-                    points: 1,
-                    club: {
-                        id: 4,
-                        clubName: 'squadra feminile D'
-                    },
-                    matches: 5,
-                    win: 0,
-                    draw: 1,
-                    lose: 2
-                },
-            ],
-
-            "Girone B": [
-
-                {
-                    position: 1,
-                    points: 6,
-                    club: {
-                        id: 1,
-                        clubName: 'squadra feminile E'
-                    },
-                    matches: 3,
-                    win: 2,
-                    draw: 0,
-                    lose: 1
-                },
-                {
-                    position: 2,
-                    points: 4,
-                    club: {
-                        id: 3,
-                        clubName: 'squadra feminile F'
-                    },
-                    matches: 3,
-                    win: 1,
-                    draw: 1,
-                    lose: 1
-                },
-                {
-                    position: 3,
-                    points: 2,
-                    club: {
-                        id: 2,
-                        clubName: 'squadra feminile G'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 2,
-                    lose: 1
-                },
-                {
-                    position: 4,
-                    points: 1,
-                    club: {
-                        id: 4,
-                        clubName: 'squadra feminile H'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 1,
-                    lose: 2
-                },
-            ],
-
-            "Girone C": [
-
-                {
-                    position: 1,
-                    points: 6,
-                    club: {
-                        id: 1,
-                        clubName: 'squadra feminile I'
-                    },
-                    matches: 3,
-                    win: 2,
-                    draw: 0,
-                    lose: 1
-                },
-                {
-                    position: 2,
-                    points: 4,
-                    club: {
-                        id: 3,
-                        clubName: 'squadra feminile molto lungo'
-                    },
-                    matches: 3,
-                    win: 1,
-                    draw: 1,
-                    lose: 1
-                },
-                {
-                    position: 3,
-                    points: 2,
-                    club: {
-                        id: 2,
-                        clubName: 'squadra feminile K'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 2,
-                    lose: 1
-                },
-                {
-                    position: 4,
-                    points: 1,
-                    club: {
-                        id: 4,
-                        clubName: 'squadra L'
-                    },
-                    matches: 3,
-                    win: 0,
-                    draw: 1,
-                    lose: 2
-                },
-            ],
-        },
-    }
-
-    const gironeMaschile = Object.keys(campeonato.maschile);
-    const gironeFeminile = Object.keys(campeonato.feminile);
+    const [MA, MB, MC, MD, ME, MF, MR1, MR2, FA, FB, FC, FR1] = useQueries({
+        queries: [
+            {
+                queryKey: ['MA'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MA')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['MB'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MB')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['MC'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MC')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['MD'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MD')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['ME'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=ME')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['MF'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MF')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['MR1'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MR1')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['MR2'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MR2')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['FA'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=FA')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['FB'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=FB')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['FC'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=FC')
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['FR1'],
+                queryFn: () =>
+                    axios
+                        .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=FR1')
+                        .then((res) => res.data),
+            }
+        ],
+    });
 
     return (
         <>
@@ -530,22 +139,22 @@ export default function Home() {
             <section id='male-table' className='bg-bg-primary'>
 
                 <div className='max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16'>
-
                     <Title variant={Title.variant.secondary}> Gironi Maschile </Title>
 
                     <div className="flex gap-x-4 overflow-x-auto mt-8">
-
-                        {gironeMaschile.map((girone) => (
-                            <div key={girone}>
-                                <TableHome girone={girone} campeonato={campeonato.maschile} />
-                            </div>
-                        ))}
+                        <TableHome girone={'GIRONE A'} data={MA.data} bg={'bg-white'} />
+                        <TableHome girone={'GIRONE B'} data={MB.data} bg={'bg-white'} />
+                        <TableHome girone={'GIRONE C'} data={MC.data} bg={'bg-white'} />
+                        <TableHome girone={'GIRONE D'} data={MD.data} bg={'bg-white'} />
+                        <TableHome girone={'GIRONE E'} data={ME.data} bg={'bg-white'} />
+                        <TableHome girone={'GIRONE F'} data={MF.data} bg={'bg-white'} />
+                        <TableHome girone={'GIRONE R1'} data={MR1.data} bg={'bg-white'} />
+                        <TableHome girone={'GIRONE R2'} data={MR2.data} bg={'bg-white'} />
                     </div>
                     <p className='text-xs mt-2 mb-8'>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</p>
 
                     <div className=''>
                         <div className='z-10 relative'>
-
                             <Button variant={Button.variant.secondary} link={'/gironi/maschile'} bg={'bg-bg-primary'}> Dettagli gironi maschile</Button>
                         </div>
                     </div>
@@ -557,19 +166,18 @@ export default function Home() {
 
                 <div className="max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16">
 
-                    <Title variant={Title.variant.secondary}> Gironii Feminile</Title>
+                    <Title variant={Title.variant.secondary}> Gironii Femminile</Title>
 
                     <div className="flex gap-x-4 overflow-x-auto mt-8">
-
-                        {gironeFeminile.map((girone) => (
-
-                            <TableHome key={girone} girone={girone} campeonato={campeonato.feminile} bgColor={'bg-bg-primary'} />
-                        ))}
+                        <TableHome girone={'GIRONE A'} data={FA.data} bg={'bg-bg-primary'} />
+                        <TableHome girone={'GIRONE B'} data={FB.data} bg={'bg-bg-primary'} />
+                        <TableHome girone={'GIRONE C'} data={FC.data} bg={'bg-bg-primary'} />
+                        <TableHome girone={'GIRONE R1'} data={FR1.data} bg={'bg-bg-primary'} />
                     </div>
 
                     <p className='text-xs mt-2 mb-8'>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</p>
 
-                    <Button variant={Button.variant.secondary} link={'/gironi/feminile'}> dettagli gironi feminile</Button>
+                    <Button variant={Button.variant.secondary} link={'/gironi/femminile'}> dettagli gironi femminile</Button>
                 </div>
             </section>
 

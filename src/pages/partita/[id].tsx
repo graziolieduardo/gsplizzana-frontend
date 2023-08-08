@@ -140,19 +140,19 @@ export default function index() {
                         <div className='border-r flex-1 p-2'>
                             {(match && !isFetching) && match.home_team.players.map((player: any) => {
                                 return (
-                                    <div key={player.id}>
+                                    <div key={player?.id}>
 
                                         {/* print goals for home team */}
-                                        {player.goals ? <div>
+                                        {player?.goals ? <div>
                                             <div className='flex justify-between gap-x-2'>
                                                 <div>
-                                                    <span>{player.name} </span>
-                                                    <span>{player.surname} </span>
-                                                    {/* {player.nickname && <span>({player.nickname}) </span>} */}
+                                                    <span>{player?.name} </span>
+                                                    <span>{player?.surname} </span>
+                                                    {/* {player?.nickname && <span>({player?.nickname}) </span>} */}
                                                 </div>
 
                                                 <div className='flex gap-x-1'>
-                                                    <span>{player.goals}</span>
+                                                    <span>{player?.goals}</span>
                                                     <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
                                                 </div>
                                             </div>
@@ -160,11 +160,11 @@ export default function index() {
 
                                         {/* print yellowcard for home team */}
 
-                                        {player.cards.yellow && <div className='flex justify-between gap-x-1'>
+                                        {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
                                             <div>
-                                                <span>{player.name} </span>
-                                                <span>{player.surname} </span>
-                                                {/* {player.nickname && <span>({player.nickname}) </span>} */}
+                                                <span>{player?.name} </span>
+                                                <span>{player?.surname} </span>
+                                                {/* {player?.nickname && <span>({player?.nickname}) </span>} */}
                                             </div>
 
                                             <div className='flex items-center gap-x-1'>
@@ -175,11 +175,11 @@ export default function index() {
 
                                         {/* print yellowcard for home team */}
 
-                                        {player.cards.yellow && <div className='flex justify-between gap-x-1'>
+                                        {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
                                             <div>
-                                                <span>{player.name} </span>
-                                                <span>{player.surname} </span>
-                                                {/* {player.nickname && <span>({player.nickname}) </span>} */}
+                                                <span>{player?.name} </span>
+                                                <span>{player?.surname} </span>
+                                                {/* {player?.nickname && <span>({player?.nickname}) </span>} */}
                                             </div>
 
                                             <div className='flex items-center gap-x-1'>
@@ -220,7 +220,7 @@ export default function index() {
 
                                         {/* print yellowcard for home team */}
 
-                                        {player.cards.yellow && <div className='flex justify-between gap-x-1'>
+                                        {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
                                             <div>
                                                 <span>{player.name} </span>
                                                 <span>{player.surname} </span>
@@ -235,10 +235,10 @@ export default function index() {
 
                                         {/* print yellowcard for home team */}
 
-                                        {player.cards.yellow && <div className='flex justify-between gap-x-1'>
+                                        {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
                                             <div>
-                                                <span>{player.name} </span>
-                                                <span>{player.surname} </span>
+                                                <span>{player?.name} </span>
+                                                <span>{player?.surname} </span>
                                                 {/* {player.nickname && <span>({player.nickname}) </span>} */}
                                             </div>
 

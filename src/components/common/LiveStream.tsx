@@ -18,10 +18,10 @@ export default function
                     <div className='lg:block lg:w-1/2 font-sm mt-6 lg:mt-0'>
 
                         {/*  change the video id for the gsp one. */}
-                        <iframe src="https://youtube.com/live/hyaYy9X_d7Y?feature=share" className=' h-[40vh] w-full' />
-                        {/* <iframe src="https://youtube.com/live/pRqQwevFRxk?feature=share" className=' h-[40vh] w-full' /> */}
-                        {/* <iframe src="https://youtube.com/live/XE0xHWTKj6E?feature=share" className=' h-[40vh] w-full' /> */}
-                        {/* <iframe src="https://youtube.com/live/o-tPzqgWV6Y?feature=share" className=' h-[40vh] w-full' /> */}
+                        <iframe className='h-[40vh] w-full' width="965" height="543" src="https://www.youtube.com/embed/hyaYy9X_d7Y" title="Calciosplash 2023 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/pRqQwevFRxk" title="Calciosplash 2023 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> */}
+                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/XE0xHWTKj6E" title="Calciosplash 2023 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> */}
+                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/o-tPzqgWV6Y" title="Calciosplash 2023 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> */}
                     </div>
                 </div>
             </section>
