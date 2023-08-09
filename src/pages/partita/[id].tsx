@@ -36,7 +36,7 @@ export default function Index() {
                         <div className='text-center'>
                             <p className='text-white font-semibold'>Timer partita in corso</p>
                             <div>
-                                {timer}'
+                                {timer}&apos;
                             </div>
                         </div>
                     </div>
