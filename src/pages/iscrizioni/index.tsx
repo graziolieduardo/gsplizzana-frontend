@@ -1,4 +1,4 @@
-import client from '@/src/pages/api/client';
+
 import RegisterModal from '@/src/components/RegisterModal';
 import { useSignupContext } from '@/src/hooks/useSignupContext';
 import { ErrorMessage } from '@hookform/error-message';
@@ -8,6 +8,8 @@ import { useForm, Controller } from 'react-hook-form';
 import { AiOutlineInstagram, AiOutlineCalendar, AiOutlineMail, AiOutlinePhone, AiOutlineUser } from 'react-icons/ai';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Button } from '@/src/components/common/Button';
+import client from '@/src/api/client';
 
 // const PLAYERS = [
 //     {
@@ -52,7 +54,8 @@ const Index = () => {
         setIsRegisterOpen(true);
     }
 
-    const handleModify = (index: any) => {
+    const handleModify = (index: any, e: any) => {
+        e.preventDefault()
         setModifyIndex(index);
         setIsRegisterOpen(true);
     }
@@ -104,16 +107,19 @@ const Index = () => {
             </Head>
             {isRegisterOpen && <RegisterModal setIsRegisterOpen={setIsRegisterOpen} modifyIndex={modifyIndex} />}
 
-            <div className="container mx-auto">
+            <div className="max-w-container 2xl:max-w-container-xl mx-auto">
                 <div className="px-6 pt-12 pb-8 w-full sm:w-1/2">
                     <h2 className="text-4xl font-bold">Modulo di iscrizione torneo di <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary">Calcio Splash</span></h2>
                     <p className="mt-4 text-secondary">Compila il form per iscrivere la tua squadra al torneo della 23&ordf; edizione.</p>
                 </div>
             </div>
             <div className=" py-10 bg-gray-200">
-                <div className="container mx-auto px-6">
+                    
+                <div className="max-w-container 2xl:max-w-container-xl mx-auto px-6">
 
                     <h2 className='text-2xl font-bold'>Dettagli squadra</h2>
+
+                    {/* form  */}
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* CATEGORIES */}
                         <fieldset>
@@ -154,7 +160,7 @@ const Index = () => {
                                     </div>
                                 )}
                             />
-                            
+
                             <ErrorMessage
                                 errors={errors}
                                 name="category"
@@ -182,12 +188,13 @@ const Index = () => {
                         </div>
 
                         {/* LOGO */}
-                        {/* <div className="mt-5">
+                        <div className="mt-5">
                             <label className="font-semibold" htmlFor="">Logo</label>
                             <div className="flex h-16 bg-white w-full sm:w-1/2 lg:w-1/3 mt-2 p-3 rounded">
                                 <div className="image-upload h-10">
-                                    <label htmlFor="file-input">
-                                        <img className='h-full' src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/128/Downloads-icon.png" />
+
+                                    <label htmlFor="file-input" className='h-full bg-gradient-to-r from-primary-dark to-primary rounded-full flex justify-center items-center'>
+                                        <img className='w-[50%]' src="/static/arrow-up.svg" />
                                     </label>
 
                                     <input className='hidden' id="file-input" type="file" />
@@ -198,14 +205,16 @@ const Index = () => {
                                     <div className='text-xs text-secondary'>Formati supportati .jpg, .png, .svg</div>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
 
+                        {/* GIOCATORI */}
                         <div className='mt-8'>
                             <h3 className="text-xl">Giocatori</h3>
-                            <div className="overflow-x-scroll rounded-md">
+                            <div className="overflow-x-auto rounded-md">
                                 {/* container */}
                                 {/* scrollable container */}
                                 <div className="inline-flex h-[350px]">
+
                                     {/* add player card */}
                                     <div className="hover:border-primary-dark hover:border-2 cursor-pointer minwd border rounded-md bg-white p-8 flex flex-col justify-center items-center" onClick={() => handleAddPlayer()}>
                                         <div className="w-10 h-10 rounded-full flex justify-center items-center bg-gradient-to-r from-primary-dark to-primary text-white">
@@ -214,6 +223,7 @@ const Index = () => {
                                         <div className="mt-4 font-semibold text-lg">Aggiungi giocatore</div>
                                         <small className='text-secondary'>fino a 9 per squadra</small>
                                     </div>
+
                                     {/* players cards */}
                                     {
                                         players.map((player, index) => (
@@ -293,22 +303,27 @@ const Index = () => {
                                                     </div>
 
                                                     {/* button */}
-                                                    <div className="cursor-pointer flex self-end justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-6" onClick={() => handleModify(index)}>
+                                                    {/* <div className="cursor-pointer flex self-end justify-center align-center w-full rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-6" onClick={() => handleModify(index)}>
                                                         <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
                                                             Modifica
                                                         </div>
+                                                    </div> */}
+                                                    <div className='flex justify-center align-center z-10' onClick={(e) => handleModify(index, e)}>
+                                                        <Button variant={Button.variant.secondary}>Modifica</Button>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         ))
                                     }
                                 </div>
+                                
                             </div>
                             {error.length > 0 && <p className='text-primary-dark'>{error}</p>}
                         </div>
 
+                        {/* checkbox acconsento dati */}
                         <div className="mt-2">
-                            {/* checkbox acconsento dati */}
                             <input {...register('privacy', { required: '- questo campo è obbligatorio' })} className='cursor-pointer' type="checkbox" name="" id="personal-data" onChange={handlePrivacyChange} />
                             <label className="ms-2 text-secondary cursor-pointer" htmlFor="personal-data">Acconsento il trattamento dei dati personali</label>
                             <ErrorMessage
@@ -318,8 +333,8 @@ const Index = () => {
                             />
                         </div>
 
+                        {/* checkbox acconsento dati */}
                         <div className="mt-2">
-                            {/* checkbox acconsento dati */}
                             <input {...register('rules', { required: '- questo campo è obbligatorio' })} className='cursor-pointer' type="checkbox" name="" id="rules" onChange={handleRulesChange} />
                             <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <Link href={'https://pdfhost.io/v/d76jlR1AN_REGOLAMENTO_TORNEO_23_1'} target='blank' className='font-bold underline'>REGOLAMENTO DEL TORNEO</Link></label>
                             <ErrorMessage
@@ -329,17 +344,14 @@ const Index = () => {
                             />
                         </div>
 
-                        <div className="mt-10">
-                            <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white" >Invia pre-iscrizione</button>
+                        {/* invia button */}
+                        <div className="mt-10 ">
+                            {/* <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white" >Invia pre-iscrizione</button> */}
+                            <Button variant={Button.variant.primary} > Invia Pre-iscrizione </Button>
                         </div>
                     </form>
-
                 </div>
-
-
             </div>
-            {/* <RegisterModal /> */}
-            {/* <ConfirmModal /> */}
         </>
     )
 }

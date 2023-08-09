@@ -2,13 +2,25 @@ import { Layout } from '@/src/layouts/Layout';
 import '@/src/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { SignupContextProvider } from '../contexts/SignupContext';
+import { Inter } from 'next/font/google';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const inter = Inter({ subsets: ['latin'] });
+const queryClient = new QueryClient()
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <SignupContextProvider>
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
+            <QueryClientProvider client={queryClient}>
+                <Layout>
+                    <style jsx global>{`
+                        html {
+                        font-family: ${inter.style.fontFamily};
+                        }`}
+                    </style>
+                    <Component {...pageProps} />
+                </Layout>
+            </QueryClientProvider>
         </SignupContextProvider>
     )
 }

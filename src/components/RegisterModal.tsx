@@ -3,6 +3,7 @@ import { useSignupContext } from '../hooks/useSignupContext';
 import { useForm, Controller } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 import { AiOutlineClose } from 'react-icons/ai';
+import { Button } from './common/Button';
 
 const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     // state
@@ -83,8 +84,9 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     }, [modifyIndex, players]);
 
     return (
-        <div className='px-4 fixed inset-0 z-50 h-screen lg:fixed lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 py-10 rounded-md lg:w-4/5 mx-auto bg-white overflow-y-scroll shadow-2xl'>
-            <div className="container mx-auto">
+
+        <div className='px-4 fixed inset-0 z-50 lg:h-[95vh] lg:fixed lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 py-10 rounded-md lg:w-4/5 mx-auto bg-white overflow-y-auto shadow-2xl'>
+            <div className="max-w-container 2xl:max-w-container-xl mx-auto">
 
                 <div className='flex justify-between items-center'>
                     <h2 className='text-2xl font-bold '>Dati giocatore</h2>
@@ -93,6 +95,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                     </div>
                 </div>
 
+                {/* form  */}
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {/* nome */}
                     <div className='flex flex-col mt-5'>
@@ -252,6 +255,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                             checked={value}
                                             className="sr-only peer"
                                             onChange={onChange}
+                                            id='participate'
                                         />
                                         <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                                     </label>
@@ -262,31 +266,36 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
 
                     {/* nickname */}
                     <div className='mt-4 flex flex-col'>
-                        <label className='font-semibold text-sm' htmlFor="instagram">Ha già un soprannome assegnato dai nostri speaker?</label>
+                        <label className='font-semibold text-sm' htmlFor="surname">Ha già un soprannome assegnato dai nostri speaker?</label>
                         <input
                             {...register("nickname")}
                             className='border rounded p-3 mt-1'
                             placeholder='Inserisci il soprannome (solo se ne hai già uno)'
                             type="text"
-                            id='instagram'
+                            id='surname'
                         />
                     </div>
 
                     <div className='sm:flex sm:flex-row-reverse sm:items-center sm:justify-around lg:justify-normal lg:gap-x-4 mt-4'>
                         {/* salva button */}
-                        <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 lg:w-40 py-2.5 mt-6 sm:mt-0 text-white lg:mr-2" >Salva</button>
+                        {/* <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 lg:w-40 py-2.5 mt-6 sm:mt-0 text-white lg:mr-2" >Salva</button> */}
+                        <Button variant={Button.variant.primary}> Salva</Button>
 
                         {/* Cancel button */}
-                        <div className="flex justify-center align-center w-full sm:w-72 lg:w-40 rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-2 sm:mt-0 cursor-pointer" onClick={() => setIsRegisterOpen(false)}>
+                        {/* <div className="flex justify-center align-center w-full sm:w-72 lg:w-40 rounded-full bg-gradient-to-r from-primary-dark to-primary p-0.5 mt-2 sm:mt-0 cursor-pointer" onClick={() => setIsRegisterOpen(false)}>
                             <div className="h-full w-full bg-white rounded-full text-center text-primary font-semibold py-2">
                                 Annulla
                             </div>
+                        </div> */}
+                        <div className='mt-2 sm:mt-0' onClick={() => setIsRegisterOpen(false)}>
+                            <Button variant={Button.variant.secondary}>Annula</Button>
                         </div>
                     </div>
                 </form>
 
             </div>
         </div>
+
     )
 }
 

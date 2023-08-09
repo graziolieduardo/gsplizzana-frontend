@@ -8,6 +8,30 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
+.border-gradient {
+    position: relative;
+}
+
+th {
+    font-weight: normal;
+}
+
+.border-gradient::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    border-radius: inherit;
+    background-image: linear-gradient(to right, #FF6D2D, #f39533);
+  }
+
 .minwd {
     min-width: 240px;
 }
