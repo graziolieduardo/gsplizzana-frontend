@@ -2,7 +2,7 @@ import LiveStream from "@/src/components/common/LiveStream";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function index() {
+export default function Index() {
     const [activePage, setActivePage] = useState('male')
     const [activeBracket, setActiveBracket] = useState('')
 

@@ -5,7 +5,7 @@ import { Title } from "@/src/components/common/Title"
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from "querystring";
 
-const index = () => {
+const Index = () => {
 
     const router = useRouter()
     const { slug } = router.query
@@ -46,4 +46,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index;
