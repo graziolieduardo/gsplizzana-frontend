@@ -70,7 +70,7 @@ export default function Index() {
                                 {/* Home team */}
                                 <div className='flex flex-col items-center flex-1'>
                                     <div className='mb-2'>
-                                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${match?.home_team?.name.replace(/\s/g, '').replace('#', '')}.png`} alt="" />
+                                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${match?.home_team?.name.replace(/\s/g, '').replace('#', '').toLowerCase()}.png`} alt="" />
                                         {/* {match?.home_team.name.replace(/\s/g, '')} */}
                                     </div>
                                     <div className='font-semibold'>{match?.home_team?.name}</div>
@@ -92,7 +92,7 @@ export default function Index() {
                                 {/* guest team */}
                                 <div className='flex flex-col items-center flex-1'>
                                     <div className='mb-2'>
-                                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${match?.away_team?.name.replace(/\s/g, '').replace('#', '')}.png`} alt="" />
+                                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${match?.away_team?.name.replace(/\s/g, '').replace('#', '').toLowerCase()}.png`} alt="" />
                                         {/* {match?.away_team.name} */}
                                     </div>
                                     <div className='font-semibold text-center'>{match?.away_team?.name}</div>
