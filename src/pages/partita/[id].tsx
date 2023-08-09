@@ -3,7 +3,7 @@ import LiveStream from '@/src/components/common/LiveStream';
 import useSingleMatch from '@/src/api/matches/useSingleMatch'
 import { useRouter } from 'next/router';
 
-export default function index() {
+export default function Index() {
 
     const router = useRouter();
     const { id } = router.query;

@@ -1,14 +1,12 @@
 import useSchedules from '@/src/api/schedule/useSchedules';
-import { Button } from '@/src/components/common/Button';
 import DetaglioPartita_2 from '@/src/components/common/DetaglioPartita_2';
 import Programma from '@/src/components/common/Programma';
-import { Title } from '@/src/components/common/Title';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-export default function index() {
+export default function Index() {
     const [nextDay, setNextDay] = useState<string | null>(null);
     const [prevDay, setPrevDay] = useState<string | null>(null);
 
