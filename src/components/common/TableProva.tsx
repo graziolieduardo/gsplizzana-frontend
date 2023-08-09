@@ -9,8 +9,8 @@ export default function TableProva({ data, girone, param }: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <>
-            <div className='mb-4 bg-bg-secondary w-full sm:w-[calc(50%-10px)] xl:w-[calc(33%-10px)] 2xl:w-[calc(25%-15px)] max-w-[430px] rounded-md border'>
+        <div className="w-full">
+            <div className='mb-4 bg-bg-secondary w-full rounded-md border'>
                 <div className='pt-7 px-5 '>
 
                     <table className='w-full'>
@@ -29,11 +29,11 @@ export default function TableProva({ data, girone, param }: Props) {
                         </thead>
                         <tbody>
                             {
-                                data && data?.data?.map((team: any) => (
+                                data && data?.data?.map((team: any, index: any) => (
 
                                     <tr key={team?.name} className='border-b last:border-0 capitalize [&>*:not(:first-child)]:text-center'>
                                         <td className='py-3 max-w-[70px] truncate text-sm'>
-                                            <span className='font-semibold pr-2 '>{1}</span>
+                                            <span className='font-semibold pr-2 '>{index + 1}</span>
                                             {team?.name}
                                         </td>
                                         <td className='py-3 font-semibold'>{team?.points}</td>
@@ -64,6 +64,6 @@ export default function TableProva({ data, girone, param }: Props) {
                     null
                 }
             </div>
-        </>
+        </div>
     )
 }

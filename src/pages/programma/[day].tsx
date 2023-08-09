@@ -1,6 +1,6 @@
 import useSchedules from '@/src/api/schedule/useSchedules';
 import { Button } from '@/src/components/common/Button';
-import DetaglioPartita from '@/src/components/common/DetaglioPartita';
+import DetaglioPartita_2 from '@/src/components/common/DetaglioPartita_2';
 import Programma from '@/src/components/common/Programma';
 import { Title } from '@/src/components/common/Title';
 import { useRouter } from 'next/router';
@@ -8,50 +8,14 @@ import { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-// export const getServerSideProps = async (context: any) => {
-//     let day: string;
-
-//     switch (context.params.day) {
-//         case 'giovedì': day = '2023-08-10';
-//             break;
-//         case 'venerdì': day = '2023-08-11';
-//             break;
-//         case 'sabato': day = '2023-08-12';
-//             break;
-//         case 'domenica': day = '2023-08-13';
-//             break;
-//         default:
-//             day = '2023-08-10';
-//     }
-
-//     const res = await axios.get(`${process.env.NEXT_PUBLIC_GAMESHARD_ENDPOINT}schedule?day=${day}`);
-//     const schedule = res.data;
-
-//     return { props: { schedule } }
-// }
-
-enum Days {
-    'giovedì' = '10.08',
-    'venerdì' = '11.08',
-    'sabato' = '12.08',
-    'domenica' = '13.08',
-}
-
 export default function index() {
-
     const [nextDay, setNextDay] = useState<string | null>(null);
     const [prevDay, setPrevDay] = useState<string | null>(null);
 
     const router = useRouter();
     const { day } = router.query;
 
-    // console.log(day);
-
-
-    const { schedule, isFetching, isLoading } = useSchedules({ day });
-
-    // console.log(schedule);
-
+    const { schedule, isLoading } = useSchedules({ day });
 
     useEffect(() => {
         if (day === 'giovedì') {
@@ -72,15 +36,7 @@ export default function index() {
     return (
         <>
             {/* page title  */}
-            <div className="flex gap-x-2 py-24 max-w-container 2xl:max-w-container-xl mx-auto px-4">
-                <div className=" lg:w-1/2 mx-auto">
-                    <Title variant={Title.variant.primary} > Scopri i <span className="text-primary">gironi</span> del torneo</Title>
-                    <p className='my-8'>E anche quest’anno per il torneo maschile ci sono 8 giorni da 4 squadre ciascuno e per il torneo femminile ci sono 4 gironi da 4 squadre. In aggiunta è stato organizzato anche un girone Rookie per agevolare le squadre new entry.</p>
-                    <Button link={'#agenda'} variant={Button.variant.primary} className='p-3'>Orari partite</Button>
-                </div>
-                <div className=" hidden lg:block lg:w-1/2 h-[500px] bg-gray-200"></div>
 
-            </div>
 
             {/* programma section */}
             <Programma />
@@ -123,7 +79,7 @@ export default function index() {
                             {schedule && schedule?.map((match: any) => {
                                 return (
                                     <div key={match.id} className='mt-8'>
-                                        <DetaglioPartita match={match} />
+                                        <DetaglioPartita_2 data={match} />
                                     </div>
                                 )
                             })}

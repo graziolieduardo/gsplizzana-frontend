@@ -151,7 +151,7 @@ export default function Home() {
                         <TableHome girone={'GIRONE R1'} data={MR1.data} bg={'bg-white'} />
                         <TableHome girone={'GIRONE R2'} data={MR2.data} bg={'bg-white'} />
                     </div>
-                    <p className='text-xs mt-2 mb-8'>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</p>
+                    {/* <p className='text-xs mt-2 mb-8'>Punti, vittorie e <span className='font-semibold'>gol fatti</span>.</p> */}
 
                     <div className=''>
                         <div className='z-10 relative'>
@@ -175,7 +175,7 @@ export default function Home() {
                         <TableHome girone={'GIRONE R1'} data={FR1.data} bg={'bg-bg-primary'} />
                     </div>
 
-                    <p className='text-xs mt-2 mb-8'>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</p>
+                    {/* <p className='text-xs mt-2 mb-8'>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</p> */}
 
                     <Button variant={Button.variant.secondary} link={'/gironi/femminile'}> dettagli gironi femminile</Button>
                 </div>

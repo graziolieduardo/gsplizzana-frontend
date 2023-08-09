@@ -1,7 +1,6 @@
 import DetaglioPartita from '@/src/components/common/DetaglioPartita';
 import LiveStream from '@/src/components/common/LiveStream';
 import useSingleMatch from '@/src/api/matches/useSingleMatch'
-import { Title } from '@/src/components/common/Title';
 import { useRouter } from 'next/router';
 
 export default function index() {
@@ -11,7 +10,10 @@ export default function index() {
 
     //query
     const { match, isLoading, isFetching } = useSingleMatch(id)
-    const timer = '03:50';
+    console.log(match);
+
+    const currentTime: any = new Date(match?.timer?.current)
+    const timer = Math.floor(currentTime / 60);
 
     //next matches
     const nextMatches: any = [
@@ -96,19 +98,41 @@ export default function index() {
             <section id='dettaglioPartita'>
 
                 {/* timer */}
-                <div className='bg-gradient-to-r from-primary-dark to-primary py-8 flex justify-center items-center'>
-                    <div className='text-center'>
-                        <p className='text-white font-semibold'>Timer partita in corso</p>
-                        <div>
-                            {timer}
+                {
+                    (!match?.closed && match?.live) &&
+                    <div className='bg-gradient-to-r from-primary-dark to-primary py-8 flex justify-center items-center'>
+                        <div className='text-center'>
+                            <p className='text-white font-semibold'>Timer partita in corso</p>
+                            <div>
+                                {timer}'
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
+
+                {
+                    (match?.closed && !match?.live) &&
+                    <div className='bg-gradient-to-r from-primary-dark to-primary py-8 flex justify-center items-center'>
+                        <div className='text-center'>
+                            <p className='text-white font-semibold'>Partita terminata</p>
+                        </div>
+                    </div>
+                }
+
+                {
+                    (!match?.closed && !match?.live) &&
+                    <div className='bg-gradient-to-r from-primary-dark to-primary py-8 flex justify-center items-center'>
+                        <div className='text-center'>
+                            <p className='text-white font-semibold'>Partita ancora da giocare</p>
+                        </div>
+                    </div>
+                }
 
                 {/* dettagli partita */}
                 <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-16'>
                     {
-                        (match && !isFetching) && <div>
+                        (match && !isFetching) &&
+                        <div key={match?.id}>
                             <div className={`flex text-center justify-between items-center py-12 px-[4%] mb-4 min-h-[70px] rounded bg-gradient-to-r from-primary-dark/40 to-primary/40 border-2 border-primary-dark shadow-[0_2px_8px_rgba(0,0,0,0.25) `}>
 
                                 {/* Home team */}
@@ -215,7 +239,7 @@ export default function index() {
                                                         <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
                                                     </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                             : <div></div>}
 
                                         {/* print yellowcard for home team */}
@@ -270,14 +294,12 @@ export default function index() {
             <LiveStream />
 
             {/* next matches */}
-            <section id='nextMatches' className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-8'>
-
+            {/* <section id='nextMatches' className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-8'>
                 <h2 className='text-2xl font-bold mb-2'>Prossime Partite</h2>
                 {nextMatches.map((match: any) => (
-
                     <DetaglioPartita key={match.id} match={match} />
                 ))}
-            </section>
+            </section> */}
         </>
     )
 }
