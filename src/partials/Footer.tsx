@@ -37,20 +37,20 @@ export const Footer = () => {
                                 <ul className=' font-semibold capitaliza text-sm space-y-3'>
 
                                     <li>
-                                        <Link href='/programma' className=''>Programma 2023</Link>
+                                        <Link href='/programma' className=''>Programma</Link>
                                     </li>
 
                                     <li>
-                                        <Link href='/gironi/maschile' className='' >Gironi</Link>
+                                        <Link href='/gironi/maschile' className=''>Gironi</Link>
                                     </li>
 
                                     <li>
-                                        <Link href='/bracket' className='' >Bracket</Link>
+                                        <Link href='/bracket' className=''>Fase finale</Link>
                                     </li>
 
-                                    <li>
+                                    {/* <li>
                                         <Link href='/gironi' className='' >Chi siamo</Link>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </nav>
 
