@@ -7,39 +7,37 @@ export const Header = () => {
 
     return (
         <>
-            <header className={`bg-black text-white `}>
-                <div className="max-w-container 2xl:max-w-container-xl flex justify-between flex-wrap items-center content-center mx-auto py-4">
-                    <div className="pl-4">
+            <header className={`bg-black text-white`}>
+                <div className="max-w-container 2xl:max-w-container-xl flex justify-between flex-wrap items-center content-center mx-auto pt-4">
+                    <div className="pl-4 pb-4">
                         <Link href="/" className="cursor-pointer">
                             <img className="w-24" src="/static/logo-arancione.svg" alt="" />
                         </Link>
                     </div>
-                    
-                    <div className='sm:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
+
+                    <div className='sm:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer mb-4' onClick={() => setIsOpen(!isOpen)}>
                         {/* <div  className='sm:hidden block dark:text-white border rounded h-9 w-9 cursor pointer' /> */}
                         {/* <div onClick={() => setIsOpen(!isOpen)}> */}
-                            <RxHamburgerMenu />
+                        <RxHamburgerMenu />
                         {/* </div> */}
                     </div>
 
                     {/* links */}
-
-                    <nav className={`${isOpen ? 'block text-center bg-black z-10' : 'hidden'} w-full sm:flex sm:items-center sm:w-auto`}>
-                        <ul className='sm:flex sm:items-center font-semibold sm:space-x-3 capitaliza text-sm'>
-
-                            <li>
-                                <Link href='/'>Home</Link>
+                    <nav className={`${isOpen ? 'block text-center bg-black z-10' : 'hidden'} w-full sm:flex sm:items-center sm:w-auto sm:mb-4`}>
+                        <ul className='sm:flex sm:items-center font-semibold sm:space-x-3 capitaliza text-sm border sm:border-none'>
+                            <li className="p-4 border-b sm:border-none">
+                                <Link href='/' onClick={() => setIsOpen(false)}>Home</Link>
                             </li>
 
-                            <li>
-                                <Link href='/gironi/maschile'>Gironi</Link>
+                            <li className="p-4 border-b sm:border-none">
+                                <Link href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
                             </li>
 
-                            <li>
-                                <Link href='/programma/giovedì'>Programma 2023</Link>
+                            <li className="p-4 border-b sm:border-none">
+                                <Link href='/programma/giovedì' onClick={() => setIsOpen(false)}>Programma 2023</Link>
                             </li>
 
-                            <li>
+                            <li className="p-4">
                                 <Link href='/bracket'>Bracket</Link>
                             </li>
 
@@ -49,6 +47,7 @@ export const Header = () => {
                         </ul>
                     </nav>
                 </div>
+
             </header >
         </>
     )

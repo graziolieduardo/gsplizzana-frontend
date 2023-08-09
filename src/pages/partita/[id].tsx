@@ -9,79 +9,11 @@ export default function index() {
     const { id } = router.query;
 
     //query
-    const { match, isLoading, isFetching } = useSingleMatch(id)
+    const { match, isFetching } = useSingleMatch(id)
     console.log(match);
 
     const currentTime: any = new Date(match?.timer?.current)
     const timer = Math.floor(currentTime / 60);
-
-    //next matches
-    const nextMatches: any = [
-
-        {
-            id: 4,
-            home: 'squadra 4',
-            guest: 'squadra 1',
-            result: false,
-            isDone: false,
-            live: false,
-            time: '14.40'
-        },
-        {
-            id: 5,
-            home: 'squadra 4',
-            guest: 'squadra 1',
-            result: false,
-            isDone: false,
-            live: false,
-            time: '14.40'
-        },
-        {
-            id: 6,
-            home: 'squadra 4',
-            guest: 'squadra 1',
-            result: false,
-            isDone: false,
-            live: false,
-            time: '14.40'
-        },
-        {
-            id: 7,
-            home: 'squadra 4',
-            guest: 'squadra 1',
-            result: false,
-            isDone: false,
-            live: false,
-            time: '14.40'
-        },
-        {
-            id: 8,
-            home: 'squadra 4',
-            guest: 'squadra 1',
-            result: false,
-            isDone: false,
-            live: false,
-            time: '14.40'
-        },
-        {
-            id: 9,
-            home: 'squadra 4',
-            guest: 'squadra 1',
-            result: false,
-            isDone: false,
-            live: false,
-            time: '14.40'
-        },
-        {
-            id: 10,
-            home: 'squadra 4',
-            guest: 'squadra 1',
-            result: false,
-            isDone: false,
-            live: false,
-            time: '14.40'
-        },
-    ];
 
     const getMatchDate = (match: any) => {
         const date = new Date(match.scheduled_at)
@@ -133,14 +65,19 @@ export default function index() {
                     {
                         (match && !isFetching) &&
                         <div key={match?.id}>
-                            <div className={`flex text-center justify-between items-center py-12 px-[4%] mb-4 min-h-[70px] rounded bg-gradient-to-r from-primary-dark/40 to-primary/40 border-2 border-primary-dark shadow-[0_2px_8px_rgba(0,0,0,0.25) `}>
+                            <div className={`flex justify-between items-center py-12 px-[4%] mb-4 min-h-[70px] rounded bg-gradient-to-r from-primary-dark/40 to-primary/40 border-2 border-primary-dark shadow-[0_2px_8px_rgba(0,0,0,0.25) `}>
 
                                 {/* Home team */}
-                                <div className='font-semibold  min-w-[40%]'>{match?.home_team.name}</div>
+                                <div className='flex flex-col items-center flex-1'>
+                                    <div className='mb-2'>
+                                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${match?.home_team?.name.replace(/\s/g, '').replace('#', '')}.png`} alt="" />
+                                        {/* {match?.home_team.name.replace(/\s/g, '')} */}
+                                    </div>
+                                    <div className='font-semibold'>{match?.home_team?.name}</div>
+                                </div>
 
                                 {/* placar */}
                                 <div className="text-center min-w-[20%]">
-
                                     {!isFetching && <div className="text-xs font-semibold text-primary-dark">h {getMatchDate(match)} </div>}
 
                                     {(match.closed || match.live) &&
@@ -153,7 +90,13 @@ export default function index() {
                                 </div>
 
                                 {/* guest team */}
-                                <div className='font-semibold  min-w-[40%]'>{match?.away_team.name}</div>
+                                <div className='flex flex-col items-center flex-1'>
+                                    <div className='mb-2'>
+                                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${match?.away_team?.name.replace(/\s/g, '').replace('#', '')}.png`} alt="" />
+                                        {/* {match?.away_team.name} */}
+                                    </div>
+                                    <div className='font-semibold text-center'>{match?.away_team?.name}</div>
+                                </div>
                             </div>
                         </div>
                     }
