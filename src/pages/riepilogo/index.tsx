@@ -1,5 +1,5 @@
+import client from '@/src/api/client';
 import React, { useState } from 'react'
-import client from '../api/client'
 
 type Player = {
     id: number,

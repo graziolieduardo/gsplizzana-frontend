@@ -1,8 +1,7 @@
 import React from 'react'
 import { Title } from './Title'
 
-export default function
-    () {
+export default function LiveStream() {
     return (
         <div>
             <section id='liveStream' className="bg-gradient-to-r from-primary-dark to-primary">
