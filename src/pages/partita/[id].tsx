@@ -239,7 +239,7 @@ export default function Index() {
             </section>
 
             {/* livestream */}
-            <LiveStream />
+            {/* <LiveStream /> */}
 
             {/* next matches */}
             {/* <section id='nextMatches' className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-8'>
