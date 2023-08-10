@@ -5,6 +5,7 @@ import Programma from '../components/common/Programma';
 import { Title } from '../components/common/Title';
 import axios from 'axios';
 import { useQueries } from '@tanstack/react-query';
+import { LiveMatch } from '../components/common/LiveMatch';
 
 export default function Home() {
     const [MA, MB, MC, MD, ME, MF, MR1, MR2, FA, FB, FC, FR1] = useQueries({
@@ -108,6 +109,10 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section id='live-stream'>
+                <LiveMatch />
             </section>
 
             {/* register */}
