@@ -43,7 +43,7 @@ export const LiveMatch = () => {
                         {/* {liveMatch.data && liveMatch.data?.home_team.name.replace(/\s/g, '')} */}
                     </div>
                     {/* <div className='font-semibold'>{'FC SAVIGNANO'}</div> */}
-                    <div className='font-semibold'>{liveMatch?.data && liveMatch?.data?.home_team?.name}</div>
+                    <div className='font-semibold text-center'>{liveMatch?.data && liveMatch?.data?.home_team?.name}</div>
                 </div>
 
                 {/* placar */}
