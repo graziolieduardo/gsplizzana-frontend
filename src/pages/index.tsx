@@ -8,6 +8,8 @@ import { useQueries } from '@tanstack/react-query';
 import { LiveMatch } from '../components/common/LiveMatch';
 
 export default function Home() {
+    // console.log('render');
+    
     const [MA, MB, MC, MD, ME, MF, MR1, MR2, FA, FB, FC, FR1] = useQueries({
         queries: [
             {
@@ -16,6 +18,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MA')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['MB'],
@@ -23,6 +26,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MB')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['MC'],
@@ -30,6 +34,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MC')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['MD'],
@@ -37,6 +42,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MD')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['ME'],
@@ -44,6 +50,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=ME')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['MF'],
@@ -51,6 +58,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MF')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['MR1'],
@@ -58,6 +66,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MR1')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['MR2'],
@@ -65,6 +74,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=MR2')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['FA'],
@@ -72,6 +82,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=FA')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['FB'],
@@ -79,6 +90,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=FB')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['FC'],
@@ -86,6 +98,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=FC')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             },
             {
                 queryKey: ['FR1'],
@@ -93,6 +106,7 @@ export default function Home() {
                     axios
                         .get('https://gsplizzana.internal.devlounge.dev/api/rankings?group=FR1')
                         .then((res) => res.data),
+                        refetchOnWindowFocus: false
             }
         ],
     });
