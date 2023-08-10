@@ -1,13 +1,15 @@
 import LiveStream from '@/src/components/common/LiveStream';
 import useSingleMatch from '@/src/api/matches/useSingleMatch'
 import { useRouter } from 'next/router';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function Index() {
     const router = useRouter();
     const { id } = router.query;
 
     //query
-    const { match, isFetching } = useSingleMatch(id)
+    const { match, isLoading, isFetching } = useSingleMatch(id)
     // console.log(match);
 
     const currentTime: any = new Date(match?.timer?.current)
@@ -58,10 +60,17 @@ export default function Index() {
                     </div>
                 }
 
+                {/* {
+                    (isFetching || isLoading) &&
+                    <div className='px-4 pt-16 mb-36'>
+                        <Skeleton count={1} height={200} />
+                    </div>
+                } */}
+
                 {/* dettagli partita */}
-                <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-16'>
-                    {
-                        (match && !isFetching) &&
+                {
+                    match &&
+                    <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-16'>
                         <div key={match?.id}>
                             <div className={`flex justify-between items-center py-12 px-[4%] mb-4 min-h-[70px] rounded bg-gradient-to-r from-primary-dark/40 to-primary/40 border-2 border-primary-dark shadow-[0_2px_8px_rgba(0,0,0,0.25) `}>
 
@@ -97,130 +106,129 @@ export default function Index() {
                                 </div>
                             </div>
                         </div>
-                    }
 
 
-                    <div className='flex justify-between mt-16'>
-                        {/* home team details*/}
-                        <div className='border-r flex-1 p-2'>
-                            {(match && !isFetching) && match.home_team.players.map((player: any) => {
-                                return (
-                                    <div key={player?.id}>
 
-                                        {/* print goals for home team */}
-                                        {player?.goals ? <div>
-                                            <div className='flex justify-between gap-x-2'>
+                        <div className='flex justify-between mt-16'>
+                            {/* home team details*/}
+                            <div className='border-r flex-1 p-2'>
+                                {(match && !isFetching) && match.home_team.players.map((player: any) => {
+                                    return (
+                                        <div key={player?.id}>
+
+                                            {/* print goals for home team */}
+                                            {player?.goals ? <div>
+                                                <div className='flex justify-between items-center gap-x-2'>
+                                                    <div className='flex-1'>
+                                                        <span>{player?.name} </span>
+                                                        <span>{player?.surname} </span>
+                                                        {/* {player?.nickname && <span>({player?.nickname}) </span>} */}
+                                                    </div>
+
+                                                    <div className='flex items-center gap-x-1'>
+                                                        <span>{player?.goals}</span>
+                                                        <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
+                                                    </div>
+                                                </div>
+                                            </div> : null}
+
+                                            {/* print yellowcard for home team */}
+
+                                            {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
                                                 <div>
                                                     <span>{player?.name} </span>
                                                     <span>{player?.surname} </span>
                                                     {/* {player?.nickname && <span>({player?.nickname}) </span>} */}
                                                 </div>
 
-                                                <div className='flex gap-x-1'>
-                                                    <span>{player?.goals}</span>
-                                                    <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
+                                                <div className='flex items-center gap-x-1'>
+                                                    <img src="/static/yellow-card.png" className='h-4' alt="" />
                                                 </div>
-                                            </div>
-                                        </div> : null}
+                                            </div>}
 
-                                        {/* print yellowcard for home team */}
+                                            {/* print yellowcard for home team */}
 
-                                        {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
-                                            <div>
-                                                <span>{player?.name} </span>
-                                                <span>{player?.surname} </span>
-                                                {/* {player?.nickname && <span>({player?.nickname}) </span>} */}
-                                            </div>
+                                            {player?.cards?.yellow && <div className='flex justify-between items-center gap-x-1'>
+                                                <div className='flex-1'>
+                                                    <span>{player?.name} </span>
+                                                    <span>{player?.surname} </span>
+                                                    {/* {player?.nickname && <span>({player?.nickname}) </span>} */}
+                                                </div>
 
-                                            <div className='flex items-center gap-x-1'>
+                                                <div className='flex items-center gap-x-1'>
 
-                                                <img src="/static/yellow-card.png" className='h-4' alt="" />
-                                            </div>
-                                        </div>}
+                                                    <img src="/static/red-card.png" className='h-4' alt="" />
+                                                </div>
+                                            </div>}
 
-                                        {/* print yellowcard for home team */}
+                                        </div>
+                                    )
 
-                                        {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
-                                            <div>
-                                                <span>{player?.name} </span>
-                                                <span>{player?.surname} </span>
-                                                {/* {player?.nickname && <span>({player?.nickname}) </span>} */}
-                                            </div>
+                                })}
+                            </div>
 
-                                            <div className='flex items-center gap-x-1'>
+                            {/* Away team details */}
+                            <div className='border-l flex-1 p-2'>
+                                {(match && !isFetching) && match.away_team.players.map((player: any) => {
 
-                                                <img src="/static/red-card.png" className='h-4' alt="" />
-                                            </div>
-                                        </div>}
+                                    return (
+                                        <div key={player.id}>
+                                            {/* print goals for home team */}
+                                            {player.goals ?
+                                                <div>
+                                                    <div className='flex justify-between gap-x-2'>
+                                                        <div>
+                                                            <span>{player.name} </span>
+                                                            <span>{player.surname} </span>
+                                                            {/* {player.nickname && <span>({player.nickname}) </span>} */}
+                                                        </div>
 
-                                    </div>
-                                )
-
-                            })}
-                        </div>
-
-                        {/* Away team details */}
-                        <div className='border-l flex-1 p-2'>
-                            {(match && !isFetching) && match.away_team.players.map((player: any) => {
-
-                                return (
-                                    <div key={player.id}>
-                                        {/* print goals for home team */}
-                                        {player.goals ?
-                                            <div>
-                                                <div className='flex justify-between gap-x-2'>
-                                                    <div>
-                                                        <span>{player.name} </span>
-                                                        <span>{player.surname} </span>
-                                                        {/* {player.nickname && <span>({player.nickname}) </span>} */}
-                                                    </div>
-
-                                                    <div className='flex gap-x-1'>
-                                                        <span>{player.goals}</span>
-                                                        <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
+                                                        <div className='flex gap-x-1'>
+                                                            <span>{player.goals}</span>
+                                                            <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            : <div></div>}
+                                                : <div></div>}
 
-                                        {/* print yellowcard for home team */}
+                                            {/* print yellowcard for home team */}
 
-                                        {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
-                                            <div>
-                                                <span>{player.name} </span>
-                                                <span>{player.surname} </span>
-                                                {/* {player.nickname && <span>({player.nickname}) </span>} */}
-                                            </div>
+                                            {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
+                                                <div>
+                                                    <span>{player.name} </span>
+                                                    <span>{player.surname} </span>
+                                                    {/* {player.nickname && <span>({player.nickname}) </span>} */}
+                                                </div>
 
-                                            <div className='flex items-center gap-x-1'>
+                                                <div className='flex items-center gap-x-1'>
 
-                                                <img src="/static/yellow-card.png" className='h-4' alt="" />
-                                            </div>
-                                        </div>}
+                                                    <img src="/static/yellow-card.png" className='h-4' alt="" />
+                                                </div>
+                                            </div>}
 
-                                        {/* print yellowcard for home team */}
+                                            {/* print yellowcard for home team */}
 
-                                        {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
-                                            <div>
-                                                <span>{player?.name} </span>
-                                                <span>{player?.surname} </span>
-                                                {/* {player.nickname && <span>({player.nickname}) </span>} */}
-                                            </div>
+                                            {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
+                                                <div>
+                                                    <span>{player?.name} </span>
+                                                    <span>{player?.surname} </span>
+                                                    {/* {player.nickname && <span>({player.nickname}) </span>} */}
+                                                </div>
 
-                                            <div className='flex items-center gap-x-1'>
+                                                <div className='flex items-center gap-x-1'>
 
-                                                <img src="/static/red-card.png" className='h-4' alt="" />
-                                            </div>
-                                        </div>}
+                                                    <img src="/static/red-card.png" className='h-4' alt="" />
+                                                </div>
+                                            </div>}
 
-                                    </div>
-                                )
+                                        </div>
+                                    )
 
-                            })}
+                                })}
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                }
                 {/* detalhe match??
                 <div className='bg-bg-secondary py-16'>
                     <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4'>
