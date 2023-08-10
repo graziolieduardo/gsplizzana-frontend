@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { RxHamburgerMenu } from "react-icons/rx";
 
 export const Header = () => {
@@ -38,7 +38,11 @@ export const Header = () => {
                             </li>
 
                             <li>
-                                <Link className="p-4 block w-full" href='/bracket'>Fase finale</Link>
+                                <Link className="p-4 block w-full" href='/bracket' onClick={() => setIsOpen(false)}>Fase finale</Link>
+                            </li>
+
+                            <li>
+                                <Link className="p-4 block w-full" href='/marcatori' onClick={() => setIsOpen(false)}>Marcatori</Link>
                             </li>
 
                             {/* <li>

@@ -139,7 +139,7 @@ export default function Home() {
             <section id='male-table' className='bg-bg-primary'>
 
                 <div className='max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16'>
-                    <Title variant={Title.variant.secondary}> Gironi Maschile </Title>
+                    <Title variant={Title.variant.secondary}>Gironi Maschili</Title>
 
                     <div className="flex gap-x-4 overflow-x-auto mt-8 mb-4">
                         <TableHome girone={'GIRONE A'} data={MA.data} bg={'bg-white'} />
@@ -155,7 +155,7 @@ export default function Home() {
 
                     <div className=''>
                         <div className='z-10 relative'>
-                            <Button variant={Button.variant.secondary} link={'/gironi/maschile'} bg={'bg-bg-primary'}>Dettagli gironi maschile</Button>
+                            <Button variant={Button.variant.secondary} link={'/gironi/maschile'} bg={'bg-bg-primary'}>Dettagli gironi maschili</Button>
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@ export default function Home() {
 
                 <div className="max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16">
 
-                    <Title variant={Title.variant.secondary}> Gironii Femminile</Title>
+                    <Title variant={Title.variant.secondary}>Gironi Femminili</Title>
 
                     <div className="flex gap-x-4 overflow-x-auto mt-8 mb-4">
                         <TableHome girone={'GIRONE A'} data={FA.data} bg={'bg-bg-primary'} />
@@ -177,7 +177,7 @@ export default function Home() {
 
                     {/* <p className='text-xs mt-2 mb-8'>Partite giocate, differenza reti e <span className='font-semibold'>punti</span>.</p> */}
 
-                    <Button variant={Button.variant.secondary} link={'/gironi/femminile'}>Dettagli gironi femminile</Button>
+                    <Button variant={Button.variant.secondary} link={'/gironi/femminile'}>Dettagli gironi femminili</Button>
                 </div>
             </section>
 

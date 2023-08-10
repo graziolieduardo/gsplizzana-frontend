@@ -1,5 +1,6 @@
 import useSchedules from '@/src/api/schedule/useSchedules';
 import DetaglioPartita_2 from '@/src/components/common/DetaglioPartita_2';
+import LiveStream from '@/src/components/common/LiveStream';
 import Programma from '@/src/components/common/Programma';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -89,6 +90,7 @@ export default function Index() {
                 </div>
             </section>
 
+            <LiveStream />
         </>
     )
 }

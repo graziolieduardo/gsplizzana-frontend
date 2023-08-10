@@ -3,7 +3,7 @@ import Link from "next/link"
 type Props = any
 
 export default function DetaglioPartita_2({ data }: Props) {
-    console.log(data);
+    // console.log(data);
 
     const convertDate = (arg: any) => {
         const date = new Date(arg)
