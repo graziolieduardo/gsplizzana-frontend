@@ -48,6 +48,10 @@ export const Footer = () => {
                                         <Link href='/bracket' className=''>Fase finale</Link>
                                     </li>
 
+                                    <li>
+                                        <Link href='/marcatori' className=''>Marcatori</Link>
+                                    </li>
+
                                     {/* <li>
                                         <Link href='/gironi' className='' >Chi siamo</Link>
                                     </li> */}

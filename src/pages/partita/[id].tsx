@@ -1,16 +1,14 @@
-import DetaglioPartita from '@/src/components/common/DetaglioPartita';
 import LiveStream from '@/src/components/common/LiveStream';
 import useSingleMatch from '@/src/api/matches/useSingleMatch'
 import { useRouter } from 'next/router';
 
 export default function Index() {
-
     const router = useRouter();
     const { id } = router.query;
 
     //query
     const { match, isFetching } = useSingleMatch(id)
-    console.log(match);
+    // console.log(match);
 
     const currentTime: any = new Date(match?.timer?.current)
     const timer = Math.floor(currentTime / 60);
@@ -43,7 +41,7 @@ export default function Index() {
                 }
 
                 {
-                    (match?.closed && !match?.live) &&
+                    match?.closed &&
                     <div className='bg-gradient-to-r from-primary-dark to-primary py-8 flex justify-center items-center'>
                         <div className='text-center'>
                             <p className='text-white font-semibold'>Partita terminata</p>
