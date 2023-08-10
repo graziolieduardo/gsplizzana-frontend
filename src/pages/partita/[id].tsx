@@ -34,7 +34,7 @@ export default function Index() {
                     (!match?.closed && match?.live) &&
                     <div className='bg-gradient-to-r from-primary-dark to-primary py-8 flex justify-center items-center'>
                         <div className='text-center'>
-                            <p className='text-white font-semibold'>Timer partita in corso</p>
+                            <p className='text-white font-semibold'>Partita in corso</p>
                             <div>
                                 {timer}&apos;
                             </div>
@@ -156,7 +156,6 @@ export default function Index() {
                                                 </div>
 
                                                 <div className='flex items-center gap-x-1'>
-
                                                     <img src="/static/red-card.png" className='h-4' alt="" />
                                                 </div>
                                             </div>}
@@ -176,7 +175,7 @@ export default function Index() {
                                             {/* print goals for home team */}
                                             {player.goals ?
                                                 <div>
-                                                    <div className='flex justify-between gap-x-2'>
+                                                    <div className='flex justify-between items-center gap-x-2'>
                                                         <div>
                                                             <span>{player.name} </span>
                                                             <span>{player.surname} </span>
