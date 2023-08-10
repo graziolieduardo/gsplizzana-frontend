@@ -14,7 +14,7 @@ export default function useSchedules(id: any) {
         () => fetchSchedule(id), {
         refetchOnWindowFocus: false,
         enabled: !!id,
-        staleTime: 1000
+        refetchInterval: 15000
     }
     )
 
