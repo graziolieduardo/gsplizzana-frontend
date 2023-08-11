@@ -39,7 +39,7 @@ export const LiveMatch = () => {
                 <div className='flex flex-col items-center flex-1'>
                     <div className='mb-2'>
                         {/* <img width={70} src={`/static/loghi_squadre/tondi/TEAM/fcsavignano.png`} /> */}
-                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.home_team?.name.replace(/\s/g, '').replace('#', '').toLowerCase()}.png`} alt="" />
+                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.home_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" />
                         {/* {liveMatch.data && liveMatch.data?.home_team.name.replace(/\s/g, '')} */}
                     </div>
                     {/* <div className='font-semibold'>{'FC SAVIGNANO'}</div> */}
@@ -70,7 +70,7 @@ export const LiveMatch = () => {
                 <div className='flex flex-col items-center flex-1'>
                     <div className='mb-2'>
                         {/* <img width={70} src={`/static/loghi_squadre/tondi/TEAM/fcsavignano.png`} /> */}
-                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.away_team?.name.replace(/\s/g, '').replace('#', '').toLowerCase()}.png`} alt="" />
+                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.away_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" />
                         {/* {liveMatch?.data && liveMatch?.data?.away_team.name} */}
                     </div>
                     {/* <div className='font-semibold'>{'FC SAVIGNANO'}</div> */}
