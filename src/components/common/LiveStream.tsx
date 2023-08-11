@@ -17,16 +17,16 @@ export default function LiveStream() {
                     <div className='lg:block lg:w-1/2 font-sm mt-6 lg:mt-0'>
 
                         {/*  change the video id for the gsp one. */}
-                        <iframe className='h-[40vh] w-full' width="965" height="543" src="https://www.youtube.com/embed/hyaYy9X_d7Y" title="Calciosplash 2023 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/pRqQwevFRxk" title="Calciosplash 2023 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> */}
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/XE0xHWTKj6E" title="Calciosplash 2023 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> */}
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/o-tPzqgWV6Y" title="Calciosplash 2023 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe> */}
+                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://www.youtube.com/embed/hyaYy9X_d7Y" title="Calciosplash 2023 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
+                        <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/pRqQwevFRxk" title="Calciosplash 2023 - Day 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe>
+                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/XE0xHWTKj6E" title="Calciosplash 2023 - Day 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
+                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/o-tPzqgWV6Y" title="Calciosplash 2023 - Day 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
                     </div>
 
                 </div>
-                <div className='max-w-container px-4 pb-4'>
+                {/* <div className='max-w-container px-4 pb-4'>
                     <a href="https://www.youtube.com/embed/hyaYy9X_d7Y" target='_blank'>Seguici in diretta</a>
-                </div>
+                </div> */}
             </section>
         </div>
     )
