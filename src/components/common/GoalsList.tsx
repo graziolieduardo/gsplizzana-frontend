@@ -22,7 +22,7 @@ export const GoalsList = ({ array }: any) => {
                                             <span>{player.nickname}</span>
                                             <span>({player.team_name})</span>
                                         </div>
-                                        <span>{player.goals}</span>
+                                        <span className='ml-2'>{player.goals}</span>
                                     </div>
                                 </div>
                             }
