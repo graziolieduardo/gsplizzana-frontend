@@ -148,7 +148,7 @@ export default function Index() {
 
                                             {/* print yellowcard for home team */}
 
-                                            {player?.cards?.yellow && <div className='flex justify-between items-center gap-x-1'>
+                                            {player?.cards?.red && <div className='flex justify-between items-center gap-x-1'>
                                                 <div className='flex-1'>
                                                     <span>{player?.name} </span>
                                                     <span>{player?.surname} </span>
@@ -207,7 +207,7 @@ export default function Index() {
 
                                             {/* print yellowcard for home team */}
 
-                                            {player?.cards?.yellow && <div className='flex justify-between gap-x-1'>
+                                            {player?.cards?.red && <div className='flex justify-between gap-x-1'>
                                                 <div>
                                                     <span>{player?.name} </span>
                                                     <span>{player?.surname} </span>
