@@ -7,10 +7,10 @@ import { QuartiFBracket } from "@/src/components/common/QuartiFBracket";
 import { QuartiMBracket } from "@/src/components/common/QuartiMBracket";
 import { SemifinaleFBracket } from "@/src/components/common/SemifinaleFBracket";
 import { SemifinaleMBracket } from "@/src/components/common/SemifinaleMBracket";
-import { useRouter } from "next/router";
+import { TerzoMBracket } from "@/src/components/common/TerzoMBracket";
 import { useEffect, useState } from "react";
 
-const steps = ['ottavi di finale', 'quarti di finale', 'semifinale', 'finale'];
+const steps = ['ottavi di finale', 'quarti di finale', 'semifinale', 'terzo e quarto posto', 'finale'];
 
 export default function Index() {
     const [activePage, setActivePage] = useState('male');
@@ -48,6 +48,8 @@ export default function Index() {
             setActiveBracket(steps[1]);
         } else if (activeBracket === steps[3]) {
             setActiveBracket(steps[2]);
+        } else if (activeBracket === steps[4]) {
+            setActiveBracket(steps[3]);
         }
     }
 
@@ -59,6 +61,8 @@ export default function Index() {
             setActiveBracket(steps[2]);
         } else if (activeBracket === steps[2]) {
             setActiveBracket(steps[3]);
+        } else if (activeBracket === steps[3]) {
+            setActiveBracket(steps[4]);
         }
     }
 
@@ -100,10 +104,12 @@ export default function Index() {
                     {(matches && activePage === 'male' && activeBracket === steps[0]) && <OttaviMBracket matches={matches} />}
                     {(matches && activePage === 'male' && activeBracket === steps[1]) && <QuartiMBracket matches={matches} />}
                     {(matches && activePage === 'male' && activeBracket === steps[2]) && <SemifinaleMBracket matches={matches} />}
-                    {(matches && activePage === 'male' && activeBracket === steps[3]) && <FinaleMBracket matches={matches} />}
+                    {(matches && activePage === 'male' && activeBracket === steps[3]) && <TerzoMBracket matches={matches} />}
+                    {(matches && activePage === 'male' && activeBracket === steps[4]) && <FinaleMBracket matches={matches} />}
                     {(matches && activePage === 'female' && activeBracket === steps[1]) && <QuartiFBracket matches={matches} />}
                     {(matches && activePage === 'female' && activeBracket === steps[2]) && <SemifinaleFBracket matches={matches} />}
                     {(matches && activePage === 'female' && activeBracket === steps[3]) && <FinaleFBracket matches={matches} />}
+                    {(matches && activePage === 'female' && activeBracket === steps[4]) && <FinaleFBracket matches={matches} />}
                 </div>
             </section>
             <LiveStream />
