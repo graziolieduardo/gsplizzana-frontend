@@ -54,7 +54,7 @@ export default function Index() {
                 <ul className='p-4'>
                     {
                         bestPlayersArray.map((player: any) => (
-                            <div className='flex'>
+                            <div key={player.id} className='flex'>
                                 <div className='flex gap-x-2 w-[700px]'>
                                     <div>{player.name}</div>
                                     <div>{player.surname}</div>
