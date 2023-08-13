@@ -7,6 +7,7 @@ import { QuartiFBracket } from "@/src/components/common/QuartiFBracket";
 import { QuartiMBracket } from "@/src/components/common/QuartiMBracket";
 import { SemifinaleFBracket } from "@/src/components/common/SemifinaleFBracket";
 import { SemifinaleMBracket } from "@/src/components/common/SemifinaleMBracket";
+import { TerzoFBracket } from "@/src/components/common/TerzoFBracket";
 import { TerzoMBracket } from "@/src/components/common/TerzoMBracket";
 import { useEffect, useState } from "react";
 
@@ -108,7 +109,7 @@ export default function Index() {
                     {(matches && activePage === 'male' && activeBracket === steps[4]) && <FinaleMBracket matches={matches} />}
                     {(matches && activePage === 'female' && activeBracket === steps[1]) && <QuartiFBracket matches={matches} />}
                     {(matches && activePage === 'female' && activeBracket === steps[2]) && <SemifinaleFBracket matches={matches} />}
-                    {(matches && activePage === 'female' && activeBracket === steps[3]) && <FinaleFBracket matches={matches} />}
+                    {(matches && activePage === 'female' && activeBracket === steps[3]) && <TerzoFBracket matches={matches} />}
                     {(matches && activePage === 'female' && activeBracket === steps[4]) && <FinaleFBracket matches={matches} />}
                 </div>
             </section>
