@@ -45,7 +45,7 @@ export const Footer = () => {
                                     </li>
 
                                     <li>
-                                        <Link href='/bracket' className=''>Fase finale</Link>
+                                        <Link href='/bracket/maschile' className=''>Fase finale</Link>
                                     </li>
 
                                     <li>

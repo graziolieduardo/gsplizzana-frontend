@@ -38,7 +38,7 @@ export const Header = () => {
                             </li>
 
                             <li className="border-b sm:border-none">
-                                <Link className="p-4 block w-full" href='/bracket' onClick={() => setIsOpen(false)}>Fase finale</Link>
+                                <Link className="p-4 block w-full" href='/bracket/maschile' onClick={() => setIsOpen(false)}>Fase finale</Link>
                             </li>
 
                             <li>
