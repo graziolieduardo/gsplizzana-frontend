@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 const steps = ['ottavi di finale', 'quarti di finale', 'semifinale', 'finale'];
 
-export default function index() {
+export default function Index() {
     const [activePage, setActivePage] = useState('male');
     const [activeBracket, setActiveBracket] = useState(steps[0]);
     const [matches, setMatches] = useState([]);
