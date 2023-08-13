@@ -9,23 +9,23 @@ export const FinaleMBracket = ({ matches }: any) => {
 
                     <div className="flex justify-between py-4 px-2">
                         <div className="flex items-center gap-x-2">
-                            {matches[15]?.home_team.length > 0 ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches[15]?.home_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_2.svg" alt="" />}
-                            <p>{matches[15]?.home_team.length > 0 ? matches[15]?.home_team.name : 'Squadra da definire'}</p>
+                            {matches[15]?.home_team ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches[15]?.home_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_2.svg" alt="" />}
+                            <p>{matches[15]?.home_team ? matches[15]?.home_team.name : 'Squadra da definire'}</p>
                         </div>
                         <p>{(matches[15]?.closed || matches[15]?.live) ? matches[15]?.home_team.score : null}</p>
                     </div>
 
                     <div className="flex justify-between py-4 px-2">
                         <div className="flex items-center gap-x-2">
-                            {matches[15]?.away_team.length > 0 ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches[15]?.away_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_2.svg" alt="" />}
-                            <p>{matches[15]?.away_team.length > 0 ? matches[15]?.away_team.name : 'Squadra da definire'}</p>
+                            {matches[15]?.away_team ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches[15]?.away_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_2.svg" alt="" />}
+                            <p>{matches[15]?.away_team ? matches[15]?.away_team.name : 'Squadra da definire'}</p>
                         </div>
                         <p>{(matches[15]?.closed || matches[15]?.live) ? matches[15]?.away_team.score : null}</p>
                     </div>
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        {matches[15]?.away_team.length > 0 ? <Link href={`/partita/${matches[15]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
+                        {matches[15]?.away_team ? <Link href={`/partita/${matches[15]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
