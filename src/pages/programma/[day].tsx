@@ -37,16 +37,19 @@ export default function Index() {
     return (
         <>
             {/* page title  */}
-            <div className="flex gap-x-2">
-                <div className="md:w-1/2 pt-10 pb-10 px-4">
-                    <Title variant={Title.variant.primary}>Scopri il <span className="text-primary">programma</span> completo</Title>
-                    <p className="mt-8 font-light text-text-subtle">Non perderti le partite, rimani aggiornato oppure seguile in diretta.</p>
-                </div>
-                {/* <div className="hidden md:block md:w-1/2 h-[500px] bg-gray-200"></div> */}
-            </div>
+            <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4'>
 
-            <div className='mb-6'>
-                <Button className='p-2 ml-4' link={'#agenda'} variant={Button.variant.primary}>Orario partite</Button>
+                <div className="flex gap-x-2 ">
+                    <div className="md:w-1/2 pt-10 pb-10 px-4">
+                        <Title variant={Title.variant.primary}>Scopri il <span className="text-primary">programma</span> completo</Title>
+                        <p className="mt-8 font-light text-text-subtle">Non perderti le partite, rimani aggiornato oppure seguile in diretta.</p>
+                    </div>
+                    {/* <div className="hidden md:block md:w-1/2 h-[500px] bg-gray-200"></div> */}
+                </div>
+
+                <div className='mb-6'>
+                    <Button className='p-2 ml-4' link={'#agenda'} variant={Button.variant.primary}>Orario partite</Button>
+                </div>
             </div>
 
             {/* programma section */}

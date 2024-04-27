@@ -1,9 +1,13 @@
+import { profile } from "console";
 import Link from "next/link"
 import { useState } from 'react'
 import { RxHamburgerMenu } from "react-icons/rx";
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
+
+    const token = false 
+
 
     return (
         <>
@@ -24,7 +28,9 @@ export const Header = () => {
 
                     {/* links */}
                     <nav className={`${isOpen ? 'block text-center bg-black z-10' : 'hidden'} w-full sm:flex sm:items-center sm:w-auto sm:mb-4`}>
+
                         <ul className='sm:flex sm:items-center font-semibold sm:space-x-3 capitaliza text-sm border sm:border-none'>
+
                             <li className="border-b sm:border-none">
                                 <Link className="p-4 block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
                             </li>
@@ -41,9 +47,25 @@ export const Header = () => {
                                 <Link className="p-4 block w-full" href='/bracket/maschile' onClick={() => setIsOpen(false)}>Fase finale</Link>
                             </li>
 
-                            <li>
+                            <li className="border-b sm:border-none">
                                 <Link className="p-4 block w-full" href='/marcatori' onClick={() => setIsOpen(false)}>Marcatori</Link>
                             </li>
+
+                            {token ? (
+                                <li>
+                                    <Link className="p-4 block w-full" href="/profile">Profile</Link>
+                                </li>
+                            ) : (
+                                <>
+                                    <li className="border-b sm:border-none">
+                                        <Link className="p-4 block w-full" href='/iscriviti' onClick={() => setIsOpen(false)}>Iscriviti</Link>
+                                    </li>
+
+                                    <li>
+                                        <Link className="p-4 block w-full" href='/login' onClick={() => setIsOpen(false)}>Login</Link>
+                                    </li>
+                                </>
+                            )}
 
                             {/* <li>
                                 <Link href='/gironi' className='' >Chi siamo</Link>
