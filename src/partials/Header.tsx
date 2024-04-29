@@ -6,7 +6,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const token = false 
+    const token = true 
 
 
     return (
@@ -53,7 +53,7 @@ export const Header = () => {
 
                             {token ? (
                                 <li>
-                                    <Link className="p-4 block w-full" href="/profile">Profile</Link>
+                                    <Link className="p-4 block w-full" href="/dashboard">Profile</Link>
                                 </li>
                             ) : (
                                 <>
