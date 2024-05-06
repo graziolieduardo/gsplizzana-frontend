@@ -23,7 +23,7 @@ export const DashLayout = ({ children }: LayoutProps) => {
                         <li className="py-4 pl-4 border-b"><Link href="/dashboard/squadra"><FaRegListAlt className="inline mr-1 text-primary" /> <span className={`${ pathName?.includes('squadra') ? 'border-b border-black' : "" }`}>La mia squadra</span> </Link></li>
                     </ul>
                 </div>
-                <div className="w-full h-[500px] border p-8 mt-12 md:mt-0 ">
+                <div className="w-full min-h-[500px] border p-8 mt-12 md:mt-0 ">
                     
                         {children}
 
