@@ -23,7 +23,7 @@ export default function index() {
             <form onSubmit={handleSubmit(onSubmit)} className="px-7 py-8 mt-6 mx-4 rounded-xl w-[456px] border">
 
                 <h2 className="text-3xl font-bold ">Accedi o registrati</h2>
-                <div className='text-gray-400 mt-2'>Non hai un account? <Link href="/iscrizione" ><span className='text-primary text-sm font-semibold'> Crea account </span></Link></div>
+                <div className='text-gray-400 mt-2'>Non hai un account? <Link href="/registrati" ><span className='text-primary font-semibold'> Crea account </span></Link></div>
 
                 {/* email */}
                 <div className='mt-8'>
