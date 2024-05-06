@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react'
 
 export default function index() {
   return (
-    <div>index</div>
+    <div>crea squadra</div>
   )
 }
 

@@ -4,7 +4,7 @@ import React, { ReactElement } from 'react'
 export default function index() {
   return (
     
-        <div className='bg-gray-100 rounded-lg p-4 border'>Team name </div>
+        <></>
       )
     }
 

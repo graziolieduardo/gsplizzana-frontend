@@ -13,7 +13,7 @@ export const Header = () => {
         <>
             <header className={`bg-black text-white`}>
                 <div className="max-w-container 2xl:max-w-container-xl flex justify-between flex-wrap items-center content-center mx-auto ">
-                    <div className="py-6 pl-4">
+                    <div className="py-5 pl-4">
                         <Link href="/" className="cursor-pointer">
                             <img className="w-24" src="/static/logo-arancione.svg" alt="" />
                         </Link>

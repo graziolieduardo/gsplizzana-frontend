@@ -1,22 +1,31 @@
 import Link from "next/link"
+import { IoPersonOutline } from "react-icons/io5";
+import { FaRegListAlt } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 type LayoutProps = {
     children: React.ReactNode
 }
 
 export const DashLayout = ({ children }: LayoutProps) => {
+
+    const pathName = usePathname()
+
     return (
-        <div className="flex">
-            <div className="w-[250px] h-[calc(100vh-84px)] bg-white text-primary font-bold boder border-r">
-                <ul className="px-4 pt-20">
-                    <li><Link href="/dashboard/teams"> aiuGHSIUA</Link></li>
-                    <li><Link href="/dashboard/teams"> aiuGHSIUA</Link></li>
-                    <li><Link href="/dashboard/teams"> aiuGHSIUA</Link></li>
-                </ul>
-            </div>
-            <div className="w-full bg-gray-100">
-                <div className=" bg-white h-[calc(100%-80px)] rounded-lg m-10 p-10 border">
-                    {children}
+        <div className="h-[calc(100vh-80px)]  max-w-container 2xl:max-w-container-xl mx-auto px-16">
+
+            <h2 className="font-bold text-3xl mt-14 ">Ciao, Nome </h2>
+            <div className="md:flex mt-6">
+
+                <div className="w-[450px] h-full font-semibold pr-16">
+                    <ul className="">
+                        <li className="py-4 pl-4 border-b"><Link href="/dashboard/profile"><IoPersonOutline className="inline mr-1 text-sm text-primary" /> <span className={`${ pathName?.includes('profile') ? 'border-b border-black' : "" }`}>I miei dati</span></Link></li>
+                        <li className="py-4 pl-4 border-b"><Link href="/dashboard/squadra"><FaRegListAlt className="inline mr-1 text-primary" /> <span className={`${ pathName?.includes('squadra') ? 'border-b border-black' : "" }`}>La mia squadra</span> </Link></li>
+                    </ul>
+                </div>
+                <div className="w-full h-[500px] border p-8 mt-12 md:mt-0 ">
+                    
+                        {children}
 
                 </div>
             </div>
