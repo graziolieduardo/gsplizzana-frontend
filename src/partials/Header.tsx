@@ -6,7 +6,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const token = true 
+    const token = false 
 
 
     return (
@@ -19,7 +19,7 @@ export const Header = () => {
                         </Link>
                     </div>
 
-                    <div className='sm:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
+                    <div className='md:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
                         {/* <div  className='sm:hidden block dark:text-white border rounded h-9 w-9 cursor pointer' /> */}
                         {/* <div onClick={() => setIsOpen(!isOpen)}> */}
                         <RxHamburgerMenu />
@@ -27,27 +27,27 @@ export const Header = () => {
                     </div>
 
                     {/* links */}
-                    <nav className={`${isOpen ? 'block text-center bg-black z-10' : 'hidden'} w-full sm:flex sm:items-center sm:w-auto `}>
+                    <nav className={`${isOpen ? 'block text-center bg-black z-10' : 'hidden'} w-full md:flex sm:items-center sm:w-auto `}>
 
-                        <ul className='sm:flex sm:items-center font-semibold sm:space-x-7 capitaliza text-sm border sm:border-none last:mr-4'>
+                        <ul className='sm:flex sm:items-center font-semibold sm:space-x-7 capitaliza text-sm border sm:border-none md:last:mr-4'>
 
-                            <li className="border-b sm:border-none">
+                            <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
                             </li>
 
-                            <li className="border-b sm:border-none">
+                            <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/programma/giovedì' onClick={() => setIsOpen(false)}>Programma</Link>
                             </li>
 
-                            <li className="border-b sm:border-none">
+                            <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
                             </li>
 
-                            <li className="border-b sm:border-none">
+                            <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/bracket/maschile' onClick={() => setIsOpen(false)}>Fase finale</Link>
                             </li>
 
-                            <li className="border-b sm:border-none">
+                            <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/marcatori' onClick={() => setIsOpen(false)}>Marcatori</Link>
                             </li>
 
@@ -57,11 +57,11 @@ export const Header = () => {
                                 </li>
                             ) : (
                                 <>
-                                    <li className="border-b sm:border-none">
+                                    <li className=" border-b p-4 md:p-0 sm:border-none">
                                         <Link className="block w-full" href='/iscriviti' onClick={() => setIsOpen(false)}>Iscriviti</Link>
                                     </li>
 
-                                    <li>
+                                    <li className=" border-b p-4 md:p-0 sm:border-none">
                                         <Link className="block w-full" href='/login' onClick={() => setIsOpen(false)}>Login</Link>
                                     </li>
                                 </>
