@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 type LayoutProps = {
     children: React.ReactNode
 }
@@ -7,7 +9,9 @@ export const DashLayout = ({ children }: LayoutProps) => {
         <div className="flex">
             <div className="w-[250px] h-[calc(100vh-84px)] bg-white text-primary font-bold boder border-r">
                 <ul className="px-4 pt-20">
-                    <li>Squadre</li>
+                    <li><Link href="/dashboard/teams"> aiuGHSIUA</Link></li>
+                    <li><Link href="/dashboard/teams"> aiuGHSIUA</Link></li>
+                    <li><Link href="/dashboard/teams"> aiuGHSIUA</Link></li>
                 </ul>
             </div>
             <div className="w-full bg-gray-100">
