@@ -6,7 +6,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const token = false 
+    const token = true 
 
 
     return (
@@ -52,10 +52,14 @@ export const Header = () => {
                             </li>
 
                             {token ? (
+
+                                // se c'e il token facciamo vedere il suo profilo
                                 <li>
                                     <Link className="block w-full" href="/dashboard">Profile</Link>
                                 </li>
                             ) : (
+
+                                // se non c'e il token, facciamo vedere login e registrati 
                                 <>
                                     <li className=" border-b p-4 md:p-0 sm:border-none">
                                         <Link className="block w-full" href='/iscriviti' onClick={() => setIsOpen(false)}>Iscriviti</Link>
