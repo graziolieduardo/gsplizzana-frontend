@@ -1,36 +1,60 @@
 import Link from 'next/link'
-import React from 'react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { FaRegEyeSlash, FaRegEye  } from "react-icons/fa";
 
 export default function index() {
+
+    const [handleInput, setHandleInput] = useState("password")
+
+    //react hook form
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    const onSubmit = (d: any) => {
+
+        console.log(d);
+    }
+
+
     return (
-        <div className="bg-bg-primary">
 
-            <div className="h-[calc(100vh-84px)] max-w-container 2xl:max-w-container-xl mx-auto px-6 py-6 flex justify-center items-center">
-                <form className=" pt-12 pb-8 px-10 rounded mt-4 bg-white border">
 
-                    <h2 className="text-2xl font-semibold text-center">Login</h2>
+        <div className="h-[calc(100vh-80px)] max-w-container 2xl:max-w-container-xl mx-auto flex justify-center items-center">
 
-                    {/* email */}
-                    <div className='mt-6 mb-4'>
-                        <label htmlFor="email" className="block font-semibold">Email</label>
-                        <input type="email" id="email" className="rounded  bg-gray-100 px-2 py-1" placeholder="Luigibuffon@gmail.com    " />
-                    </div>
+            <form onSubmit={handleSubmit(onSubmit)} className="px-7 py-8 mt-6 mx-4 rounded-xl w-[456px] border">
 
-                    {/* password */}
-                    <div>
-                        <label htmlFor="password" className="block font-semibold">Password</label>
-                        <input type="password" id="password" className="rounded bg-gray-100 px-2 py-1" placeholder="********" />
-                    </div>
+                <h2 className="text-3xl font-bold ">Accedi o registrati</h2>
+                <div className='text-gray-400 mt-2'>Non hai un account? <Link href="/registrati" ><span className='text-primary font-semibold'> Crea account </span></Link></div>
 
-                    <div className='mt-8 flex justify-center items-center gap-x-4'>
-                        <div className="rounded-full bg-gradient-to-r from-primary-dark to-primary hover:to-primary-dark w-full sm:w-fit sm:px-12 py-2 text-white text-center cursor-pointer">
-                            Login
+                {/* email */}
+                <div className='mt-8'>
+                    <label htmlFor="email" className="block font-semibold ">Indirizzo e-mail</label>
+                    <input{...register('email', { required: '- Il campo Email è obbligatorio', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: '- Scegli un email valido' } })} type="text" id="email" className={`${errors.email ? 'focus:outline-red-500 border-2 border-red-500' : 'focus:outline-primary'} rounded border p-3 w-full mt-2 placeholder:text-sm`} placeholder="inserisci e-mail" />
+                    {errors.email && <div className="text-xs text-red-500">{errors.email.message as string}</div>}
+                </div>
+
+                {/* password */}
+                <div className='mt-6'>
+                    <label htmlFor="password" className="block font-semibold">Password</label>
+                    <div className='relative'>
+                        <input{...register('password', { required: '- Il campo Password è obbligatorio' })} type={handleInput} id="password" className={`${errors.password ? 'focus:outline-red-500 border-2 border-red-500' : 'focus:outline-primary'} rounded border p-3 w-full mt-2 placeholder:text-sm`} placeholder="inserisci password" />
+                        <div onClick={() => { handleInput == "password" ? setHandleInput("text") : setHandleInput("password") }} className='absolute right-0 top-3 py-3 px-5'>
+                            {
+                                handleInput == "password" ?  <FaRegEyeSlash className='text-gray-500 text-lg' /> : <FaRegEye className='text-gray-400 text-lg' />
+                            }
+                            
                         </div>
                     </div>
+                    {errors.password && <div className="text-xs text-red-500">{errors.password.message as string}</div>}
+                </div>
 
-                    <div className="text-sm text-center mt-2"> <Link href="/iscriviti" className="text-blue-500 underline"> Registrati</Link></div>
-                </form>
-            </div>
+                <div className='mt-16 flex justify-center items-center'>
+                    <button className="rounded bg-gradient-to-r from-primary-dark to-primary hover:to-primary-dark w-full py-3 text-white text-center cursor-pointer">
+                        Accedi
+                    </button>
+                </div>
+
+            </form>
         </div>
+
     )
 }
