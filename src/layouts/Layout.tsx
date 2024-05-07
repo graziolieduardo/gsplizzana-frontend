@@ -2,10 +2,13 @@ import React from 'react'
 import { Header } from '../partials/Header'
 import { Footer } from '../partials/Footer'
 import Head from 'next/head'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 type LayoutProps = {
     children: React.ReactNode
 }
+
+const queryClient = new QueryClient();
 
 export const Layout = ({ children }: LayoutProps) => {
     return (
@@ -17,11 +20,13 @@ export const Layout = ({ children }: LayoutProps) => {
                 <link rel="icon" href="/static/logo-arancione.svg" />
             </Head>
             <div className='h-screen flex flex-col'>
-                <Header />
-                <main className='flex-1'>
-                    {children}
-                </main>
-                <Footer />
+                <QueryClientProvider client={queryClient}>
+                    <Header />
+                    <main className='flex-1'>
+                        {children}
+                    </main>
+                    <Footer />
+                </QueryClientProvider>
             </div>
         </>
     )
