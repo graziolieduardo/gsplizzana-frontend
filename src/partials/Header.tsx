@@ -55,7 +55,7 @@ export const Header = () => {
 
                                 // se c'e il token facciamo vedere il suo profilo
                                 <li className=" border-b p-4 md:p-0 sm:border-none">
-                                    <Link className="block w-full" href="/dashboard">Profile</Link>
+                                    <Link className="block w-full" href="/dashboard/profile">Profile</Link>
                                 </li>
                             ) : (
 
