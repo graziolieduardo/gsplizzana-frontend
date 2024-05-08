@@ -3,6 +3,8 @@ import { ReactElement, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import AddPlayerModal from '@/src/components/AddPlayerModal'
 import { GoPlus } from "react-icons/go";
+import Giocatore from '@/src/components/common/Giocatore';
+import Link from 'next/link';
 
 
 export default function index() {
@@ -73,21 +75,36 @@ export default function index() {
 
       </form>
 
-      {/* giocatori*/}
+      {/* add giocatori*/}
       <div className='mt-10'>
+
         <div className='text-lg font-semibold'>Giocatori</div>
         <div className='text-sm'>Puoi aggiugere fino a 10 giocatori per squadra</div>
 
         <div onClick={() => { setIsModalOpen(true) }} className='w-full md:w-3/4 border border-primary hover:outline hover:outline-1 hover:outline-primary px-6 py-4 rounded flex items-center gap-x-4 mt-2'>
+
           <div className='rounded-full bg-gradient-to-r from-primary-dark to-primary hover:to-primary-dark w-10 h-10 flex justify-center items-center text-white text-xl'>
             <GoPlus />
           </div>
+
           <div>
             <div className='font-semibold'>Aggiungi giocatore</div>
             <div className='text-xs'>Fino a 10 per squadre</div>
           </div>
         </div>
 
+        <div className='mt-4'>
+          <Giocatore />
+        </div>
+
+        {/* salva annulla */}
+        <div className='mt-8'>
+          <button className="rounded bg-gradient-to-r from-primary-dark to-primary hover:to-primary-dark px-6 py-2 text-white text-center cursor-pointer mr-4">salva</button>
+          <span className='rounded bg-white text-primary-dark font-semibold text-center py-2 border-gradient px-6'>
+
+            <Link className='' href="/dashboard/squadra">annulla</Link>
+          </span>
+        </div>
       </div>
     </div>
   )

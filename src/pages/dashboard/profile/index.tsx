@@ -3,7 +3,9 @@ import { ReactElement } from 'react'
 
 export default function index() {
   return (
-    <div>profile</div>
+    <div>
+    <h2 className='text-2xl font-semibold'>I MIEI DATI</h2>
+    </div>
   )
 }
 
