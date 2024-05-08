@@ -7,7 +7,7 @@ import Link from 'next/link'
 export default function index() {
 
   //simulando a chamada xD
-  const squadra = false
+  const squadra = true
 
   return (
     <div>
