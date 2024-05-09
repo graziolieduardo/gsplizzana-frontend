@@ -10,6 +10,7 @@ import Link from 'next/link';
 export default function index() {
 
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const isEditPage = true
   
   // react hook form
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -20,6 +21,8 @@ export default function index() {
 
   return (
     <div>
+
+      {/* modal per aggiungere giocatori */}
       { isModalOpen && <AddPlayerModal setIsModalOpen={setIsModalOpen} />}
       <h2 className='text-2xl font-bold'>La mia squadra</h2>
 
@@ -94,7 +97,7 @@ export default function index() {
         </div>
 
         <div className='mt-4'>
-          <Giocatore />
+          <Giocatore  isEditPage={isEditPage}/>
         </div>
 
         {/* salva annulla */}

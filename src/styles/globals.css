@@ -32,6 +32,18 @@ th {
     background-image: linear-gradient(to right, #FF6D2D, #f39533);
 }
 
+.border-gradient:hover::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    border-radius: inherit;
+    background-image: linear-gradient(to right, #f39533, #FF6D2D);
+}
+
 .minwd {
     min-width: 240px;
 }

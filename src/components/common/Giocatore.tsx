@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaTrash  } from "react-icons/fa";
+import AddPlayerModal from '../AddPlayerModal';
 
 
-export default function Giocatore({isCapitan}:any) {
+export default function Giocatore({ isCapitan, isEditPage }: any) {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
 
     return (
-        <div onClick={() => { setIsOpen(!isOpen) }} className={`${isCapitan? 'border-primary' : 'border-gray-200'} border rounded p-3 mt-2`}>
+        <div onClick={() => { setIsOpen(!isOpen) }} className={`${isCapitan ? 'border-primary' : 'border-gray-200'} border rounded p-3 mt-2`}>
+            { isModalOpen && <AddPlayerModal setIsModalOpen={setIsModalOpen} />}
 
             {/* nome cognome giocatore */}
             <div className={`${isOpen ? 'border-b pb-3 ' : ''} px-2 text-sm font-semibold flex items-center`}>
@@ -33,6 +36,13 @@ export default function Giocatore({isCapitan}:any) {
 
                 {/* avatar url */}
                 <div className='mt-2'>avatar_url</div>
+
+                {/* edit and delete button */}
+                {isEditPage && <div className='mt-2 gap-x-4 flex items-center '>
+                    <div onClick={ () => { setIsModalOpen(!isModalOpen) } } className='rounded w-full bg-white text-primary-dark font-semibold text-center py-2 border-gradient px-6'> Modifica</div>
+                    <div className='rounded-full border p-2 cursor-pointer'> <FaTrash className='text-lg'/> </div>
+                </div >}
+
             </div>}
 
         </div>
