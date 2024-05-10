@@ -1,11 +1,16 @@
 import useLogin from '@/src/api/login/useLogin';
+import useUser from '@/src/api/user/useUser';
 import { useAuthContext } from '@/src/hooks/useAuthContext';
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
+import { useRouter } from 'next/router';
 
 export default function Index() {
+
+    const router = useRouter();
+
     // state
     const [handleInput, setHandleInput] = useState("password");
 
@@ -17,10 +22,24 @@ export default function Index() {
 
     // tanstack query
     const { login } = useLogin();
+    const { getUser } = useUser();
 
     const onSubmit = async (d: any) => {
         const res = await login.mutateAsync(d);
-        console.log(res);
+
+        if (res.status >= 200 && res.status < 300) {
+
+            //save token on localstorage
+            localStorage.setItem('token', res.data.token) ;
+
+            //get user to save on context
+            const res1 = await getUser()
+            setUser(res1.data.data);
+
+            //redirect to profile page
+            router.push('/dashboard/profile')
+        }
+
         // TODO: set user on context
         // setUser({
         //     name: "prova",

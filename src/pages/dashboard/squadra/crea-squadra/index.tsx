@@ -2,12 +2,15 @@ import { DashLayout } from '@/src/layouts/DashLayout'
 import React, { ReactElement } from 'react'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
+import client from '@/src/api/client'
 
 export default function Index() {
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
-    const onSubmit = (d: any) => {
+  const { register, handleSubmit, formState: { errors } } = useForm()
+  const onSubmit = async (d: any) => {
+    // const res = await client.post('http://api.gsplizzana.it/api/teams', {d})
 
+    // console.log(res);
     console.log(d);
   }
 
@@ -15,7 +18,7 @@ export default function Index() {
     <div>
       <h2 className='text-2xl font-bold'>La mia squadra</h2>
 
-            <form onSubmit={handleSubmit(onSubmit)} >
+      <form onSubmit={handleSubmit(onSubmit)} >
 
         {/* nome  */}
         <div className='mt-8'>
@@ -74,13 +77,13 @@ export default function Index() {
         </div>
       </form>
 
-        </div>
-    )
+    </div>
+  )
 }
 
 
 Index.getLayout = function getLayout(page: ReactElement) {
-    return (
-        <DashLayout>{page}</DashLayout>
-    )
+  return (
+    <DashLayout>{page}</DashLayout>
+  )
 }

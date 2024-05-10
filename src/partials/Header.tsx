@@ -1,12 +1,24 @@
 import { profile } from "console";
 import Link from "next/link"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useRouter } from 'next/router';
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [user, setUser] = useState<string | null>(null);
+    const router = useRouter();
 
-    const token = true 
+    useEffect(() => {
+        // Check if localStorage is available
+        if (typeof window !== 'undefined' && localStorage.getItem('user')) {
+            // Parse the stored item data
+            const storedItem = JSON.parse(localStorage.getItem('user') || '')
+            // Set the item state
+            setUser(storedItem);
+        }
+
+    }, []);
 
 
     return (
@@ -51,7 +63,7 @@ export const Header = () => {
                                 <Link className="block w-full" href='/marcatori' onClick={() => setIsOpen(false)}>Marcatori</Link>
                             </li>
 
-                            {token ? (
+                            {user != null ? (
 
                                 // se c'e il token facciamo vedere il suo profilo
                                 <li className=" border-b p-4 md:p-0 sm:border-none">
