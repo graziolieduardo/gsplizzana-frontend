@@ -8,7 +8,7 @@ type loginParams = {
 
 export default function useLogin() {
     const login = useMutation(async (params: loginParams) => {
-        return await client.post(' https://api.gsplizzana.it/login', params);
+        return await client.post('http://api.gsplizzana.it/api/login', params);
     });
 
     return { login }

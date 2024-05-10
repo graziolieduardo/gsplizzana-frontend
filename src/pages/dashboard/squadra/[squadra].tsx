@@ -2,7 +2,7 @@ import { DashLayout } from '@/src/layouts/DashLayout'
 import { ReactElement, useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 
-export default function squadra() {
+export default function Squadra() {
 
     const router = useRouter();
     const [dynamicPath, setDynamicPath] = useState("");
@@ -21,7 +21,7 @@ export default function squadra() {
 
 
 // layout 
-squadra.getLayout = function getLayout(page: ReactElement) {
+Squadra.getLayout = function getLayout(page: ReactElement) {
     return (
         <DashLayout>{page}</DashLayout>
     )
