@@ -10,7 +10,7 @@ export default function index() {
 
     // react query
     const { teams } = useTeams();
-    const { teamPlayers } = useTeamPlayers(teams?.data[0]?.id);
+    // const { teamPlayers } = useTeamPlayers(teams?.data[0]?.id);
 
     return (
         <div>
