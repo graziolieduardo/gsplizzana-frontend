@@ -17,7 +17,7 @@ export const DashLayout = ({ children }: LayoutProps) => {
         if (typeof window !== 'undefined' && localStorage.getItem('user')) {
             setUser(JSON.parse(localStorage.getItem('user') || ''))
         }
-        console.log(user);
+        // console.log(user);
 
     }, [])
 

@@ -1,7 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 const client = axios.create({
-    baseURL: process.env.REACT_APP_BASE_API_URL,
     headers: {
         'Accept': 'application/json',
         'Content-type': 'application/json',
@@ -10,15 +9,12 @@ const client = axios.create({
 
 // REQUEST INTERCEPTOR
 client.interceptors.request.use(
-
     function (config) {
-        
         const token = localStorage.getItem("token");
 
-       
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
-          }
+        }
 
         return config;
     },
