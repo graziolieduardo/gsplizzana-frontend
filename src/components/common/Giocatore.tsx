@@ -3,14 +3,14 @@ import { FaChevronDown, FaChevronUp, FaTrash  } from "react-icons/fa";
 import AddPlayerModal from '../AddPlayerModal';
 
 
-export default function Giocatore({ isCapitan, isEditPage }: any) {
+export default function Giocatore({  isEditPage }: any) {
 
     const [isOpen, setIsOpen] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
 
 
     return (
-        <div onClick={() => { setIsOpen(!isOpen) }} className={`${isCapitan ? 'border-primary' : 'border-gray-200'} border rounded p-3 mt-2`}>
+        <div onClick={() => { setIsOpen(!isOpen) }} className='border-gray-200 hover:border-primary border rounded p-3 mt-2'>
             { isModalOpen && <AddPlayerModal setIsModalOpen={setIsModalOpen} />}
 
             {/* nome cognome giocatore */}
@@ -20,13 +20,15 @@ export default function Giocatore({ isCapitan, isEditPage }: any) {
                         isOpen ? <FaChevronUp /> : <FaChevronDown />
                     }
                 </div>
-                <div> nome cognome  {isCapitan && "(C)"}</div>
+                
+                {/* da aggiungere logicase e' capitano */}
+                <div> nome cognome (C)</div>
             </div>
 
 
-            {isOpen && <div className='text-xs text-gray-500'>
+            {isOpen && <div className='text-xs mt-3 text-[#353535]'>
                 {/* birthdate */}
-                <div className='mt-2'>GG/MM/AAAA</div>
+                <div className=''>GG/MM/AAAA</div>
 
                 {/* username */}
                 <div className='mt-2'>username </div>

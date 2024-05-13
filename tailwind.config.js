@@ -12,7 +12,8 @@ module.exports = {
                 'text-subtle': '#353535',
                 'border-subtle': '#EAEAEA',
                 'bg-primary': '#F3F3F3',
-                'bg-secondary': '#F8F8F8'
+                'bg-secondary': '#F8F8F8',
+                'title-gray': '#888888'
             },
             backgroundImage: {
                 'campo': "url('/static/campo.JPG')",

@@ -24,7 +24,7 @@ export const DashLayout = ({ children }: LayoutProps) => {
     return (
         <div className="min-h-[calc(100vh-150px)] max-w-container 2xl:max-w-container-xl mx-4 md:mx-auto md:px-16 mb-4 ">
 
-            <h2 className="font-bold text-3xl mt-14 ">Ciao, {user?.name} {user?.surname} </h2>
+            <h2 className="font-bold text-3xl mt-14 ">Ciao, {user?.name} </h2>
             <div className="md:flex justify-between mt-6 ">
 
                 <div className="md:w-[450px] h-full font-semibold md:pr-16">
