@@ -7,7 +7,7 @@ import Giocatore from '@/src/components/common/Giocatore';
 import Link from 'next/link';
 
 
-export default function index() {
+export default function Index() {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
     const isEditPage = true
@@ -113,7 +113,7 @@ export default function index() {
     )
 }
 
-index.getLayout = function getLayout(page: ReactElement) {
+Index.getLayout = function getLayout(page: ReactElement) {
     return (
         <DashLayout>{page}</DashLayout>
     )
