@@ -19,7 +19,7 @@ export default function index() {
                 <h2 className='text-2xl font-bold'>La mia squadra</h2>
 
                 {/* edit button solo se la squadra ce */}
-                {teams?.data?.length > 0 && <Link href="/dashboard/squadra/edit-squadra" className='absolute right-0 top-0 border rounded-full p-3'>
+                {teams?.data?.length > 0 && <Link href="/dashboard/squadra/edit-squadra" className='absolute right-0 top-0 border hover:border-primary rounded-full p-3'>
 
                     <FaPen />
                 </Link>}
@@ -44,25 +44,25 @@ export default function index() {
                     <div>
                         {/* nome da squadra  */}
                         <div className='mt-4'>
-                            <div className='text-gray-400 text-sm font-semibold'>Nome della squadra </div>
-                            <div className='text-sm font-semibold'>{teams?.data[0]?.name?.toUpperCase()}</div>
+                            <div className='text-title-gray text-sm'>Nome della squadra </div>
+                            <div className='text-sm'>{teams?.data[0]?.name?.toUpperCase()}</div>
                         </div>
 
                         {/* tag squadra */}
                         <div className='mt-4'>
-                            <div className='text-gray-400 text-sm font-semibold'>tag squadra </div>
-                            <div className='text-sm font-semibold'>{teams?.data[0]?.tag?.toUpperCase()}</div>
+                            <div className='text-title-gray text-sm'>tag squadra </div>
+                            <div className='text-sm'>{teams?.data[0]?.tag?.toUpperCase()}</div>
                         </div>
 
                         {/* avatar_url squadra */}
                         {/* <div className='mt-4'>
-                            <div className='text-gray-400 text-sm font-semibold'>Logo squadra </div>
-                            <div className='text-sm font-semibold h-[50px] w-[90px] border'>logo</div>
+                            <div className='text-title-gray text-sm'>Logo squadra </div>
+                            <div className='text-sm h-[50px] w-[90px] border'>logo</div>
                         </div> */}
 
                         {/* biography squadra */}
                         {/* <div className='mt-4'>
-                            <div className='text-gray-400 text-sm font-semibold'>Biography </div>
+                            <div className='text-title-gray text-sm'>Biography </div>
                             <div className='text-sm  '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores magnam eos culpa corporis aut perspiciatis veniam, porro officia voluptatem nam consequatur incidunt error. Mollitia totam qui atque, sequi laborum amet!</div>
                         </div> */}
 

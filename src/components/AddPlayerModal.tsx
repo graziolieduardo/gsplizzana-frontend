@@ -36,7 +36,7 @@ export default function AddPlayerModal({ setIsModalOpen }: any) {
 
     }
     return (
-        <div className='px-4 fixed inset-0 z-50 md:h-fit lg:fixed lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 py-10 rounded-md lg:w-3/5 mx-auto bg-white overflow-y-auto shadow-2xl'>
+        <div className='px-4 fixed inset-0 z-50 lg:h-fit lg:fixed lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 py-10 rounded-md lg:w-3/5 mx-auto bg-white overflow-y-auto shadow-2xl'>
             <div className="max-w-container 2xl:max-w-container-xl mx-auto px-10">
 
                 {/* chiudi modal */}
