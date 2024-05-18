@@ -13,7 +13,7 @@ type registerParams = {
 
 export default function useRegister() {
     const registration = useMutation(async (params: registerParams) => {
-        return await client.post('http://api.gsplizzana.it/api/register', params);
+        return await client.post('https://api.gsplizzana.it/api/register', params);
     });
 
     return { registration }
