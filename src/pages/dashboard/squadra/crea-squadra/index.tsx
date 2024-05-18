@@ -12,7 +12,7 @@ export default function Index() {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
     const onSubmit = async (d: any) => {
-        const res = await client.post('http://api.gsplizzana.it/api/teams', { name: d.name, owner_id: user?.id, tag: 'PRV'})
+        const res = await client.post('https://api.gsplizzana.it/api/teams', { name: d.name, owner_id: user?.id, tag: 'PRV'})
 
         router.push('/dashboard/squadra');
 
