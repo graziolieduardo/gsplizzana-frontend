@@ -1,7 +1,7 @@
 import { DashLayout } from '@/src/layouts/DashLayout'
 import { ReactElement, useEffect, useState } from 'react'
 
-export default function index() {
+export default function Index() {
 
     const [user, setUser] = useState<any>()
 
@@ -41,7 +41,7 @@ export default function index() {
 }
 
 // layout 
-index.getLayout = function getLayout(page: ReactElement) {
+Index.getLayout = function getLayout(page: ReactElement) {
     return (
         <DashLayout>{page}</DashLayout>
     )
