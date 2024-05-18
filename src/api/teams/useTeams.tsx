@@ -3,7 +3,7 @@ import client from "../client";
 
 export default function useTeams() {
     const fetchTeams = async () => {
-        const res = await client.get(`http://api.gsplizzana.it/api/teams`);
+        const res = await client.get(`https://api.gsplizzana.it/api/teams`);
         return res.data
     }
 

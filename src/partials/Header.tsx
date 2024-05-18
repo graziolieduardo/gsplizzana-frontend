@@ -43,7 +43,7 @@ export const Header = () => {
 
                         <ul className='sm:flex sm:items-center font-semibold sm:space-x-7 capitaliza text-sm border sm:border-none md:last:mr-4'>
 
-                            <li className="border-b p-4 md:p-0 sm:border-none">
+                            {/* <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
                             </li>
 
@@ -61,17 +61,13 @@ export const Header = () => {
 
                             <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/marcatori' onClick={() => setIsOpen(false)}>Marcatori</Link>
-                            </li>
+                            </li> */}
 
-                            {user != null ? (
-
-                                // se c'e il token facciamo vedere il suo profilo
+                            {/* {user != null ? (
                                 <li className=" border-b p-4 md:p-0 sm:border-none">
                                     <Link className="block w-full" href="/dashboard/profile">Profile</Link>
                                 </li>
                             ) : (
-
-                                // se non c'e il token, facciamo vedere login e registrati 
                                 <>
                                     <li className=" border-b p-4 md:p-0 sm:border-none">
                                         <Link className="block w-full" href='/iscriviti' onClick={() => setIsOpen(false)}>Iscriviti</Link>
@@ -81,7 +77,7 @@ export const Header = () => {
                                         <Link className="block w-full" href='/login' onClick={() => setIsOpen(false)}>Login</Link>
                                     </li>
                                 </>
-                            )}
+                            )} */}
 
                             {/* <li>
                                 <Link href='/gironi' className='' >Chi siamo</Link>

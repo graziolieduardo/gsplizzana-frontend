@@ -10,7 +10,7 @@ export default function index() {
 
     // react query
     const { teams } = useTeams();
-    // const { teamPlayers } = useTeamPlayers(teams?.data[0]?.id);
+    const { teamPlayers } = useTeamPlayers(teams?.data[0]?.id);
 
     return (
         <div>
@@ -29,7 +29,8 @@ export default function index() {
 
 
             {
-                teams?.data?.length <= 0 ?
+                true ?
+                // teams?.data?.length <= 0 ?
                     <div className='flex justify-center items-center h-[500px]'>
                         <div className='w-[220px] text-center'>
                             <div className='font-bold'>Non hai ancora una squadra</div>

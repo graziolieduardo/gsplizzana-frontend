@@ -33,7 +33,7 @@ export const Footer = () => {
                                 </div>
                             </div>
 
-                            <nav className="text-white mt-12 md:mt-0">
+                            {/* <nav className="text-white mt-12 md:mt-0">
                                 <ul className=' font-semibold capitaliza text-sm space-y-3'>
 
                                     <li>
@@ -51,12 +51,8 @@ export const Footer = () => {
                                     <li>
                                         <Link href='/marcatori' className=''>Marcatori</Link>
                                     </li>
-
-                                    {/* <li>
-                                        <Link href='/gironi' className='' >Chi siamo</Link>
-                                    </li> */}
                                 </ul>
-                            </nav>
+                            </nav> */}
 
                         </div>
 
@@ -65,7 +61,7 @@ export const Footer = () => {
 
                         {/* bottom */}
                         <div className="max-w-container 2xl:max-w-container-xl mx-auto px-4 text-white py-4">
-                            <p>&#169; 2023 Gsp Lizzana</p>
+                            <p>&#169; 2024 Gsp Lizzana</p>
                             {/* <p>&#169; 2023 Gsp Lizzana | Privacy Policy - Cookie Policy </p> */}
                         </div>
                     </div>
