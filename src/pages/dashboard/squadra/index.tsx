@@ -6,7 +6,7 @@ import Link from 'next/link'
 import useTeams from '@/src/api/teams/useTeams';
 import useTeamPlayers from '@/src/api/players/useTeamPlayers';
 
-export default function index() {
+export default function Index() {
 
     // react query
     const { teams } = useTeams();
@@ -81,7 +81,7 @@ export default function index() {
     )
 }
 
-index.getLayout = function getLayout(page: ReactElement) {
+Index.getLayout = function getLayout(page: ReactElement) {
     return (
         <DashLayout>{page}</DashLayout>
     )
