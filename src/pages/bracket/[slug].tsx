@@ -18,7 +18,7 @@ export default function Index() {
     const [activeBracket, setActiveBracket] = useState(steps[0]);
     const [matches, setMatches] = useState([]);
 
-    console.log(matches);
+    // console.log(matches);
 
 
     const { schedule } = useElimination();
