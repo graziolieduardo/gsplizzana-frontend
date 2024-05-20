@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import client from '../client';
+import axios from 'axios';
 
 type registerParams = {
     name: string,
@@ -13,7 +13,7 @@ type registerParams = {
 
 export default function useRegister() {
     const registration = useMutation(async (params: registerParams) => {
-        return await client.post('https://api.gsplizzana.it/api/register', params);
+        return await axios.post('https://api.gsplizzana.it/api/register', params);
     });
 
     return { registration }
