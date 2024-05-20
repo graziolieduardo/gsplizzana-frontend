@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import client from '../client';
+import axios from 'axios';
 
 type loginParams = {
     email: string,
@@ -8,7 +8,7 @@ type loginParams = {
 
 export default function useLogin() {
     const login = useMutation(async (params: loginParams) => {
-        return await client.post('https://api.gsplizzana.it/api/login', params);
+        return await axios.post('https://api.gsplizzana.it/api/login', params);
     });
 
     return { login }
