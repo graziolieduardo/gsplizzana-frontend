@@ -30,7 +30,7 @@ export const DashLayout = ({ children }: LayoutProps) => {
                 <div className="md:w-[450px] h-full font-semibold md:pr-16">
                     <ul className="flex-1">
                         <li className="py-4 pl-4 border-b"><Link href="/dashboard/profile"><IoPersonOutline className="inline mr-1 text-sm text-primary" /> <span className={`${pathName?.includes('profile') ? 'border-b border-black' : ""}`}>I miei dati</span></Link></li>
-                        <li className="py-4 pl-4 border-b"><Link href="/dashboard/squadra"><FaRegListAlt className="inline mr-1 text-primary" /> <span className={`${pathName?.includes('squadra') ? 'border-b border-black' : ""}`}>La mia squadra</span> </Link></li>
+                        <li className="py-4 pl-4 border-b"><Link href="/dashboard/squadra"><FaRegListAlt className="inline mr-1 text-primary" /> <span className={`${pathName?.includes('squadra') ? 'border-b border-black' : ""}`}>Le mie squadre</span> </Link></li>
                     </ul>
                 </div>
 
