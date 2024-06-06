@@ -1,13 +1,25 @@
-import Giocatore from '@/src/components/common/Giocatore'
+
 import { DashLayout } from '@/src/layouts/DashLayout'
 import { FaPen } from "react-icons/fa";
-import { ReactElement } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import Link from 'next/link'
+import client from '@/src/api/client';
+import useTeams from '@/src/api/teams/useTeams';
+
+type team = {
+    id: number,
+    name: string,
+    tag: string,
+    biography: null | string
+    avatar_url: null | string,
+    owner: object,
+    season: string
+}
 
 
 export default function Index() {
-
-
+    
+    const { teams } = useTeams();
 
     return (
         <div>
@@ -29,7 +41,7 @@ export default function Index() {
                     <div className='flex justify-center items-center h-[500px]'>
                         <div className='w-[220px] text-center'>
                             <div className='font-bold'>Non hai ancora una squadra</div>
-                            <div className='text-xs mt-2'>Crea squadra e aggiungi gino a 10 giocatori per squadra</div>
+                            <div className='text-xs mt-2'>Crea squadra e aggiungi fino a 10 giocatori per squadra</div>
                         </div>
                     </div>
                     :
@@ -37,19 +49,16 @@ export default function Index() {
 
                         {/* da aggiungere lista di squadre  */}
 
-                        <Link className='flex items-center mt-2' href={'/dashboard/squadra/1'}>
-                            <p>Squadra 1</p>
-                            <div className='ml-4 border p-1 rounded-full'>
-                                <FaPen className=' text-sm'></FaPen>
-                            </div>
-                        </Link>
+                        {teams?.data.map((team: team) => (
+                            <Link key={team?.id} className='flex items-center mt-2 hover:underline' href={`/dashboard/squadra/${team?.id}`}>
+                                <p> {team?.name}</p>
+                                <div className='ml-4 border p-1 rounded-full'>
+                                    <FaPen className=' text-sm'></FaPen>
+                                </div>
+                            </Link>
+                        ))}
 
-                        <Link className='flex items-center mt-2' href={'/dashboard/squadra/1'}>
-                            <p>Squadra 1</p>
-                            <div className='ml-4 border p-1 rounded-full'>
-                                <FaPen className=' text-sm'></FaPen>
-                            </div>
-                        </Link>
+
                     </div>
             }
         </div>

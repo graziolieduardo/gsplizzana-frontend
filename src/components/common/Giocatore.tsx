@@ -3,7 +3,7 @@ import { FaChevronDown, FaChevronUp, FaTrash  } from "react-icons/fa";
 import AddPlayerModal from '../AddPlayerModal';
 
 
-export default function Giocatore() {
+export default function Giocatore({player}:any) {
 
     const [isOpen, setIsOpen] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)

@@ -3,7 +3,9 @@ import client from '../client';
 
 export default function useTeamPlayers(teamId: number) {
     const fetchTeamPlayers = async () => {
-        const res = await client.get(`https://api.gsplizzana.it/api/user/teams/${teamId}/members`);
+        const res = await client.get(`https://api.gsplizzana.it/api/teams/${teamId}/members`);
+        console.log(res);
+        
         return res.data
     }
 
