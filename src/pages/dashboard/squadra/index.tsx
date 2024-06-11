@@ -1,9 +1,8 @@
 
 import { DashLayout } from '@/src/layouts/DashLayout'
 import { FaPen } from "react-icons/fa";
-import { ReactElement, useEffect, useState } from 'react'
+import { ReactElement } from 'react'
 import Link from 'next/link'
-import client from '@/src/api/client';
 import useTeams from '@/src/api/teams/useTeams';
 
 type team = {
@@ -18,7 +17,7 @@ type team = {
 
 
 export default function Index() {
-    
+
     const { teams } = useTeams();
 
     return (
@@ -33,8 +32,6 @@ export default function Index() {
             </div>
 
             {/* se non ce squadra */}
-
-
             {
                 false ?
                     // teams?.data?.length <= 0 ?
@@ -46,9 +43,6 @@ export default function Index() {
                     </div>
                     :
                     <div className='mt-12'>
-
-                        {/* da aggiungere lista di squadre  */}
-
                         {teams?.data.map((team: team) => (
                             <Link key={team?.id} className='flex items-center mt-2 hover:underline' href={`/dashboard/squadra/${team?.id}`}>
                                 <p> {team?.name}</p>
@@ -57,8 +51,6 @@ export default function Index() {
                                 </div>
                             </Link>
                         ))}
-
-
                     </div>
             }
         </div>
