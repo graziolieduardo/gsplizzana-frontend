@@ -2,7 +2,7 @@ import useLogin from '@/src/api/login/useLogin';
 import useUser from '@/src/api/user/useUser';
 import { useAuthContext } from '@/src/hooks/useAuthContext';
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { useRouter } from 'next/router';
@@ -15,7 +15,7 @@ export default function Index() {
     const [handleInput, setHandleInput] = useState("password");
 
     // context
-    const { user, setUser } = useAuthContext();
+    const { setUser } = useAuthContext();
 
     //react hook form
     const { register, handleSubmit, formState: { errors } } = useForm();

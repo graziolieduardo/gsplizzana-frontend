@@ -9,6 +9,10 @@ export default function useTeams() {
 
     const { data: teams, isLoading, isFetching } = useQuery(['teams'],
         () => fetchTeams(),
+        {
+            refetchOnWindowFocus: false,
+            retry: false
+        }
     )
 
     return { teams, isFetching, isLoading }

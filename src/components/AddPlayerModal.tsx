@@ -7,33 +7,16 @@ import useAddTeamPlayer from '@/src/api/players/useAddTeamPlayer';
 
 export default function AddPlayerModal({ setIsModalOpen, teamId }: any) {
 
-    const { register, handleSubmit, formState: { errors } } = useForm(
-        // {
-        //     defaultValues: {
-        //         name: player? player.name : '',
-        //         surname: player? player.surname : '',
-        //         email: player? player.email : '',
-        //         username: player? player.username : '',
-        //         date_of_birth: player? player.date_of_birth : null,
-        //         nickname: player? player.nickname : '',
-        //         capitan: player? player.capitan : false,
-        //     }
-        // }
-    );
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const { addTeamPlayer } = useAddTeamPlayer()
 
     const onSubmit = async (d: any) => {
-
         try {
-            console.log(d);
-            
-            const res = await addTeamPlayer.mutateAsync({d, teamId});
-
+            await addTeamPlayer.mutateAsync({ d, teamId });
         } catch (err) {
-
             // TODO: manage errors                        
-        }      
+        }
     }
 
     return (

@@ -1,22 +1,23 @@
 import useTeamPlayers from '@/src/api/players/useTeamPlayers';
-import useTeams from '@/src/api/teams/useTeams';
 import AddPlayerModal from '@/src/components/AddPlayerModal';
 import Giocatore from '@/src/components/common/Giocatore';
 import { GoPlus } from "react-icons/go";
 import { DashLayout } from '@/src/layouts/DashLayout';
 import { ReactElement, useState } from 'react';
 import { useRouter } from 'next/router';
+import useTeam from '@/src/api/teams/useTeam';
 
 export default function Index() {
-    //react query
-    const { teams } = useTeams();
-    const { teamPlayers } = useTeamPlayers(teams?.data[0]?.id);
-
-    const [isModalOpen, setIsModalOpen] = useState(false)
 
     // page url to query the team
     const router = useRouter();
-    const { squadra:teamId }:any = router.query;
+    const { squadra: teamId }: any = router.query;
+
+    //react query
+    const { team } = useTeam(teamId);
+    const { teamPlayers } = useTeamPlayers(team?.data?.id);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div>
@@ -28,13 +29,13 @@ export default function Index() {
                 {/* nome da squadra  */}
                 <div className='mt-4'>
                     <div className='text-title-gray text-sm'>Nome della squadra </div>
-                    <div className='text-sm'>{teams?.data[teamId - 1]?.name?.toUpperCase()}</div>
+                    <div className='text-sm'>{team?.data?.name?.toUpperCase()}</div>
                 </div>
 
                 {/* tag squadra */}
                 <div className='mt-4'>
                     <div className='text-title-gray text-sm'>tag squadra </div>
-                    <div className='text-sm'>{teams?.data[teamId - 1]?.tag?.toUpperCase()}</div>
+                    <div className='text-sm'>{team?.data?.tag?.toUpperCase()}</div>
                 </div>
 
                 {/* avatar_url squadra */}
