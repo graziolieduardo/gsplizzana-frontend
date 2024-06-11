@@ -7,9 +7,13 @@ export default function useTeamPlayers(teamId: number) {
         return res.data
     }
 
-    const { data: teamPlayers, isLoading, isFetching } = useQuery(['teams-players'],
+    const { data: teamPlayers, isLoading, isFetching } = useQuery(['teams-players', teamId],
         () => fetchTeamPlayers(),
-        { enabled: !!teamId }
+        {
+            enabled: !!teamId,
+            refetchOnWindowFocus: false,
+            retry: false
+        }
     )
 
     return { teamPlayers, isFetching, isLoading }

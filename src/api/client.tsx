@@ -33,7 +33,7 @@ const errorHandler = (error: any) => {
     if (error?.response?.status === 401) {
         // clear user to force logout in case of unauthorized
         localStorage.removeItem("user");
-        window.location.replace("/");
+        // window.location.replace("/");
     }
     return Promise.reject(error);
 };

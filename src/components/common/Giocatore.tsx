@@ -3,7 +3,7 @@ import { FaChevronDown, FaChevronUp, FaTrash  } from "react-icons/fa";
 import AddPlayerModal from '../AddPlayerModal';
 
 
-export default function Giocatore({  isEditPage }: any) {
+export default function Giocatore({player}:any) {
 
     const [isOpen, setIsOpen] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -21,7 +21,7 @@ export default function Giocatore({  isEditPage }: any) {
                     }
                 </div>
                 
-                {/* da aggiungere logicase e' capitano */}
+                {/* da aggiungere logica se e' capitano */}
                 <div> nome cognome (C)</div>
             </div>
 
@@ -40,10 +40,10 @@ export default function Giocatore({  isEditPage }: any) {
                 <div className='mt-2'>avatar_url</div>
 
                 {/* edit and delete button */}
-                {isEditPage && <div className='mt-2 gap-x-4 flex items-center '>
-                    <div onClick={ () => { setIsModalOpen(!isModalOpen) } } className='rounded w-full bg-white text-primary-dark font-semibold text-center py-2 border-gradient px-6'> Modifica</div>
-                    <div className='rounded-full border p-2 cursor-pointer'> <FaTrash className='text-lg'/> </div>
-                </div >}
+                 <div className='mt-2 gap-x-4 flex items-center '>
+                    <div onClick={ () => { setIsModalOpen(!isModalOpen) } } className='rounded cursor-pointer w-full bg-white text-primary-dark font-semibold text-center py-2 border-gradient px-6'> Modifica</div>
+                    <div className='rounded-full border p-2 cursor-pointer hover:border-gray-500'> <FaTrash className='text-lg'/> </div>
+                </div >
 
             </div>}
 
