@@ -31,12 +31,12 @@ export const Header = () => {
                         </Link>
                     </div>
 
-                    <div className='md:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
+                    {/* <div className='md:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer' onClick={() => setIsOpen(!isOpen)}> */}
                         {/* <div  className='sm:hidden block dark:text-white border rounded h-9 w-9 cursor pointer' /> */}
                         {/* <div onClick={() => setIsOpen(!isOpen)}> */}
-                        <RxHamburgerMenu />
+                        {/* <RxHamburgerMenu /> */}
                         {/* </div> */}
-                    </div>
+                    {/* </div> */}
 
                     {/* links */}
                     <nav className={`${isOpen ? 'block text-center bg-black z-10' : 'hidden'} w-full md:flex sm:items-center sm:w-auto `}>
