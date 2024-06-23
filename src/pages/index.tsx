@@ -146,7 +146,7 @@ export default function Home() {
                         <p className='my-6 font-light text-secondary'>Sai la differenza tra i mondiali classici e quelli sul sapone? Quelli sul sapone non cambiano luogo ogni 4 anni.</p>
 
                         {/* <Link className='block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full py-2 mt-8 text-white text-center' href="iscrizioni">Iscriviti</Link> */}
-                        {/* <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button> */}
+                        <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button>
                     </div>
                 </div>
             </section>
