@@ -24,18 +24,11 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                 nickname: '',
                 isCaptain: false,
                 isViceCaptain: false,
-                participate: false
+                participate: false,
+                shirt: ""
             }
         }
     );
-
-    const handleCaptainChange = (e: any) => {
-        setIsCaptainChecked(e.target.checked);
-    }
-
-    const handleViceCaptainChange = (e: any) => {
-        setViceIsCaptainChecked(e.target.checked);
-    }
 
     // context 
     const { players, setPlayers, updatePlayer } = useSignupContext();
@@ -44,7 +37,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
         // console.log(data);
         // return;
 
-        const date = '08/10/2007'; // mm/dd/YYYY
+        const date = '08/14/2008.'; // mm/dd/YYYY
         const pickedDate = new Date(data.date_of_birth);
         const limitDate = new Date(date);
 
@@ -77,6 +70,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
             setValue('isCaptain', players[modifyIndex].isCaptain);
             setValue('isViceCaptain', players[modifyIndex].isViceCaptain);
             setValue('participate', players[modifyIndex].participate);
+            setValue('shirt', players[modifyIndex].shirt);
 
             setIsCaptainChecked(players[modifyIndex].isCaptain);
             setViceIsCaptainChecked(players[modifyIndex].isViceCaptain);
@@ -178,6 +172,20 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                             type="email"
                             id='email'
                         />
+                    </div>
+
+                    {/* shirt */}
+                    <div className='flex flex-col mt-4'>
+                        <label className='font-semibold text-sm' htmlFor="shirt">Taglia T-shirt</label>
+                        <select {...register("shirt")} className='w-1/4 h-[30px]' name="shirt" id="shirt">
+                            <option value=""></option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                            <option value="3XL">3XL</option>
+                        </select>
                     </div>
 
                     {/* tag instagram*/}

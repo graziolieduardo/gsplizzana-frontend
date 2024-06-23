@@ -15,9 +15,11 @@ export default function Confirmation() {
                     <p className="text-secondary text-center font-light">Il tuo numero di iscrizione è: <span className="font-bold">{token}</span></p>
                 </div>
 
-                <p className="text-secondary text-center mt-4 font-light">Ricordati di scaricare <span className="font-bold underline hover:text-primary-dark"><Link href={"https://pdfhost.io/v/Pxsk.zjwf_Liberatoria_GDPR_GSP"} target="blank">qui</Link></span> i moduli per la privacy e di portarli compilati.</p>
+                <p className="font-light">Ricordati di portalo con te per confermare la tua iscrizione</p>
 
-                <p className="text-secondary text-center mt-4 font-light">Ti aspettiamo a Lizzana il <span className="font-bold">29 aprile ore 7.00</span> per completare l&apos;iscrizione.</p>
+                <p className="text-secondary text-center mt-4 font-light">Scarica <span className="font-bold underline hover:text-primary-dark"><Link href={"https://drive.google.com/file/d/1JGyjCuAtSIDjb2llkIUi-LvJCEf9JUYP/view"} target="blank">qui</Link></span> i moduli per la privacy e portali compilati.</p>
+
+                <p className="text-secondary text-center mt-4 font-light">Ti aspettiamo a Lizzana il <span className="font-bold">13 Luglio ore 7.00</span> per completare l&apos;iscrizione.</p>
 
                 <p className="text-secondary text-center mt-4 font-light">Per qualsiasi problema o dubbio siamo a disposizione.</p>
 

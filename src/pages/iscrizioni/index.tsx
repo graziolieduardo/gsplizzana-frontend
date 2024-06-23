@@ -10,19 +10,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Button } from '@/src/components/common/Button';
 import client from '@/src/api/client';
+import { IoShirtOutline } from 'react-icons/io5';
 
-// const PLAYERS = [
-//     {
-//         name: 'Eduardo',
-//         lastname: 'Grazioli',
-//         date_of_birth: '04/07/1991',
-//         phone: '3209141742',
-//         email: 'eduardo.grazioli@gmail.it',
-//         instagram_tag: 'graziolieduardo',
-//         nickname: 'Indesiderabile numero uno',
-//         isCaptain: true,
-//     }
-// ]
 
 const Index = () => {
     const router = useRouter();
@@ -114,7 +103,7 @@ const Index = () => {
                 </div>
             </div>
             <div className=" py-10 bg-gray-200">
-                    
+
                 <div className="max-w-container 2xl:max-w-container-xl mx-auto px-6">
 
                     <h2 className='text-2xl font-bold'>Dettagli squadra</h2>
@@ -188,7 +177,7 @@ const Index = () => {
                         </div>
 
                         {/* LOGO */}
-                        <div className="mt-5">
+                        {/* <div className="mt-5">
                             <label className="font-semibold" htmlFor="">Logo</label>
                             <div className="flex h-16 bg-white w-full sm:w-1/2 lg:w-1/3 mt-2 p-3 rounded">
                                 <div className="image-upload h-10">
@@ -205,7 +194,7 @@ const Index = () => {
                                     <div className='text-xs text-secondary'>Formati supportati .jpg, .png, .svg</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* GIOCATORI */}
                         <div className='mt-8'>
@@ -299,6 +288,17 @@ const Index = () => {
                                                                     </span>
                                                                 </div>
                                                             }
+                                                            {
+                                                                player?.shirt &&
+                                                                <div className='flex items-center gap-x-1'>
+                                                                    <span className='text-primary'>
+                                                                    <IoShirtOutline />
+                                                                    </span>
+                                                                    <span>
+                                                                        {player?.shirt}
+                                                                    </span>
+                                                                </div>
+                                                            }
                                                         </div>
                                                     </div>
 
@@ -317,7 +317,7 @@ const Index = () => {
                                         ))
                                     }
                                 </div>
-                                
+
                             </div>
                             {error.length > 0 && <p className='text-primary-dark'>{error}</p>}
                         </div>
@@ -336,7 +336,7 @@ const Index = () => {
                         {/* checkbox acconsento dati */}
                         <div className="mt-2">
                             <input {...register('rules', { required: '- questo campo è obbligatorio' })} className='cursor-pointer' type="checkbox" name="" id="rules" onChange={handleRulesChange} />
-                            <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <Link href={'https://pdfhost.io/v/d76jlR1AN_REGOLAMENTO_TORNEO_23_1'} target='blank' className='font-bold underline'>REGOLAMENTO DEL TORNEO</Link></label>
+                            <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <Link href={'https://drive.google.com/file/d/1pR4GPqEOnQ-wGQOO43vIHqnQfkjEs9Bp/view'} target='blank' className='font-bold underline'>REGOLAMENTO DEL TORNEO</Link></label>
                             <ErrorMessage
                                 errors={errors}
                                 name="rules"

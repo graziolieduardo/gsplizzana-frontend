@@ -42,6 +42,7 @@ type Player = {
     isCaptain: boolean;
     isViceCaptain: boolean;
     participate: boolean;
+    shirt: string;
 }
 
 type SignupInfo = {
