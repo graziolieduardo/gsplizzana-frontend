@@ -115,12 +115,12 @@ export default function Home() {
         <>
             {/* jumbotron */}
             <section id='jumbotron' className='bg-campo bg-cover bg-center'>
-                <div className='bg-black/80 pt-80 sm:pb-12 '>
+                <div className='bg-black/80 pt-80'>
                     <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 text-white'>
                         <div className='w-full md:w-1/2 pb-10'>
                             <Title variant={Title.variant.secondary} > Calciosplash Lizzana 2024</Title>
-                            <h5 className='text-[3.7rem] md:text-[5rem] leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Stay tuned, stay orangione</h5>
-                        </div>
+                                <h5 className='text-[3.7rem] md:text-[5rem] leading-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Stay tuned, stay orangione</h5>
+                            </div>
                     </div>
                 </div>
             </section>

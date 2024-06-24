@@ -13,6 +13,7 @@ type Player = {
     rookie: string,
     is_captain: string,
     is_vice_captain: string,
+    shirt: string,
 }
 
 type Team = {
@@ -69,63 +70,65 @@ export default function Index() {
 
             {
                 team ?
-                <>
-                    <div className='mb-2 space-y-2'>
-                        <div className='text-3xl'>{team?.name}</div>
+                    <>
+                        <div className='mb-2 space-y-2'>
+                            <div className='text-3xl'>{team?.name}</div>
 
-                        <div className='flex items-center gap-x-2'>
-                            <div>ID:</div>
-                            <div className='text-secondary font-light'>{team?.id}</div>
+                            <div className='flex items-center gap-x-2'>
+                                <div>ID:</div>
+                                <div className='text-secondary font-light'>{team?.id}</div>
+                            </div>
+
+                            <div className='flex items-center gap-x-2'>
+                                <div>Categoria:</div>
+                                <div className='text-secondary font-light'>{team?.category}</div>
+                            </div>
                         </div>
 
-                        <div className='flex items-center gap-x-2'>
-                            <div>Categoria:</div>
-                            <div className='text-secondary font-light'>{team?.category}</div>
+                        <div>
+                            <div className='mb-2'>Giocatori:</div>
+                            <table className='border border-secondary rounded'>
+                                <thead>
+                                    <tr>
+                                        <td className='p-2 border border-secondary bg-gray-200'>Nome</td>
+                                        <td className='p-2 border border-secondary bg-gray-200'>Cognome</td>
+                                        <td className='p-2 border border-secondary bg-gray-200'>Soprannome</td>
+                                        <td className='p-2 border border-secondary bg-gray-200'>Data di nascita</td>
+                                        <td className='p-2 border border-secondary bg-gray-200'>Telefono</td>
+                                        <td className='p-2 border border-secondary bg-gray-200'>Email</td>
+                                        <td className='p-2 border border-secondary bg-gray-200'>Instagram</td>
+                                        {/* <td className='p-2 border border-secondary bg-gray-200'>Rookie</td> */}
+                                        <td className='p-2 border border-secondary bg-gray-200'>Capitano</td>
+                                        <td className='p-2 border border-secondary bg-gray-200'>T-Shirt</td>
+                                        {/* <td className='p-2 border border-secondary bg-gray-200'>Vice-capitano</td> */}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        team && team.players.map((player: Player) => (
+                                            <tr key={player?.id}>
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.name}</td>
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.lastname}</td>
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.nickname}</td>
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.date_of_birth}</td>
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.phone}</td>
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.email}</td>
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.instagram}</td>
+                                                {/* <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.rookie ? 'no' : 'sì'}</td> */}
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.is_captain ? 'sì' : 'no'}</td>
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.shirt}</td>
+                                                {/* <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.is_vice_captain ? 'sì' : 'no'}</td> */}
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
-
+                    </>
+                    :
                     <div>
-                        <div className='mb-2'>Giocatori:</div>
-                        <table className='border border-secondary rounded'>
-                            <thead>
-                                <tr>
-                                    <td className='p-2 border border-secondary bg-gray-200'>Nome</td>
-                                    <td className='p-2 border border-secondary bg-gray-200'>Cognome</td>
-                                    <td className='p-2 border border-secondary bg-gray-200'>Soprannome</td>
-                                    <td className='p-2 border border-secondary bg-gray-200'>Data di nascita</td>
-                                    <td className='p-2 border border-secondary bg-gray-200'>Telefono</td>
-                                    <td className='p-2 border border-secondary bg-gray-200'>Email</td>
-                                    <td className='p-2 border border-secondary bg-gray-200'>Instagram</td>
-                                    <td className='p-2 border border-secondary bg-gray-200'>Rookie</td>
-                                    <td className='p-2 border border-secondary bg-gray-200'>Capitano</td>
-                                    <td className='p-2 border border-secondary bg-gray-200'>Vice-capitano</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    team && team.players.map((player: Player) => (
-                                        <tr key={player?.id}>
-                                            <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.name}</td>
-                                            <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.lastname}</td>
-                                            <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.nickname}</td>
-                                            <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.date_of_birth}</td>
-                                            <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.phone}</td>
-                                            <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.email}</td>
-                                            <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.instagram}</td>
-                                            <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.rookie ? 'no' : 'sì'}</td>
-                                            <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.is_captain ? 'sì' : 'no'}</td>
-                                            <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.is_vice_captain ? 'sì' : 'no'}</td>
-                                        </tr>
-                                    ))
-                                }
-                            </tbody>
-                        </table>
+                        Nessuna squadra per il token inserito
                     </div>
-                </>
-                :
-                <div>
-                    Nessuna squadra per il token inserito
-                </div>
             }
 
         </div>

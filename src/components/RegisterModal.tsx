@@ -23,8 +23,8 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                 instagram: '',
                 nickname: '',
                 isCaptain: false,
-                isViceCaptain: false,
-                participate: false,
+                // isViceCaptain: false,
+                // participate: false,
                 shirt: ""
             }
         }
@@ -68,8 +68,8 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
             setValue('instagram', players[modifyIndex].instagram);
             setValue('nickname', players[modifyIndex].nickname);
             setValue('isCaptain', players[modifyIndex].isCaptain);
-            setValue('isViceCaptain', players[modifyIndex].isViceCaptain);
-            setValue('participate', players[modifyIndex].participate);
+            // setValue('isViceCaptain', players[modifyIndex].isViceCaptain);
+            // setValue('participate', players[modifyIndex].participate);
             setValue('shirt', players[modifyIndex].shirt);
 
             setIsCaptainChecked(players[modifyIndex].isCaptain);
@@ -176,8 +176,8 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
 
                     {/* shirt */}
                     <div className='flex flex-col mt-4'>
-                        <label className='font-semibold text-sm' htmlFor="shirt">Taglia T-shirt</label>
-                        <select {...register("shirt")} className='w-1/4 h-[30px]' name="shirt" id="shirt">
+                        <label className='font-semibold text-sm mb-1' htmlFor="shirt">Taglia T-shirt</label>
+                        <select {...register("shirt")} className='w-1/4 h-[30px] border rounded' name="shirt" id="shirt">
                             <option value=""></option>
                             <option value="S">S</option>
                             <option value="M">M</option>
@@ -224,7 +224,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
 
 
                     {/* vice capitano */}
-                    <Controller
+                    {/* <Controller
                         control={control}
                         name='isViceCaptain'
                         render={({ field: { onChange }, field: { value } }) => (
@@ -245,10 +245,10 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                 </label>
                             </div>
                         )}
-                    />
+                    /> */}
 
                     {/* gia partecipato */}
-                    <Controller
+                    {/* <Controller
                         control={control}
                         name='participate'
                         render={({ field: { onChange }, field: { value } }) => (
@@ -270,7 +270,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                 </div>
                             </div>
                         )}
-                    />
+                    /> */}
 
                     {/* nickname */}
                     <div className='mt-4 flex flex-col'>
