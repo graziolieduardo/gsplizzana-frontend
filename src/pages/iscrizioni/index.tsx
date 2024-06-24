@@ -56,7 +56,7 @@ const Index = () => {
 
 
         if (players.length < 4) {
-            setError('- la squadra deve contenere minimo 4');
+            setError('- la squadra deve contenere minimo 4 giocatori');
             return;
         } else {
             setError('');
@@ -74,6 +74,9 @@ const Index = () => {
             const res = await client.post('sign-up', data);
 
             setToken(res.data.confirmation_token);
+
+            localStorage.setItem('gsp-token', res.data.confirmation_token);
+
             resetPlayers();
             router.push('/iscrizioni/confirmation');
         } catch (err) {
