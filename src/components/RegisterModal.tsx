@@ -37,7 +37,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
         // console.log(data);
         // return;
 
-        const date = '08/14/2008.'; // mm/dd/YYYY
+        const date = '08/14/2008'; // mm/dd/YYYY
         const pickedDate = new Date(data.date_of_birth);
         const limitDate = new Date(date);
 
