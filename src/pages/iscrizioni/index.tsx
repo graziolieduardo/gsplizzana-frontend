@@ -62,8 +62,8 @@ const Index = () => {
         //     setError('');
         // }
 
-        if (!players.some((player) => { return player?.isCaptain }) || !players.some((player) => { return player?.isViceCaptain })) {
-            setError('- la squadra deve contenere un capitano ed un vice-capitano');
+        if (!players.some((player) => { return player?.isCaptain })) {
+            setError('- la squadra deve contenere un capitano');
             return;
         } else {
             setError('');
@@ -99,7 +99,7 @@ const Index = () => {
             <div className="max-w-container 2xl:max-w-container-xl mx-auto">
                 <div className="px-6 pt-12 pb-8 w-full sm:w-1/2">
                     <h2 className="text-4xl font-bold">Modulo di iscrizione torneo di <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary">Calcio Splash</span></h2>
-                    <p className="mt-4 text-secondary">Compila il form per iscrivere la tua squadra al torneo della 24&ordf; edizione.</p>
+                    <p className="mt-4 text-secondary">Compila il form per iscrivere la tua squadra al torneo della 25&ordf; edizione.</p>
                 </div>
             </div>
             <div className=" py-10 bg-gray-200">
@@ -292,7 +292,7 @@ const Index = () => {
                                                                 player?.shirt &&
                                                                 <div className='flex items-center gap-x-1'>
                                                                     <span className='text-primary'>
-                                                                    <IoShirtOutline />
+                                                                        <IoShirtOutline />
                                                                     </span>
                                                                     <span>
                                                                         {player?.shirt}
