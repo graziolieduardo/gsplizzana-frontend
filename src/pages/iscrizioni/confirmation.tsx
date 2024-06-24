@@ -1,8 +1,18 @@
 import { useSignupContext } from "@/src/hooks/useSignupContext"
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Confirmation() {
-    const { token } = useSignupContext();
+    const { token, setToken } = useSignupContext();
+
+    useEffect(() => {
+        let token: any = localStorage.getItem('gsp-token');
+        if (token) {
+            setToken(token);
+        } else {
+            setToken(null);
+        }
+    }, []);
 
     return (
         <div className="sm:max-w-[450px] mx-auto pt-14 pb-8 px-10 rounded-md">
@@ -15,11 +25,9 @@ export default function Confirmation() {
                     <p className="text-secondary text-center font-light">Il tuo numero di iscrizione è: <span className="font-bold">{token}</span></p>
                 </div>
 
-                <p className="font-light">Ricordati di portalo con te per confermare la tua iscrizione</p>
+                <p className="text-secondary text-center mt-4 font-light">Ricordati di portarlo con te a Lizzana il <span className="font-bold">13 Luglio ore 7.00</span> per completare l&apos;iscrizione.</p>
 
                 <p className="text-secondary text-center mt-4 font-light">Scarica <span className="font-bold underline hover:text-primary-dark"><Link href={"https://drive.google.com/file/d/1JGyjCuAtSIDjb2llkIUi-LvJCEf9JUYP/view"} target="blank">qui</Link></span> i moduli per la privacy e portali compilati.</p>
-
-                <p className="text-secondary text-center mt-4 font-light">Ti aspettiamo a Lizzana il <span className="font-bold">13 Luglio ore 7.00</span> per completare l&apos;iscrizione.</p>
 
                 <p className="text-secondary text-center mt-4 font-light">Per qualsiasi problema o dubbio siamo a disposizione.</p>
 
