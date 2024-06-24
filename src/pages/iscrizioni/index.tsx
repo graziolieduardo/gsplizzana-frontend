@@ -55,12 +55,12 @@ const Index = () => {
         // return;
 
 
-        // if (players.length < 4 || players.length > 9) {
-        //     setError('- la squadra deve contenere minimo 4 e massimo 9 giocatori');
-        //     return;
-        // } else {
-        //     setError('');
-        // }
+        if (players.length < 4) {
+            setError('- la squadra deve contenere minimo 4');
+            return;
+        } else {
+            setError('');
+        }
 
         if (!players.some((player) => { return player?.isCaptain })) {
             setError('- la squadra deve contenere un capitano');
@@ -210,7 +210,7 @@ const Index = () => {
                                             <img className='text-xs' src="/static/plus.svg" alt="" />
                                         </div>
                                         <div className="mt-4 font-semibold text-lg">Aggiungi giocatore</div>
-                                        <small className='text-secondary'>fino a 9 per squadra</small>
+                                        {/* <small className='text-secondary'>fino a 9 per squadra</small> */}
                                     </div>
 
                                     {/* players cards */}
