@@ -177,7 +177,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                     {/* shirt */}
                     <div className='flex flex-col mt-4'>
                         <label className='font-semibold text-sm mb-1' htmlFor="shirt">Taglia T-shirt</label>
-                        <select {...register("shirt")} className='w-1/4 h-[30px] border rounded' name="shirt" id="shirt">
+                        <select {...register("shirt", { required: '- questo campo è obbligatorio' })} className='w-1/4 h-[30px] border rounded' name="shirt" id="shirt">
                             <option value=""></option>
                             <option value="S">S</option>
                             <option value="M">M</option>
@@ -186,6 +186,11 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                             <option value="XXL">XXL</option>
                             <option value="3XL">3XL</option>
                         </select>
+                        <ErrorMessage
+                            errors={errors}
+                            name="shirt"
+                            render={({ message }: any) => <p className='text-primary-dark'>{message}</p>}
+                        />
                     </div>
 
                     {/* tag instagram*/}
