@@ -27,7 +27,7 @@ export default function Confirmation() {
 
                 <p className="text-secondary text-center mt-4 font-light">Ricordati di portarlo con te a Lizzana il <span className="font-bold">13 Luglio ore 7.00</span> per completare l&apos;iscrizione.</p>
 
-                <p className="text-secondary text-center mt-4 font-light">Scarica <span className="font-bold underline hover:text-primary-dark"><Link href={"https://drive.google.com/file/d/1JGyjCuAtSIDjb2llkIUi-LvJCEf9JUYP/view"} target="blank">qui</Link></span> i moduli per la privacy e portali compilati <span className="font-bold">da ogni membro della squadra</span>.</p>
+                <p className="text-secondary text-center mt-4 font-light">Scarica <span className="font-bold underline hover:text-primary-dark"><Link href={"https://drive.google.com/file/d/1OjDVz6dxrBDF31d5-WhQZRUEDPlCyRez/view?usp=drivesdk"} target="blank">qui</Link></span> i moduli per la privacy e portali compilati <span className="font-bold">da ogni membro della squadra</span>.</p>
 
                 <p className="text-secondary text-center mt-4 font-light">Per qualsiasi problema o dubbio siamo a disposizione.</p>
 
