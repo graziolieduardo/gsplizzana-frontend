@@ -136,7 +136,6 @@ export default function Home() {
                         <img className='opacity-20 md:opacity-100 h-[317px] lg:h-[556px]' src="/static/palla-rete.png" alt="" />
                     </div>
                     {/* CONTENT */}
-                    {/* <div className='absolute top-0 left-0 px-6 py-8 md:w-1/2 max-h-72'> */}
                     <div className='absolute h-[317px] lg:h-[556px] top-0 left-0 px-6 md:w-1/2 flex flex-col justify-center'>
 
                         <Title variant={Title.variant.secondary} >
@@ -145,8 +144,7 @@ export default function Home() {
 
                         <p className='my-6 font-light text-secondary'>Sai la differenza tra i mondiali classici e quelli sul sapone? Quelli sul sapone non cambiano luogo ogni 4 anni.</p>
 
-                        {/* <Link className='block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full py-2 mt-8 text-white text-center' href="iscrizioni">Iscriviti</Link> */}
-                        <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button>
+                        {/* <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button> */}
                     </div>
                 </div>
             </section>
