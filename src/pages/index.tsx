@@ -150,7 +150,7 @@ export default function Home() {
             </section>
 
             {/* Programma */}
-            {/* <Programma /> */}
+            <Programma />
 
             {/*Male table section */}
             {/* <section id='male-table' className='bg-bg-primary'>

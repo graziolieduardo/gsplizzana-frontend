@@ -31,12 +31,12 @@ export const Header = () => {
                         </Link>
                     </div>
 
-                    {/* <div className='md:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer' onClick={() => setIsOpen(!isOpen)}> */}
-                        {/* <div  className='sm:hidden block dark:text-white border rounded h-9 w-9 cursor pointer' /> */}
-                        {/* <div onClick={() => setIsOpen(!isOpen)}> */}
-                        {/* <RxHamburgerMenu /> */}
-                        {/* </div> */}
-                    {/* </div> */}
+                    <div className='md:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
+                        {/* <div className='sm:hidden block dark:text-white border rounded h-9 w-9 cursor pointer' /> */}
+                        <div onClick={() => setIsOpen(!isOpen)}>
+                            <RxHamburgerMenu />
+                        </div>
+                    </div>
 
                     {/* links */}
                     <nav className={`${isOpen ? 'block text-center bg-black z-10' : 'hidden'} w-full md:flex sm:items-center sm:w-auto `}>
@@ -45,12 +45,12 @@ export const Header = () => {
 
                             {/* <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
-                            </li>
+                            </li> */}
 
                             <li className="border-b p-4 md:p-0 sm:border-none">
-                                <Link className="block w-full" href='/programma/giovedì' onClick={() => setIsOpen(false)}>Programma</Link>
+                                <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
                             </li>
-
+{/* 
                             <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
                             </li>

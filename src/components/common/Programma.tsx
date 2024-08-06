@@ -352,11 +352,9 @@ export default function Programma() {
     const dayProgram = Object.keys(program);
 
     return (
-
-       
         <section id='program' className='bg-bg-primary'>
             <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-16'>
-                <Title variant={Title.variant.secondary}> Programma 2023</Title>
+                <Title variant={Title.variant.secondary}>Programma 2024</Title>
                 <div className='flex gap-x-4 mt-8 overflow-x-auto'>
 
                     {dayProgram.map((day, i) => (
