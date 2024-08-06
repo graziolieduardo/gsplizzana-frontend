@@ -57,7 +57,7 @@ export default function Programma() {
                 highlight: true
             },
             {
-                title: 'Villa People',
+                title: 'Villa People X Ebol4',
                 time: '00.40',
                 important: false,
                 highlight: true
@@ -335,7 +335,7 @@ export default function Programma() {
                 bold: true
             },
             {
-                title: 'Villa People',
+                title: 'Villa People X Ebol4',
                 time: '24.00',
                 important: false,
                 highlight: true
