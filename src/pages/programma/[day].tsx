@@ -507,8 +507,8 @@ export default function Index() {
             },
             {
                 id: 80,
-                home_team: ' A.C. Campate	',
-                away_team: '	Lovebusters	 ',
+                home_team: ' Gin toniche	',
+                away_team: '	Lemonade	 ',
                 scheduled_at: ' 15:40'
             },
             {
@@ -537,8 +537,8 @@ export default function Index() {
             },
             {
                 id: 85,
-                home_team: ' Gin toniche	',
-                away_team: '	Lemonade	 ',
+                home_team: ' A.C. Campate	',
+                away_team: '	Torte di Mele	 ',
                 scheduled_at: ' 17:20'
             },
             {
