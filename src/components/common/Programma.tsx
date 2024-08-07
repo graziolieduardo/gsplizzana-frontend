@@ -80,12 +80,12 @@ export default function Programma() {
                 important: false,
                 highlight: false
             },
-            // {
-            //     title: 'Inizio Beer Pong',
-            //     time: '17.00',
-            //     important: false,
-            //     highlight: false
-            // },
+            {
+                title: 'Inizio Beer Pong',
+                time: '19.00',
+                important: false,
+                highlight: false
+            },
             {
                 title: 'Pausa cena',
                 time: '20.00',
@@ -137,6 +137,12 @@ export default function Programma() {
             {
                 title: 'Inizio partite',
                 time: '16.00',
+                important: false,
+                highlight: false
+            },
+            {
+                title: 'Inizio Beer Pong',
+                time: '19.00',
                 important: false,
                 highlight: false
             },
@@ -209,6 +215,12 @@ export default function Programma() {
             {
                 title: 'Ripresa partite',
                 time: '15.00',
+                important: false,
+                highlight: false
+            },
+            {
+                title: 'Inizio Beer Pong',
+                time: '19.00',
                 important: false,
                 highlight: false
             },
