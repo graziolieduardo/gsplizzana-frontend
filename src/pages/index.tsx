@@ -6,6 +6,7 @@ import { Title } from '../components/common/Title';
 import axios from 'axios';
 import { useQueries } from '@tanstack/react-query';
 import { LiveMatch } from '../components/common/LiveMatch';
+import UniqueTable from '../components/common/UniqueTable';
 
 export default function Home() {
     // console.log('render');
@@ -119,8 +120,8 @@ export default function Home() {
                     <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 text-white'>
                         <div className='w-full md:w-1/2 pb-10'>
                             <Title variant={Title.variant.secondary} > Calciosplash Lizzana 2024</Title>
-                                <h5 className='text-[3.7rem] md:text-[5rem] leading-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Stay tuned, stay orangione</h5>
-                            </div>
+                            <h5 className='text-[3.7rem] md:text-[5rem] leading-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Stay tuned, stay orangione</h5>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -176,6 +177,20 @@ export default function Home() {
                     </div>
                 </div>
             </section> */}
+
+            <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-16' >
+                <div className='lg:w-2/3 mx-auto'>
+                    <Title variant={Title.variant.secondary}>Gironi Maschili</Title>
+
+                    <div className='h-[295px] overflow-hidden mt-10'>
+                        <UniqueTable />
+                    </div>
+
+                    <div className='z-10 relative mt-6'>
+                        <Button variant={Button.variant.secondary} link={'/gironi/maschile'} >Vedi Classifica Completa</Button>
+                    </div>
+                </div>
+            </div>
 
             {/* Female table section */}
             {/* <section id='female-table'>

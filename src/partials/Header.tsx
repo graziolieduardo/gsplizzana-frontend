@@ -31,25 +31,71 @@ export const Header = () => {
                         </Link>
                     </div>
 
-                    <div className='md:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
-                        <div onClick={() => setIsOpen(!isOpen)}>
+                    <div className='lg:hidden block border mx-6 p-2 rounded-sm text-xl cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
+                        <div onClick={() => setIsOpen(true)}>
                             <RxHamburgerMenu />
                         </div>
                     </div>
 
-                    {/* links */}
-                    <nav className={`${isOpen ? 'block text-center bg-black z-10' : 'hidden'} w-full md:flex sm:items-center sm:w-auto `}>
+                    {/* menu mobile */}
+                    <nav className={`${isOpen ? 'lg:hidden fixed top-0 bottom-0 bg-black right-0 w-[250px] z-50' : 'hidden'}`}>
+                        <div onClick={() => { setIsOpen(false) }} className="flex justify-end">
+                            <div className="py-1 px-3 mt-6 mr-6 ">X</div>
+                        </div>
+                        <ul className="text-end mt-4">
+                            {/* <li className="border-b p-4 border-none">
+                                <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
+                            </li> */}
+
+                            <li className="border-b p-4 border-none">
+                                <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
+                            </li>
+
+                            {/* <li className="border-b p-4 border-none">
+                                <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
+                            </li>
+
+                            <li className="border-b p-4 border-none">
+                                <Link className="block w-full" href='/bracket/maschile' onClick={() => setIsOpen(false)}>Fase finale</Link>
+                            </li> */}
+                        </ul>
+                    </nav>
+
+                    {/* menu descktop */}
+                    <nav className="hidden lg:block">
+                        <ul className="text-end mt-4 lg:flex">
+                            {/* <li className="border-b p-4 border-none">
+                                <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
+                            </li> */}
+
+                            <li className="border-b p-4 border-none">
+                                <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
+                            </li>
+
+                            {/* <li className="border-b p-4 border-none">
+                                <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
+                            </li>
+
+                            <li className="border-b p-4 border-none">
+                                <Link className="block w-full" href='/bracket/maschile' onClick={() => setIsOpen(false)}>Fase finale</Link>
+                            </li> */}
+                        </ul>
+                    </nav>
+
+                    {/* old menu */}
+
+                    {/* <nav className={`${isOpen ? 'block text-center bg-black z-10' : 'hidden'} w-full md:flex sm:items-center sm:w-auto `}>
 
                         <ul className='sm:flex sm:items-center font-semibold sm:space-x-7 capitaliza text-sm border sm:border-none md:last:mr-4'>
 
-                            {/* <li className="border-b p-4 md:p-0 sm:border-none">
+                            <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
-                            </li> */}
+                            </li>
 
                             <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
                             </li>
-{/* 
+                            
                             <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
                             </li>
@@ -60,9 +106,9 @@ export const Header = () => {
 
                             <li className="border-b p-4 md:p-0 sm:border-none">
                                 <Link className="block w-full" href='/marcatori' onClick={() => setIsOpen(false)}>Marcatori</Link>
-                            </li> */}
+                            </li>
 
-                            {/* {user != null ? (
+                            {user != null ? (
                                 <li className=" border-b p-4 md:p-0 sm:border-none">
                                     <Link className="block w-full" href="/dashboard/profile">Profile</Link>
                                 </li>
@@ -76,13 +122,13 @@ export const Header = () => {
                                         <Link className="block w-full" href='/login' onClick={() => setIsOpen(false)}>Login</Link>
                                     </li>
                                 </>
-                            )} */}
+                            )}
 
-                            {/* <li>
+                            <li>
                                 <Link href='/gironi' className='' >Chi siamo</Link>
-                            </li> */}
+                            </li>
                         </ul>
-                    </nav>
+                    </nav> */}
                 </div>
 
             </header >
