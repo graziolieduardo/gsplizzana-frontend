@@ -1,21 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios"
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export const LiveMatch = () => {
-    // const [liveMatch, setLiveMatch] = useState<any>(null);
-
-    const { data: liveMatch, isLoading, isFetching } = useQuery(['live'],
+    const { data: liveMatch } = useQuery(['live'],
         () => getLiveMatch(), {
         refetchOnWindowFocus: false,
         refetchInterval: 15000
     });
 
     const getLiveMatch = async () => {
-        const res = await axios.get('https://gsplizzana.internal.devlounge.dev/api/matches/live');
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}live`);
         return res.data;
-        // setLiveMatch(res.data.data);
     }
 
     useEffect(() => {
@@ -26,7 +23,7 @@ export const LiveMatch = () => {
 
     return (
         <div className="px-4 py-6 bg-gradient-to-r from-black to-text-subtle text-white ">
-            <Link className="flex justify-center mb-4" href={`/partita/${liveMatch?.data?.id}`}>
+            <Link className="flex justify-center mb-4" href={{ pathname: `/partita/${liveMatch?.data.id}`, query: { group_id: liveMatch?.data?.group_id } }}>
                 <div className="bg-gradient-to-r from-primary-dark to-primary px-10 py-2 rounded flex items-center">
                     <div className="pulse text-white">
                         &#9679; Live Streaming

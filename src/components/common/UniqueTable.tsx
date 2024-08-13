@@ -1,66 +1,6 @@
 import React from 'react'
 
-export default function UniqueTable() {
-    const data = {
-        data: [
-            {
-                name: "prova 1",
-                points: 3,
-                wins: 1,
-                goals_scored: 2,
-                goals_conceded: 1
-            },
-            {
-                name: "prova 2",
-                points: 3,
-                wins: 1,
-                goals_scored: 2,
-                goals_conceded: 1
-            },
-            {
-                name: "prova 2",
-                points: 3,
-                wins: 1,
-                goals_scored: 2,
-                goals_conceded: 1
-            },
-            {
-                name: "prova 2",
-                points: 3,
-                wins: 1,
-                goals_scored: 2,
-                goals_conceded: 1
-            },
-            {
-                name: "prova 2",
-                points: 3,
-                wins: 1,
-                goals_scored: 2,
-                goals_conceded: 1
-            },
-            {
-                name: "prova 2",
-                points: 3,
-                wins: 1,
-                goals_scored: 2,
-                goals_conceded: 1
-            },
-            {
-                name: "prova 2",
-                points: 3,
-                wins: 1,
-                goals_scored: 2,
-                goals_conceded: 1
-            },
-            {
-                name: "prova 2",
-                points: 3,
-                wins: 1,
-                goals_scored: 2,
-                goals_conceded: 1
-            },
-        ]
-    }
+export default function UniqueTable({ data }: any) {
 
     return (
         <div className='mb-4 bg-bg-secondary w-full mx-auto rounded-md border'>
@@ -68,7 +8,7 @@ export default function UniqueTable() {
             <div className='pt-7 px-5 '>
 
                 <table className='w-full'>
-                    <caption className='mb-4 text-xl font-semibold text-start'> Maschile Girone Unico</caption>
+                    <caption className='mb-4 text-xl font-semibold text-start'>Maschile Girone Unico</caption>
                     <thead>
                         <tr>
                             <th className='text-normal'>&nbsp;</th>

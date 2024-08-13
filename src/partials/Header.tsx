@@ -3,6 +3,7 @@ import Link from "next/link"
 import { useEffect, useState } from 'react'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useRouter } from 'next/router';
+import { IoMdClose } from "react-icons/io";
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -40,21 +41,24 @@ export const Header = () => {
                     {/* menu mobile */}
                     <nav className={`${isOpen ? 'lg:hidden fixed top-0 bottom-0 bg-black right-0 w-[250px] z-50' : 'hidden'}`}>
                         <div onClick={() => { setIsOpen(false) }} className="flex justify-end">
-                            <div className="py-1 px-3 mt-6 mr-6 ">X</div>
+                            <div className="py-1 px-4 mt-6 text-2xl">
+                                <IoMdClose />
+                            </div>
                         </div>
-                        <ul className="text-end mt-4">
-                            {/* <li className="border-b p-4 border-none">
+                        <ul className="text-end mt-6">
+                            <li className="border-b p-4 border-none uppercase">
                                 <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
-                            </li> */}
-
-                            <li className="border-b p-4 border-none">
-                                <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
                             </li>
 
-                            {/* <li className="border-b p-4 border-none">
+                            <li className="border-b p-4 border-none uppercase">
                                 <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
                             </li>
 
+                            <li className="border-b p-4 border-none uppercase">
+                                <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
+                            </li>
+
+                            {/* 
                             <li className="border-b p-4 border-none">
                                 <Link className="block w-full" href='/bracket/maschile' onClick={() => setIsOpen(false)}>Fase finale</Link>
                             </li> */}
@@ -64,19 +68,19 @@ export const Header = () => {
                     {/* menu descktop */}
                     <nav className="hidden lg:block">
                         <ul className="text-end mt-4 lg:flex">
-                            {/* <li className="border-b p-4 border-none">
+                            <li className="border-b p-4 border-none">
                                 <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
-                            </li> */}
+                            </li>
+
+                            <li className="border-b p-4 border-none">
+                                <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
+                            </li>
 
                             <li className="border-b p-4 border-none">
                                 <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
                             </li>
 
                             {/* <li className="border-b p-4 border-none">
-                                <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
-                            </li>
-
-                            <li className="border-b p-4 border-none">
                                 <Link className="block w-full" href='/bracket/maschile' onClick={() => setIsOpen(false)}>Fase finale</Link>
                             </li> */}
                         </ul>

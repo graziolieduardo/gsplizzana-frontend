@@ -6,10 +6,10 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function Index() {
     const router = useRouter();
-    const { id } = router.query;
+    const { id, group_id } = router.query;
 
     //query
-    const { match, isLoading, isFetching } = useSingleMatch(id)
+    const { match, isLoading, isFetching } = useSingleMatch(id, group_id)
     // console.log(match);
 
     const currentTime: any = new Date(match?.timer?.current)

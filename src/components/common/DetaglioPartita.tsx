@@ -8,7 +8,7 @@ type Props = any
 
 export default function DetaglioPartita({ param }: Props) {
     const fetchDetail = async () => {
-        const res = await axios.get(`https://gsplizzana.internal.devlounge.dev/api/schedule?group=${param}`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${param}/fixtures`);
         return res.data;
     }
 
