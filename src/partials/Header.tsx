@@ -47,15 +47,15 @@ export const Header = () => {
                             </div>
                         </div>
                         <ul className="text-end mt-6">
-                            <li className={`${ pathname == "/" ? 'underline' : '' } border-b p-4 border-none uppercase`}>
+                            <li className={`${ pathname == "/" ? 'text-primary' : '' } border-b p-4 border-none uppercase`}>
                                 <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
                             </li>
 
-                            <li className={`${ pathname.includes("/gironi")  ? 'underline' : '' } border-b p-4 border-none uppercase`}>
+                            <li className={`${ pathname.includes("/gironi")  ? 'text-primary' : '' } border-b p-4 border-none uppercase`}>
                                 <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
                             </li>
 
-                            <li className={`${ pathname.includes("/programma")  ? 'underline' : '' } border-b p-4 border-none uppercase`}>
+                            <li className={`${ pathname.includes("/programma")  ? 'text-primary' : '' } border-b p-4 border-none uppercase`}>
                                 <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
                             </li>
 
@@ -69,15 +69,15 @@ export const Header = () => {
                     {/* menu desktop */}
                     <nav className="hidden lg:block">
                         <ul className="text-end mt-4 lg:flex">
-                            <li className={`${ pathname == "/" ? 'underline' : '' } border-b p-4 border-none uppercase`}>
+                            <li className={`${ pathname == "/" ? 'text-primary' : '' } border-b p-4 border-none uppercase`}>
                                 <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
                             </li>
 
-                            <li className={`${ pathname.includes("/gironi")  ? 'underline' : '' } border-b p-4 border-none uppercase`}>
+                            <li className={`${ pathname.includes("/gironi")  ? 'text-primary' : '' } border-b p-4 border-none uppercase`}>
                                 <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
                             </li>
 
-                            <li className={`${ pathname.includes("/programma") ? 'underline' : '' } border-b p-4 border-none uppercase`}>
+                            <li className={`${ pathname.includes("/programma") ? 'text-primary' : '' } border-b p-4 border-none uppercase`}>
                                 <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
                             </li>
 

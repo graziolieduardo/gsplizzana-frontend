@@ -7,7 +7,8 @@ export const LiveMatch = () => {
     const { data: liveMatch } = useQuery(['live'],
         () => getLiveMatch(), {
         refetchOnWindowFocus: false,
-        refetchInterval: 15000
+        refetchInterval: 15000,
+        retry: false
     });
 
     const getLiveMatch = async () => {
