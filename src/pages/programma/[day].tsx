@@ -48,10 +48,10 @@ export default function Index() {
     return (
         <>
             {/* page title  */}
-            <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4'>
+            <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6'>
 
                 <div className="flex gap-x-2 ">
-                    <div className="md:w-1/2 pt-10 pb-10 px-4">
+                    <div className="md:w-1/2 pt-10 pb-10">
                         <Title variant={Title.variant.primary}>Scopri il <span className="text-primary">programma</span> completo</Title>
                         <p className="mt-8 font-light text-text-subtle">Non perderti le partite, rimani aggiornato oppure seguile in diretta.</p>
                     </div>
@@ -59,7 +59,7 @@ export default function Index() {
                 </div>
 
                 <div className='mb-6'>
-                    <Button className='p-2 ml-4' link={'#agenda'} variant={Button.variant.primary}>Orario partite</Button>
+                    <Button className='p-2' link={'#agenda'} variant={Button.variant.primary}>Orario partite</Button>
                 </div>
             </div>
 
@@ -67,14 +67,14 @@ export default function Index() {
             <Programma />
 
             {/* agenda section */}
-            <section id='agenda' className='max-w-container 2xl:max-w-container-xl mx-auto px-4'>
+            <section id='agenda' className='max-w-container 2xl:max-w-container-xl mx-auto px-6'>
                 <div className='py-8'>
                     <h2 className='text-2xl font-bold'>Agenda partite</h2>
                     <h2 className='text-2xl font-bold'>Torneo Calcioshplash</h2>
 
                     <div id='scrollContainer' className='flex overflow-auto'>
                         {/* slider */}
-                        <div className='min-w-full px-1'>
+                        <div className='min-w-full'>
                             <div className='flex justify-between items-center mt-8 pb-3 border-b-2'>
 
                                 {/* prev button */}
