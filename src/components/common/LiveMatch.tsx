@@ -36,7 +36,7 @@ export const LiveMatch = () => {
                 {/* Home team */}
                 <div className='flex flex-col items-center flex-1'>
                     <div className='mb-2'>
-                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.home_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" />
+                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.home_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" />
                     </div>
                     <div className='font-semibold text-center'>{liveMatch?.data && liveMatch?.data?.home_team?.name}</div>
                 </div>
@@ -61,7 +61,7 @@ export const LiveMatch = () => {
                 {/* guest team */}
                 <div className='flex flex-col items-center flex-1'>
                     <div className='mb-2'>
-                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.away_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" />
+                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.away_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace('.', '').replace(/\./g, '').toLowerCase()}.png`} alt="" />
                     </div>
                     <div className='font-semibold text-center'>{liveMatch?.data && liveMatch?.data?.away_team?.name}</div>
                 </div>
