@@ -26,7 +26,7 @@ export const Header = () => {
         <>
             <header className={`bg-black text-white`}>
                 <div className="max-w-container 2xl:max-w-container-xl flex justify-between flex-wrap items-center content-center mx-auto ">
-                    <div className="py-5 pl-4">
+                    <div className="py-5 pl-6">
                         <Link href="/" className="cursor-pointer">
                             <img className="w-24" src="/static/logo-arancione.svg" alt="" />
                         </Link>
@@ -65,7 +65,7 @@ export const Header = () => {
                         </ul>
                     </nav>
 
-                    {/* menu descktop */}
+                    {/* menu desktop */}
                     <nav className="hidden lg:block">
                         <ul className="text-end mt-4 lg:flex">
                             <li className="border-b p-4 border-none">

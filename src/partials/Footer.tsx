@@ -10,7 +10,7 @@ export const Footer = () => {
                     <div className="sm:py-8 leading-8">
 
                         {/* top */}
-                        <div className="max-w-container 2xl:max-w-container-xl mx-auto py-6 px-4 mb-5 md:flex md:justify-between">
+                        <div className="max-w-container 2xl:max-w-container-xl mx-auto p-6 mb-5 md:flex md:justify-between">
                             <div className="text-primary">
                                 <Title variant={Title.variant.tertiary}>
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary">GSP LIZZANA</span>

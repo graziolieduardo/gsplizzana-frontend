@@ -115,11 +115,11 @@ export default function Home() {
                 </div>
             </section> */}
 
-            <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 py-12' >
+            <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 py-12' >
                 <div className='lg:w-2/3 mx-auto'>
                     <Title variant={Title.variant.secondary}>Gironi Maschili</Title>
 
-                    <div className='h-[295px] overflow-hidden mt-10'>
+                    <div className='h-[292px] overflow-hidden mt-10 rounded-md border-b'>
                         <UniqueTable data={MA.data} />
                     </div>
 
@@ -131,8 +131,7 @@ export default function Home() {
 
             {/* Female table section */}
             <section id='female-table'>
-
-                <div className="max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-12">
+                <div className="max-w-container 2xl:max-w-container-xl mx-auto pl-6 py-12">
 
                     <Title variant={Title.variant.secondary}>Gironi Femminili</Title>
 

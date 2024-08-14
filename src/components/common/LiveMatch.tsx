@@ -35,11 +35,8 @@ export const LiveMatch = () => {
                 {/* Home team */}
                 <div className='flex flex-col items-center flex-1'>
                     <div className='mb-2'>
-                        {/* <img width={70} src={`/static/loghi_squadre/tondi/TEAM/fcsavignano.png`} /> */}
                         <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.home_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" />
-                        {/* {liveMatch.data && liveMatch.data?.home_team.name.replace(/\s/g, '')} */}
                     </div>
-                    {/* <div className='font-semibold'>{'FC SAVIGNANO'}</div> */}
                     <div className='font-semibold text-center'>{liveMatch?.data && liveMatch?.data?.home_team?.name}</div>
                 </div>
 
@@ -53,24 +50,18 @@ export const LiveMatch = () => {
                             {Math.floor(liveMatch?.data?.timer?.current / 60)}&apos;
                         </div>
                         <div>
-                            {/* <span>1</span> */}
                             <span>{liveMatch?.data && liveMatch?.data?.home_team.score}</span>
                             <span> - </span>
-                            {/* <span>1</span> */}
                             <span>{liveMatch?.data && liveMatch?.data?.away_team.score}</span>
                         </div>
                     </div>
-                    {/* } */}
                 </div>
 
                 {/* guest team */}
                 <div className='flex flex-col items-center flex-1'>
                     <div className='mb-2'>
-                        {/* <img width={70} src={`/static/loghi_squadre/tondi/TEAM/fcsavignano.png`} /> */}
                         <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.away_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" />
-                        {/* {liveMatch?.data && liveMatch?.data?.away_team.name} */}
                     </div>
-                    {/* <div className='font-semibold'>{'FC SAVIGNANO'}</div> */}
                     <div className='font-semibold text-center'>{liveMatch?.data && liveMatch?.data?.away_team?.name}</div>
                 </div>
             </div>
