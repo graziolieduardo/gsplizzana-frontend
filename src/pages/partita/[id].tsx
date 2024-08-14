@@ -6,11 +6,10 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function Index() {
     const router = useRouter();
-    const { id } = router.query;
+    const { id, group_id } = router.query;
 
     //query
-    const { match, isLoading, isFetching } = useSingleMatch(id)
-    // console.log(match);
+    const { match, isLoading, isFetching } = useSingleMatch(id, group_id);
 
     const currentTime: any = new Date(match?.timer?.current)
     const timer = Math.floor(currentTime / 60);
@@ -60,12 +59,12 @@ export default function Index() {
                     </div>
                 }
 
-                {/* {
-                    (isFetching || isLoading) &&
+                {
+                    isLoading &&
                     <div className='px-4 pt-16 mb-36'>
                         <Skeleton count={1} height={200} />
                     </div>
-                } */}
+                }
 
                 {/* dettagli partita */}
                 {

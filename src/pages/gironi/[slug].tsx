@@ -17,7 +17,7 @@ const Index = () => {
 
     return (
         <>
-            <section className="px-4 max-w-container 2xl:max-w-container-xl mx-auto">
+            <section className="px-6 max-w-container 2xl:max-w-container-xl mx-auto">
 
                 {/* page title  */}
                 <div className="flex gap-x-2">

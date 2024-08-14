@@ -1,21 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios"
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export const LiveMatch = () => {
-    // const [liveMatch, setLiveMatch] = useState<any>(null);
-
-    const { data: liveMatch, isLoading, isFetching } = useQuery(['live'],
+    const { data: liveMatch } = useQuery(['live'],
         () => getLiveMatch(), {
         refetchOnWindowFocus: false,
-        refetchInterval: 15000
+        refetchInterval: 15000,
+        retry: false
     });
 
     const getLiveMatch = async () => {
-        const res = await axios.get('https://gsplizzana.internal.devlounge.dev/api/matches/live');
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}live`);
         return res.data;
-        // setLiveMatch(res.data.data);
     }
 
     useEffect(() => {
@@ -26,7 +24,7 @@ export const LiveMatch = () => {
 
     return (
         <div className="px-4 py-6 bg-gradient-to-r from-black to-text-subtle text-white ">
-            <Link className="flex justify-center mb-4" href={`/partita/${liveMatch?.data?.id}`}>
+            <Link className="flex justify-center mb-4" href={{ pathname: `/partita/${liveMatch?.data.id}`, query: { group_id: liveMatch?.data?.group_id } }}>
                 <div className="bg-gradient-to-r from-primary-dark to-primary px-10 py-2 rounded flex items-center">
                     <div className="pulse text-white">
                         &#9679; Live Streaming
@@ -38,11 +36,8 @@ export const LiveMatch = () => {
                 {/* Home team */}
                 <div className='flex flex-col items-center flex-1'>
                     <div className='mb-2'>
-                        {/* <img width={70} src={`/static/loghi_squadre/tondi/TEAM/fcsavignano.png`} /> */}
                         <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.home_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" />
-                        {/* {liveMatch.data && liveMatch.data?.home_team.name.replace(/\s/g, '')} */}
                     </div>
-                    {/* <div className='font-semibold'>{'FC SAVIGNANO'}</div> */}
                     <div className='font-semibold text-center'>{liveMatch?.data && liveMatch?.data?.home_team?.name}</div>
                 </div>
 
@@ -56,24 +51,18 @@ export const LiveMatch = () => {
                             {Math.floor(liveMatch?.data?.timer?.current / 60)}&apos;
                         </div>
                         <div>
-                            {/* <span>1</span> */}
                             <span>{liveMatch?.data && liveMatch?.data?.home_team.score}</span>
                             <span> - </span>
-                            {/* <span>1</span> */}
                             <span>{liveMatch?.data && liveMatch?.data?.away_team.score}</span>
                         </div>
                     </div>
-                    {/* } */}
                 </div>
 
                 {/* guest team */}
                 <div className='flex flex-col items-center flex-1'>
                     <div className='mb-2'>
-                        {/* <img width={70} src={`/static/loghi_squadre/tondi/TEAM/fcsavignano.png`} /> */}
                         <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${liveMatch?.data && liveMatch?.data?.away_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').toLowerCase()}.png`} alt="" />
-                        {/* {liveMatch?.data && liveMatch?.data?.away_team.name} */}
                     </div>
-                    {/* <div className='font-semibold'>{'FC SAVIGNANO'}</div> */}
                     <div className='font-semibold text-center'>{liveMatch?.data && liveMatch?.data?.away_team?.name}</div>
                 </div>
             </div>
