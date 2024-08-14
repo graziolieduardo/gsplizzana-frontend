@@ -70,7 +70,7 @@ export default function Index() {
             <section id='agenda' className='max-w-container 2xl:max-w-container-xl mx-auto px-6'>
                 <div className='py-8'>
                     <h2 className='text-2xl font-bold'>Agenda partite</h2>
-                    <h2 className='text-2xl font-bold'>Torneo Calcioshplash</h2>
+                    <h2 className='text-2xl font-bold'>Torneo Calciosplash</h2>
 
                     <div id='scrollContainer' className='flex overflow-auto'>
                         {/* slider */}
