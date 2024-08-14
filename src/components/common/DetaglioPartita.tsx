@@ -33,7 +33,7 @@ export default function DetaglioPartita({ param }: Props) {
             {(isFetching || isLoading) && <Skeleton count={6} className='mt-3 first:mt-0' height={70} />}
             {
                 detail && (!isFetching && !isLoading) && detail?.data?.map((match: any) => (
-                    <Link key={match?.id} href={`/partita/${match.id}`} className={`flex text-center justify-between border items-center py-3 min-h-[70px] px-[4%] rounded mb-4 ${match.live ? 'bg-gradient-to-r from-primary-dark/50 to-primary/40  border-2 border-primary-dark shadow-[0_2px_8px_rgba(237,83,0,0.25)]' : "shadow-[0_2px_8px_rgba(0,0,0,0.25)]"} ${!match.closed ? 'shadow-none bg-bg-secondary' : null}`}>
+                    <Link key={match?.id} href={{ pathname: `/partita/${match.id}`, query: { group_id: match?.group_id } }} className={`flex text-center justify-between border items-center py-3 min-h-[70px] px-[4%] rounded mb-4 ${match.live ? 'bg-gradient-to-r from-primary-dark/50 to-primary/40  border-2 border-primary-dark shadow-[0_2px_8px_rgba(237,83,0,0.25)]' : "shadow-[0_2px_8px_rgba(0,0,0,0.25)]"} ${!match.closed ? 'shadow-none bg-bg-secondary' : null}`}>
                         <div className='font-semibold text-sm min-w-[40%]'>{match.home_team && match.home_team.name}</div>
                         <div className="text-center min-w-[20%]">
                             <div className="text-xs text-center pb-1">{new Date(match.scheduled_at).toLocaleString('it', { weekday: 'long' })}</div>
