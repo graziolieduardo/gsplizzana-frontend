@@ -40,7 +40,7 @@ export default function UniqueTable({ data }: any) {
 
     return (
         <>
-            <div className='mb-4 bg-bg-secondary w-full mx-auto rounded-md border'>
+            <div className='bg-bg-secondary w-full mx-auto rounded-md border'>
                 <div className='pt-7 px-5 '>
 
                     <table className='w-full'>
@@ -49,6 +49,7 @@ export default function UniqueTable({ data }: any) {
                             <tr>
                                 <th className='text-normal'>&nbsp;</th>
                                 <th className='text-xs font-semibold'>Pt</th>
+                                <th className='text-xs font-semibold'>Pg</th>
                                 <th className='text-xs'>W</th>
                                 <th className='text-xs'>Gf</th>
                                 <th className='text-xs'>Gs</th>
@@ -67,6 +68,7 @@ export default function UniqueTable({ data }: any) {
                                             {team?.name}
                                         </td>
                                         <td className='py-3 font-semibold'>{team?.points}</td>
+                                        <td className='py-3 font-semibold'>{team?.wins + team?.draws + team?.losses}</td>
                                         <td className='py-3'>{team?.wins}</td>
                                         <td className='py-3'>{team?.goals_scored}</td>
                                         <td className='py-3'>{team?.goals_conceded}</td>
@@ -80,6 +82,7 @@ export default function UniqueTable({ data }: any) {
                     </table>
                 </div>
             </div>
+            <p className='text-[10px] font-semibold mb-4'>Pt=punti, Pg=partite giocate, W=vittorie, Gf=goal fatti, Gs=goal subiti.</p>
 
             {
                 currentPath.includes('gironi') &&

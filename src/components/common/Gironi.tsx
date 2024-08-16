@@ -63,7 +63,6 @@ export default function Gironi() {
                 // </div>
                 <div className='lg:w-2/3 mx-auto'>
                     <UniqueTable data={MA.data} />
-                    <p className='text-[10px] font-semibold'>Pt=punti, W=Vittorie, Gf=Goal fatti, Gs=Goal subiti.</p>
                 </div>
             }
 
