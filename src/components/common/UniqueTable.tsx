@@ -1,10 +1,26 @@
-import React from 'react'
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 export default function UniqueTable({ data }: any) {
 
+    const [page, setPage] = useState(1);
+
+    const getMatches = async (page: any) => {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${1}/fixtures`, { params: { page: page } });
+        return res.data;
+    }
+
+    const { data: manMatches, isLoading, isFetching } = useQuery(['manMatches', page],
+        () => getMatches(page),
+    )
+
+    // useEffect(() => {
+    //     console.log(page);
+    // }, [page]);
+
     return (
         <div className='mb-4 bg-bg-secondary w-full mx-auto rounded-md border'>
-
             <div className='pt-7 px-5 '>
 
                 <table className='w-full'>
