@@ -4,6 +4,7 @@ import Skeleton from 'react-loading-skeleton';
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { Title } from './Title';
 
 export default function UniqueTable({ data }: any) {
 
@@ -14,12 +15,15 @@ export default function UniqueTable({ data }: any) {
     const lastPage = 7
 
     const getMatches = async (page: any) => {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${1}/fixtures`, { params: { page: page } });
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${1}/fixtures`, { params: { page: page, per_page: 20 } });
         return res.data;
     }
 
     const { data: manMatches, isLoading, isFetching } = useQuery(['manMatches', page],
         () => getMatches(page),
+        {
+            keepPreviousData: true,
+        }
     )
 
     const convertDate = (arg: any) => {
@@ -77,6 +81,43 @@ export default function UniqueTable({ data }: any) {
                 </div>
             </div>
 
+            {
+                currentPath.includes('gironi') &&
+                <>
+                    <div className='mb-2'>
+                        <Title variant={Title.variant.secondary}>Partite</Title>
+                    </div>
+                    <div className='flex justify-between mb-2'>
+                        {/* previous button */}
+                        <button className={` border-2 border-primary-dark rounded disabled:border-primary-dark/5`} disabled={page == 1 ? true : false} onClick={() => { page > 1 && setPage(page - 1) }}>
+                            <img className='w-8' src="/static/chevron-left.svg" alt="" />
+                        </button>
+
+                        <div className='flex gap-x-2'>
+                            {/* prev page */}
+                            <div className='flex items-center text-center capitalize'>
+                                <p className={`${page <= 1 ? 'invisible' : ''} text-xl font-semibold px-3`}>{page - 1}</p>
+                            </div>
+
+                            {/* middle text for the active item */}
+                            <div className=' text-center capitalize'>
+                                <p className='text-xl font-semibold border-2 border-primary-dark rounded px-3 py-1'>{page}</p>
+                            </div>
+
+                            {/* next page */}
+                            <div className="flex items-center text-center capitalize">
+                                <p className={`${page >= manMatches?.meta?.last_page ? 'invisible' : ''} text-xl font-semibold px-3`}>{page + 1}</p>
+                            </div>
+                        </div>
+
+                        {/* next button */}
+                        <button className={` border-2 border-primary-dark disabled:border-primary-dark/5 rounded`} disabled={page == manMatches?.meta?.last_page ? true : false} onClick={() => { page < manMatches?.meta?.last_page && setPage(page + 1) }}>
+                            <img className='w-8 cursor-pointer text-gray-300' src="/static/chevron-right.svg" alt="" />
+                        </button>
+                    </div>
+                </>
+            }
+
             {(isFetching || isLoading) && <Skeleton count={6} className='mt-3 first:mt-0' height={70} />}
             {
                 manMatches && (!isFetching && !isLoading) && manMatches?.data?.map((match: any) => (
@@ -101,37 +142,6 @@ export default function UniqueTable({ data }: any) {
 
                 ))
             }
-
-            {currentPath.includes('gironi') && <div className='flex justify-between mt-6'>
-
-                {/* previous button */}
-                <button className={` border-2 border-primary-dark rounded disabled:border-primary-dark/5`} disabled={page == 1 ? true : false} onClick={() => { page > 1 && setPage(page - 1) }}>
-                    <img className='w-8' src="/static/chevron-left.svg" alt="" />
-                </button>
-
-                <div className='flex gap-x-2'>
-                    {/* prev page */}
-                    <div className=' text-center capitalize'>
-                        <p className={`${page <= 1 ? 'invisible' : ''} text-xl font-semibold px-3`}>{page - 1}</p>
-                    </div>
-
-                    {/* middle text for the active item */}
-                    <div className=' text-center capitalize'>
-                        <p className='text-xl font-semibold border-2 border-primary-dark rounded px-3'>{page}</p>
-                    </div>
-
-                    {/* next page */}
-                    <div className="text-center capitalize">
-                        <p className={`${page >= lastPage ? 'invisible' : ''} text-xl font-semibold px-3`}>{page + 1}</p>
-                    </div>
-                </div>
-
-                {/* next button */}
-                <button className={` border-2 border-primary-dark disabled:border-primary-dark/5 rounded`} disabled={page == lastPage ? true : false} onClick={() => { page < lastPage && setPage(page + 1) }}>
-                    <img className='w-8 cursor-pointer text-gray-300' src="/static/chevron-right.svg" alt="" />
-                </button>
-            </div>}
-
         </>
     )
 }
