@@ -17,10 +17,10 @@ export default function LiveStream() {
                     <div className='lg:block lg:w-1/2 font-sm mt-6 lg:mt-0'>
 
                         {/*  change the video id for the gsp one. */}
-                        <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/QLxakLKkUuM" title="Calciosplash 2024 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe>
+                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/QLxakLKkUuM" title="Calciosplash 2024 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
                         {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/Ijk7kUdhBkE" title="Calciosplash 2024 - Day 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
                         {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/MzkO_n_hs3w" title="Calciosplash 2024 - Day 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/O0iE6P6lVB0" title="Calciosplash 2024 - Day 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
+                        <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/O0iE6P6lVB0" title="Calciosplash 2024 - Day 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe>
                         {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/qOfy2u9bXUI" title="Calciosplash 2024 - Day 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
                     </div>
 

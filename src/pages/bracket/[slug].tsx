@@ -1,8 +1,8 @@
-import useElimination from "@/src/api/elimination/useElimination";
 import { FinaleFBracket } from "@/src/components/common/FinaleFBracket";
 import { FinaleMBracket } from "@/src/components/common/FinaleMBracket";
 import LiveStream from "@/src/components/common/LiveStream";
 import { OttaviMBracket } from "@/src/components/common/OttaviMBracket";
+import { PlayoffMaschili } from "@/src/components/common/PlayoffMaschili";
 import { QuartiFBracket } from "@/src/components/common/QuartiFBracket";
 import { QuartiMBracket } from "@/src/components/common/QuartiMBracket";
 import { SemifinaleFBracket } from "@/src/components/common/SemifinaleFBracket";
@@ -11,32 +11,19 @@ import { TerzoFBracket } from "@/src/components/common/TerzoFBracket";
 import { TerzoMBracket } from "@/src/components/common/TerzoMBracket";
 import { useEffect, useState } from "react";
 
-const steps = ['ottavi di finale', 'quarti di finale', 'semifinale', 'terzo e quarto posto', 'finale'];
+const steps = ['playoff', 'ottavi di finale', 'quarti di finale', 'semifinale', 'terzo e quarto posto', 'finale'];
 
 export default function Index() {
     const [activePage, setActivePage] = useState('male');
     const [activeBracket, setActiveBracket] = useState(steps[0]);
-    const [matches, setMatches] = useState([]);
-
-    // console.log(matches);
-
-
-    const { schedule } = useElimination();
 
     useEffect(() => {
         if (activePage === 'male') {
-            setMatches(schedule?.filter((match: any) => match.group.startsWith('M')));
             setActiveBracket(steps[0]);
         } else {
-            setMatches(schedule?.filter((match: any) => match.group.startsWith('F')));
-            setActiveBracket(steps[1]);
+            setActiveBracket(steps[2]);
         }
-    }, [activePage, schedule]);
-
-    // useEffect(() => {
-    //     console.log(matches);
-
-    // }, [matches]);
+    }, [activePage]);
 
     const handlePrevBracket = () => {
         if (activeBracket === steps[1]) {
@@ -46,14 +33,19 @@ export default function Index() {
                 setActiveBracket(steps[0]);
             }
         } else if (activeBracket === steps[2]) {
-            setActiveBracket(steps[1]);
+            if (activePage === 'female') {
+                return null;
+            } else {
+                setActiveBracket(steps[1]);
+            }
         } else if (activeBracket === steps[3]) {
             setActiveBracket(steps[2]);
         } else if (activeBracket === steps[4]) {
             setActiveBracket(steps[3]);
+        } else if (activeBracket === steps[5]) {
+            setActiveBracket(steps[4]);
         }
     }
-
 
     const handleNextBracket = () => {
         if (activeBracket === steps[0]) {
@@ -64,9 +56,10 @@ export default function Index() {
             setActiveBracket(steps[3]);
         } else if (activeBracket === steps[3]) {
             setActiveBracket(steps[4]);
+        } else if (activeBracket === steps[4]) {
+            setActiveBracket(steps[5]);
         }
     }
-
 
     return (
         <>
@@ -102,15 +95,16 @@ export default function Index() {
                     </div>
 
                     {/* slider container */}
-                    {(matches && activePage === 'male' && activeBracket === steps[0]) && <OttaviMBracket matches={matches} />}
-                    {(matches && activePage === 'male' && activeBracket === steps[1]) && <QuartiMBracket matches={matches} />}
-                    {(matches && activePage === 'male' && activeBracket === steps[2]) && <SemifinaleMBracket matches={matches} />}
-                    {(matches && activePage === 'male' && activeBracket === steps[3]) && <TerzoMBracket matches={matches} />}
-                    {(matches && activePage === 'male' && activeBracket === steps[4]) && <FinaleMBracket matches={matches} />}
-                    {(matches && activePage === 'female' && activeBracket === steps[1]) && <QuartiFBracket matches={matches} />}
-                    {(matches && activePage === 'female' && activeBracket === steps[2]) && <SemifinaleFBracket matches={matches} />}
-                    {(matches && activePage === 'female' && activeBracket === steps[3]) && <TerzoFBracket matches={matches} />}
-                    {(matches && activePage === 'female' && activeBracket === steps[4]) && <FinaleFBracket matches={matches} />}
+                    {(activePage === 'male' && activeBracket === steps[0]) && <PlayoffMaschili />}
+                    {(activePage === 'male' && activeBracket === steps[1]) && <OttaviMBracket />}
+                    {(activePage === 'male' && activeBracket === steps[2]) && <QuartiMBracket />}
+                    {(activePage === 'male' && activeBracket === steps[3]) && <SemifinaleMBracket />}
+                    {(activePage === 'male' && activeBracket === steps[4]) && <TerzoMBracket />}
+                    {(activePage === 'male' && activeBracket === steps[5]) && <FinaleMBracket />}
+                    {(activePage === 'female' && activeBracket === steps[2]) && <QuartiFBracket />}
+                    {(activePage === 'female' && activeBracket === steps[3]) && <SemifinaleFBracket />}
+                    {(activePage === 'female' && activeBracket === steps[4]) && <TerzoFBracket />}
+                    {(activePage === 'female' && activeBracket === steps[5]) && <FinaleFBracket />}
                 </div>
             </section>
             <LiveStream />
