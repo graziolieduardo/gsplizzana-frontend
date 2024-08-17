@@ -40,7 +40,7 @@ export const OttaviMBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link>
+                        {matches?.data[0]?.away_team ? <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@ export const OttaviMBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        <Link href={`/partita/${matches?.data[1]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link>
+                        {matches?.data[0]?.away_team ? <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@ export const OttaviMBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        <Link href={`/partita/${matches?.data[2]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link>
+                        {matches?.data[0]?.away_team ? <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@ export const OttaviMBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        <Link href={`/partita/${matches?.data[3]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link>
+                        {matches?.data[0]?.away_team ? <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
@@ -144,7 +144,7 @@ export const OttaviMBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        <Link href={`/partita/${matches?.data[4]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link>
+                        {matches?.data[0]?.away_team ? <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@ export const OttaviMBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        <Link href={`/partita/${matches?.data[5]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link>
+                        {matches?.data[0]?.away_team ? <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
@@ -196,7 +196,7 @@ export const OttaviMBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        <Link href={`/partita/${matches?.data[6]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link>
+                        {matches?.data[0]?.away_team ? <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
@@ -222,7 +222,7 @@ export const OttaviMBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        <Link href={`/partita/${matches?.data[7]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link>
+                        {matches?.data[0]?.away_team ? <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
