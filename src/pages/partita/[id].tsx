@@ -126,7 +126,7 @@ export default function Index() {
 
                                                     <div className='flex items-center gap-x-1'>
                                                         <span>{player?.goals}</span>
-                                                        <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
+                                                        <img src="/static/ellipse_24.svg" className='w-5' alt="" />
                                                     </div>
                                                 </div>
                                             </div> : null}
@@ -183,7 +183,7 @@ export default function Index() {
 
                                                         <div className='flex gap-x-1'>
                                                             <span>{player.goals}</span>
-                                                            <img src="/static/Ellipse_2.svg" className='w-5' alt="" />
+                                                            <img src="/static/ellipse_24.svg" className='w-5' alt="" />
                                                         </div>
                                                     </div>
                                                 </div>

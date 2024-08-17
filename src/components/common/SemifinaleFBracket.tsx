@@ -24,7 +24,7 @@ export const SemifinaleFBracket = () => {
 
                     <div className="flex justify-between py-4 px-2">
                         <div className="flex items-center gap-x-2">
-                            {matches?.data[0]?.home_team ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches?.data[0]?.home_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_2.svg" alt="" />}
+                            {matches?.data[0]?.home_team ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches?.data[0]?.home_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_24.svg" alt="" />}
                             <p>{matches?.data[0]?.home_team ? matches?.data[0]?.home_team.name : 'Squadra da definire'}</p>
                         </div>
                         <p>{(matches?.data[0]?.closed || matches?.data[0]?.live) ? matches?.data[0]?.home_team.score : null}</p>
@@ -32,7 +32,7 @@ export const SemifinaleFBracket = () => {
 
                     <div className="flex justify-between py-4 px-2">
                         <div className="flex items-center gap-x-2">
-                            {matches?.data[0]?.away_team ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches?.data[0]?.away_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_2.svg" alt="" />}
+                            {matches?.data[0]?.away_team ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches?.data[0]?.away_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_24.svg" alt="" />}
                             <p>{matches?.data[0]?.away_team ? matches?.data[0]?.away_team.name : 'Squadra da definire'}</p>
                         </div>
                         <p>{(matches?.data[0]?.closed || matches?.data[0]?.live) ? matches?.data[0]?.away_team.score : null}</p>
@@ -50,7 +50,7 @@ export const SemifinaleFBracket = () => {
 
                     <div className="flex justify-between py-4 px-2">
                         <div className="flex items-center gap-x-2">
-                            {matches?.data[1]?.home_team ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches?.data[1]?.home_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_2.svg" alt="" />}
+                            {matches?.data[1]?.home_team ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches?.data[1]?.home_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_24.svg" alt="" />}
                             <p>{matches?.data[1]?.home_team ? matches?.data[1]?.home_team.name : 'Squadra da definire'}</p>
                         </div>
                         <p>{(matches?.data[1]?.closed || matches?.data[1]?.live) ? matches?.data[1]?.home_team.score : null}</p>
@@ -58,7 +58,7 @@ export const SemifinaleFBracket = () => {
 
                     <div className="flex justify-between py-4 px-2">
                         <div className="flex items-center gap-x-2">
-                            {matches?.data[1]?.away_team ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches?.data[1]?.away_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_2.svg" alt="" />}
+                            {matches?.data[1]?.away_team ? <img width={40} src={`/static/loghi_squadre/tondi/TEAM/${matches?.data[1]?.away_team?.name?.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" /> : <img src="/static/ellipse_24.svg" alt="" />}
                             <p>{matches?.data[1]?.away_team ? matches?.data[1]?.away_team.name : 'Squadra da definire'}</p>
                         </div>
                         <p>{(matches?.data[1]?.closed || matches?.data[1]?.live) ? matches?.data[1]?.away_team.score : null}</p>
