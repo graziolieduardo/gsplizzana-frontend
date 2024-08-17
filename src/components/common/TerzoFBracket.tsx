@@ -40,7 +40,7 @@ export const TerzoFBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        {matches?.data[0]?.away_team ? <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
+                        {matches?.data[0]?.away_team ? <Link href={{ pathname: `/partita/${matches?.data[0]?.id}`, query: { group_id: matches?.data[0]?.group_id } }} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>

@@ -40,7 +40,7 @@ export const QuartiFBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        {matches?.data[0]?.away_team ? <Link href={`/partita/${matches?.data[0]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
+                        {matches?.data[0]?.away_team ? <Link href={{ pathname: `/partita/${matches?.data[0]?.id}`, query: { group_id: matches?.data[0]?.group_id } }} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@ export const QuartiFBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        {matches?.data[1]?.away_team ? <Link href={`/partita/${matches?.data[1]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
+                        {matches?.data[1]?.away_team ? <Link href={{ pathname: `/partita/${matches?.data[1]?.id}`, query: { group_id: matches?.data[1]?.group_id } }} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@ export const QuartiFBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        {matches?.data[2]?.away_team ? <Link href={`/partita/${matches?.data[2]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
+                        {matches?.data[2]?.away_team ? <Link href={{ pathname: `/partita/${matches?.data[2]?.id}`, query: { group_id: matches?.data[2]?.group_id } }} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@ export const QuartiFBracket = () => {
                 </div>
                 <div className="border-t">
                     <div className="p-4 text-center">
-                        {matches?.data[3]?.away_team ? <Link href={`/partita/${matches?.data[3]?.id}`} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
+                        {matches?.data[3]?.away_team ? <Link href={{ pathname: `/partita/${matches?.data[3]?.id}`, query: { group_id: matches?.data[3]?.group_id } }} className="text-primary-dark text-sm font-semibold">Dettagli partita</Link> : null}
                     </div>
                 </div>
             </div>
