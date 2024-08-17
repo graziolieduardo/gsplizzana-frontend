@@ -62,7 +62,7 @@ export default function Gironi() {
                 //     <TableProva key={8} data={MR2.data} girone={'GIRONE R2 - MASCHILE'} param={'MR2'} />
                 // </div>
                 <div className='lg:w-2/3 mx-auto'>
-                    <UniqueTable data={MA.data} />
+                    <UniqueTable data={MA?.data} />
                 </div>
             }
 

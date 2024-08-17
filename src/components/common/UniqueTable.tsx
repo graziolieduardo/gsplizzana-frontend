@@ -12,7 +12,22 @@ export default function UniqueTable({ data }: any) {
     const currentPath = router.pathname;
 
     const [page, setPage] = useState(1);
-    const lastPage = 7
+    const [finalArr, setFinalArr] = useState([]);
+
+    const goalDifference = (team: any) => {
+        return team.goals_scored - team.goals_conceded;
+    }
+
+    useEffect(() => {
+        const tmpArr = data?.data.sort((a: any, b: any) => {
+            if (b.points !== a.points) {
+                return b.points - a.points;
+            } else {
+                return goalDifference(b) - goalDifference(a);
+            }
+        });
+        setFinalArr(tmpArr);
+    }, [data]);
 
     const getMatches = async (page: any) => {
         const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${1}/fixtures`, { params: { page: page, per_page: 20 } });
@@ -60,7 +75,7 @@ export default function UniqueTable({ data }: any) {
                         </thead>
                         <tbody>
                             {
-                                data && data?.data?.map((team: any, index: any) => (
+                                finalArr?.length > 0 && finalArr?.map((team: any, index: any) => (
 
                                     <tr key={team?.name} className='border-b last:border-0 capitalize [&>*:not(:first-child)]:text-center'>
                                         <td className='py-3 max-w-[70px] truncate text-sm'>
