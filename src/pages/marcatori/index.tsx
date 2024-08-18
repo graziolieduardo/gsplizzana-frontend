@@ -11,6 +11,8 @@ export default function Index() {
     const [femaleGoalsList, setFemaleMaleGoalsList] = useState<any>([]);
     const [isLoading, setIsLoading] = useState<any>([]);
     const [activeComp, setActiveComp] = useState<string>('maschile');
+    const [mascArray, setMascArray] = useState<any>([]);
+    const [femArray, setFemArray] = useState<any>([]);
 
     const maleSlicedArray = maleGoalsList.slice(0, 20);
     const femaleSlicedArray = femaleGoalsList.slice(0, 20);
@@ -25,13 +27,45 @@ export default function Index() {
         return 0;
     }
 
+    const getGoalList = async () => {
+        setIsLoading(true);
+        if (activeComp === 'maschile') {
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${1}/fixtures`, { params: { per_page: 1000 } });
+            const res1 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${9}/fixtures`, { params: { per_page: 1000 } });
+            const res2 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${10}/fixtures`, { params: { per_page: 1000 } });
+            const res3 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${11}/fixtures`, { params: { per_page: 1000 } });
+            const res4 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${12}/fixtures`, { params: { per_page: 1000 } });
+            const res5 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${13}/fixtures`, { params: { per_page: 1000 } });
+            const res6 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${18}/fixtures`, { params: { per_page: 1000 } });
+            setMascArray([...res?.data.data, ...res1?.data.data, ...res2?.data.data, ...res3?.data.data, ...res4?.data.data, ...res5?.data.data]);
+        } else {
+            const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${2}/fixtures`, { params: { per_page: 1000 } });
+            const res1 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${3}/fixtures`, { params: { per_page: 1000 } });
+            const res2 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${4}/fixtures`, { params: { per_page: 1000 } });
+            const res3 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${5}/fixtures`, { params: { per_page: 1000 } });
+            const res4 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${14}/fixtures`, { params: { per_page: 1000 } });
+            const res5 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${15}/fixtures`, { params: { per_page: 1000 } });
+            const res6 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${17}/fixtures`, { params: { per_page: 1000 } });
+            const res7 = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${16}/fixtures`, { params: { per_page: 1000 } });
+            setFemArray([...res?.data.data, ...res1?.data.data, ...res2?.data.data, ...res3?.data.data, ...res4?.data.data, ...res5?.data.data, ...res6?.data.data, ...res7?.data.data]);
+        }
+        setIsLoading(false);
+        // console.log([...res?.data.data, ...res1?.data.data, ...res2?.data.data, ...res3?.data.data, ...res4?.data.data, ...res5?.data.data]);
+    }
+
     const getGoal = async () => {
         setIsLoading(true);
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_GAMESHARD_ENDPOINT}schedule`);
+        // const res = await axios.get(`${process.env.NEXT_PUBLIC_GAMESHARD_ENDPOINT}schedule`);
 
         // console.log(res.data);
+        let tmp2 = [];
+        if (activeComp === 'maschile') {
+            tmp2 = mascArray;
+        } else {
+            tmp2 = femArray;
+        }
         let tmpArray: any = [];
-        res.data.data.forEach((match: any) => {
+        tmp2.forEach((match: any) => {
             const { home_team, away_team } = match;
             const { players: home_players } = home_team;
             const { players: away_players } = away_team;
@@ -84,25 +118,28 @@ export default function Index() {
                 }
             });
         });
-        const arrMaschile = tmpArray.filter((player: any) => player.team_group.startsWith('M'));
-        const arrFemminile = tmpArray.filter((player: any) => player.team_group.startsWith('F'));
+        // const arrMaschile = tmpArray.filter((player: any) => player.team_group.startsWith('M'));
+        // const arrFemminile = tmpArray.filter((player: any) => player.team_group.startsWith('F'));
 
-        const maleReorderedArray = arrMaschile.sort(compare);
-        const femaleReorderedArray = arrFemminile.sort(compare);
-        setMaleGoalsList(maleReorderedArray);
-        setFemaleMaleGoalsList(femaleReorderedArray);
+        if (activeComp === 'maschile') {
+            const maleReorderedArray = tmpArray.sort(compare);
+            setMaleGoalsList(maleReorderedArray);
+        } else {
+            const femaleReorderedArray = tmpArray.sort(compare);
+            setFemaleMaleGoalsList(femaleReorderedArray);
+        }
         setIsLoading(false);
     }
 
     useEffect(() => {
-        getGoal();
-    }, []);
+        if (mascArray?.length > 0 || femArray?.length > 0) {
+            getGoal();
+        }
+    }, [mascArray, femArray]);
 
-    // useEffect(() => {
-    //     // console.log(goalsList);
-    //     console.log(activeComp);
-
-    // }, [activeComp]);
+    useEffect(() => {
+        getGoalList();
+    }, [activeComp]);
 
     return (
         <>
