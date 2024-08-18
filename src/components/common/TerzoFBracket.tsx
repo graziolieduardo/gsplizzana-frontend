@@ -7,7 +7,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 export const TerzoFBracket = () => {
     const getMatches = async () => {
         // TODO: settare gruppo giusto
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${13}/fixtures`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${17}/fixtures`);
         return res.data;
     }
 

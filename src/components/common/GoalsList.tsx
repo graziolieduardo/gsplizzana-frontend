@@ -1,8 +1,6 @@
 import React from 'react'
 
 export const GoalsList = ({ array }: any) => {
-    console.log(array);
-
     return (
         <div className='bg-white min-w-[330px] sm:min-w-[430px] py-4 rounded mb-10'>
             <div className='tex-2xl font-bold py-2 space-y-2'>

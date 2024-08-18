@@ -62,6 +62,10 @@ export const Header = () => {
                             <li className={`${pathname.includes("/bracket") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
                                 <Link className="block w-full" href='/bracket/maschile' onClick={() => setIsOpen(false)}>Fase finale</Link>
                             </li>
+
+                            <li className={`${pathname.includes("/marcatori") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
+                                <Link className="block w-full" href='/marcatori' onClick={() => setIsOpen(false)}>Marcatori</Link>
+                            </li>
                         </ul>
                     </nav>
 
@@ -82,6 +86,10 @@ export const Header = () => {
 
                             <li className={`${pathname.includes("/bracket") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
                                 <Link className="block w-full" href='/bracket/maschile' onClick={() => setIsOpen(false)}>Fase finale</Link>
+                            </li>
+
+                            <li className={`${pathname.includes("/marcatori") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
+                                <Link className="block w-full" href='/marcatori' onClick={() => setIsOpen(false)}>Marcatori</Link>
                             </li>
                         </ul>
                     </nav>
