@@ -61,7 +61,7 @@ export const Footer = () => {
 
                         {/* bottom */}
                         <div className="max-w-container 2xl:max-w-container-xl mx-auto px-4 text-white py-4">
-                            <p>&#169; 2024 Gsp Lizzana</p>
+                            <p>&#169; 2025 Gsp Lizzana</p>
                             {/* <p>&#169; 2023 Gsp Lizzana | Privacy Policy - Cookie Policy </p> */}
                         </div>
                     </div>

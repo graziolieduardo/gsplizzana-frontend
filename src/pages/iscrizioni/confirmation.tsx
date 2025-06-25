@@ -25,14 +25,16 @@ export default function Confirmation() {
                     <p className="text-secondary text-center font-light">Il tuo numero di iscrizione è: <span className="font-bold">{token}</span></p>
                 </div>
 
-                <p className="text-secondary text-center mt-4 font-light">Ricordati di portarlo con te a Lizzana il <span className="font-bold">13 Luglio ore 7.00</span> per completare l&apos;iscrizione.</p>
+                <p className="text-secondary text-center mt-4 font-light">Ricordati di portarlo con te a Lizzana il <span className="font-bold">12 Luglio ore 8.00</span> per completare l&apos;iscrizione.</p>
 
-                <p className="text-secondary text-center mt-4 font-light">Scarica <span className="font-bold underline hover:text-primary-dark"><Link href={"https://drive.google.com/file/d/1OjDVz6dxrBDF31d5-WhQZRUEDPlCyRez/view?usp=drivesdk"} target="blank">qui</Link></span> i moduli per la privacy e portali compilati <span className="font-bold">da ogni membro della squadra</span>.</p>
+                <p className="text-secondary text-center mt-4 font-light">Scarica <span className="font-bold underline hover:text-primary-dark"><Link href={"https://drive.google.com/file/d/1SjNH5RgMfecgsuDhLTurKN3dD_KBL9r8/view?usp=sharing"} target="blank">qui</Link></span> i moduli per la privacy e portali compilati <span className="font-bold">da ogni membro della squadra</span>.</p>
+
+                <p className="text-secondary text-center mt-4 font-light">Puoi scaricare <span className="font-bold underline hover:text-primary-dark"><Link href={"https://drive.google.com/file/d/1J9ptmb-BHQnmbRJMf4Sz6nZwaAqSb_4t/view?usp=sharing"} target="blank">qui</Link></span> anche il file per le preferenze di orario delle partite.</p>
 
                 <p className="text-secondary text-center mt-4 font-light">Per qualsiasi problema o dubbio siamo a disposizione.</p>
 
                 {/* <div className="mt-8 w-4/5">
-                    <button className="block mx-auto rounded-full bg-gradient-to-r w-full lg:w-1/2 from-primary-dark to-primary py-2 text-white" >Chiudi</button>
+                    <button className="block mx-auto rounded-full bg-gradient-to-r w-full lg:w-1/2 from-primary-dark to-primary py-2 text-white">Chiudi</button>
                 </div> */}
             </div>
         </div>

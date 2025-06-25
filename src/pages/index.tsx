@@ -9,45 +9,45 @@ import { LiveMatch } from '../components/common/LiveMatch';
 import UniqueTable from '../components/common/UniqueTable';
 
 export default function Home() {
-    const [MA, FA, FB, FC, FD] = useQueries({
-        queries: [
-            {
-                queryKey: ['MA'],
-                queryFn: () =>
-                    axios
-                        .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${1}/rankings`)
-                        .then((res) => res.data),
-            },
-            {
-                queryKey: ['FA'],
-                queryFn: () =>
-                    axios
-                        .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${2}/rankings`)
-                        .then((res) => res.data),
-            },
-            {
-                queryKey: ['FB'],
-                queryFn: () =>
-                    axios
-                        .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${3}/rankings`)
-                        .then((res) => res.data),
-            },
-            {
-                queryKey: ['FC'],
-                queryFn: () =>
-                    axios
-                        .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${4}/rankings`)
-                        .then((res) => res.data),
-            },
-            {
-                queryKey: ['FD'],
-                queryFn: () =>
-                    axios
-                        .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${5}/rankings`)
-                        .then((res) => res.data),
-            }
-        ],
-    });
+    // const [MA, FA, FB, FC, FD] = useQueries({
+    //     queries: [
+    //         {
+    //             queryKey: ['MA'],
+    //             queryFn: () =>
+    //                 axios
+    //                     .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${1}/rankings`)
+    //                     .then((res) => res.data),
+    //         },
+    //         {
+    //             queryKey: ['FA'],
+    //             queryFn: () =>
+    //                 axios
+    //                     .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${2}/rankings`)
+    //                     .then((res) => res.data),
+    //         },
+    //         {
+    //             queryKey: ['FB'],
+    //             queryFn: () =>
+    //                 axios
+    //                     .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${3}/rankings`)
+    //                     .then((res) => res.data),
+    //         },
+    //         {
+    //             queryKey: ['FC'],
+    //             queryFn: () =>
+    //                 axios
+    //                     .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${4}/rankings`)
+    //                     .then((res) => res.data),
+    //         },
+    //         {
+    //             queryKey: ['FD'],
+    //             queryFn: () =>
+    //                 axios
+    //                     .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${5}/rankings`)
+    //                     .then((res) => res.data),
+    //         }
+    //     ],
+    // });
 
     return (
         <>
@@ -56,16 +56,16 @@ export default function Home() {
                 <div className='bg-black/80 pt-80'>
                     <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 text-white'>
                         <div className='w-full md:w-1/2 pb-10'>
-                            <Title variant={Title.variant.secondary} > Calciosplash Lizzana 2024</Title>
+                            <Title variant={Title.variant.secondary}>Calciosplash Lizzana 2025</Title>
                             <h5 className='text-[3.7rem] md:text-[5rem] leading-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Stay tuned, stay orangione</h5>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id='live-stream'>
+            {/* <section id='live-stream'>
                 <LiveMatch />
-            </section>
+            </section> */}
 
             {/* register */}
             <section id='register'>
@@ -82,13 +82,13 @@ export default function Home() {
 
                         <p className='my-6 font-light text-secondary'>Sai la differenza tra i mondiali classici e quelli sul sapone? Quelli sul sapone non cambiano luogo ogni 4 anni.</p>
 
-                        {/* <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button> */}
+                        <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button>
                     </div>
                 </div>
             </section>
 
             {/* Programma */}
-            <Programma />
+            {/* <Programma /> */}
 
             {/*Male table section */}
             {/* <section id='male-table' className='bg-bg-primary'>
@@ -115,7 +115,8 @@ export default function Home() {
                 </div>
             </section> */}
 
-            <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 py-12' >
+            {/* SINGLE TABLE FOR MEN */}
+            {/* <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 py-12' >
                 <div className='lg:w-2/3 mx-auto'>
                     <Title variant={Title.variant.secondary}>Gironi Maschili</Title>
 
@@ -127,10 +128,10 @@ export default function Home() {
                         <Button variant={Button.variant.secondary} link={'/gironi/maschile'} >Vedi Classifica Completa</Button>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Female table section */}
-            <section id='female-table'>
+            {/* <section id='female-table'>
                 <div className="max-w-container 2xl:max-w-container-xl mx-auto pl-6 py-12">
 
                     <Title variant={Title.variant.secondary}>Gironi Femminili</Title>
@@ -144,9 +145,9 @@ export default function Home() {
 
                     <Button variant={Button.variant.secondary} link={'/gironi/femminile'}>Dettagli gironi femminili</Button>
                 </div>
-            </section>
+            </section> */}
 
-            <LiveStream />
+            {/* <LiveStream /> */}
         </>
     )
 }

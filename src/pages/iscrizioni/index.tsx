@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { Button } from '@/src/components/common/Button';
 import client from '@/src/api/client';
 import { IoShirtOutline } from 'react-icons/io5';
+import { GoGift } from 'react-icons/go';
 
 
 const Index = () => {
@@ -291,17 +292,31 @@ const Index = () => {
                                                                     </span>
                                                                 </div>
                                                             }
-                                                            {
-                                                                player?.shirt &&
-                                                                <div className='flex items-center gap-x-1'>
-                                                                    <span className='text-primary'>
-                                                                        <IoShirtOutline />
-                                                                    </span>
-                                                                    <span>
-                                                                        {player?.shirt}
-                                                                    </span>
-                                                                </div>
-                                                            }
+
+                                                            <div className='flex gap-x-4'>
+                                                                {
+                                                                    player?.shirt &&
+                                                                    <div className='flex items-center gap-x-1'>
+                                                                        <span className='text-primary'>
+                                                                            <IoShirtOutline />
+                                                                        </span>
+                                                                        <span>
+                                                                            {player?.shirt}
+                                                                        </span>
+                                                                    </div>
+                                                                }
+                                                                {
+                                                                    player?.gadget &&
+                                                                    <div className='flex items-center gap-x-1'>
+                                                                        <span className='text-primary'>
+                                                                            <GoGift size={17} />
+                                                                        </span>
+                                                                        <span>
+                                                                            sì
+                                                                        </span>
+                                                                    </div>
+                                                                }
+                                                            </div>
                                                         </div>
                                                     </div>
 
@@ -339,7 +354,7 @@ const Index = () => {
                         {/* checkbox acconsento dati */}
                         <div className="mt-2">
                             <input {...register('rules', { required: '- questo campo è obbligatorio' })} className='cursor-pointer' type="checkbox" name="" id="rules" onChange={handleRulesChange} />
-                            <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <Link href={'https://drive.google.com/file/d/1pR4GPqEOnQ-wGQOO43vIHqnQfkjEs9Bp/view'} target='blank' className='font-bold underline'>REGOLAMENTO DEL TORNEO</Link></label>
+                            <label className="ms-2 text-secondary cursor-pointer" htmlFor="rules">Ho letto e accetto il <Link href={'https://drive.google.com/file/d/1Ed9nGoOAsg53tRnxHQU_d1fNV-CsUiq9/view'} target='blank' className='font-bold underline'>REGOLAMENTO DEL TORNEO</Link></label>
                             <ErrorMessage
                                 errors={errors}
                                 name="rules"
@@ -350,7 +365,7 @@ const Index = () => {
                         {/* invia button */}
                         <div className="mt-10 ">
                             {/* <button className="block rounded-full bg-gradient-to-r from-primary-dark to-primary w-full sm:w-72 py-2 mt-8 text-white" >Invia pre-iscrizione</button> */}
-                            <Button variant={Button.variant.primary} > Invia Pre-iscrizione </Button>
+                            <Button variant={Button.variant.primary}>Invia pre-iscrizione </Button>
                         </div>
                     </form>
                 </div>

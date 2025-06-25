@@ -9,7 +9,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     // state
     const [underAgeError, setUnderAgeError] = useState('');
     const [isCaptainChecked, setIsCaptainChecked] = useState(false);
-    const [isViceCaptainChecked, setViceIsCaptainChecked] = useState(false);
+    const [isGadgetChecked, setIsGadgetChecked] = useState(false);
 
     // hooks
     const { register, setValue, handleSubmit, formState: { errors }, control } = useForm(
@@ -23,7 +23,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                 instagram: '',
                 nickname: '',
                 isCaptain: false,
-                // isViceCaptain: false,
+                gadget: false,
                 // participate: false,
                 shirt: ""
             }
@@ -37,7 +37,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
         // console.log(data);
         // return;
 
-        const date = '08/14/2008'; // mm/dd/YYYY
+        const date = '08/14/2009'; // mm/dd/YYYY
         const pickedDate = new Date(data.date_of_birth);
         const limitDate = new Date(date);
 
@@ -73,7 +73,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
             setValue('shirt', players[modifyIndex].shirt);
 
             setIsCaptainChecked(players[modifyIndex].isCaptain);
-            setViceIsCaptainChecked(players[modifyIndex].isViceCaptain);
+            setIsGadgetChecked(players[modifyIndex].gadget);
         }
     }, [modifyIndex, players]);
 
@@ -213,15 +213,15 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                             < div className='mt-4 flex justify-between'>
                                 <div className='font-semibold text-sm'>Capitano della squadra</div>
 
-                                <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+                                <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
                                     <input
                                         type="checkbox"
                                         className="sr-only peer"
                                         checked={value}
                                         onChange={(e) => { setIsCaptainChecked(e.target.checked); onChange(e.target.checked) }}
-                                        disabled={(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked}
+                                        disabled={(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain)}
                                     />
-                                    <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) || isViceCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                                    <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
                                 </label>
                             </div>
                         )}
@@ -229,28 +229,27 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
 
 
                     {/* vice capitano */}
-                    {/* <Controller
+                    <Controller
                         control={control}
-                        name='isViceCaptain'
+                        name='gadget'
                         render={({ field: { onChange }, field: { value } }) => (
                             <div className='mt-4 flex justify-between'>
 
-                                <div className='font-semibold text-sm'>Vice-capitano della squadra</div>
+                                <div className='font-semibold text-sm'>Gadget Esclusivo 25° anno - Waterproof Dry Bag - 15€ a giocatore</div>
 
-                                <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+                                <label className={`relative inline-flex items-center cursor-pointer`}>
                                     <input
                                         // {...register("isViceCaptain")}
                                         type="checkbox"
                                         className="sr-only peer"
                                         checked={value}
-                                        onChange={(e) => { setViceIsCaptainChecked(e.target.checked), onChange(e.target.checked) }}
-                                        disabled={(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked}
+                                        onChange={(e) => { setIsGadgetChecked(e.target.checked), onChange(e.target.checked) }}
                                     />
-                                    <div className={`${(players.some((player) => { return player?.isViceCaptain }) && !players[modifyIndex]?.isViceCaptain) || isCaptainChecked ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                                    <div className={`dark:bg-gray-700 w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
                                 </label>
                             </div>
                         )}
-                    /> */}
+                    />
 
                     {/* gia partecipato */}
                     {/* <Controller

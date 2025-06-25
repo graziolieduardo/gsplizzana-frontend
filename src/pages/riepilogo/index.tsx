@@ -14,6 +14,7 @@ type Player = {
     is_captain: string,
     is_vice_captain: string,
     shirt: string,
+    gadget: string,
 }
 
 type Team = {
@@ -100,6 +101,7 @@ export default function Index() {
                                         {/* <td className='p-2 border border-secondary bg-gray-200'>Rookie</td> */}
                                         <td className='p-2 border border-secondary bg-gray-200'>Capitano</td>
                                         <td className='p-2 border border-secondary bg-gray-200'>T-Shirt</td>
+                                        <td className='p-2 border border-secondary bg-gray-200'>Gadget</td>
                                         {/* <td className='p-2 border border-secondary bg-gray-200'>Vice-capitano</td> */}
                                     </tr>
                                 </thead>
@@ -117,7 +119,7 @@ export default function Index() {
                                                 {/* <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.rookie ? 'no' : 'sì'}</td> */}
                                                 <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.is_captain ? 'sì' : 'no'}</td>
                                                 <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.shirt}</td>
-                                                {/* <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.is_vice_captain ? 'sì' : 'no'}</td> */}
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.gadget ? 'sì' : 'no'}</td>
                                             </tr>
                                         ))
                                     }
