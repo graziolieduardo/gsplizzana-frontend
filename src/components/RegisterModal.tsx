@@ -9,7 +9,6 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
     // state
     const [underAgeError, setUnderAgeError] = useState('');
     const [isCaptainChecked, setIsCaptainChecked] = useState(false);
-    const [isGadgetChecked, setIsGadgetChecked] = useState(false);
 
     // hooks
     const { register, setValue, handleSubmit, formState: { errors }, control } = useForm(
@@ -23,7 +22,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                 instagram: '',
                 nickname: '',
                 isCaptain: false,
-                gadget: false,
+                gadget: '',
                 // participate: false,
                 shirt: ""
             }
@@ -71,9 +70,9 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
             // setValue('isViceCaptain', players[modifyIndex].isViceCaptain);
             // setValue('participate', players[modifyIndex].participate);
             setValue('shirt', players[modifyIndex].shirt);
+            setValue('gadget', players[modifyIndex].gadget);
 
             setIsCaptainChecked(players[modifyIndex].isCaptain);
-            setIsGadgetChecked(players[modifyIndex].gadget);
         }
     }, [modifyIndex, players]);
 
@@ -206,30 +205,62 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                     </div>
 
                     {/* capitano */}
-                    <Controller
-                        control={control}
-                        name='isCaptain'
-                        render={({ field: { onChange }, field: { value } }) => (
-                            < div className='mt-4 flex justify-between'>
-                                <div className='font-semibold text-sm'>Capitano della squadra</div>
+                    <div>
+                        <Controller
+                            control={control}
+                            name='isCaptain'
+                            render={({ field: { onChange }, field: { value } }) => (
+                                < div className='mt-4 flex justify-between'>
+                                    <div className='font-semibold text-sm'>Capitano della squadra</div>
 
-                                <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
-                                    <input
-                                        type="checkbox"
-                                        className="sr-only peer"
-                                        checked={value}
-                                        onChange={(e) => { setIsCaptainChecked(e.target.checked); onChange(e.target.checked) }}
-                                        disabled={(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain)}
-                                    />
-                                    <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
-                                </label>
-                            </div>
-                        )}
-                    />
+                                    <label className={`relative inline-flex items-center ${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+                                        <input
+                                            type="checkbox"
+                                            className="sr-only peer"
+                                            checked={value}
+                                            onChange={(e) => { setIsCaptainChecked(e.target.checked); onChange(e.target.checked) }}
+                                            disabled={(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain)}
+                                        />
+                                        <div className={`${(players.some((player) => { return player?.isCaptain }) && !players[modifyIndex]?.isCaptain) ? 'dark:bg-gray-200' : 'dark:bg-gray-700'} w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary`}></div>
+                                    </label>
+                                </div>
+                            )}
+                        />
+                    </div>
 
+                    <div className='font-semibold text-sm space-y-2 mt-4'>
+                        <label>Gadget Esclusivo 25° anno - Waterproof Dry Bag - 15€ a giocatore</label>
+                        <div className='space-x-2'>
+                            <label className='space-x-1'>
+                                <input
+                                    type="radio"
+                                    value="sì"
+                                    {...register('gadget', { required: '- questo campo è obbligatorio' })}
+                                />
+                                <span>
+                                    Lo voglio
+                                </span>
+                            </label>
+                            <label className='space-x-1'>
+                                <input
+                                    type="radio"
+                                    value="no"
+                                    {...register('gadget', { required: '- questo campo è obbligatorio' })}
+                                />
+                                <span>
+                                    Non lo voglio
+                                </span>
+                            </label>
+                        </div>
+                        <ErrorMessage
+                            errors={errors}
+                            name="gadget"
+                            render={({ message }: any) => <p className='text-primary-dark'>{message}</p>}
+                        />
+                    </div>
 
                     {/* vice capitano */}
-                    <Controller
+                    {/* <Controller
                         control={control}
                         name='gadget'
                         render={({ field: { onChange }, field: { value } }) => (
@@ -249,7 +280,7 @@ const RegisterModal = ({ setIsRegisterOpen, modifyIndex }: any) => {
                                 </label>
                             </div>
                         )}
-                    />
+                    /> */}
 
                     {/* gia partecipato */}
                     {/* <Controller

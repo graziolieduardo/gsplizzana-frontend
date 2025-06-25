@@ -306,15 +306,24 @@ const Index = () => {
                                                                     </div>
                                                                 }
                                                                 {
-                                                                    player?.gadget &&
-                                                                    <div className='flex items-center gap-x-1'>
-                                                                        <span className='text-primary'>
-                                                                            <GoGift size={17} />
-                                                                        </span>
-                                                                        <span>
-                                                                            sì
-                                                                        </span>
-                                                                    </div>
+                                                                    player?.gadget === 'sì' ?
+                                                                        <div className='flex items-center gap-x-1'>
+                                                                            <span className='text-primary'>
+                                                                                <GoGift size={17} />
+                                                                            </span>
+                                                                            <span>
+                                                                                Lo voglio
+                                                                            </span>
+                                                                        </div>
+                                                                        :
+                                                                        <div className='flex items-center gap-x-1'>
+                                                                            <span className='text-primary'>
+                                                                                <GoGift size={17} />
+                                                                            </span>
+                                                                            <span>
+                                                                                Non lo voglio
+                                                                            </span>
+                                                                        </div>
                                                                 }
                                                             </div>
                                                         </div>

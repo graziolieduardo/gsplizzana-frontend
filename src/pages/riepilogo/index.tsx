@@ -119,7 +119,7 @@ export default function Index() {
                                                 {/* <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.rookie ? 'no' : 'sì'}</td> */}
                                                 <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.is_captain ? 'sì' : 'no'}</td>
                                                 <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.shirt}</td>
-                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.gadget ? 'sì' : 'no'}</td>
+                                                <td className='border border-secondary p-2 first-letter:uppercase font-light'>{player?.gadget}</td>
                                             </tr>
                                         ))
                                     }
