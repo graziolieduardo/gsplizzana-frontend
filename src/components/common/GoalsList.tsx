@@ -17,8 +17,8 @@ export const GoalsList = ({ array }: any) => {
                                         <div className="space-x-2">
                                             <span>{player.name} {player.surname}</span>
                                             <span>-</span>
-                                            <span>{player.nickname}</span>
-                                            <span>({player.team_name})</span>
+                                            <span>{player.username}</span>
+                                            <span>({player.team.name})</span>
                                         </div>
                                         <span className='ml-2'>{player.goals}</span>
                                     </div>

@@ -22,7 +22,9 @@ const Index = () => {
                 {/* page title  */}
                 <div className="flex gap-x-2">
                     <div className="md:w-1/2 pt-10 pb-10">
-                        <Title variant={Title.variant.primary}>Scopri i <span className="text-primary">gironi</span> del torneo</Title>
+                        <Title variant={Title.variant.primary}>
+                            Scopri i <span className="text-primary">gironi</span> del torneo
+                        </Title>
                         {/* <p className="mt-8">E anche quest’anno per il torneo maschile ci sono 8 giorni da 4 squadre ciascuno e per il torneo femminile ci sono 4 gironi da 4 squadre. In aggiunta è stato organizzato anche un girone Rookie per agevolare le squadre new entry.</p> */}
                     </div>
                     {/* <div className="hidden md:block md:w-1/2 h-[500px] bg-gray-200"></div> */}

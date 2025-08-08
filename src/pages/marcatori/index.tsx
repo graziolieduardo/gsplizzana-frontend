@@ -22,7 +22,10 @@ export default function Index() {
             refetchOnWindowFocus: false,
         }
     );
+
+    console.log(scorers);
     
+
     // const [maleGoalsList, setMaleGoalsList] = useState<any>([]);
     // const [femaleGoalsList, setFemaleMaleGoalsList] = useState<any>([]);
     // const [isLoading, setIsLoading] = useState<any>([]);
@@ -156,7 +159,9 @@ export default function Index() {
         <>
             <div className='max-w-container 2xl:max-w-container-xl mx-auto px-4 mb-20'>
                 <div className="pt-10">
-                    <Title variant={Title.variant.primary}>Classifica <span className="text-primary">marcatori</span></Title>
+                    <Title variant={Title.variant.primary}>
+                        Classifica <span className="text-primary">marcatori</span>
+                    </Title>
                 </div>
 
                 <div className="flex justify-around border-2 rounded border-primary-dark cursor-pointer mt-4">

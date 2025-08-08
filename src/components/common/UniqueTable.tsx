@@ -103,7 +103,9 @@ export default function UniqueTable({ data }: any) {
                 currentPath.includes('gironi') &&
                 <>
                     <div className='mb-2'>
-                        <Title variant={Title.variant.secondary}>Partite</Title>
+                        <Title variant={Title.variant.secondary}>
+                            Partite
+                        </Title>
                     </div>
                     <div className='flex justify-between mb-2'>
                         {/* previous button */}

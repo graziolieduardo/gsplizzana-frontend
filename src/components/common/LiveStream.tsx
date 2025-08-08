@@ -7,7 +7,9 @@ export default function LiveStream() {
             <section id='liveStream' className="bg-gradient-to-r from-primary-dark to-primary">
                 <div className='px-6 py-12 max-w-container 2xl:max-w-container-xl mx-auto lg:flex'>
                     <div className='lg:w-1/2 text-white'>
-                        <Title variant={Title.variant.tertiary}>Seguici in diretta</Title>
+                        <Title variant={Title.variant.tertiary}>
+                            Seguici in diretta
+                        </Title>
                         <p className=' mt-8 w-full lg:w-2/3'>Rimani sempre connesso.</p>
                         {/* <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit,

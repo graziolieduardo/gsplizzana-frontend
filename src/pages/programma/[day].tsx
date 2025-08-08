@@ -47,7 +47,9 @@ export default function Index() {
 
                 <div className="flex gap-x-2 ">
                     <div className="md:w-1/2 pt-10 pb-10">
-                        <Title variant={Title.variant.primary}>Scopri il <span className="text-primary">programma</span> completo</Title>
+                        <Title variant={Title.variant.primary}>
+                            Scopri il <span className="text-primary">programma</span> completo
+                        </Title>
                         <p className="mt-8 font-light text-text-subtle">Non perderti le partite, rimani aggiornato oppure seguile in diretta.</p>
                     </div>
                     {/* <div className="hidden md:block md:w-1/2 h-[500px] bg-gray-200"></div> */}

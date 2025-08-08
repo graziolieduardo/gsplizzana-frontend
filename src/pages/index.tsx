@@ -1,5 +1,4 @@
-import { Button } from '../components/common/Button'
-import TableHome from '../components/common/TableHome';
+import { Button } from '../components/common/Button';
 import LiveStream from '../components/common/LiveStream';
 import Programma from '../components/common/Programma';
 import { Title } from '../components/common/Title';
@@ -35,7 +34,9 @@ export default function Home() {
                 <div className='bg-black/80 pt-80'>
                     <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 text-white'>
                         <div className='w-full md:w-1/2 pb-10'>
-                            <Title variant={Title.variant.secondary}>Calciosplash Lizzana 2025</Title>
+                            <Title variant={Title.variant.secondary}>
+                                Calciosplash Lizzana 2025
+                            </Title>
                             <h5 className='text-[3.7rem] md:text-[5rem] leading-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary font-bold'>Stay tuned, stay orangione</h5>
                         </div>
                     </div>
@@ -97,7 +98,9 @@ export default function Home() {
             {/* SINGLE TABLE FOR MEN */}
             <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 py-12' >
                 <div className='lg:w-2/3 mx-auto'>
-                    <Title variant={Title.variant.secondary}>Girone Maschili</Title>
+                    <Title variant={Title.variant.secondary}>
+                        Girone Maschili
+                    </Title>
 
                     <div className='h-[292px] overflow-hidden mt-10 rounded-md border-b'>
                         <UniqueTable data={MA.data} />
@@ -129,7 +132,9 @@ export default function Home() {
             {/* SINGLE TABLE FOR WOMEN */}
             <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 py-12' >
                 <div className='lg:w-2/3 mx-auto'>
-                    <Title variant={Title.variant.secondary}>Girone Femminili</Title>
+                    <Title variant={Title.variant.secondary}>
+                        Girone Femminili
+                    </Title>
 
                     <div className='h-[292px] overflow-hidden mt-10 rounded-md border-b'>
                         <UniqueTable data={FA.data} />
