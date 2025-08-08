@@ -22,25 +22,20 @@ export default function Index() {
 
     useEffect(() => {
         if (schedule) {
-            if (day === 'mercoledì') {
-                setNextDay('giovedì');
-                setPrevDay(null);
-                setDailyProgram(schedule.filter((match: any) => { return isSameDay(subMinutes(new Date(match.scheduled_at), 1), new Date('2024-08-14')) }));
-            }
-            else if (day === 'giovedì') {
+            if (day === 'giovedì') {
                 setNextDay('venerdì');
-                setPrevDay('mercoledì');
-                setDailyProgram(schedule.filter((match: any) => { return isSameDay(startOfDay(subMinutes(new Date(match.scheduled_at), 1)), new Date('2024-08-15')) }));
+                setPrevDay(null);
+                setDailyProgram(schedule?.filter((match: any) => { return isSameDay(startOfDay(subMinutes(new Date(match.scheduled_at), 1)), new Date('2025-08-14')) }));
             }
             else if (day === 'venerdì') {
                 setNextDay('sabato');
                 setPrevDay('giovedì');
-                setDailyProgram(schedule.filter((match: any) => { return isSameDay(startOfDay(subMinutes(new Date(match.scheduled_at), 1)), new Date('2024-08-16')) }));
+                setDailyProgram(schedule?.filter((match: any) => { return isSameDay(startOfDay(subMinutes(new Date(match.scheduled_at), 1)), new Date('2025-08-15')) }));
             }
             else if (day === 'sabato') {
                 setNextDay(null);
                 setPrevDay('venerdì');
-                setDailyProgram(schedule.filter((match: any) => { return isSameDay(startOfDay(subMinutes(new Date(match.scheduled_at), 1)), new Date('2024-08-17')) }));
+                setDailyProgram(schedule?.filter((match: any) => { return isSameDay(startOfDay(subMinutes(new Date(match.scheduled_at), 1)), new Date('2025-08-16')) }));
             }
         }
     }, [schedule, day]);

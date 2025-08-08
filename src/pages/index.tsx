@@ -9,45 +9,24 @@ import { LiveMatch } from '../components/common/LiveMatch';
 import UniqueTable from '../components/common/UniqueTable';
 
 export default function Home() {
-    // const [MA, FA, FB, FC, FD] = useQueries({
-    //     queries: [
-    //         {
-    //             queryKey: ['MA'],
-    //             queryFn: () =>
-    //                 axios
-    //                     .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${1}/rankings`)
-    //                     .then((res) => res.data),
-    //         },
-    //         {
-    //             queryKey: ['FA'],
-    //             queryFn: () =>
-    //                 axios
-    //                     .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${2}/rankings`)
-    //                     .then((res) => res.data),
-    //         },
-    //         {
-    //             queryKey: ['FB'],
-    //             queryFn: () =>
-    //                 axios
-    //                     .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${3}/rankings`)
-    //                     .then((res) => res.data),
-    //         },
-    //         {
-    //             queryKey: ['FC'],
-    //             queryFn: () =>
-    //                 axios
-    //                     .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${4}/rankings`)
-    //                     .then((res) => res.data),
-    //         },
-    //         {
-    //             queryKey: ['FD'],
-    //             queryFn: () =>
-    //                 axios
-    //                     .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${5}/rankings`)
-    //                     .then((res) => res.data),
-    //         }
-    //     ],
-    // });
+    const [MA, FA] = useQueries({
+        queries: [
+            {
+                queryKey: ['MA'],
+                queryFn: () =>
+                    axios
+                        .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${1}/rankings`)
+                        .then((res) => res.data),
+            },
+            {
+                queryKey: ['FA'],
+                queryFn: () =>
+                    axios
+                        .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${2}/rankings`)
+                        .then((res) => res.data),
+            }
+        ],
+    });
 
     return (
         <>
@@ -82,15 +61,15 @@ export default function Home() {
 
                         <p className='my-6 font-light text-secondary'>Sai la differenza tra i mondiali classici e quelli sul sapone? Quelli sul sapone non cambiano luogo ogni 4 anni.</p>
 
-                        <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button>
+                        {/* <Button variant={Button.variant.primary} link="/iscrizioni">Iscriviti</Button> */}
                     </div>
                 </div>
             </section>
 
             {/* Programma */}
-            {/* <Programma /> */}
+            <Programma />
 
-            {/*Male table section */}
+            {/*Male table groups section */}
             {/* <section id='male-table' className='bg-bg-primary'>
 
                 <div className='max-w-container 2xl:max-w-container-xl mx-auto pl-4 py-16'>
@@ -116,9 +95,9 @@ export default function Home() {
             </section> */}
 
             {/* SINGLE TABLE FOR MEN */}
-            {/* <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 py-12' >
+            <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 py-12' >
                 <div className='lg:w-2/3 mx-auto'>
-                    <Title variant={Title.variant.secondary}>Gironi Maschili</Title>
+                    <Title variant={Title.variant.secondary}>Girone Maschili</Title>
 
                     <div className='h-[292px] overflow-hidden mt-10 rounded-md border-b'>
                         <UniqueTable data={MA.data} />
@@ -128,9 +107,9 @@ export default function Home() {
                         <Button variant={Button.variant.secondary} link={'/gironi/maschile'} >Vedi Classifica Completa</Button>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
-            {/* Female table section */}
+            {/* Female table groups section */}
             {/* <section id='female-table'>
                 <div className="max-w-container 2xl:max-w-container-xl mx-auto pl-6 py-12">
 
@@ -147,7 +126,22 @@ export default function Home() {
                 </div>
             </section> */}
 
-            {/* <LiveStream /> */}
+            {/* SINGLE TABLE FOR WOMEN */}
+            <div className='max-w-container 2xl:max-w-container-xl mx-auto px-6 py-12' >
+                <div className='lg:w-2/3 mx-auto'>
+                    <Title variant={Title.variant.secondary}>Girone Femminili</Title>
+
+                    <div className='h-[292px] overflow-hidden mt-10 rounded-md border-b'>
+                        <UniqueTable data={FA.data} />
+                    </div>
+
+                    <div className='z-10 relative mt-6'>
+                        <Button variant={Button.variant.secondary} link={'/gironi/maschile'} >Vedi Classifica Completa</Button>
+                    </div>
+                </div>
+            </div>
+
+            <LiveStream />
         </>
     )
 }

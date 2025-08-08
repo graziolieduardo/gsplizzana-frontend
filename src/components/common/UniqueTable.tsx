@@ -30,7 +30,7 @@ export default function UniqueTable({ data }: any) {
     }, [data]);
 
     const getMatches = async (page: any) => {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${1}/fixtures`, { params: { page: page, per_page: 20 } });
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${router?.query?.slug === 'maschile' ? 1 : 2}/fixtures`, { params: { page: page, per_page: 20 } });
         return res.data;
     }
 
@@ -137,6 +137,8 @@ export default function UniqueTable({ data }: any) {
             }
 
             {(isFetching || isLoading) && <Skeleton count={6} className='mt-3 first:mt-0' height={70} />}
+
+            {/* lista partite maschile */}
             {
                 manMatches && (!isFetching && !isLoading) && manMatches?.data?.map((match: any) => (
                     <Link key={match?.id} href={{ pathname: `/partita/${match.id}`, query: { group_id: match?.group_id } }} className={`flex text-center justify-between border items-center py-3 min-h-[70px] px-[4%] rounded mb-4 ${match.live ? 'bg-gradient-to-r from-primary-dark/50 to-primary/40  border-2 border-primary-dark shadow-[0_2px_8px_rgba(237,83,0,0.25)]' : "shadow-[0_2px_8px_rgba(0,0,0,0.25)]"} ${!match.closed ? 'shadow-none bg-bg-secondary' : null}`}>

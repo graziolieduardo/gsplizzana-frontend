@@ -7,7 +7,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 export const SemifinaleMBracket = () => {
     const getMatches = async () => {
         // TODO: settare gruppo giusto
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${12}/fixtures`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${6}/fixtures`);
         return res.data;
     }
 

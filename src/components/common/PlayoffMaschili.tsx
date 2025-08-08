@@ -6,8 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 export const PlayoffMaschili = () => {
     const getMatches = async () => {
-        // TODO: settare gruppo giusto
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${9}/fixtures`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${3}/fixtures`);
         return res.data;
     }
 

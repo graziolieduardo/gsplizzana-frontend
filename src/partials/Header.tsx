@@ -76,12 +76,12 @@ export const Header = () => {
                                 <Link className="block w-full" href='/' onClick={() => setIsOpen(false)}>Home</Link>
                             </li>
 
-                            {/* <li className={`${pathname.includes("/gironi") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
+                            <li className={`${pathname.includes("/gironi") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
                                 <Link className="block w-full" href='/gironi/maschile' onClick={() => setIsOpen(false)}>Gironi</Link>
                             </li>
 
                             <li className={`${pathname.includes("/programma") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
-                                <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
+                                <Link className="block w-full" href='/programma/giovedì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
                             </li>
 
                             <li className={`${pathname.includes("/bracket") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
@@ -90,7 +90,7 @@ export const Header = () => {
 
                             <li className={`${pathname.includes("/marcatori") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
                                 <Link className="block w-full" href='/marcatori' onClick={() => setIsOpen(false)}>Marcatori</Link>
-                            </li> */}
+                            </li>
                         </ul>
                     </nav>
 

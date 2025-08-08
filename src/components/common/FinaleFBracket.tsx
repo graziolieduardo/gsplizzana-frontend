@@ -7,7 +7,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 export const FinaleFBracket = () => {
     const getMatches = async () => {
         // TODO: settare gruppo giusto
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${16}/fixtures`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${12}/fixtures`);
         return res.data;
     }
 

@@ -6,8 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 export const QuartiMBracket = () => {
     const getMatches = async () => {
-        // TODO: settare gruppo giusto
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${11}/fixtures`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${5}/fixtures`);
         return res.data;
     }
 

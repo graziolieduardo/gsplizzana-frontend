@@ -1,4 +1,3 @@
-import TableProva from './TableProva'
 import { useQueries } from '@tanstack/react-query'
 import axios from 'axios'
 import { useRouter } from 'next/router'
@@ -7,7 +6,7 @@ import UniqueTable from './UniqueTable';
 export default function Gironi() {
     const router = useRouter();
 
-    const [MA, FA, FB, FC, FD] = useQueries({
+    const [MA, FA] = useQueries({
         queries: [
             {
                 queryKey: ['MA'],
@@ -23,27 +22,27 @@ export default function Gironi() {
                         .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${2}/rankings`)
                         .then((res) => res.data),
             },
-            {
-                queryKey: ['FB'],
-                queryFn: () =>
-                    axios
-                        .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${3}/rankings`)
-                        .then((res) => res.data),
-            },
-            {
-                queryKey: ['FC'],
-                queryFn: () =>
-                    axios
-                        .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${4}/rankings`)
-                        .then((res) => res.data),
-            },
-            {
-                queryKey: ['FD'],
-                queryFn: () =>
-                    axios
-                        .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${5}/rankings`)
-                        .then((res) => res.data),
-            }
+            // {
+            //     queryKey: ['FB'],
+            //     queryFn: () =>
+            //         axios
+            //             .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${3}/rankings`)
+            //             .then((res) => res.data),
+            // },
+            // {
+            //     queryKey: ['FC'],
+            //     queryFn: () =>
+            //         axios
+            //             .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${4}/rankings`)
+            //             .then((res) => res.data),
+            // },
+            // {
+            //     queryKey: ['FD'],
+            //     queryFn: () =>
+            //         axios
+            //             .get(`${process.env.NEXT_PUBLIC_GSPLIZZANA_API_ENDPOINT}groups/${5}/rankings`)
+            //             .then((res) => res.data),
+            // }
         ],
     });
 
@@ -68,15 +67,18 @@ export default function Gironi() {
 
             {
                 router?.query?.slug === 'femminile' &&
-                <div>
+                // <div>
 
-                    <div className='sm:grid sm:grid-cols-2 md:grid-cols-3 gap-x-6'>
-                        <TableProva data={FA.data} girone={'GIRONE A - FEMMINILE'} param={2} />
-                        <TableProva data={FB.data} girone={'GIRONE B - FEMMINILE'} param={3} />
-                        <TableProva data={FC.data} girone={'GIRONE C - FEMMINILE'} param={4} />
-                        <TableProva data={FD.data} girone={'GIRONE D - FEMMINILE'} param={5} />
-                    </div>
-                    <p className='text-[10px] font-semibold'>Pt=punti, W=Vittorie, Gf=Goal fatti, Gs=Goal subiti.</p>
+                //     <div className='sm:grid sm:grid-cols-2 md:grid-cols-3 gap-x-6'>
+                //         <TableProva data={FA.data} girone={'GIRONE A - FEMMINILE'} param={2} />
+                //         <TableProva data={FB.data} girone={'GIRONE B - FEMMINILE'} param={3} />
+                //         <TableProva data={FC.data} girone={'GIRONE C - FEMMINILE'} param={4} />
+                //         <TableProva data={FD.data} girone={'GIRONE D - FEMMINILE'} param={5} />
+                //     </div>
+                //     <p className='text-[10px] font-semibold'>Pt=punti, W=Vittorie, Gf=Goal fatti, Gs=Goal subiti.</p>
+                // </div>
+                <div className='lg:w-2/3 mx-auto'>
+                    <UniqueTable data={FA?.data} />
                 </div>
             }
 
