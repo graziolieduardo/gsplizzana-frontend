@@ -21,8 +21,6 @@ export default function Login() {
 
     const onSubmit = async (d: any) => {
         const res = await registration.mutateAsync(d);
-        console.log(res);
-        // TODO: set user on context
     }
 
     return (

@@ -2,7 +2,7 @@ import { GoalsList } from "@/src/components/common/GoalsList";
 import LiveStream from "@/src/components/common/LiveStream";
 import { Title } from "@/src/components/common/Title";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios"
+import axios from "axios";
 import { useState } from "react";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';

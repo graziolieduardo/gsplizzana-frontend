@@ -16,7 +16,6 @@ export default function Index() {
     const res = await client.post('https://api.gsplizzana.it/api/teams', { name: d.name, tag: 'PRV', owner_id: user?.id })
 
     router.push('/dashboard/squadra');
-    console.log(res);
   }
 
   return (
