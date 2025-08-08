@@ -56,7 +56,7 @@ export const Header = () => {
                             </li>
 
                             <li className={`${pathname.includes("/programma") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
-                                <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
+                                <Link className="block w-full" href='/programma/giovedì' onClick={() => setIsOpen(false)}>Programma 2025</Link>
                             </li>
 
                             <li className={`${pathname.includes("/bracket") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
@@ -81,7 +81,7 @@ export const Header = () => {
                             </li>
 
                             <li className={`${pathname.includes("/programma") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
-                                <Link className="block w-full" href='/programma/giovedì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
+                                <Link className="block w-full" href='/programma/giovedì' onClick={() => setIsOpen(false)}>Programma 2025</Link>
                             </li>
 
                             <li className={`${pathname.includes("/bracket") ? 'text-primary' : ''} border-b p-4 border-none uppercase`}>
@@ -105,7 +105,7 @@ export const Header = () => {
                             </li>
 
                             <li className="border-b p-4 md:p-0 sm:border-none">
-                                <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2024</Link>
+                                <Link className="block w-full" href='/programma/mercoledì' onClick={() => setIsOpen(false)}>Programma 2025</Link>
                             </li>
                             
                             <li className="border-b p-4 md:p-0 sm:border-none">
