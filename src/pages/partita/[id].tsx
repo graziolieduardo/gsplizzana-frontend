@@ -3,6 +3,7 @@ import useSingleMatch from '@/src/api/matches/useSingleMatch'
 import { useRouter } from 'next/router';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Image from 'next/image';
 
 export default function Index() {
     const router = useRouter();
@@ -10,6 +11,8 @@ export default function Index() {
 
     //query
     const { match, isLoading, isFetching } = useSingleMatch(id, group_id);
+    console.log(match);
+
 
     const currentTime: any = new Date(match?.timer?.current)
     const timer = Math.floor(currentTime / 60);
@@ -76,8 +79,12 @@ export default function Index() {
                                 {/* Home team */}
                                 <div className='flex flex-col items-center flex-1'>
                                     <div className='mb-2'>
-                                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${match?.home_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" />
-                                        {/* {match?.home_team.name.replace(/\s/g, '')} */}
+                                        <Image
+                                            src={`https://api.gsplizzana.it${match?.home_team?.logo_url}`}
+                                            alt="Logo squadra di casa"
+                                            width={70}
+                                            height={70}
+                                        />
                                     </div>
                                     <div className='font-semibold text-center'>{match?.home_team?.name}</div>
                                 </div>
@@ -98,8 +105,12 @@ export default function Index() {
                                 {/* guest team */}
                                 <div className='flex flex-col items-center flex-1'>
                                     <div className='mb-2'>
-                                        <img width={70} src={`/static/loghi_squadre/tondi/TEAM/${match?.away_team?.name.replace(/\s/g, '').replace('#', '').replace('-', '').replace('\'', '').replace('(', '').replace(')', '').replace(/\./g, '').toLowerCase()}.png`} alt="" />
-                                        {/* {match?.away_team.name} */}
+                                        <Image
+                                            src={`https://api.gsplizzana.it${match?.away_team?.logo_url}`}
+                                            alt="Logo squadra ospite"
+                                            width={70}
+                                            height={70}
+                                        />
                                     </div>
                                     <div className='font-semibold text-center'>{match?.away_team?.name}</div>
                                 </div>

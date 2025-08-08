@@ -1,14 +1,5 @@
-import { FinaleFBracket } from "@/src/components/common/FinaleFBracket";
-import { FinaleMBracket } from "@/src/components/common/FinaleMBracket";
+import { Bracket } from "@/src/components/common/Bracket";
 import LiveStream from "@/src/components/common/LiveStream";
-import { OttaviMBracket } from "@/src/components/common/OttaviMBracket";
-import { PlayoffMaschili } from "@/src/components/common/PlayoffMaschili";
-import { QuartiFBracket } from "@/src/components/common/QuartiFBracket";
-import { QuartiMBracket } from "@/src/components/common/QuartiMBracket";
-import { SemifinaleFBracket } from "@/src/components/common/SemifinaleFBracket";
-import { SemifinaleMBracket } from "@/src/components/common/SemifinaleMBracket";
-import { TerzoFBracket } from "@/src/components/common/TerzoFBracket";
-import { TerzoMBracket } from "@/src/components/common/TerzoMBracket";
 import { useEffect, useState } from "react";
 
 const steps = ['playoff', 'ottavi di finale', 'quarti di finale', 'semifinale', 'terzo e quarto posto', 'finale'];
@@ -16,14 +7,7 @@ const steps = ['playoff', 'ottavi di finale', 'quarti di finale', 'semifinale', 
 export default function Index() {
     const [activePage, setActivePage] = useState('male');
     const [activeBracket, setActiveBracket] = useState(steps[0]);
-
-    useEffect(() => {
-        if (activePage === 'male') {
-            setActiveBracket(steps[0]);
-        } else {
-            setActiveBracket(steps[2]);
-        }
-    }, [activePage]);
+    const [groupId, setGroupId] = useState(3);
 
     const handlePrevBracket = () => {
         if (activeBracket === steps[1]) {
@@ -31,35 +15,79 @@ export default function Index() {
                 return null;
             } else {
                 setActiveBracket(steps[0]);
+                setGroupId(3);
             }
         } else if (activeBracket === steps[2]) {
             if (activePage === 'female') {
                 return null;
             } else {
                 setActiveBracket(steps[1]);
+                setGroupId(4);
             }
         } else if (activeBracket === steps[3]) {
             setActiveBracket(steps[2]);
+            if (activePage === 'female') {
+                setGroupId(9);
+            } else {
+                setGroupId(6);
+            }
         } else if (activeBracket === steps[4]) {
             setActiveBracket(steps[3]);
+            if (activePage === 'female') {
+                setGroupId(10);
+            } else {
+                setGroupId(7);
+            }
         } else if (activeBracket === steps[5]) {
             setActiveBracket(steps[4]);
+            if (activePage === 'female') {
+                setGroupId(11);
+            } else {
+                setGroupId(8);
+            }
         }
     }
 
     const handleNextBracket = () => {
         if (activeBracket === steps[0]) {
             setActiveBracket(steps[1]);
+            setGroupId(4);
         } else if (activeBracket === steps[1]) {
             setActiveBracket(steps[2]);
+            setGroupId(5);
         } else if (activeBracket === steps[2]) {
             setActiveBracket(steps[3]);
+              if (activePage === 'female') {
+                setGroupId(10);
+            } else {
+                setGroupId(6);
+            }
         } else if (activeBracket === steps[3]) {
             setActiveBracket(steps[4]);
+            if (activePage === 'female') {
+                setGroupId(11);
+            } else {
+                setGroupId(7);
+            }
         } else if (activeBracket === steps[4]) {
             setActiveBracket(steps[5]);
+            if (activePage === 'female') {
+                setGroupId(12);
+            } else {
+                setGroupId(8);
+            }
         }
     }
+    
+    useEffect(() => {
+        if (activePage === 'male') {
+            setActiveBracket(steps[0]);
+            setGroupId(3);
+        } else {
+            setActiveBracket(steps[2]);
+            setGroupId(9);
+        }
+    }, [activePage]);
 
     return (
         <>
@@ -94,17 +122,8 @@ export default function Index() {
                         </div>
                     </div>
 
-                    {/* slider container */}
-                    {(activePage === 'male' && activeBracket === steps[0]) && <PlayoffMaschili />}
-                    {(activePage === 'male' && activeBracket === steps[1]) && <OttaviMBracket />}
-                    {(activePage === 'male' && activeBracket === steps[2]) && <QuartiMBracket />}
-                    {(activePage === 'male' && activeBracket === steps[3]) && <SemifinaleMBracket />}
-                    {(activePage === 'male' && activeBracket === steps[4]) && <TerzoMBracket />}
-                    {(activePage === 'male' && activeBracket === steps[5]) && <FinaleMBracket />}
-                    {(activePage === 'female' && activeBracket === steps[2]) && <QuartiFBracket />}
-                    {(activePage === 'female' && activeBracket === steps[3]) && <SemifinaleFBracket />}
-                    {(activePage === 'female' && activeBracket === steps[4]) && <TerzoFBracket />}
-                    {(activePage === 'female' && activeBracket === steps[5]) && <FinaleFBracket />}
+                    {/* brackets */}
+                    <Bracket group_id={groupId} />
                 </div>
             </section>
             <LiveStream />
