@@ -43,9 +43,9 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* <section id='live-stream'>
+            <section id='live-stream'>
                 <LiveMatch />
-            </section> */}
+            </section>
 
             {/* register */}
             <section id='register'>
