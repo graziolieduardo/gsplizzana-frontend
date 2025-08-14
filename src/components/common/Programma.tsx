@@ -138,13 +138,13 @@ export default function Programma() {
                 title: 'Dj Ema',
                 time: '23.00',
                 important: false,
-                highlight: true
+                highlight: false
             },
             {
                 title: 'Dj My8',
                 time: '00.00',
                 important: false,
-                highlight: true
+                highlight: false
             },
             {
                 title: 'Chiusura',
