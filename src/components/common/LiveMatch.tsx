@@ -38,7 +38,7 @@ export const LiveMatch = () => {
                 <div className='flex flex-col items-center flex-1'>
                     <div className='mb-2'>
                         <Image
-                            src={`https://api.gsplizzana.it${liveMatch?.data?.away_team?.logo_url}`}
+                            src={`https://api.gsplizzana.it${liveMatch?.data?.home_team?.logo_url}`}
                             alt="Logo squadra ospite"
                             width={70}
                             height={70}
