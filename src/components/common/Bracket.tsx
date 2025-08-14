@@ -23,7 +23,7 @@ export const Bracket = ({ group_id }: { group_id: number }) => {
             {
                 matches?.data?.length > 0 && matches?.data?.map((match: any) => (
 
-                    < div className={`bg-bg-secondary max-w-[650px] min-w-[320px] place-self-center border rounded-md ${match.live ? 'border-primary-dark' : null}`}>
+                    <div key={match.id} className={`bg-bg-secondary max-w-[650px] min-w-[320px] place-self-center border rounded-md ${match.live ? 'border-primary-dark' : null}`}>
                         <div className="divide-y-2 px-4 py-2" >
 
                             {
