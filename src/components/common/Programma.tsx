@@ -24,7 +24,7 @@ export default function Programma() {
                 title: 'LEDWALL SHOW - Pera',
                 time: '20.00',
                 important: false,
-                highlight: false
+                highlight: true
             },
             {
                 title: 'LEDWALL SHOW - Carpa',
@@ -78,7 +78,7 @@ export default function Programma() {
                 title: 'LEDWALL SHOW - Gremps',
                 time: '20.00',
                 important: false,
-                highlight: false
+                highlight: true
             },
             {
                 title: 'Ripresa partite',
@@ -126,7 +126,7 @@ export default function Programma() {
                 title: 'LEDWALL SHOW - Hålo',
                 time: '20.30',
                 important: false,
-                highlight: false
+                highlight: true
             },
             {
                 title: 'Ripresa partite',
