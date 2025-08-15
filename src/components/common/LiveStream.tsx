@@ -17,15 +17,9 @@ export default function LiveStream() {
                     </div>
 
                     <div className='lg:block lg:w-1/2 font-sm mt-6 lg:mt-0'>
-
                         {/*  change the video id for the gsp one. */}
-                        <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/y32WeRM64ug" title="Calciosplash 2025 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe>
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/Ijk7kUdhBkE" title="Calciosplash 2025 - Day 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/MzkO_n_hs3w" title="Calciosplash 2025 - Day 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/O0iE6P6lVB0" title="Calciosplash 2025 - Day 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/l5yZ88Lf2jY" title="Calciosplash 2025 - Day 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/qOfy2u9bXUI" title="Calciosplash 2025 - Day 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/M_ok3CCehgE" title="Calciosplash 2025 - Day 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
+                        <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/uGrFEgK8A0A" title="Calciosplash 2025 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe>
+                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/kdqGb4bhlVM" title="Calciosplash 2025 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
                     </div>
 
                 </div>
