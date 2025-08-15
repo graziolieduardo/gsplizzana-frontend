@@ -18,8 +18,8 @@ export default function LiveStream() {
 
                     <div className='lg:block lg:w-1/2 font-sm mt-6 lg:mt-0'>
                         {/*  change the video id for the gsp one. */}
-                        <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/uGrFEgK8A0A" title="Calciosplash 2025 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe>
-                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/kdqGb4bhlVM" title="Calciosplash 2025 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
+                        {/* <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/uGrFEgK8A0A" title="Calciosplash 2025 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe> */}
+                        <iframe className='h-[40vh] w-full' width="965" height="543" src="https://youtube.com/embed/kdqGb4bhlVM" title="Calciosplash 2025 - Day 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"></iframe>
                     </div>
 
                 </div>
